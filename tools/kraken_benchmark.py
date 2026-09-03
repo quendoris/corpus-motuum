@@ -30,12 +30,25 @@ def _snapshot_files(root: Path) -> set[Path]:
     return {p.resolve() for p in root.rglob("*") if p.is_file()}
 
 
+def _kraken_reported_failure(stdout: str, stderr: str) -> bool:
+    """Kraken can log per-input failures while still exiting with status 0."""
+    merged = f"{stdout}\n{stderr}"
+    markers = (
+        "ERROR     Failed processing",
+        "ERROR    Failed processing",
+        "Failed processing",
+        "Expected all tensors to be on the same device",
+        "Traceback (most recent call last)",
+    )
+    return any(marker in merged for marker in markers)
+
+
 def run_kraken(image: Path, output: Path, model: str, device: str, precision: str,
                batch_size: int, workers: int) -> tuple[int, str, str, float, list[str]]:
     output.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         "kraken",
-        "-n",  # native serializer; recognition native output is plain text
+        "-n",
         "-i", str(image), str(output),
         "--device", device,
         "--precision", precision,
@@ -105,7 +118,7 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=Path("work/benchmark-v1/runs-kraken"))
     ap.add_argument("--model", required=True)
     ap.add_argument("--device", default="cpu")
-    ap.add_argument("--precision", default="32")
+    ap.add_argument("--precision", default="32-true")
     ap.add_argument("--batch-size", type=int, default=32)
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--only-presets", nargs="*", default=None)
@@ -143,6 +156,8 @@ def main() -> None:
         }
         if code != 0:
             row["status"] = "engine-error"
+        elif _kraken_reported_failure(stdout, stderr):
+            row["status"] = "pipeline-error"
         elif not pred_path.exists():
             row["status"] = "serialization-missing"
         elif gt_path is None:
