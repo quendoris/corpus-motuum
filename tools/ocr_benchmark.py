@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
-"""Run and score OCR benchmark combinations."""
+"""Run and score OCR benchmark combinations.
+
+Current runner: Tesseract language models available in local tessdata.
+
+Metrics:
+- strict CER: line breaks retained (after CRLF normalization);
+- content CER: whitespace runs collapsed, useful for page-level OCR;
+- content WER;
+- exact Levenshtein insertion/deletion/substitution counts;
+- merged/split word-boundary errors;
+- recall/false positives for prereform glyphs;
+- wall-clock time and a simple whole-book runtime projection.
+"""
 from __future__ import annotations
 
 import argparse
@@ -79,7 +91,11 @@ def score_text(gt_raw: str, pred_raw: str) -> dict:
 
 
 def system_info() -> dict:
-    info = {"platform": platform.platform(), "python": platform.python_version(), "cpu": platform.processor() or platform.machine()}
+    info = {
+        "platform": platform.platform(),
+        "python": platform.python_version(),
+        "cpu": platform.processor() or platform.machine(),
+    }
     try:
         for line in Path("/proc/meminfo").read_text().splitlines():
             if line.startswith("MemTotal:"):
@@ -88,7 +104,10 @@ def system_info() -> dict:
     except Exception:
         pass
     try:
-        p = subprocess.run(["nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv,noheader"], capture_output=True, text=True, timeout=5)
+        p = subprocess.run(
+            ["nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv,noheader"],
+            capture_output=True, text=True, timeout=5
+        )
         if p.returncode == 0:
             info["nvidia_gpu"] = [x.strip() for x in p.stdout.splitlines() if x.strip()]
     except Exception:
@@ -118,7 +137,8 @@ def run_tesseract(image: Path, lang: str, psm: int, tessdata_dir: Path | None) -
         cmd.extend(["--tessdata-dir", str(tessdata_dir)])
     start = time.perf_counter()
     p = subprocess.run(cmd, capture_output=True, text=True)
-    return p.returncode, p.stdout, p.stderr, time.perf_counter() - start
+    elapsed = time.perf_counter() - start
+    return p.returncode, p.stdout, p.stderr, elapsed
 
 
 def aggregate(rows: list[dict]) -> list[dict]:
@@ -126,6 +146,7 @@ def aggregate(rows: list[dict]) -> list[dict]:
     for row in rows:
         if row.get("status") == "scored":
             groups[(row["engine"], row["model"], row["psm"], row["preset"])].append(row)
+
     out = []
     for key, rs in sorted(groups.items()):
         chars_c = sum(r["score"]["gt_chars_content"] for r in rs)
@@ -133,7 +154,10 @@ def aggregate(rows: list[dict]) -> list[dict]:
         words = sum(r["score"]["gt_words"] for r in rs)
         seconds = sum(r["seconds"] for r in rs)
         out.append({
-            "engine": key[0], "model": key[1], "psm": key[2], "preset": key[3],
+            "engine": key[0],
+            "model": key[1],
+            "psm": key[2],
+            "preset": key[3],
             "pages_scored": len(rs),
             "seconds_total": seconds,
             "seconds_per_page": seconds / len(rs),
@@ -151,9 +175,11 @@ def write_csv(path: Path, rows: list[dict]) -> None:
     if not rows:
         path.write_text("", encoding="utf-8")
         return
+    fields = list(rows[0].keys())
     with path.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(rows)
 
 
 def main() -> None:
@@ -164,46 +190,96 @@ def main() -> None:
     ap.add_argument("--langs", nargs="+", default=["rus"])
     ap.add_argument("--psm", nargs="+", type=int, default=[3, 6])
     ap.add_argument("--only-presets", nargs="*", default=None)
+    ap.add_argument("--only-samples", nargs="*", default=None)
     ap.add_argument("--tessdata-dir", type=Path, default=None)
     args = ap.parse_args()
 
     inputs = json.loads(args.inputs.read_text(encoding="utf-8"))
     records = inputs["records"]
     if args.only_presets:
-        allowed = set(args.only_presets); records = [r for r in records if r["preset"] in allowed]
+        allowed = set(args.only_presets)
+        records = [r for r in records if r["preset"] in allowed]
+    if args.only_samples:
+        allowed_samples = set(args.only_samples)
+        records = [r for r in records if r["sample_id"] in allowed_samples]
+
     args.out.mkdir(parents=True, exist_ok=True)
     rows = []
     for lang in args.langs:
         for psm in args.psm:
             model_failed = False
             for rec in records:
-                if model_failed: continue
-                sample_id = rec["sample_id"]; image = Path(rec["path"])
+                sample_id = rec["sample_id"]
+                image = Path(rec["path"])
                 gt_path, gt_meta = find_gt(args.gt, sample_id)
+
                 dest = args.out / "tesseract" / lang / f"psm-{psm}" / rec["preset"]
                 dest.mkdir(parents=True, exist_ok=True)
-                pred_path = dest / f"{sample_id}.txt"; err_path = dest / f"{sample_id}.stderr.txt"
+                pred_path = dest / f"{sample_id}.txt"
+                err_path = dest / f"{sample_id}.stderr.txt"
+
+                if model_failed:
+                    continue
+
                 code, stdout, stderr, elapsed = run_tesseract(image, lang, psm, args.tessdata_dir)
-                pred_path.write_text(stdout, encoding="utf-8"); err_path.write_text(stderr, encoding="utf-8")
-                row = {"engine":"tesseract","model":lang,"psm":psm,"preset":rec["preset"],"sample_id":sample_id,"seconds":elapsed,"prediction":str(pred_path),"gt_status":gt_meta.get("status")}
+                pred_path.write_text(stdout, encoding="utf-8")
+                err_path.write_text(stderr, encoding="utf-8")
+
+                row = {
+                    "engine": "tesseract",
+                    "model": lang,
+                    "psm": psm,
+                    "preset": rec["preset"],
+                    "sample_id": sample_id,
+                    "seconds": elapsed,
+                    "prediction": str(pred_path),
+                    "gt_status": gt_meta.get("status"),
+                }
                 if code != 0:
-                    row.update(status="engine-error", returncode=code, stderr=stderr[-1000:])
-                    if "Failed loading language" in stderr or "Error opening data file" in stderr: model_failed = True
+                    row["status"] = "engine-error"
+                    row["returncode"] = code
+                    row["stderr"] = stderr[-1000:]
+                    if "Failed loading language" in stderr or "Error opening data file" in stderr:
+                        model_failed = True
                 elif gt_path is None:
                     row["status"] = "unscored-no-gt"
                 else:
-                    row["status"] = "scored"; row["score"] = score_text(gt_path.read_text(encoding="utf-8"), stdout)
+                    row["status"] = "scored"
+                    row["score"] = score_text(gt_path.read_text(encoding="utf-8"), stdout)
                 rows.append(row)
 
     summary = aggregate(rows)
-    (args.out / "results.json").write_text(json.dumps({"system":system_info(),"inputs":str(args.inputs),"ground_truth":str(args.gt),"rows":rows,"summary":summary}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    summary_csv = [{**r,"cer_content":f"{r['cer_content']:.6f}","wer_content":f"{r['wer_content']:.6f}","cer_strict":f"{r['cer_strict']:.6f}","seconds_total":f"{r['seconds_total']:.3f}","seconds_per_page":f"{r['seconds_per_page']:.3f}","estimated_600_pages_minutes":f"{r['estimated_600_pages_minutes']:.2f}"} for r in summary]
+    (args.out / "results.json").write_text(
+        json.dumps({
+            "system": system_info(),
+            "inputs": str(args.inputs),
+            "ground_truth": str(args.gt),
+            "rows": rows,
+            "summary": summary,
+        }, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    summary_csv = [{
+        **r,
+        "cer_content": f"{r['cer_content']:.6f}",
+        "wer_content": f"{r['wer_content']:.6f}",
+        "cer_strict": f"{r['cer_strict']:.6f}",
+        "seconds_total": f"{r['seconds_total']:.3f}",
+        "seconds_per_page": f"{r['seconds_per_page']:.3f}",
+        "estimated_600_pages_minutes": f"{r['estimated_600_pages_minutes']:.2f}",
+    } for r in summary]
     write_csv(args.out / "summary.csv", summary_csv)
+
     print(f"Completed {len(rows)} OCR runs.")
-    print(f"Scored ground-truth pages: {len({r['sample_id'] for r in rows if r.get('status') == 'scored'})}")
+    scored_pages = {r["sample_id"] for r in rows if r.get("status") == "scored"}
+    print(f"Scored ground-truth pages: {len(scored_pages)}")
     if summary:
         best = min(summary, key=lambda x: x["cer_content"])
-        print(f"Best content CER: {best['cer_content']:.4%} — {best['model']} psm={best['psm']} {best['preset']}")
+        print(
+            f"Best content CER: {best['cer_content']:.4%} — "
+            f"{best['model']} psm={best['psm']} {best['preset']}"
+        )
         print(f"Summary: {args.out / 'summary.csv'}")
 
 
