@@ -145,8 +145,12 @@ def main() -> None:
     (args.out / "run.json").write_text(
         json.dumps(run, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    available = sum(
+        (args.out / f"{rec['sample_id']}.txt").exists()
+        for rec in records
+    )
     print(f"Output: {args.out}")
-    print(f"Available text pages: {sum((args.out / f'{r['sample_id']}.txt').exists() for r in records)}/{len(records)}")
+    print(f"Available text pages: {available}/{len(records)}")
     if failures:
         raise SystemExit(
             f"Kraken completed with {len(failures)} failed batches. "
