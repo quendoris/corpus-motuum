@@ -1,0 +1,24 @@
+{
+  "benchmark": "ocr-v1",
+  "source_sha256": "bc8dbd965d242f8dbdefb3fbc28a9e24c9d68084a536d388bf96e376b68ff72e",
+  "policy": {
+    "training_use": false,
+    "purpose": "held-out OCR evaluation and preprocessing/model comparison",
+    "sample_count": 12,
+    "selection": "six ordinary PDF spreads, two physical pages each"
+  },
+  "samples": [
+    {"id":"sheet-002-left","source_pdf_sheet":2,"spread_side":"left","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-002-right","source_pdf_sheet":2,"spread_side":"right","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-020-left","source_pdf_sheet":20,"spread_side":"left","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-020-right","source_pdf_sheet":20,"spread_side":"right","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-060-left","source_pdf_sheet":60,"spread_side":"left","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-060-right","source_pdf_sheet":60,"spread_side":"right","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-100-left","source_pdf_sheet":100,"spread_side":"left","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-100-right","source_pdf_sheet":100,"spread_side":"right","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-169-left","source_pdf_sheet":169,"spread_side":"left","printed_page_hint":297,"ground_truth_status":"reviewed","role":"benchmark-only"},
+    {"id":"sheet-169-right","source_pdf_sheet":169,"spread_side":"right","printed_page_hint":298,"ground_truth_status":"reviewed","role":"benchmark-only"},
+    {"id":"sheet-260-left","source_pdf_sheet":260,"spread_side":"left","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"},
+    {"id":"sheet-260-right","source_pdf_sheet":260,"spread_side":"right","printed_page_hint":null,"ground_truth_status":"pending","role":"benchmark-only"}
+  ]
+}
