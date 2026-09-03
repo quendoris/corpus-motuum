@@ -45,15 +45,18 @@ source .venv-benchmark/bin/activate
 python -m pip install -r requirements-benchmark.txt
 ```
 
-## Standard Russian baseline
+## Standard Russian baseline (`rus`)
+
+Keep the result directory named after the model so it cannot be confused with the historical-model run:
 
 ```bash
 python tools/ocr_benchmark.py \
   --langs rus \
-  --psm 3 6
+  --psm 3 6 \
+  --out work/benchmark-v1/runs-rus
 ```
 
-Outputs are written to `work/benchmark-v1/runs/`: `results.json`, aggregated `summary.csv`, and the OCR text/stderr of every run.
+Outputs are written to `work/benchmark-v1/runs-rus/`: `results.json`, aggregated `summary.csv`, and the OCR text/stderr of every run.
 
 ## Pre-reform `orus` model
 
