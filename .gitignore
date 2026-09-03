@@ -1,0 +1,6 @@
+# Local OCR/restoration work products
+work/
+.cache/
+.venv-benchmark/
+__pycache__/
+*.pyc
