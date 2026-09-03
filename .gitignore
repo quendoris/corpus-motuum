@@ -2,5 +2,6 @@
 work/
 .cache/
 .venv-benchmark/
+.venv-kraken/
 __pycache__/
 *.pyc
