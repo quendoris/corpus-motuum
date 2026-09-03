@@ -1,0 +1,10 @@
+{
+  "sample_id": "sheet-169-left",
+  "printed_page": 297,
+  "source_pdf_sheet": 169,
+  "spread_side": "left",
+  "status": "reviewed",
+  "training_use": false,
+  "review_note": "Visually transcribed from the full-resolution 300 dpi pilot render. Promote to verified only after comparison with the exact embedded JPEG extracted by tools/extract_benchmark_pages.py.",
+  "continuation": "ends mid-sentence; continues on printed page 298"
+}
