@@ -1,0 +1,60 @@
+name: Publish source release v0.0.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-0.0.0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source with Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Verify immutable source
+        run: |
+          git lfs pull
+          sha256sum -c sources/source-001/raw/original.pdf.sha256
+
+      - name: Create v0.0.0 release and attach source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > /tmp/release-notes.md <<'EOF'
+          # Original Book Source
+
+          This is the unmodified source scan used as the immutable starting point for Corpus Motuum.
+
+          - No restoration has been applied.
+          - No OCR or text normalization has been applied.
+          - No illustrations have been altered.
+          - The attached SHA-256 file records the checksum of the source PDF.
+          - Later releases will contain derived/restored material while preserving this source unchanged.
+
+          Source SHA-256:
+          `bc8dbd965d242f8dbdefb3fbc28a9e24c9d68084a536d388bf96e376b68ff72e`
+          EOF
+
+          if gh release view v0.0.0 >/dev/null 2>&1; then
+            echo 'Release v0.0.0 already exists; refreshing attached source assets.'
+            gh release upload v0.0.0 \
+              sources/source-001/raw/original.pdf \
+              sources/source-001/raw/original.pdf.sha256 \
+              --clobber
+          else
+            gh release create v0.0.0 \
+              sources/source-001/raw/original.pdf \
+              sources/source-001/raw/original.pdf.sha256 \
+              --target 927af8b20c7b16dd0b9672480b4179d6b42745d4 \
+              --title 'Original Book Source - v0.0.0' \
+              --notes-file /tmp/release-notes.md
+          fi
