@@ -1,0 +1,63 @@
+name: Restoration pilot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pilot_restore.py'
+      - '.github/workflows/restoration-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Install pilot dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow opencv-python-headless
+
+      - name: Verify source
+        run: |
+          git lfs pull
+          sha256sum -c sources/source-001/raw/original.pdf.sha256
+
+      - name: Generate 12-sheet restoration pilot
+        run: |
+          python tools/pilot_restore.py \
+            sources/source-001/raw/original.pdf \
+            --out pilot/v0.1.0
+
+      - name: Upload full-resolution pilot
+        uses: actions/upload-artifact@v4
+        with:
+          name: restoration-pilot-v0.1.0
+          path: |
+            pilot/v0.1.0/full
+            pilot/v0.1.0/manifest.json
+          if-no-files-found: error
+          compression-level: 6
+
+      - name: Commit compact previews and manifest
+        run: |
+          rm -rf pilot/v0.1.0/full
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pilot/v0.1.0
+          if git diff --cached --quiet; then
+            echo 'No pilot preview changes to commit.'
+          else
+            git commit -m 'pilot: record restoration preview v0.1.0'
+            git push
+          fi
