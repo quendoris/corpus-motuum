@@ -1,0 +1,207 @@
+{
+  "status": "pilot-only",
+  "source": "sources/source-001/raw/original.pdf",
+  "source_sha256": "bc8dbd965d242f8dbdefb3fbc28a9e24c9d68084a536d388bf96e376b68ff72e",
+  "selection_unit": "source PDF sheet (not printed book page)",
+  "selected_sheets": [
+    1,
+    2,
+    20,
+    60,
+    100,
+    150,
+    180,
+    220,
+    260,
+    296,
+    297,
+    300
+  ],
+  "notes": [
+    "Archival and OCR outputs are experimental candidates, not canonical restorations.",
+    "The selection deliberately spans the volume and includes structurally unusual tail sheets.",
+    "Printed book-page mapping will be added after page extraction/provenance mapping is validated."
+  ],
+  "records": [
+    {
+      "source_pdf_sheet": 1,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-001-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-001-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-001-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 2,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-002-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-002-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-002-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 20,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-020-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-020-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-020-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 60,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-060-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-060-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-060-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 100,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-100-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-100-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-100-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 150,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-150-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-150-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-150-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 180,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-180-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-180-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-180-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 220,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-220-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-220-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-220-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 260,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-260-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-260-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-260-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 296,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-296-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-296-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-296-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 297,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-297-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-297-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-297-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    },
+    {
+      "source_pdf_sheet": 300,
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.0/full/sheet-300-reference.png",
+      "archival_candidate": "pilot/v0.1.0/full/sheet-300-archival.png",
+      "ocr_candidate": "pilot/v0.1.0/full/sheet-300-ocr.png",
+      "reference_shape_px": [
+        3509,
+        2481
+      ],
+      "ocr_shape_px": [
+        5264,
+        3722
+      ]
+    }
+  ]
+}
