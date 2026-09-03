@@ -33,31 +33,31 @@ jobs:
           git lfs pull
           sha256sum -c sources/source-001/raw/original.pdf.sha256
 
-      - name: Generate 12-sheet restoration pilot
+      - name: Generate 12 physical-page restoration pilot
         run: |
           python tools/pilot_restore.py \
             sources/source-001/raw/original.pdf \
-            --out pilot/v0.1.0
+            --out pilot/v0.1.1
 
       - name: Upload full-resolution pilot
         uses: actions/upload-artifact@v4
         with:
-          name: restoration-pilot-v0.1.0
+          name: restoration-pilot-v0.1.1
           path: |
-            pilot/v0.1.0/full
-            pilot/v0.1.0/manifest.json
+            pilot/v0.1.1/full
+            pilot/v0.1.1/manifest.json
           if-no-files-found: error
           compression-level: 6
 
       - name: Commit compact previews and manifest
         run: |
-          rm -rf pilot/v0.1.0/full
+          rm -rf pilot/v0.1.1/full
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pilot/v0.1.0
+          git add pilot/v0.1.1
           if git diff --cached --quiet; then
             echo 'No pilot preview changes to commit.'
           else
-            git commit -m 'pilot: record restoration preview v0.1.0'
+            git commit -m 'pilot: record physical-page preview v0.1.1'
             git push
           fi
