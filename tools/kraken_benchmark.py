@@ -12,7 +12,6 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
-# Reuse the exact same scorer and system reporting as the Tesseract benchmark.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ocr_benchmark import find_gt, score_text, system_info  # noqa: E402
 
@@ -25,18 +24,18 @@ GLYPH_FAMILIES = {
 }
 
 
-def run_kraken(
-    image: Path,
-    output: Path,
-    model: str,
-    device: str,
-    precision: str,
-    batch_size: int,
-    workers: int,
-) -> tuple[int, str, str, float]:
+def _snapshot_files(root: Path) -> set[Path]:
+    if not root.exists():
+        return set()
+    return {p.resolve() for p in root.rglob("*") if p.is_file()}
+
+
+def run_kraken(image: Path, output: Path, model: str, device: str, precision: str,
+               batch_size: int, workers: int) -> tuple[int, str, str, float, list[str]]:
     output.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         "kraken",
+        "-n",  # native serializer; recognition native output is plain text
         "-i", str(image), str(output),
         "--device", device,
         "--precision", precision,
@@ -45,10 +44,12 @@ def run_kraken(
         "-B", str(batch_size),
         "--num-line-workers", str(workers),
     ]
+    before = _snapshot_files(output.parent)
     start = time.perf_counter()
     p = subprocess.run(cmd, capture_output=True, text=True)
     elapsed = time.perf_counter() - start
-    return p.returncode, p.stdout, p.stderr, elapsed
+    created = sorted(str(x) for x in (_snapshot_files(output.parent) - before))
+    return p.returncode, p.stdout, p.stderr, elapsed, created
 
 
 def aggregate(rows: list[dict]) -> list[dict]:
@@ -64,21 +65,13 @@ def aggregate(rows: list[dict]) -> list[dict]:
         words = sum(r["score"]["gt_words"] for r in rs)
         seconds = sum(r["seconds"] for r in rs)
         rec = {
-            "engine": "kraken",
-            "model": key[0],
-            "device": key[1],
-            "precision": key[2],
-            "preset": key[3],
-            "pages_scored": len(rs),
-            "seconds_total": seconds,
-            "seconds_per_page": seconds / len(rs),
+            "engine": "kraken", "model": key[0], "device": key[1], "precision": key[2], "preset": key[3],
+            "pages_scored": len(rs), "seconds_total": seconds, "seconds_per_page": seconds / len(rs),
             "cer_content": sum(r["score"]["content_edit_distance"] for r in rs) / max(1, chars_c),
             "wer_content": sum(r["score"]["word_edit_distance"] for r in rs) / max(1, words),
             "cer_strict": sum(r["score"]["strict_edit_distance"] for r in rs) / max(1, chars_s),
             "merged_word_boundaries": sum(r["score"]["merged_word_boundaries"] for r in rs),
             "split_word_boundaries": sum(r["score"]["split_word_boundaries"] for r in rs),
-            # Startup/model-loading cost is included. Treat this as a naive smoke-test projection,
-            # not a production throughput estimate; a later batched runner will amortize startup.
             "estimated_600_pages_minutes_naive": (seconds / len(rs)) * 600 / 60,
         }
         for family, glyphs in GLYPH_FAMILIES.items():
@@ -102,8 +95,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         return
     with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader()
-        w.writerows(rows)
+        w.writeheader(); w.writerows(rows)
 
 
 def main() -> None:
@@ -111,66 +103,51 @@ def main() -> None:
     ap.add_argument("--inputs", type=Path, default=Path("work/benchmark-v1/inputs/manifest.json"))
     ap.add_argument("--gt", type=Path, default=Path("benchmark/v1/ground_truth"))
     ap.add_argument("--out", type=Path, default=Path("work/benchmark-v1/runs-kraken"))
-    ap.add_argument("--model", required=True, help="Kraken model filename or absolute path")
-    ap.add_argument("--device", default="cpu", help="cpu or cuda:0")
-    ap.add_argument("--precision", default="32", help="32, 16-mixed, bf16-mixed, ...")
+    ap.add_argument("--model", required=True)
+    ap.add_argument("--device", default="cpu")
+    ap.add_argument("--precision", default="32")
     ap.add_argument("--batch-size", type=int, default=32)
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--only-presets", nargs="*", default=None)
     ap.add_argument("--only-samples", nargs="*", default=None)
     args = ap.parse_args()
 
-    inputs = json.loads(args.inputs.read_text(encoding="utf-8"))
-    records = inputs["records"]
+    records = json.loads(args.inputs.read_text(encoding="utf-8"))["records"]
     if args.only_presets:
-        allowed = set(args.only_presets)
-        records = [r for r in records if r["preset"] in allowed]
+        allowed = set(args.only_presets); records = [r for r in records if r["preset"] in allowed]
     if args.only_samples:
-        allowed = set(args.only_samples)
-        records = [r for r in records if r["sample_id"] in allowed]
+        allowed = set(args.only_samples); records = [r for r in records if r["sample_id"] in allowed]
 
     args.out.mkdir(parents=True, exist_ok=True)
     rows: list[dict] = []
-
     for rec in records:
         sample_id = rec["sample_id"]
         image = Path(rec["path"])
         gt_path, gt_meta = find_gt(args.gt, sample_id)
         pred_path = args.out / "predictions" / rec["preset"] / f"{sample_id}.txt"
-        err_path = args.out / "stderr" / rec["preset"] / f"{sample_id}.txt"
-        err_path.parent.mkdir(parents=True, exist_ok=True)
+        diag_dir = args.out / "diagnostics" / rec["preset"]
+        diag_dir.mkdir(parents=True, exist_ok=True)
 
-        code, stdout, stderr, elapsed = run_kraken(
-            image=image,
-            output=pred_path,
-            model=args.model,
-            device=args.device,
-            precision=args.precision,
-            batch_size=args.batch_size,
-            workers=args.workers,
+        code, stdout, stderr, elapsed, created = run_kraken(
+            image, pred_path, args.model, args.device, args.precision, args.batch_size, args.workers
         )
-        err_path.write_text(stderr, encoding="utf-8")
+        (diag_dir / f"{sample_id}.stdout.txt").write_text(stdout, encoding="utf-8")
+        (diag_dir / f"{sample_id}.stderr.txt").write_text(stderr, encoding="utf-8")
+
         row = {
-            "engine": "kraken",
-            "model": args.model,
-            "device": args.device,
-            "precision": args.precision,
-            "preset": rec["preset"],
-            "sample_id": sample_id,
-            "seconds": elapsed,
-            "prediction": str(pred_path),
-            "gt_status": gt_meta.get("status"),
+            "engine": "kraken", "model": args.model, "device": args.device,
+            "precision": args.precision, "preset": rec["preset"], "sample_id": sample_id,
+            "seconds": elapsed, "prediction": str(pred_path), "gt_status": gt_meta.get("status"),
+            "returncode": code, "created_files": created,
+            "stdout_tail": stdout[-3000:], "stderr_tail": stderr[-3000:],
         }
         if code != 0:
-            row.update(status="engine-error", returncode=code, stdout=stdout[-1000:], stderr=stderr[-2000:])
+            row["status"] = "engine-error"
         elif not pred_path.exists():
-            row.update(status="engine-error", returncode=code, stderr="Kraken exited successfully but no output text file was produced")
+            row["status"] = "serialization-missing"
         elif gt_path is None:
             row["status"] = "unscored-no-gt"
         else:
-            # Kraken 7.1's multilingual base model is trained/evaluated in NFD. Compare
-            # canonical Unicode equivalents in NFC so decomposed й/ё etc. are not counted
-            # as OCR errors merely because another engine emits composed code points.
             prediction = unicodedata.normalize("NFC", pred_path.read_text(encoding="utf-8"))
             gt_text = unicodedata.normalize("NFC", gt_path.read_text(encoding="utf-8"))
             row["status"] = "scored"
@@ -178,17 +155,10 @@ def main() -> None:
         rows.append(row)
 
     summary = aggregate(rows)
-    payload = {
-        "system": system_info(),
-        "engine": "kraken",
-        "model": args.model,
-        "device": args.device,
-        "precision": args.precision,
-        "inputs": str(args.inputs),
-        "ground_truth": str(args.gt),
-        "rows": rows,
-        "summary": summary,
-    }
+    payload = {"system": system_info(), "engine": "kraken", "model": args.model,
+               "device": args.device, "precision": args.precision,
+               "inputs": str(args.inputs), "ground_truth": str(args.gt),
+               "rows": rows, "summary": summary}
     (args.out / "results.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     formatted = []
@@ -203,6 +173,10 @@ def main() -> None:
 
     print(f"Completed {len(rows)} Kraken runs.")
     print(f"Scored GT pages: {len({r['sample_id'] for r in rows if r.get('status') == 'scored'})}")
+    statuses = defaultdict(int)
+    for row in rows:
+        statuses[row.get("status", "unknown")] += 1
+    print("Statuses:", dict(statuses))
     if summary:
         best = min(summary, key=lambda x: x["cer_content"])
         print(f"Best content CER: {best['cer_content']:.4%} — {best['preset']}")
