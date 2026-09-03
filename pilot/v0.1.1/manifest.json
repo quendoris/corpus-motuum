@@ -1,0 +1,229 @@
+{
+  "status": "pilot-only",
+  "pilot_version": "0.1.1",
+  "source": "sources/source-001/raw/original.pdf",
+  "source_sha256": "bc8dbd965d242f8dbdefb3fbc28a9e24c9d68084a536d388bf96e376b68ff72e",
+  "selection_unit": "physical page cropped from an ordinary source PDF spread",
+  "selected_sheets": [
+    2,
+    20,
+    60,
+    100,
+    169,
+    260
+  ],
+  "physical_page_samples": 12,
+  "notes": [
+    "Exactly twelve physical-page samples are generated from six ordinary spreads.",
+    "PDF sheet 169 includes the known printed pages 297/298 difficult-reference spread.",
+    "OCR candidate remains grayscale; hard binarization from pilot v0.1.0 was rejected as the default.",
+    "These center-split crops are pilot material. Canonical page extraction will later use embedded-image provenance where possible.",
+    "Structurally unusual PDF sheets 1 and 297-300 remain separate extraction/provenance tests and are not counted among the twelve text-page samples."
+  ],
+  "records": [
+    {
+      "source_pdf_sheet": 2,
+      "spread_side": "left",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-002-left-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-002-left-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-002-left-ocr.png",
+      "reference_shape_px": [
+        1754,
+        2481
+      ],
+      "ocr_shape_px": [
+        2676,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 2,
+      "spread_side": "right",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-002-right-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-002-right-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-002-right-ocr.png",
+      "reference_shape_px": [
+        1755,
+        2481
+      ],
+      "ocr_shape_px": [
+        2678,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 20,
+      "spread_side": "left",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-020-left-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-020-left-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-020-left-ocr.png",
+      "reference_shape_px": [
+        1754,
+        2481
+      ],
+      "ocr_shape_px": [
+        2676,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 20,
+      "spread_side": "right",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-020-right-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-020-right-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-020-right-ocr.png",
+      "reference_shape_px": [
+        1755,
+        2481
+      ],
+      "ocr_shape_px": [
+        2678,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 60,
+      "spread_side": "left",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-060-left-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-060-left-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-060-left-ocr.png",
+      "reference_shape_px": [
+        1754,
+        2481
+      ],
+      "ocr_shape_px": [
+        2676,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 60,
+      "spread_side": "right",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-060-right-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-060-right-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-060-right-ocr.png",
+      "reference_shape_px": [
+        1755,
+        2481
+      ],
+      "ocr_shape_px": [
+        2678,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 100,
+      "spread_side": "left",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-100-left-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-100-left-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-100-left-ocr.png",
+      "reference_shape_px": [
+        1754,
+        2481
+      ],
+      "ocr_shape_px": [
+        2676,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 100,
+      "spread_side": "right",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-100-right-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-100-right-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-100-right-ocr.png",
+      "reference_shape_px": [
+        1755,
+        2481
+      ],
+      "ocr_shape_px": [
+        2678,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 169,
+      "spread_side": "left",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-169-left-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-169-left-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-169-left-ocr.png",
+      "reference_shape_px": [
+        1754,
+        2481
+      ],
+      "ocr_shape_px": [
+        2676,
+        3754
+      ],
+      "printed_page_hint": 297
+    },
+    {
+      "source_pdf_sheet": 169,
+      "spread_side": "right",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-169-right-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-169-right-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-169-right-ocr.png",
+      "reference_shape_px": [
+        1755,
+        2481
+      ],
+      "ocr_shape_px": [
+        2678,
+        3754
+      ],
+      "printed_page_hint": 298
+    },
+    {
+      "source_pdf_sheet": 260,
+      "spread_side": "left",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-260-left-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-260-left-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-260-left-ocr.png",
+      "reference_shape_px": [
+        1754,
+        2481
+      ],
+      "ocr_shape_px": [
+        2676,
+        3754
+      ],
+      "printed_page_hint": null
+    },
+    {
+      "source_pdf_sheet": 260,
+      "spread_side": "right",
+      "render_dpi": 300,
+      "reference": "pilot/v0.1.1/full/sheet-260-right-reference.png",
+      "archival_candidate": "pilot/v0.1.1/full/sheet-260-right-archival.png",
+      "ocr_candidate": "pilot/v0.1.1/full/sheet-260-right-ocr.png",
+      "reference_shape_px": [
+        1755,
+        2481
+      ],
+      "ocr_shape_px": [
+        2678,
+        3754
+      ],
+      "printed_page_hint": null
+    }
+  ]
+}
