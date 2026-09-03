@@ -108,29 +108,44 @@ The current comparison uses Kraken 7.1's multilingual PP-OCRv6 **medium** base m
 kraken get 10.5281/zenodo.21788410
 ```
 
-The downloaded recognition file is `medium.safetensors` and Kraken can resolve it from its local model store. On an NVIDIA Ampere GPU, run the two-page smoke test with CUDA and BF16 mixed precision:
+The downloaded recognition file is `medium.safetensors` and Kraken can resolve it from its local model store.
 
-```bash
-python tools/kraken_benchmark.py \
-  --model medium.safetensors \
-  --device cuda:0 \
-  --precision bf16-mixed \
-  --only-samples sheet-169-left sheet-169-right \
-  --out work/benchmark-v1/runs-kraken-medium-gpu
+### Current CUDA segmentation issue on the benchmark laptop
 
-cat work/benchmark-v1/runs-kraken-medium-gpu/summary.csv
+On the RTX 3070 Laptop / Kraken 7.1 / PyTorch 2.13+cu130 environment, the chained command
+
+```text
+--device cuda:0 segment -bl ocr ...
 ```
 
-If CUDA/PyTorch setup is unavailable, the accuracy test can be run on CPU instead:
+currently fails inside baseline segmentation with a PyTorch device-placement error: tensors are split between `cuda:0` and `cpu`. Kraken may still exit with process status `0`, so the benchmark runner also inspects Kraken's own output for `Failed processing` and device-mismatch errors.
+
+This is treated as a pipeline/runtime issue, not as an OCR-quality result. For the current accuracy comparison, use CPU segmentation+recognition first:
 
 ```bash
 python tools/kraken_benchmark.py \
   --model medium.safetensors \
   --device cpu \
-  --precision 32 \
+  --precision 32-true \
   --only-samples sheet-169-left sheet-169-right \
   --out work/benchmark-v1/runs-kraken-medium-cpu
+
+cat work/benchmark-v1/runs-kraken-medium-cpu/summary.csv
 ```
+
+For a one-page smoke test before the two-page matrix:
+
+```bash
+python tools/kraken_benchmark.py \
+  --model medium.safetensors \
+  --device cpu \
+  --precision 32-true \
+  --only-samples sheet-169-left \
+  --only-presets exact-jpeg \
+  --out work/benchmark-v1/runs-kraken-cpu-smoke
+```
+
+If Kraken proves competitive on accuracy, the next implementation step is a split pipeline: baseline segmentation once on CPU to native segmentation data, then recognition on GPU (or a direct device-placement fix) so segmentation does not block CUDA OCR throughput.
 
 Kraken's 7.1 multilingual base model was trained/evaluated with Unicode NFD. The Kraken scorer converts both prediction and ground truth to canonical NFC before edit-distance scoring so canonically equivalent forms such as decomposed/composed Cyrillic letters are not counted as OCR errors.
 
