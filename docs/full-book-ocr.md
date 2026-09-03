@@ -175,4 +175,30 @@ git commit -m "data: add full-book three-engine OCR candidates"
 git push origin main
 ```
 
-After this push, every physical page has three independently generated text candidates plus a stable source-page record. Canonical diplomatic transcription and reader-facing normalization are produced later, page by page, by comparing all three candidates against the source image.
+After this push, every physical page has three independently generated text candidates plus a stable source-page record.
+
+## 9. Export editorial batches for canonical transcription
+
+Source JPEGs remain local under `work/`, while the three OCR layers live in Git. Package a manageable contiguous range with all evidence attached:
+
+```bash
+python tools/export_editorial_batch.py --start 1 --count 20
+```
+
+This creates, for example:
+
+```text
+work/editorial-batches/editorial-0001-0020.tar.gz
+```
+
+The archive contains:
+
+```text
+pages/          exact/fallback source page images
+ocr/rus/        general OCR candidate
+ocr/orus/       prereform-aware OCR candidate
+ocr/kraken/     complementary OCR candidate
+manifest.json   page provenance and stable IDs
+```
+
+Editorial work then produces two separate canonical layers: a diplomatic transcription faithful to the printed source and an orthographically normalized reader-facing text that preserves the author's vocabulary and formulations. Those layers must never be silently collapsed into raw OCR.
