@@ -1,0 +1,10 @@
+Corpus Motuum source preflight
+source: sources/source-001/raw/original.pdf
+generated_utc: 2026-09-03T07:19:43Z
+
+== file ==
+sources/source-001/raw/original.pdf: PDF document, version 1.7
+size_bytes: 154829806
+
+== sha256 ==
+bc8dbd965d242f8dbdefb3fbc28a9e24c9d68084a536d388bf96e376b68ff72e  sources/source-001/raw/original.pdf

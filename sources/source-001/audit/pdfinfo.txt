@@ -1,0 +1,19 @@
+Title:           out.pdf
+Author:          admin
+Producer:        Microsoft: Print To PDF
+CreationDate:    Tue Apr  1 20:37:19 2025 UTC
+ModDate:         Tue Apr  1 20:37:19 2025 UTC
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           300
+Encrypted:       no
+Page size:       841.92 x 595.32 pts (A4)
+Page rot:        0
+File size:       154829806 bytes
+Optimized:       no
+PDF version:     1.7
