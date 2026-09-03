@@ -153,7 +153,7 @@ def aggregate(rows: list[dict]) -> list[dict]:
         chars_s = sum(r["score"]["gt_chars_strict"] for r in rs)
         words = sum(r["score"]["gt_words"] for r in rs)
         seconds = sum(r["seconds"] for r in rs)
-        out.append({
+        row = {
             "engine": key[0],
             "model": key[1],
             "psm": key[2],
@@ -167,7 +167,22 @@ def aggregate(rows: list[dict]) -> list[dict]:
             "merged_word_boundaries": sum(r["score"]["merged_word_boundaries"] for r in rs),
             "split_word_boundaries": sum(r["score"]["split_word_boundaries"] for r in rs),
             "estimated_600_pages_minutes": (seconds / len(rs)) * 600 / 60,
-        })
+        }
+        families = {
+            "yat": ("ѣ", "Ѣ"),
+            "decimal_i": ("і", "І"),
+            "fita": ("ѳ", "Ѳ"),
+            "izhitsa": ("ѵ", "Ѵ"),
+            "hard_sign": ("ъ", "Ъ"),
+        }
+        for family, glyphs in families.items():
+            gt_n = sum(r["score"]["historical_glyphs"][g]["gt"] for r in rs for g in glyphs)
+            correct = sum(r["score"]["historical_glyphs"][g]["correct"] for r in rs for g in glyphs)
+            fp = sum(r["score"]["historical_glyphs"][g]["false_positives"] for r in rs for g in glyphs)
+            row[f"{family}_gt"] = gt_n
+            row[f"{family}_recall"] = (correct / gt_n) if gt_n else None
+            row[f"{family}_false_positives"] = fp
+        out.append(row)
     return out
 
 
