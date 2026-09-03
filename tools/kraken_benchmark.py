@@ -8,6 +8,7 @@ import json
 import subprocess
 import sys
 import time
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
@@ -15,12 +16,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ocr_benchmark import find_gt, score_text, system_info  # noqa: E402
 
-GLYPH_COLUMNS = {
-    "ѣ": "yat",
-    "і": "decimal_i",
-    "ѳ": "fita",
-    "ѵ": "izhitsa",
-    "ъ": "hard_sign",
+GLYPH_FAMILIES = {
+    "yat": ("ѣ", "Ѣ"),
+    "decimal_i": ("і", "І"),
+    "fita": ("ѳ", "Ѳ"),
+    "izhitsa": ("ѵ", "Ѵ"),
+    "hard_sign": ("ъ", "Ъ"),
 }
 
 
@@ -76,18 +77,21 @@ def aggregate(rows: list[dict]) -> list[dict]:
             "cer_strict": sum(r["score"]["strict_edit_distance"] for r in rs) / max(1, chars_s),
             "merged_word_boundaries": sum(r["score"]["merged_word_boundaries"] for r in rs),
             "split_word_boundaries": sum(r["score"]["split_word_boundaries"] for r in rs),
-            "estimated_600_pages_minutes": (seconds / len(rs)) * 600 / 60,
+            # Startup/model-loading cost is included. Treat this as a naive smoke-test projection,
+            # not a production throughput estimate; a later batched runner will amortize startup.
+            "estimated_600_pages_minutes_naive": (seconds / len(rs)) * 600 / 60,
         }
-        for glyph, prefix in GLYPH_COLUMNS.items():
+        for family, glyphs in GLYPH_FAMILIES.items():
             gt_n = correct = fp = 0
             for row in rs:
-                stats = row["score"]["historical_glyphs"].get(glyph, {})
-                gt_n += stats.get("gt", 0)
-                correct += stats.get("correct", 0)
-                fp += stats.get("false_positives", 0)
-            rec[f"{prefix}_gt"] = gt_n
-            rec[f"{prefix}_recall"] = (correct / gt_n) if gt_n else None
-            rec[f"{prefix}_false_positives"] = fp
+                for glyph in glyphs:
+                    stats = row["score"]["historical_glyphs"].get(glyph, {})
+                    gt_n += stats.get("gt", 0)
+                    correct += stats.get("correct", 0)
+                    fp += stats.get("false_positives", 0)
+            rec[f"{family}_gt"] = gt_n
+            rec[f"{family}_recall"] = (correct / gt_n) if gt_n else None
+            rec[f"{family}_false_positives"] = fp
         out.append(rec)
     return out
 
@@ -164,9 +168,13 @@ def main() -> None:
         elif gt_path is None:
             row["status"] = "unscored-no-gt"
         else:
-            prediction = pred_path.read_text(encoding="utf-8")
+            # Kraken 7.1's multilingual base model is trained/evaluated in NFD. Compare
+            # canonical Unicode equivalents in NFC so decomposed й/ё etc. are not counted
+            # as OCR errors merely because another engine emits composed code points.
+            prediction = unicodedata.normalize("NFC", pred_path.read_text(encoding="utf-8"))
+            gt_text = unicodedata.normalize("NFC", gt_path.read_text(encoding="utf-8"))
             row["status"] = "scored"
-            row["score"] = score_text(gt_path.read_text(encoding="utf-8"), prediction)
+            row["score"] = score_text(gt_text, prediction)
         rows.append(row)
 
     summary = aggregate(rows)
@@ -186,7 +194,7 @@ def main() -> None:
     formatted = []
     for r in summary:
         x = dict(r)
-        for key in ("seconds_total", "seconds_per_page", "estimated_600_pages_minutes"):
+        for key in ("seconds_total", "seconds_per_page", "estimated_600_pages_minutes_naive"):
             x[key] = f"{x[key]:.3f}"
         for key in ("cer_content", "wer_content", "cer_strict"):
             x[key] = f"{x[key]:.6f}"
