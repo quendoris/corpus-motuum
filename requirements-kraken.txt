@@ -1,0 +1,2 @@
+kraken[pdf]==7.1.0
+rapidfuzz>=3.0
