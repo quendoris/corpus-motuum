@@ -82,14 +82,25 @@ Upstream model metrics are useful background only; they are not evidence of perf
 
 ## Kraken 7.1 / PP-OCRv6 medium
 
-Kraken is tested as an independent historical-document OCR architecture, not as another Tesseract language file. Keep it in a separate virtual environment because it brings a large PyTorch dependency stack:
+Kraken is tested as an independent historical-document OCR architecture, not as another Tesseract language file. Keep it in a separate virtual environment because it brings a large PyTorch dependency stack.
+
+### Python compatibility on rolling-release Arch
+
+Kraken 7.1 requires Python `>=3.10,<3.14`. A current Arch system may already use Python 3.14, so `python -m venv` can create an incompatible environment. Do **not** downgrade the system interpreter. Use a project-local Python 3.13 through `uv` instead:
 
 ```bash
-python -m venv .venv-kraken
+sudo pacman -S --needed uv
+
+uv python install 3.13
+rm -rf .venv-kraken
+uv venv --python 3.13 .venv-kraken
 source .venv-kraken/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements-kraken.txt
+
+python --version
+uv pip install -r requirements-kraken.txt
 ```
+
+`python --version` must report Python 3.13.x (3.10-3.13 are supported; 3.13 is the chosen reproducible environment). The PyPI release is named `kraken==7.1`, not `7.1.0`.
 
 The current comparison uses Kraken 7.1's multilingual PP-OCRv6 **medium** base model (15.92M parameters), Zenodo DOI `10.5281/zenodo.21788410`. Download it through Kraken's model manager:
 
