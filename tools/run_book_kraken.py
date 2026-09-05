@@ -5,6 +5,11 @@ Kraken 7.1 accepts repeated `-i input output` pairs in one invocation. Batching
 keeps model startup cost from being paid once per page. The current production
 candidate intentionally uses CPU segmentation/recognition because the tested
 CUDA baseline segmenter mixed CPU and CUDA tensors on this environment.
+
+If a multi-page Kraken process crashes or silently misses outputs, the runner
+retries only the missing pages one-by-one in fresh processes. This keeps a
+single pathological page or transient segfault from discarding the rest of a
+batch.
 """
 from __future__ import annotations
 
@@ -36,6 +41,36 @@ def kraken_version() -> str | None:
     return text.splitlines()[0] if text else None
 
 
+def build_cmd(records: list[dict], out: Path, model: str, device: str,
+              precision: str, line_batch_size: int, line_workers: int) -> tuple[list[str], list[tuple[str, Path]]]:
+    cmd = ["kraken", "-n"]
+    expected: list[tuple[str, Path]] = []
+    for rec in records:
+        dest = out / f"{rec['sample_id']}.txt"
+        expected.append((rec["sample_id"], dest))
+        cmd.extend(["-i", rec["path"], str(dest)])
+    cmd.extend([
+        "--device", device,
+        "--precision", precision,
+        "segment", "-bl",
+        "ocr", "-m", model,
+        "-B", str(line_batch_size),
+        "--num-line-workers", str(line_workers),
+    ])
+    return cmd, expected
+
+
+def run_process(cmd: list[str]) -> tuple[subprocess.CompletedProcess[str], float]:
+    start = time.perf_counter()
+    p = subprocess.run(cmd, capture_output=True, text=True)
+    return p, time.perf_counter() - start
+
+
+def has_internal_error(p: subprocess.CompletedProcess[str]) -> bool:
+    combined = f"{p.stdout}\n{p.stderr}"
+    return "Failed processing" in combined or " ERROR " in combined
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--inputs", type=Path, default=Path("work/book-v1/inputs/manifest.json"))
@@ -49,6 +84,11 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=Path("corpus/ocr/raw/kraken"))
     ap.add_argument("--diagnostics", type=Path, default=Path("work/book-v1/logs/kraken"))
     ap.add_argument("--no-resume", action="store_true")
+    ap.add_argument(
+        "--no-single-retry",
+        action="store_true",
+        help="do not retry missing outputs one page at a time after a failed batch",
+    )
     args = ap.parse_args()
 
     manifest = json.loads(args.inputs.read_text(encoding="utf-8"))
@@ -68,55 +108,81 @@ def main() -> None:
         else:
             pending.append(rec)
 
-    failures: list[dict] = []
-    written = 0
+    final_failures: list[dict] = []
+    batch_incidents: list[dict] = []
+    written_before = sum((args.out / f"{r['sample_id']}.txt").exists() for r in records)
     ocr_seconds = 0.0
     started = time.time()
     total_batches = (len(pending) + args.batch_pages - 1) // args.batch_pages if pending else 0
 
     for batch_no, batch in chunks(pending, args.batch_pages):
-        cmd = ["kraken", "-n"]
-        expected: list[tuple[str, Path]] = []
-        for rec in batch:
-            dest = args.out / f"{rec['sample_id']}.txt"
-            expected.append((rec["sample_id"], dest))
-            cmd.extend(["-i", rec["path"], str(dest)])
-        cmd.extend([
-            "--device", args.device,
-            "--precision", args.precision,
-            "segment", "-bl",
-            "ocr", "-m", args.model,
-            "-B", str(args.line_batch_size),
-            "--num-line-workers", str(args.line_workers),
-        ])
-
-        start = time.perf_counter()
-        p = subprocess.run(cmd, capture_output=True, text=True)
-        elapsed = time.perf_counter() - start
+        cmd, expected = build_cmd(
+            batch, args.out, args.model, args.device, args.precision,
+            args.line_batch_size, args.line_workers,
+        )
+        p, elapsed = run_process(cmd)
         ocr_seconds += elapsed
 
         log_base = args.diagnostics / f"batch-{batch_no:04d}"
         log_base.with_suffix(".stdout.txt").write_text(p.stdout, encoding="utf-8")
         log_base.with_suffix(".stderr.txt").write_text(p.stderr, encoding="utf-8")
 
-        combined = f"{p.stdout}\n{p.stderr}"
-        internal_error = "Failed processing" in combined or " ERROR " in combined
-        missing = [sample_id for sample_id, dest in expected if not dest.exists()]
-        if p.returncode != 0 or internal_error or missing:
-            failures.append({
+        internal_error = has_internal_error(p)
+        missing_ids = [sample_id for sample_id, dest in expected if not dest.exists()]
+        batch_bad = p.returncode != 0 or internal_error or missing_ids
+        if batch_bad:
+            batch_incidents.append({
                 "batch": batch_no,
                 "returncode": p.returncode,
                 "internal_error_marker": internal_error,
-                "missing_outputs": missing,
+                "missing_outputs_before_retry": missing_ids,
                 "stdout_tail": p.stdout[-3000:],
                 "stderr_tail": p.stderr[-3000:],
             })
-        written += sum(dest.exists() for _, dest in expected)
+
+        recovered = 0
+        if missing_ids and not args.no_single_retry:
+            by_id = {rec["sample_id"]: rec for rec in batch}
+            for sample_id in list(missing_ids):
+                rec = by_id[sample_id]
+                single_cmd, single_expected = build_cmd(
+                    [rec], args.out, args.model, args.device, args.precision,
+                    args.line_batch_size, args.line_workers,
+                )
+                sp, selapsed = run_process(single_cmd)
+                ocr_seconds += selapsed
+                slog = args.diagnostics / f"retry-{sample_id}"
+                slog.with_suffix(".stdout.txt").write_text(sp.stdout, encoding="utf-8")
+                slog.with_suffix(".stderr.txt").write_text(sp.stderr, encoding="utf-8")
+                dest = single_expected[0][1]
+                if dest.exists() and sp.returncode == 0 and not has_internal_error(sp):
+                    recovered += 1
+                else:
+                    final_failures.append({
+                        "sample_id": sample_id,
+                        "returncode": sp.returncode,
+                        "internal_error_marker": has_internal_error(sp),
+                        "output_exists": dest.exists(),
+                        "stdout_tail": sp.stdout[-3000:],
+                        "stderr_tail": sp.stderr[-3000:],
+                    })
+
+        remaining = sum(not dest.exists() for _, dest in expected)
         print(
             f"Kraken batch {batch_no}/{total_batches}: pages={len(batch)}, "
-            f"elapsed={elapsed:.1f}s, outputs={sum(dest.exists() for _, dest in expected)}, "
-            f"failed_batches={len(failures)}"
+            f"elapsed={elapsed:.1f}s, initial_missing={len(missing_ids)}, "
+            f"single_recovered={recovered}, remaining_missing={remaining}"
         )
+
+    available = sum(
+        (args.out / f"{rec['sample_id']}.txt").exists()
+        for rec in records
+    )
+    missing_final = [
+        rec["sample_id"] for rec in records
+        if not (args.out / f"{rec['sample_id']}.txt").exists()
+    ]
+    written_this_run = max(0, available - written_before)
 
     run = {
         "schema": "corpus-motuum-ocr-run-v1",
@@ -129,12 +195,16 @@ def main() -> None:
         "batch_pages": args.batch_pages,
         "line_batch_size": args.line_batch_size,
         "line_workers": args.line_workers,
+        "single_retry_enabled": not args.no_single_retry,
         "input_manifest": str(args.inputs),
         "input_manifest_sha256": sha256(args.inputs),
         "pages_expected": len(records),
-        "pages_written_this_run": written,
+        "pages_written_this_run": written_this_run,
         "pages_resumed": resumed,
-        "failures": failures,
+        "pages_available_after_run": available,
+        "missing_after_run": missing_final,
+        "batch_incidents": batch_incidents,
+        "failures": final_failures,
         "ocr_seconds_this_run": ocr_seconds,
         "wall_seconds": time.time() - started,
         "system": {
@@ -145,16 +215,13 @@ def main() -> None:
     (args.out / "run.json").write_text(
         json.dumps(run, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    available = sum(
-        (args.out / f"{rec['sample_id']}.txt").exists()
-        for rec in records
-    )
+
     print(f"Output: {args.out}")
     print(f"Available text pages: {available}/{len(records)}")
-    if failures:
+    if missing_final:
         raise SystemExit(
-            f"Kraken completed with {len(failures)} failed batches. "
-            "Successful page files are kept; rerun is resumable."
+            f"Kraken still misses {len(missing_final)} pages after single-page retries: "
+            + ", ".join(missing_final[:20])
         )
 
 
