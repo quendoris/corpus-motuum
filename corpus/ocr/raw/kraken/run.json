@@ -1,0 +1,52 @@
+{
+  "schema": "corpus-motuum-ocr-run-v1",
+  "engine": "kraken",
+  "engine_version": "kraken, version 7.1",
+  "model": "medium.safetensors",
+  "preset": "raw-gray",
+  "device": "cpu",
+  "precision": "32-true",
+  "batch_pages": 24,
+  "line_batch_size": 64,
+  "line_workers": 4,
+  "input_manifest": "work/book-v1/inputs/manifest.json",
+  "input_manifest_sha256": "a31e835e11834264cbbafe13833c71eea2438d3f025e07ae5d06a2db1d2caaff",
+  "pages_expected": 600,
+  "pages_written_this_run": 582,
+  "pages_resumed": 0,
+  "failures": [
+    {
+      "batch": 6,
+      "returncode": -11,
+      "internal_error_marker": false,
+      "missing_outputs": [
+        "sheet-064-left",
+        "sheet-064-right",
+        "sheet-065-left",
+        "sheet-065-right",
+        "sheet-066-left",
+        "sheet-066-right",
+        "sheet-067-left",
+        "sheet-067-right",
+        "sheet-068-left",
+        "sheet-068-right",
+        "sheet-069-left",
+        "sheet-069-right",
+        "sheet-070-left",
+        "sheet-070-right",
+        "sheet-071-left",
+        "sheet-071-right",
+        "sheet-072-left",
+        "sheet-072-right"
+      ],
+      "stdout_tail": "Segmenting work/book-v1/inputs/raw-gray/sheet-061-left.png\t✓\nProcessing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 35/35 0:00:00 0:01:26\nWriting recognition results for work/book-v1/inputs/raw-gray/sheet-061-left.png\t✓\nSegmenting work/book-v1/inputs/raw-gray/sheet-061-right.png\t✓\nProcessing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 40/40 0:00:00 0:01:54\nWriting recognition results for work/book-v1/inputs/raw-gray/sheet-061-right.png\t✓\nSegmenting work/book-v1/inputs/raw-gray/sheet-062-left.png\t✓\nProcessing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 36/36 0:00:00 0:01:34\nWriting recognition results for work/book-v1/inputs/raw-gray/sheet-062-left.png\t✓\nSegmenting work/book-v1/inputs/raw-gray/sheet-062-right.png\t✓\nProcessing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 34/34 0:00:00 0:01:15\nWriting recognition results for work/book-v1/inputs/raw-gray/sheet-062-right.png\t✓\nSegmenting work/book-v1/inputs/raw-gray/sheet-063-left.png\t✓\nProcessing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 37/37 0:00:00 0:01:20\nWriting recognition results for work/book-v1/inputs/raw-gray/sheet-063-left.png\t✓\nSegmenting work/book-v1/inputs/raw-gray/sheet-063-right.png\t✓\nProcessing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 35/35 0:00:00 0:01:23\nWriting recognition results for work/book-v1/inputs/raw-gray/sheet-063-right.png\t✓\nSegmenting work/book-v1/inputs/raw-gray/sheet-064-left.png\t✓\n",
+      "stderr_tail": ""
+    }
+  ],
+  "ocr_seconds_this_run": 63659.780803200934,
+  "wall_seconds": 127344.59863090515,
+  "system": {
+    "platform": "Linux-7.1.8-arch1-3-x86_64-with-glibc2.44",
+    "python": "3.13.15"
+  }
+}

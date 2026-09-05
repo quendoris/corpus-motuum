@@ -1,0 +1,21 @@
+{
+  "schema": "corpus-motuum-ocr-run-v1",
+  "engine": "tesseract",
+  "engine_version": "tesseract 5.5.3",
+  "model": "orus",
+  "preset": "local-gray-150",
+  "psm": 3,
+  "tessdata_dir": ".cache/tessdata-orus",
+  "input_manifest": "work/book-v1/inputs/manifest.json",
+  "input_manifest_sha256": "a31e835e11834264cbbafe13833c71eea2438d3f025e07ae5d06a2db1d2caaff",
+  "pages_expected": 600,
+  "pages_written_this_run": 600,
+  "pages_resumed": 0,
+  "failures": [],
+  "ocr_seconds_this_run": 1139.3929797569872,
+  "wall_seconds": 1139.5393741130829,
+  "system": {
+    "platform": "Linux-7.1.8-arch1-3-x86_64-with-glibc2.44",
+    "python": "3.14.7"
+  }
+}
