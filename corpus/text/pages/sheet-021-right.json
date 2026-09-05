@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-021-right",
+  "physical_index": 42,
+  "status": "verified",
+  "page_type": "blank",
+  "source_sha256": "b87cbcf305afa2e8ba7c73b791ac4c47e3ad5b2558b24e40540e4b3d4afb2d16",
+  "editorial_batch": "0041-0060",
+  "diplomatic_text": "",
+  "normalized_text": "",
+  "notes": [
+    "Страница не содержит собственного печатного текста; видимый бледный текст является просвечиванием оборотной стороны и не включен в канонический слой."
+  ]
+}

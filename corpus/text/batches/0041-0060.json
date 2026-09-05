@@ -1,0 +1,138 @@
+{
+  "schema": "corpus-motuum-editorial-batch-v1",
+  "range": {
+    "start": 41,
+    "end": 60
+  },
+  "status": "verified",
+  "completed_pages": 20,
+  "editorial_policy": {
+    "diplomatic": "Preserve printed wording, prereform letters, grammatical forms, headings, page references, and meaningful section structure; repair OCR only by checking the source image.",
+    "normalized": "Normalize prereform orthography while preserving the author’s vocabulary, formulations, and archaic grammar where modernization would become rewriting.",
+    "copy_marks": "Library stamps, bleed-through, stains, and other copy-specific marks are recorded in notes, not silently inserted into book text.",
+    "toc_layout": "Decorative dot leaders are omitted; semantic entry-to-page mapping and printed dashes are preserved.",
+    "uncertain_print": "Visible typographic anomalies are preserved and explicitly noted rather than silently corrected."
+  },
+  "pages": [
+    {
+      "id": "sheet-021-left",
+      "physical_index": 41,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-021-left.json"
+    },
+    {
+      "id": "sheet-021-right",
+      "physical_index": 42,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-021-right.json"
+    },
+    {
+      "id": "sheet-022-left",
+      "physical_index": 43,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-022-left.json"
+    },
+    {
+      "id": "sheet-022-right",
+      "physical_index": 44,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-022-right.json"
+    },
+    {
+      "id": "sheet-023-left",
+      "physical_index": 45,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-023-left.json"
+    },
+    {
+      "id": "sheet-023-right",
+      "physical_index": 46,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-023-right.json"
+    },
+    {
+      "id": "sheet-024-left",
+      "physical_index": 47,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-024-left.json"
+    },
+    {
+      "id": "sheet-024-right",
+      "physical_index": 48,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-024-right.json"
+    },
+    {
+      "id": "sheet-025-left",
+      "physical_index": 49,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-025-left.json"
+    },
+    {
+      "id": "sheet-025-right",
+      "physical_index": 50,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-025-right.json"
+    },
+    {
+      "id": "sheet-026-left",
+      "physical_index": 51,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-026-left.json"
+    },
+    {
+      "id": "sheet-026-right",
+      "physical_index": 52,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-026-right.json"
+    },
+    {
+      "id": "sheet-027-left",
+      "physical_index": 53,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-027-left.json"
+    },
+    {
+      "id": "sheet-027-right",
+      "physical_index": 54,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-027-right.json"
+    },
+    {
+      "id": "sheet-028-left",
+      "physical_index": 55,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-028-left.json"
+    },
+    {
+      "id": "sheet-028-right",
+      "physical_index": 56,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-028-right.json"
+    },
+    {
+      "id": "sheet-029-left",
+      "physical_index": 57,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-029-left.json"
+    },
+    {
+      "id": "sheet-029-right",
+      "physical_index": 58,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-029-right.json"
+    },
+    {
+      "id": "sheet-030-left",
+      "physical_index": 59,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-030-left.json"
+    },
+    {
+      "id": "sheet-030-right",
+      "physical_index": 60,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-030-right.json"
+    }
+  ]
+}
