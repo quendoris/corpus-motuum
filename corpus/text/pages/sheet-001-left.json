@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-001-left",
+  "physical_index": 1,
+  "status": "verified",
+  "page_type": "cover",
+  "source_sha256": "05df27f30e483137bc65944b678395febc4b2553f3323a7c5530afbd6222ed05",
+  "editorial_batch": "0001-0020",
+  "diplomatic_text": "",
+  "normalized_text": "",
+  "notes": [
+    "Передняя сторона переплёта; печатного текста нет."
+  ]
+}

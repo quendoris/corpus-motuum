@@ -1,0 +1,15 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-002-left",
+  "physical_index": 3,
+  "status": "verified",
+  "page_type": "half-title",
+  "source_sha256": "8e06a05a1d36bfac8fb71c9e35d169c27517fb983c62a9ce8e15f57e1a0b2df5",
+  "editorial_batch": "0001-0020",
+  "diplomatic_text": "ШКОЛА ГИМНАСТИКИ.",
+  "normalized_text": "ШКОЛА ГИМНАСТИКИ.",
+  "notes": [
+    "Круглый библиотечный штамп «Гос. Публичная Б-ка» относится к экземпляру и не включён в текст книги.",
+    "Сильное просвечивание оборота исключено из транскрипции."
+  ]
+}

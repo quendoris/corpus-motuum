@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-003-right",
+  "physical_index": 6,
+  "status": "verified",
+  "page_type": "censor-note",
+  "source_sha256": "97804427e5ebf57034eb8e0c088db79ca737ebd96cc4db521e041b2e07725d9f",
+  "editorial_batch": "0001-0020",
+  "diplomatic_text": "Рисунки дозволены цензурой. Москва. 9 Августа 1872 г.",
+  "normalized_text": "Рисунки дозволены цензурой. Москва. 9 Августа 1872 г.",
+  "notes": [
+    "Слабое просвечивание титульного листа исключено из транскрипции."
+  ]
+}
