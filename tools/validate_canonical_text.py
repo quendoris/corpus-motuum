@@ -13,7 +13,13 @@ import re
 from pathlib import Path
 
 PREREFORM_GLYPHS = set("ѣѢіІѳѲѵѴ")
-WORD_FINAL_HARD_SIGN = re.compile(r"[А-Яа-яЁё]ъ(?=\b)")
+# A prereform word-final hard sign may be followed by punctuation, whitespace,
+# a newline, or a superscript footnote marker. Do not rely on \b here: Unicode
+# treats some superscript digits as word characters, which can hide forms such
+# as "инженеровъ¹" from a word-boundary based check. Internal modern hard signs
+# (for example in "объяснение") remain valid because another Cyrillic letter
+# follows them.
+WORD_FINAL_HARD_SIGN = re.compile(r"[А-Яа-яЁё][ъЪ](?![А-Яа-яЁё])")
 VALID_STATUSES = {"draft", "reviewed", "verified"}
 
 
