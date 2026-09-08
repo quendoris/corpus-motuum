@@ -1,0 +1,138 @@
+{
+  "schema": "corpus-motuum-editorial-batch-v1",
+  "range": {
+    "start": 301,
+    "end": 320
+  },
+  "status": "verified",
+  "completed_pages": 20,
+  "editorial_policy": {
+    "diplomatic": "Preserve printed wording, prereform letters, grammatical forms, headings, page references, figure captions, footnotes, and meaningful section structure; repair OCR only by checking the source image.",
+    "normalized": "Normalize prereform orthography while preserving the author’s vocabulary, formulations, and archaic grammar where modernization would become rewriting.",
+    "copy_marks": "Library stamps, bleed-through, stains, printer signatures, and other copy/layout-specific marks are recorded in notes when relevant, not silently inserted into body text.",
+    "figures": "Printed figure-number captions are retained as text; figure artwork itself remains in the source image.",
+    "uncertain_print": "Visible typographic anomalies are preserved and explicitly noted rather than silently corrected."
+  },
+  "pages": [
+    {
+      "id": "sheet-151-left",
+      "physical_index": 301,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-151-left.json"
+    },
+    {
+      "id": "sheet-151-right",
+      "physical_index": 302,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-151-right.json"
+    },
+    {
+      "id": "sheet-152-left",
+      "physical_index": 303,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-152-left.json"
+    },
+    {
+      "id": "sheet-152-right",
+      "physical_index": 304,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-152-right.json"
+    },
+    {
+      "id": "sheet-153-left",
+      "physical_index": 305,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-153-left.json"
+    },
+    {
+      "id": "sheet-153-right",
+      "physical_index": 306,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-153-right.json"
+    },
+    {
+      "id": "sheet-154-left",
+      "physical_index": 307,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-154-left.json"
+    },
+    {
+      "id": "sheet-154-right",
+      "physical_index": 308,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-154-right.json"
+    },
+    {
+      "id": "sheet-155-left",
+      "physical_index": 309,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-155-left.json"
+    },
+    {
+      "id": "sheet-155-right",
+      "physical_index": 310,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-155-right.json"
+    },
+    {
+      "id": "sheet-156-left",
+      "physical_index": 311,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-156-left.json"
+    },
+    {
+      "id": "sheet-156-right",
+      "physical_index": 312,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-156-right.json"
+    },
+    {
+      "id": "sheet-157-left",
+      "physical_index": 313,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-157-left.json"
+    },
+    {
+      "id": "sheet-157-right",
+      "physical_index": 314,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-157-right.json"
+    },
+    {
+      "id": "sheet-158-left",
+      "physical_index": 315,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-158-left.json"
+    },
+    {
+      "id": "sheet-158-right",
+      "physical_index": 316,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-158-right.json"
+    },
+    {
+      "id": "sheet-159-left",
+      "physical_index": 317,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-159-left.json"
+    },
+    {
+      "id": "sheet-159-right",
+      "physical_index": 318,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-159-right.json"
+    },
+    {
+      "id": "sheet-160-left",
+      "physical_index": 319,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-160-left.json"
+    },
+    {
+      "id": "sheet-160-right",
+      "physical_index": 320,
+      "status": "verified",
+      "path": "corpus/text/pages/sheet-160-right.json"
+    }
+  ]
+}
