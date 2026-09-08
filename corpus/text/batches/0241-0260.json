@@ -1,0 +1,38 @@
+{
+  "schema": "corpus-motuum-editorial-batch-v1",
+  "range": {
+    "start": 241,
+    "end": 260
+  },
+  "status": "verified",
+  "completed_pages": 20,
+  "editorial_policy": {
+    "diplomatic": "Preserve printed wording, prereform letters, grammatical forms, headings, page references, figure captions, footnotes, and meaningful section structure; repair OCR only by checking the source image.",
+    "normalized": "Normalize prereform orthography while preserving the author’s vocabulary, formulations, and archaic grammar where modernization would become rewriting.",
+    "copy_marks": "Library stamps, bleed-through, stains, and other copy-specific marks are recorded in notes, not silently inserted into book text.",
+    "figures": "Printed figure-number captions are retained as text; figure artwork itself remains in the source image.",
+    "uncertain_print": "Visible typographic anomalies are preserved and explicitly noted rather than silently corrected."
+  },
+  "pages": [
+    {"id":"sheet-121-left","physical_index":241,"status":"verified","path":"corpus/text/pages/sheet-121-left.json"},
+    {"id":"sheet-121-right","physical_index":242,"status":"verified","path":"corpus/text/pages/sheet-121-right.json"},
+    {"id":"sheet-122-left","physical_index":243,"status":"verified","path":"corpus/text/pages/sheet-122-left.json"},
+    {"id":"sheet-122-right","physical_index":244,"status":"verified","path":"corpus/text/pages/sheet-122-right.json"},
+    {"id":"sheet-123-left","physical_index":245,"status":"verified","path":"corpus/text/pages/sheet-123-left.json"},
+    {"id":"sheet-123-right","physical_index":246,"status":"verified","path":"corpus/text/pages/sheet-123-right.json"},
+    {"id":"sheet-124-left","physical_index":247,"status":"verified","path":"corpus/text/pages/sheet-124-left.json"},
+    {"id":"sheet-124-right","physical_index":248,"status":"verified","path":"corpus/text/pages/sheet-124-right.json"},
+    {"id":"sheet-125-left","physical_index":249,"status":"verified","path":"corpus/text/pages/sheet-125-left.json"},
+    {"id":"sheet-125-right","physical_index":250,"status":"verified","path":"corpus/text/pages/sheet-125-right.json"},
+    {"id":"sheet-126-left","physical_index":251,"status":"verified","path":"corpus/text/pages/sheet-126-left.json"},
+    {"id":"sheet-126-right","physical_index":252,"status":"verified","path":"corpus/text/pages/sheet-126-right.json"},
+    {"id":"sheet-127-left","physical_index":253,"status":"verified","path":"corpus/text/pages/sheet-127-left.json"},
+    {"id":"sheet-127-right","physical_index":254,"status":"verified","path":"corpus/text/pages/sheet-127-right.json"},
+    {"id":"sheet-128-left","physical_index":255,"status":"verified","path":"corpus/text/pages/sheet-128-left.json"},
+    {"id":"sheet-128-right","physical_index":256,"status":"verified","path":"corpus/text/pages/sheet-128-right.json"},
+    {"id":"sheet-129-left","physical_index":257,"status":"verified","path":"corpus/text/pages/sheet-129-left.json"},
+    {"id":"sheet-129-right","physical_index":258,"status":"verified","path":"corpus/text/pages/sheet-129-right.json"},
+    {"id":"sheet-130-left","physical_index":259,"status":"verified","path":"corpus/text/pages/sheet-130-left.json"},
+    {"id":"sheet-130-right","physical_index":260,"status":"verified","path":"corpus/text/pages/sheet-130-right.json"}
+  ]
+}
