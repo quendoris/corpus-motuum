@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-263-left",
+  "physical_index": 525,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "6ee181af7383f8101aaafc7aa37247db90c524b63a7bcaadc52680948cdc2c2b",
+  "editorial_batch": "0521-0540",
+  "diplomatic_text": "485\n\n147 ФИГ.",
+  "normalized_text": "485\n\n147 ФИГ.",
+  "notes": [
+    "Страница целиком занята рисунком «147 ФИГ.»; подпись сохранена, изображение остается в исходном скане."
+  ]
+}
