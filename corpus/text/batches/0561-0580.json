@@ -1,0 +1,38 @@
+{
+  "schema": "corpus-motuum-editorial-batch-v1",
+  "range": {
+    "start": 561,
+    "end": 580
+  },
+  "status": "verified",
+  "completed_pages": 20,
+  "editorial_policy": {
+    "diplomatic": "Preserve printed wording, prereform letters, grammatical forms, headings, page references, figure captions, footnotes, and meaningful section structure; repair OCR only by checking the source image.",
+    "normalized": "Normalize prereform orthography while preserving the author’s vocabulary, formulations, and archaic grammar where modernization would become rewriting.",
+    "copy_marks": "Library stamps, bleed-through, stains, printer signatures, and other copy/layout-specific marks are recorded in notes when relevant, not silently inserted into body text.",
+    "figures": "Printed figure-number captions are retained as text; figure artwork itself remains in the source image.",
+    "uncertain_print": "Visible typographic anomalies are preserved and explicitly noted rather than silently corrected."
+  },
+  "pages": [
+    {"id": "sheet-281-left", "physical_index": 561, "status": "verified", "path": "corpus/text/pages/sheet-281-left.json"},
+    {"id": "sheet-281-right", "physical_index": 562, "status": "verified", "path": "corpus/text/pages/sheet-281-right.json"},
+    {"id": "sheet-282-left", "physical_index": 563, "status": "verified", "path": "corpus/text/pages/sheet-282-left.json"},
+    {"id": "sheet-282-right", "physical_index": 564, "status": "verified", "path": "corpus/text/pages/sheet-282-right.json"},
+    {"id": "sheet-283-left", "physical_index": 565, "status": "verified", "path": "corpus/text/pages/sheet-283-left.json"},
+    {"id": "sheet-283-right", "physical_index": 566, "status": "verified", "path": "corpus/text/pages/sheet-283-right.json"},
+    {"id": "sheet-284-left", "physical_index": 567, "status": "verified", "path": "corpus/text/pages/sheet-284-left.json"},
+    {"id": "sheet-284-right", "physical_index": 568, "status": "verified", "path": "corpus/text/pages/sheet-284-right.json"},
+    {"id": "sheet-285-left", "physical_index": 569, "status": "verified", "path": "corpus/text/pages/sheet-285-left.json"},
+    {"id": "sheet-285-right", "physical_index": 570, "status": "verified", "path": "corpus/text/pages/sheet-285-right.json"},
+    {"id": "sheet-286-left", "physical_index": 571, "status": "verified", "path": "corpus/text/pages/sheet-286-left.json"},
+    {"id": "sheet-286-right", "physical_index": 572, "status": "verified", "path": "corpus/text/pages/sheet-286-right.json"},
+    {"id": "sheet-287-left", "physical_index": 573, "status": "verified", "path": "corpus/text/pages/sheet-287-left.json"},
+    {"id": "sheet-287-right", "physical_index": 574, "status": "verified", "path": "corpus/text/pages/sheet-287-right.json"},
+    {"id": "sheet-288-left", "physical_index": 575, "status": "verified", "path": "corpus/text/pages/sheet-288-left.json"},
+    {"id": "sheet-288-right", "physical_index": 576, "status": "verified", "path": "corpus/text/pages/sheet-288-right.json"},
+    {"id": "sheet-289-left", "physical_index": 577, "status": "verified", "path": "corpus/text/pages/sheet-289-left.json"},
+    {"id": "sheet-289-right", "physical_index": 578, "status": "verified", "path": "corpus/text/pages/sheet-289-right.json"},
+    {"id": "sheet-290-left", "physical_index": 579, "status": "verified", "path": "corpus/text/pages/sheet-290-left.json"},
+    {"id": "sheet-290-right", "physical_index": 580, "status": "verified", "path": "corpus/text/pages/sheet-290-right.json"}
+  ]
+}
