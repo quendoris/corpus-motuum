@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-298-left",
+  "physical_index": 595,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "7592feb4dba764529adeb16af14f34e0e8d230da056b3b4b14731fb861fffec0",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "",
+  "normalized_text": "",
+  "notes": [
+    "Лист чертежей между таблицами II и IV; явный номер таблицы на данном скане не читается, поэтому он не добавлен в канонический текст. Графические обозначения и размеры сохранены в исходном скане."
+  ]
+}

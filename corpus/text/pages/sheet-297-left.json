@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-297-left",
+  "physical_index": 593,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "f8267911b41d1bb45619aa5d62ca318af52c9bf65a5c95d54e0cd1747ee229e7",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "Таб. I.",
+  "normalized_text": "Таб. I.",
+  "notes": [
+    "Лист чертежей, таблица I; номера деталей и размеры остаются доступны в исходном скане, без попытки превращать графическую схему в линейный OCR-текст."
+  ]
+}

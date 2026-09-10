@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-300-left",
+  "physical_index": 599,
+  "status": "verified",
+  "page_type": "cover",
+  "source_sha256": "f54559b6728e0efde228191a2266a0fd4479a53eebdee84f5f85a1210ba0bfc5",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "ЦѢНА 3 РУБ. СЕР.",
+  "normalized_text": "ЦЕНА 3 РУБ. СЕР.",
+  "notes": [
+    "Иллюстрированная сторона обложки; крупная печатная цена `ЦѢНА 3 РУБ. СЕР.` сохранена, рисунок остаётся в исходном скане."
+  ]
+}

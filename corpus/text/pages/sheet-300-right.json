@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-300-right",
+  "physical_index": 600,
+  "status": "verified",
+  "page_type": "cover",
+  "source_sha256": "069132eca5e2b8f8858b20c6606951dc0ab4466073c83fbab7fab4b52d96b47f",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "",
+  "normalized_text": "",
+  "notes": [
+    "Задняя сторона переплёта; оригинального печатного текста книги нет. Библиотечная наклейка `ГПБ Русский фонд / 18.191.6.67.` является экземплярной отметкой и не включена в канонический текст."
+  ]
+}
