@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-298-right",
+  "physical_index": 596,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "93f69683f238c127725b2f81fc3f160f853026b2d7626df6c98c11c34f682d63",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "Таб IV.",
+  "normalized_text": "Таб IV.",
+  "notes": [
+    "Лист чертежей, таблица IV; графические обозначения и размеры сохранены в исходном скане."
+  ]
+}

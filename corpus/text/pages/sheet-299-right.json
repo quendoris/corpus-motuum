@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-299-right",
+  "physical_index": 598,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "052712d1424d3701b1728ed880290333725d39f81254091f328c83a41addc046",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "Таб VI",
+  "normalized_text": "Таб VI",
+  "notes": [
+    "Лист чертежей, таблица VI; графические обозначения и размеры сохранены в исходном скане."
+  ]
+}

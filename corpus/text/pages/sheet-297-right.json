@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-297-right",
+  "physical_index": 594,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "f840a29a7e1e84872ebc2aef46b84d5b3753f153383e6e79592dc460c154dd29",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "Табл. II.",
+  "normalized_text": "Табл. II.",
+  "notes": [
+    "Лист чертежей, таблица II; графические обозначения и размеры сохранены в исходном скане."
+  ]
+}

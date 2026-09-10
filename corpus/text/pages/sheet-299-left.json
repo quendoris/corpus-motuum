@@ -1,0 +1,14 @@
+{
+  "schema": "corpus-motuum-text-page-v1",
+  "id": "sheet-299-left",
+  "physical_index": 597,
+  "status": "verified",
+  "page_type": "body",
+  "source_sha256": "89007ab310935af13ed15c95014a55cdb77ed26066ac8cecf55f9021a7e0451c",
+  "editorial_batch": "0581-0600",
+  "diplomatic_text": "Табл V",
+  "normalized_text": "Табл V",
+  "notes": [
+    "Лист чертежей, таблица V; заголовок передан в той форме, в какой он читается на скане, графические обозначения и размеры сохранены в исходном изображении."
+  ]
+}
