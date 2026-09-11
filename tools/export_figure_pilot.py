@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Export a stratified source-page pack for calibrating figure extraction.
 
-The selector uses the already reviewed canonical text only to choose a useful
-pilot set (pages with explicit figure captions plus negative controls). The
-image-segmentation model itself must not depend on those captions.
+The selector uses reviewed canonical text only to choose a useful pilot set:
+pages with explicit figure captions plus caption-negative controls.  Absence of
+an explicit caption is *not* proof that a page contains no illustration.  The
+image-segmentation model itself must not depend on caption identity/count.
 """
 from __future__ import annotations
 
@@ -29,7 +30,7 @@ class Page:
     figure_numbers: tuple[int, ...]
 
     @property
-    def is_positive(self) -> bool:
+    def has_explicit_figure_caption(self) -> bool:
         return bool(self.figure_numbers)
 
 
@@ -89,12 +90,12 @@ def load_pages(text_root: Path, pages_root: Path, source_manifest: Path) -> list
     return sorted(pages, key=lambda p: p.physical_index)
 
 
-def choose_pilot(pages: list[Page], positive_count: int, negative_count: int) -> list[Page]:
-    positives = [p for p in pages if p.is_positive]
-    negatives = [p for p in pages if not p.is_positive]
+def choose_pilot(pages: list[Page], positive_count: int, caption_negative_count: int) -> list[Page]:
+    positives = [p for p in pages if p.has_explicit_figure_caption]
+    caption_negatives = [p for p in pages if not p.has_explicit_figure_caption]
 
     selected_pos = evenly_spaced(positives, positive_count)
-    selected_neg = evenly_spaced(negatives, negative_count)
+    selected_neg = evenly_spaced(caption_negatives, caption_negative_count)
     selected = {p.id: p for p in selected_pos + selected_neg}
     return sorted(selected.values(), key=lambda p: p.physical_index)
 
@@ -105,15 +106,22 @@ def main() -> None:
     ap.add_argument("--pages-root", type=Path, default=Path("work/book-v1/pages"))
     ap.add_argument("--source-manifest", type=Path, default=Path("corpus/source/page-manifest.json"))
     ap.add_argument("--positive-count", type=int, default=24)
-    ap.add_argument("--negative-count", type=int, default=8)
+    ap.add_argument("--caption-negative-count", type=int, default=8)
+    # Compatibility alias for the first pilot command; semantics are caption-negative.
+    ap.add_argument("--negative-count", dest="legacy_negative_count", type=int, default=None, help=argparse.SUPPRESS)
     ap.add_argument("--out", type=Path, default=Path("work/figure-pilot/figure-pilot-v0.tar.gz"))
     args = ap.parse_args()
+
+    caption_negative_count = (
+        args.legacy_negative_count if args.legacy_negative_count is not None
+        else args.caption_negative_count
+    )
 
     pages = load_pages(args.text_root, args.pages_root, args.source_manifest)
     if not pages:
         raise SystemExit(f"no verified canonical pages found under {args.text_root}")
 
-    selected = choose_pilot(pages, args.positive_count, args.negative_count)
+    selected = choose_pilot(pages, args.positive_count, caption_negative_count)
     if not selected:
         raise SystemExit("pilot selection is empty")
 
@@ -151,7 +159,11 @@ def main() -> None:
             records.append({
                 "id": p.id,
                 "physical_index": p.physical_index,
-                "class": "positive" if p.is_positive else "negative-control",
+                "selection_class": (
+                    "explicit-figure-caption"
+                    if p.has_explicit_figure_caption
+                    else "caption-negative-control"
+                ),
                 "figure_numbers_from_canonical_caption": list(p.figure_numbers),
                 "image": str(image_dst.relative_to(root)),
                 "canonical": str(text_dst.relative_to(root)),
@@ -159,13 +171,19 @@ def main() -> None:
             })
 
         manifest = {
-            "schema": "corpus-motuum-figure-pilot-v0",
-            "purpose": "calibration and validation of figure segmentation; captions are selection/QA metadata only",
+            "schema": "corpus-motuum-figure-pilot-v1",
+            "purpose": (
+                "calibration/QA sampling for figure segmentation; caption metadata is selection/QA evidence only "
+                "and caption-negative does not assert figure absence"
+            ),
             "selection": {
                 "positive_strategy": "evenly spaced verified pages with explicit /^N ФИГ.$/ diplomatic captions",
-                "negative_strategy": "evenly spaced verified pages without such captions",
+                "caption_negative_strategy": (
+                    "evenly spaced verified pages without such explicit captions; these are controls for caption absence, "
+                    "not certified figure-free negatives"
+                ),
                 "requested_positive_count": args.positive_count,
-                "requested_negative_count": args.negative_count,
+                "requested_caption_negative_count": caption_negative_count,
             },
             "records": records,
         }
@@ -174,18 +192,22 @@ def main() -> None:
             encoding="utf-8",
         )
         (root / "README.md").write_text(
-            "# Figure extraction pilot v0\n\n"
-            "This pack is for calibrating the image-segmentation model. Canonical text is included only "
-            "to identify figure-caption pages and for QA; it must not drive the segmentation mask.\n",
+            "# Figure extraction pilot\n\n"
+            "This pack is for calibration and QA of image segmentation. Canonical text is included only for "
+            "selection/audit. Pages without an explicit `N ФИГ.` caption are caption-negative controls, not proof "
+            "of figure absence. Caption identity/count must not drive the segmentation mask.\n",
             encoding="utf-8",
         )
 
         with tarfile.open(args.out, "w:gz") as tf:
             tf.add(root, arcname=root.name)
 
-    positives = sum(p.is_positive for p in selected)
-    negatives = len(selected) - positives
-    print(f"Selected pages: {len(selected)} ({positives} positive, {negatives} negative controls)")
+    positives = sum(p.has_explicit_figure_caption for p in selected)
+    caption_negatives = len(selected) - positives
+    print(
+        f"Selected pages: {len(selected)} "
+        f"({positives} explicit-caption, {caption_negatives} caption-negative controls)"
+    )
     print(f"Archive: {args.out}")
 
 
