@@ -1,13 +1,15 @@
 # Figure pilot findings v0
 
-Status: research findings from the first 32-page figure-extraction pilot. These are **not** production guarantees and do not freeze the current numeric parameters.
+> **Superseded research note.** This file records observations from exploratory local passes and is retained only as experimental history. Manual review later showed that the review/export path could split one illustration into several assets, duplicate overlapping regions, render traversed bleed-through/text as figure support, leave justified interior paper transparent, and omit assets through manual review-pack sampling. At the time this note was written, several stages described below were not yet reproducible from the committed `probe_figure_segmentation.py`. Do not treat the QA counts or rendering claims in this document as validation. See `FIGURE_REVIEW_AUDIT_v1.md` and the rebuilt probe for the corrective architecture.
+
+Status: superseded research findings from the first 32-page figure-extraction pilot. Numeric parameters and behavioral claims below are **not** production guarantees.
 
 ## Pilot composition
 
 The exported pilot contains 32 source pages:
 
 - 24 positive pages selected from verified canonical pages with explicit `N ФИГ.` captions;
-- 8 negative controls selected from verified pages without such captions.
+- 8 caption-negative controls selected from verified pages without such captions.
 
 Canonical text is selection/QA metadata only. It is not used to construct segmentation masks.
 
@@ -49,14 +51,17 @@ Therefore an accepted figure cannot be defined by "there exists a seed". Seed fa
 
 Several real figures are visually composed of multiple disconnected or weakly connected seed families. Examples include nested apparatus pieces and a single numbered illustration laid out as vertically separated subparts.
 
-An image-only coalescing rule based on rectangle intersection/nesting and small axis-aligned gaps with strong orthogonal overlap was sufficient to collapse the obvious pilot over-splits without using caption identity as inference input.
+The exploratory coalescing rule based on rectangle intersection/nesting and small axis-aligned gaps was only a pilot heuristic. Manual review later proved that exporting raw seed families before final asset grouping is unacceptable.
 
 The distinction must remain explicit in evaluation:
 
 - pixel/support segmentation;
+- growth ownership;
 - region acceptance;
 - asset grouping/false split;
-- asset separation/false merge.
+- asset separation/false merge;
+- renderable support;
+- interior alpha/fill.
 
 ### 7. Thin typographic rules and scanner borders are important hard negatives
 
@@ -65,43 +70,35 @@ Two particularly useful false-positive families appeared:
 - a thin horizontal footnote/typographic separator, whose large extent can resemble apparatus geometry;
 - a long page-edge line/crop artifact.
 
-The current diagnostic treatment uses context rather than a global "thin lines are not figures" rule:
+The current diagnostic treatment uses context rather than a global "thin lines are not figures" rule. This matters because genuine ropes, poles and ladder rails can also be long and thin.
 
-- page-edge concentration + extreme thinness identifies border artifacts;
-- a thin horizontal line flanked by line-supported text on both sides is treated as a typographic rule candidate.
+## Historical QA result — not validation
 
-This matters because genuine ropes, poles and ladder rails can also be long and thin.
+The exploratory pass once produced:
 
-## Current QA result
+- zero accepted regions on all 8 caption-negative control pages;
+- at least one accepted region on all 24 caption-positive pages;
+- a post-coalescing region count equal to explicit caption count on all 24 positive pilot pages.
 
-After the diagnostic additions above, the current research pass produces:
-
-- zero accepted figure regions on all 8 negative-control pages;
-- at least one accepted region on all 24 positive pages;
-- after image-only coalescing, accepted-region count agrees with the number of explicit figure captions on all 24 positive pilot pages.
-
-This is encouraging but **must not be reported as segmentation accuracy**. Caption count is only a coarse QA signal. It does not measure whether every weak stroke was preserved, whether a few text pixels leaked into a mask, whether the exact boundary is correct, or whether a composite figure should be grouped according to the eventual archival policy.
+Manual visual review later showed that count agreement can coexist with bad assets: split drawings, duplicate overlapping crops, orphan floor strokes, bleed-through text in alpha, transparent interior paper, and omitted review samples. Therefore this count result is retained only as a coarse historical diagnostic and must **not** be reported as segmentation accuracy or asset correctness.
 
 ## Closure/fill experiment
 
-A provisional closure experiment exposed another useful detail. Measuring morphological bridge pixels relative to total foreground area makes ordinary contour thickening look excessively expensive. A more meaningful first normalization is bridge support relative to observed contour length times closing radius, for example
+A provisional closure experiment suggested normalizing artificial bridge support by observed contour scale rather than total foreground area, e.g.
 
 `J_bridge = |A_bridge| / (P(M) · r_close)`.
 
-On the representative pilot figures this produces comparable dimensionless values despite very different drawing area. The final closure cost should still add gap-span/topology terms and be fitted against manual open/closed reference masks; the present threshold is not frozen.
+This remains an uncalibrated research feature. Manual open/closed reference masks are required before any closure threshold is frozen.
 
 ## Rendering experiment
 
-The current preview path:
+The intended rendering invariants remain:
 
-1. keeps the accepted source-region luminance;
-2. optionally desaturates chroma without whitening;
-3. fills only accepted interior regions;
-4. adds a small page-relative outer margin;
-5. feathers only the outer alpha boundary;
-6. composites cleanly on a warm/yellow paper background.
-
-The previews support the original archival goal: figures remain visibly historical rather than becoming redrawn black-on-white clip-art.
+1. observed historical strokes come from source pixels;
+2. source-preserving and publication-clean derivatives are distinct;
+3. justified interior paper is opaque rather than transparent;
+4. only the outer alpha boundary is feathered;
+5. no production claim follows from a visually plausible preview.
 
 ## What is still required before production
 
@@ -109,13 +106,14 @@ The next validation stage needs manual source-coordinate reference annotations. 
 
 - missed weak strokes;
 - ordinary-text intrusion;
+- reverse-side bleed-through suppression versus weak-stroke loss;
 - boundary error;
-- false figure on negative pages;
+- false figure on caption-negative pages;
 - false merge;
 - false split;
 - closure false-fill;
 - page-domain classification.
 
-Calibration and held-out validation pages must be separated before the global dimensionless coefficients are frozen.
+Calibration and held-out validation pages must be separated before global dimensionless coefficients are frozen.
 
-Only after the project-local algorithm survives that process should its reusable core be copied into the `snippets` repository. The snippet architecture is being documented separately now; implementation publication is intentionally deferred until this validation is complete.
+Only after the project-local algorithm survives that process should its reusable core be copied into the `snippets` repository. Failed exploratory behavior has no compatibility status and should not constrain the replacement implementation.
