@@ -12,8 +12,6 @@ import numpy as np
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PROBE = REPO_ROOT / "tools" / "probe_figure_segmentation.py"
-if not PROBE.exists():
-    PROBE = Path("/mnt/data/probe_figure_segmentation_v2_compact.py")
 spec = importlib.util.spec_from_file_location("figure_probe_v2", PROBE)
 probe = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = probe
