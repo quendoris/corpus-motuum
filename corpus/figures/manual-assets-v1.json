@@ -39,9 +39,9 @@
       "asset_index": 1,
       "erase_page_bboxes": [
         [
-          140,
-          575,
-          170,
+          82,
+          584,
+          215,
           604
         ]
       ],
@@ -79,7 +79,7 @@
         0.5,
         0.54,
         0.96,
-        0.94
+        0.88
       ],
       "retain_largest_cluster": true,
       "cluster_radius": 12,
@@ -99,7 +99,7 @@
         0.4,
         0.185,
         0.87,
-        0.44
+        0.405
       ],
       "retain_largest_cluster": true,
       "cluster_radius": 12,
@@ -108,6 +108,44 @@
       "restored": true,
       "reason": "The Russian engraving is buried under severe same-side text and mirrored bleed-through and was missed completely; use the same numbered engraving from the public-domain author edition.",
       "output": "numbered/figure-074.png"
+    },
+    {
+      "id": "figure-075",
+      "label": "75",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-130-left",
+      "physical_index": 259,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          43,
+          680,
+          341,
+          711
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove the detached caption fragment below the ground hatching without touching the engraving.",
+      "output": "numbered/figure-075.png"
+    },
+    {
+      "id": "figure-077",
+      "label": "77",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-131-right",
+      "physical_index": 262,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          76,
+          106,
+          284,
+          124
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove two detached typographic specks above the rope ends.",
+      "output": "numbered/figure-077.png"
     },
     {
       "id": "figure-120",
@@ -156,15 +194,53 @@
       "asset_index": 1,
       "erase_page_bboxes": [
         [
-          320,
+          305,
           24,
-          410,
-          82
+          390,
+          62
         ]
       ],
       "restored": true,
-      "reason": "Remove the printed page number 455 captured above the full-page climbing engraving.",
+      "reason": "Remove the printed page number 485 captured above the full-page climbing engraving.",
       "output": "numbered/figure-147.png"
+    },
+    {
+      "id": "figure-152",
+      "label": "152",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-272-left",
+      "physical_index": 543,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          0,
+          578,
+          18,
+          1072
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove the unrelated page-edge stroke captured along the left side.",
+      "output": "numbered/figure-152.png"
+    },
+    {
+      "id": "figure-155",
+      "label": "155",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-273-right",
+      "physical_index": 546,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          95,
+          112,
+          130,
+          160
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove the isolated printed numeral fragment above the left arm.",
+      "output": "numbered/figure-155.png"
     }
   ],
   "atlas": [
@@ -290,11 +366,11 @@
         0.9
       ],
       "retain_largest_cluster": true,
-      "cluster_radius": 6,
-      "ink_threshold": 38,
-      "min_component_area": 12,
+      "cluster_radius": 3,
+      "ink_threshold": 55,
+      "min_component_area": 18,
       "output": "paratext/cover-title-illustration.png",
-      "reason": "Extract the Russian-edition climbers-and-tree title illustration, excluding adjacent title typography and suppressing disconnected paper grain."
+      "reason": "Extract the Russian-edition climbers-and-tree title illustration, excluding adjacent title typography and suppressing disconnected paper grain while retaining the connected engraving."
     }
   ]
 }
