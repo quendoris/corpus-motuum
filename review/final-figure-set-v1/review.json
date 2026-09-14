@@ -1,11 +1,11 @@
 {
   "schema": "corpus-motuum-final-figure-review-v1",
   "source_manifest": "work/figure-final-v1/manifest.json",
-  "source_manifest_sha256": "7a2e9ff221bbce30852a946fba39eebed0dd50c10dd51342f607091b0cad22b4",
+  "source_manifest_sha256": "c032fdb8507b4150bf6518621302a2d8ee4a8755ee07c7d769496dd04ad47a17",
   "summary": {
     "numbered": 158,
-    "restored": 18,
-    "manual_numbered": 14,
+    "restored": 22,
+    "manual_numbered": 18,
     "atlas": 6,
     "paratext": 4,
     "numbered_contact_sheets": 10
@@ -620,20 +620,20 @@
       {
         "label": "32",
         "path": "work/figure-final-v1/numbered/figure-032.png",
-        "sha256": "acfcdd838b5803d85ab4a0a54ffa452faba719c1918304ef676b0477aba4a805",
+        "sha256": "f00be47855465018abc6a46be3701b5fe152e4449176d06929eda78ce52c984a",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           133,
-          396
+          380
         ],
         "alpha": {
-          "transparent_pixels": 19628,
-          "opaque_pixels": 29306,
-          "soft_edge_pixels": 3734,
-          "total_pixels": 52668
+          "transparent_pixels": 17875,
+          "opaque_pixels": 29258,
+          "soft_edge_pixels": 3407,
+          "total_pixels": 50540
         }
       },
       {
@@ -1324,20 +1324,20 @@
       {
         "label": "71",
         "path": "work/figure-final-v1/numbered/figure-071.png",
-        "sha256": "777d6234674d856e2ff517821661f3a358c051850e57957d4e3aaec0792872fe",
+        "sha256": "8230d551c59d5e8c8ce66623256c3b91b5d663dc5c24c4b100c5d93a477b1c61",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           441,
-          701
+          636
         ],
         "alpha": {
-          "transparent_pixels": 204716,
-          "opaque_pixels": 95662,
-          "soft_edge_pixels": 8763,
-          "total_pixels": 309141
+          "transparent_pixels": 178363,
+          "opaque_pixels": 94239,
+          "soft_edge_pixels": 7874,
+          "total_pixels": 280476
         }
       },
       {
@@ -1379,38 +1379,39 @@
       {
         "label": "74",
         "path": "work/figure-final-v1/numbered/figure-074.png",
-        "sha256": "41c72a763e8919e3d9d577cfe80b97489cdd6f2497b572e09629a0809faf54d6",
+        "sha256": "b69959adc89d6f4e161a189bc475ef82df2c514d5342784f037822478b407b26",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           563,
-          459
+          395
         ],
         "alpha": {
-          "transparent_pixels": 181302,
-          "opaque_pixels": 69377,
-          "soft_edge_pixels": 7738,
-          "total_pixels": 258417
+          "transparent_pixels": 159032,
+          "opaque_pixels": 53604,
+          "soft_edge_pixels": 9749,
+          "total_pixels": 222385
         }
       },
       {
         "label": "75",
         "path": "work/figure-final-v1/numbered/figure-075.png",
-        "sha256": "868acf77a8c2fa27b3175b5dd0606de1436015d5a54f71a9afe509d8c8cdfed1",
+        "sha256": "3662a33e7b86d2cf3671dab5304d799c062bb405421e6c1585f45630729781a1",
         "classes": [
-          "automatic"
+          "manual",
+          "restored"
         ],
         "geometry": [
           298,
-          388
+          361
         ],
         "alpha": {
-          "transparent_pixels": 80501,
-          "opaque_pixels": 29217,
-          "soft_edge_pixels": 5906,
-          "total_pixels": 115624
+          "transparent_pixels": 73548,
+          "opaque_pixels": 28769,
+          "soft_edge_pixels": 5261,
+          "total_pixels": 107578
         }
       },
       {
@@ -1434,19 +1435,20 @@
       {
         "label": "77",
         "path": "work/figure-final-v1/numbered/figure-077.png",
-        "sha256": "5a85529ed2ea9bf65b4cd2c822bca6344483014c72418f6d8b96efc2241e2cea",
+        "sha256": "6f45e56f27ccebbbe1677eafd2cd9bef9b2d31df9142d370e8803821897a8b35",
         "classes": [
-          "automatic"
+          "manual",
+          "restored"
         ],
         "geometry": [
           208,
-          393
+          379
         ],
         "alpha": {
-          "transparent_pixels": 53390,
-          "opaque_pixels": 24279,
-          "soft_edge_pixels": 4075,
-          "total_pixels": 81744
+          "transparent_pixels": 50972,
+          "opaque_pixels": 24006,
+          "soft_edge_pixels": 3854,
+          "total_pixels": 78832
         }
       },
       {
@@ -2805,19 +2807,20 @@
       {
         "label": "152",
         "path": "work/figure-final-v1/numbered/figure-152.png",
-        "sha256": "f240af47496c48a2bae71c2755708959610f4265fc34ba23d8092d9e19d2d61b",
+        "sha256": "d6f18464b25ac77475f7caedc21099bb051e95a16f86e07d97e3e5a1fe1df480",
         "classes": [
-          "automatic"
+          "manual",
+          "restored"
         ],
         "geometry": [
-          185,
-          494
+          155,
+          469
         ],
         "alpha": {
-          "transparent_pixels": 48166,
-          "opaque_pixels": 36573,
-          "soft_edge_pixels": 6651,
-          "total_pixels": 91390
+          "transparent_pixels": 32111,
+          "opaque_pixels": 34819,
+          "soft_edge_pixels": 5765,
+          "total_pixels": 72695
         }
       },
       {
@@ -2859,18 +2862,19 @@
       {
         "label": "155",
         "path": "work/figure-final-v1/numbered/figure-155.png",
-        "sha256": "eabce5560f9085f79f23cfbf27668cc2dbe00d21cea6a813a75ffde7358c2ae7",
+        "sha256": "827915ca00eb0009ccacf8f0badbea76c2dc0046819ea3c9bb77d7e0931c0aea",
         "classes": [
-          "automatic"
+          "manual",
+          "restored"
         ],
         "geometry": [
           316,
           364
         ],
         "alpha": {
-          "transparent_pixels": 71052,
-          "opaque_pixels": 31359,
-          "soft_edge_pixels": 12613,
+          "transparent_pixels": 71844,
+          "opaque_pixels": 30983,
+          "soft_edge_pixels": 12197,
           "total_pixels": 115024
         }
       },
@@ -2916,20 +2920,20 @@
       {
         "label": "32",
         "path": "work/figure-final-v1/numbered/figure-032.png",
-        "sha256": "acfcdd838b5803d85ab4a0a54ffa452faba719c1918304ef676b0477aba4a805",
+        "sha256": "f00be47855465018abc6a46be3701b5fe152e4449176d06929eda78ce52c984a",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           133,
-          396
+          380
         ],
         "alpha": {
-          "transparent_pixels": 19628,
-          "opaque_pixels": 29306,
-          "soft_edge_pixels": 3734,
-          "total_pixels": 52668
+          "transparent_pixels": 17875,
+          "opaque_pixels": 29258,
+          "soft_edge_pixels": 3407,
+          "total_pixels": 50540
         }
       },
       {
@@ -3134,39 +3138,77 @@
       {
         "label": "71",
         "path": "work/figure-final-v1/numbered/figure-071.png",
-        "sha256": "777d6234674d856e2ff517821661f3a358c051850e57957d4e3aaec0792872fe",
+        "sha256": "8230d551c59d5e8c8ce66623256c3b91b5d663dc5c24c4b100c5d93a477b1c61",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           441,
-          701
+          636
         ],
         "alpha": {
-          "transparent_pixels": 204716,
-          "opaque_pixels": 95662,
-          "soft_edge_pixels": 8763,
-          "total_pixels": 309141
+          "transparent_pixels": 178363,
+          "opaque_pixels": 94239,
+          "soft_edge_pixels": 7874,
+          "total_pixels": 280476
         }
       },
       {
         "label": "74",
         "path": "work/figure-final-v1/numbered/figure-074.png",
-        "sha256": "41c72a763e8919e3d9d577cfe80b97489cdd6f2497b572e09629a0809faf54d6",
+        "sha256": "b69959adc89d6f4e161a189bc475ef82df2c514d5342784f037822478b407b26",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           563,
-          459
+          395
         ],
         "alpha": {
-          "transparent_pixels": 181302,
-          "opaque_pixels": 69377,
-          "soft_edge_pixels": 7738,
-          "total_pixels": 258417
+          "transparent_pixels": 159032,
+          "opaque_pixels": 53604,
+          "soft_edge_pixels": 9749,
+          "total_pixels": 222385
+        }
+      },
+      {
+        "label": "75",
+        "path": "work/figure-final-v1/numbered/figure-075.png",
+        "sha256": "3662a33e7b86d2cf3671dab5304d799c062bb405421e6c1585f45630729781a1",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          298,
+          361
+        ],
+        "alpha": {
+          "transparent_pixels": 73548,
+          "opaque_pixels": 28769,
+          "soft_edge_pixels": 5261,
+          "total_pixels": 107578
+        }
+      },
+      {
+        "label": "77",
+        "path": "work/figure-final-v1/numbered/figure-077.png",
+        "sha256": "6f45e56f27ccebbbe1677eafd2cd9bef9b2d31df9142d370e8803821897a8b35",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          208,
+          379
+        ],
+        "alpha": {
+          "transparent_pixels": 50972,
+          "opaque_pixels": 24006,
+          "soft_edge_pixels": 3854,
+          "total_pixels": 78832
         }
       },
       {
@@ -3225,6 +3267,44 @@
           "soft_edge_pixels": 34287,
           "total_pixels": 581714
         }
+      },
+      {
+        "label": "152",
+        "path": "work/figure-final-v1/numbered/figure-152.png",
+        "sha256": "d6f18464b25ac77475f7caedc21099bb051e95a16f86e07d97e3e5a1fe1df480",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          155,
+          469
+        ],
+        "alpha": {
+          "transparent_pixels": 32111,
+          "opaque_pixels": 34819,
+          "soft_edge_pixels": 5765,
+          "total_pixels": 72695
+        }
+      },
+      {
+        "label": "155",
+        "path": "work/figure-final-v1/numbered/figure-155.png",
+        "sha256": "827915ca00eb0009ccacf8f0badbea76c2dc0046819ea3c9bb77d7e0931c0aea",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          316,
+          364
+        ],
+        "alpha": {
+          "transparent_pixels": 71844,
+          "opaque_pixels": 30983,
+          "soft_edge_pixels": 12197,
+          "total_pixels": 115024
+        }
       }
     ],
     "manual": [
@@ -3250,20 +3330,20 @@
       {
         "label": "32",
         "path": "work/figure-final-v1/numbered/figure-032.png",
-        "sha256": "acfcdd838b5803d85ab4a0a54ffa452faba719c1918304ef676b0477aba4a805",
+        "sha256": "f00be47855465018abc6a46be3701b5fe152e4449176d06929eda78ce52c984a",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           133,
-          396
+          380
         ],
         "alpha": {
-          "transparent_pixels": 19628,
-          "opaque_pixels": 29306,
-          "soft_edge_pixels": 3734,
-          "total_pixels": 52668
+          "transparent_pixels": 17875,
+          "opaque_pixels": 29258,
+          "soft_edge_pixels": 3407,
+          "total_pixels": 50540
         }
       },
       {
@@ -3324,39 +3404,77 @@
       {
         "label": "71",
         "path": "work/figure-final-v1/numbered/figure-071.png",
-        "sha256": "777d6234674d856e2ff517821661f3a358c051850e57957d4e3aaec0792872fe",
+        "sha256": "8230d551c59d5e8c8ce66623256c3b91b5d663dc5c24c4b100c5d93a477b1c61",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           441,
-          701
+          636
         ],
         "alpha": {
-          "transparent_pixels": 204716,
-          "opaque_pixels": 95662,
-          "soft_edge_pixels": 8763,
-          "total_pixels": 309141
+          "transparent_pixels": 178363,
+          "opaque_pixels": 94239,
+          "soft_edge_pixels": 7874,
+          "total_pixels": 280476
         }
       },
       {
         "label": "74",
         "path": "work/figure-final-v1/numbered/figure-074.png",
-        "sha256": "41c72a763e8919e3d9d577cfe80b97489cdd6f2497b572e09629a0809faf54d6",
+        "sha256": "b69959adc89d6f4e161a189bc475ef82df2c514d5342784f037822478b407b26",
         "classes": [
           "manual",
           "restored"
         ],
         "geometry": [
           563,
-          459
+          395
         ],
         "alpha": {
-          "transparent_pixels": 181302,
-          "opaque_pixels": 69377,
-          "soft_edge_pixels": 7738,
-          "total_pixels": 258417
+          "transparent_pixels": 159032,
+          "opaque_pixels": 53604,
+          "soft_edge_pixels": 9749,
+          "total_pixels": 222385
+        }
+      },
+      {
+        "label": "75",
+        "path": "work/figure-final-v1/numbered/figure-075.png",
+        "sha256": "3662a33e7b86d2cf3671dab5304d799c062bb405421e6c1585f45630729781a1",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          298,
+          361
+        ],
+        "alpha": {
+          "transparent_pixels": 73548,
+          "opaque_pixels": 28769,
+          "soft_edge_pixels": 5261,
+          "total_pixels": 107578
+        }
+      },
+      {
+        "label": "77",
+        "path": "work/figure-final-v1/numbered/figure-077.png",
+        "sha256": "6f45e56f27ccebbbe1677eafd2cd9bef9b2d31df9142d370e8803821897a8b35",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          208,
+          379
+        ],
+        "alpha": {
+          "transparent_pixels": 50972,
+          "opaque_pixels": 24006,
+          "soft_edge_pixels": 3854,
+          "total_pixels": 78832
         }
       },
       {
@@ -3487,6 +3605,44 @@
           "soft_edge_pixels": 34287,
           "total_pixels": 581714
         }
+      },
+      {
+        "label": "152",
+        "path": "work/figure-final-v1/numbered/figure-152.png",
+        "sha256": "d6f18464b25ac77475f7caedc21099bb051e95a16f86e07d97e3e5a1fe1df480",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          155,
+          469
+        ],
+        "alpha": {
+          "transparent_pixels": 32111,
+          "opaque_pixels": 34819,
+          "soft_edge_pixels": 5765,
+          "total_pixels": 72695
+        }
+      },
+      {
+        "label": "155",
+        "path": "work/figure-final-v1/numbered/figure-155.png",
+        "sha256": "827915ca00eb0009ccacf8f0badbea76c2dc0046819ea3c9bb77d7e0931c0aea",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          316,
+          364
+        ],
+        "alpha": {
+          "transparent_pixels": 71844,
+          "opaque_pixels": 30983,
+          "soft_edge_pixels": 12197,
+          "total_pixels": 115024
+        }
       }
     ],
     "atlas": [
@@ -3585,16 +3741,16 @@
       {
         "id": "cover-title-illustration",
         "path": "work/figure-final-v1/paratext/cover-title-illustration.png",
-        "sha256": "ba50d6298a79855c8b5a2f8ef1099578ca7b8d888e395783b1c88985ede8b191",
+        "sha256": "4ba56d010e5b707c72b1b34a8be7235ade80d9631dcbe4ddd3d4fc199d25a412",
         "geometry": [
-          693,
-          1724
+          668,
+          1675
         ],
         "alpha": {
-          "transparent_pixels": 105255,
-          "opaque_pixels": 884728,
-          "soft_edge_pixels": 204749,
-          "total_pixels": 1194732
+          "transparent_pixels": 836450,
+          "opaque_pixels": 214497,
+          "soft_edge_pixels": 67953,
+          "total_pixels": 1118900
         }
       },
       {
