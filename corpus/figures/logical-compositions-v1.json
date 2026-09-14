@@ -1,0 +1,20 @@
+{
+  "schema": "corpus-motuum-logical-compositions-v1",
+  "principle": "A detector crop is physical evidence, not necessarily a logical illustration. Composite layouts preserve recorded source-page coordinates and never rewrite the immutable probe output.",
+  "compositions": [
+    {
+      "id": "figure-129",
+      "figure_labels": ["129"],
+      "page_id": "sheet-228-left",
+      "physical_index": 455,
+      "asset_indices": [1, 2],
+      "derivative": "clean",
+      "layout": "source-coordinates",
+      "background": "white",
+      "padding": 0,
+      "output": "numbered/figs-129__p0455__sheet-228-left__composite.png",
+      "status": "ok_composite",
+      "detail": "Figure 129 is printed as two vertically separated regions. Preserve their original x alignment and 12 px page-coordinate gap in one logical file."
+    }
+  ]
+}

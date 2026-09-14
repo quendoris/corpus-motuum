@@ -19,6 +19,51 @@ The 166 excluded detections are dominated by display typography, footnote/sectio
 
 The numbered count is deliberately a **crop count**, not yet the final logical illustration count. Editorial evidence contains numbered figures `1..156` plus two distinct `bis` captions (`28 bis` and `87 bis`), so the current working logical target is **158 numbered illustrations**. The cleaned detector set has 157 crops because known split/merge/miss cases do not cancel perfectly.
 
+## Logical compositions
+
+Physical detector crops remain unchanged in `work/figure-review-v1`. A separate,
+versioned layout manifest records cases where several crops belong to one
+logical illustration:
+
+```text
+corpus/figures/logical-compositions-v1.json
+```
+
+Render all declared compositions with:
+
+```bash
+python tools/compose_figure_assets.py batch
+```
+
+Default output:
+
+```text
+work/figure-logical-v1/
+├── numbered/
+│   └── figs-129__p0455__sheet-228-left__composite.png
+└── compositions-manifest.json
+```
+
+The compositor reads each crop bbox and SHA-256 from the page metrics. It checks
+the crop dimensions and hash, creates the union bbox, and places every part at
+its exact source-page offset without resizing. Consequently figure 129 keeps
+the original horizontal alignment and the 12-pixel vertical gap between
+`asset-01` and `asset-02`; the white area between them is deliberate page
+geometry rather than guessed spacing.
+
+For an ad-hoc composition outside the committed batch manifest:
+
+```bash
+python tools/compose_figure_assets.py one \
+  work/figure-structure-full-v2/sheet-228-left.metrics.json \
+  --assets 1 2 \
+  --out work/figure-logical-v1/numbered/figure-129.png
+```
+
+This also writes `figure-129.provenance.json`. Use `--background transparent`
+only when a transparent union canvas is explicitly required; the committed
+figure 129 layout uses an opaque white canvas.
+
 ## Known structural cases before manual review
 
 - `sheet-076-right`: figures 35 and 36 are merged into one crop.
