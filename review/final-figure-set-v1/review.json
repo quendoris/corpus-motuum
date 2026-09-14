@@ -1,0 +1,3568 @@
+{
+  "schema": "corpus-motuum-final-figure-review-v1",
+  "source_manifest": "work/figure-final-v1/manifest.json",
+  "source_manifest_sha256": "9941780adb6e1e2069ba9bc9e2a5c5ebd69a65ee9cd1f92d3a97a82e4a336bc2",
+  "summary": {
+    "numbered": 158,
+    "restored": 16,
+    "manual_numbered": 12,
+    "atlas": 6,
+    "paratext": 4,
+    "numbered_contact_sheets": 10
+  },
+  "contact_sheets": {
+    "numbered": [
+      "review/final-figure-set-v1/numbered/numbered-01.jpg",
+      "review/final-figure-set-v1/numbered/numbered-02.jpg",
+      "review/final-figure-set-v1/numbered/numbered-03.jpg",
+      "review/final-figure-set-v1/numbered/numbered-04.jpg",
+      "review/final-figure-set-v1/numbered/numbered-05.jpg",
+      "review/final-figure-set-v1/numbered/numbered-06.jpg",
+      "review/final-figure-set-v1/numbered/numbered-07.jpg",
+      "review/final-figure-set-v1/numbered/numbered-08.jpg",
+      "review/final-figure-set-v1/numbered/numbered-09.jpg",
+      "review/final-figure-set-v1/numbered/numbered-10.jpg"
+    ],
+    "restored_white_black": [
+      "review/final-figure-set-v1/restored/restored-01.jpg",
+      "review/final-figure-set-v1/restored/restored-02.jpg"
+    ],
+    "manual_white_black": [
+      "review/final-figure-set-v1/manual/manual-01.jpg"
+    ],
+    "atlas_white_black": [
+      "review/final-figure-set-v1/atlas/atlas-01.jpg"
+    ],
+    "paratext_white_black": [
+      "review/final-figure-set-v1/paratext/paratext-01.jpg"
+    ]
+  },
+  "checks": {
+    "numbered": [
+      {
+        "label": "1",
+        "path": "work/figure-final-v1/numbered/figure-001.png",
+        "sha256": "fa75667f9552b93fc19bd04b4366ffc89b234b1bce17e73d46833940ecac90a1",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          186,
+          363
+        ],
+        "alpha": {
+          "transparent_pixels": 37440,
+          "opaque_pixels": 25432,
+          "soft_edge_pixels": 4646,
+          "total_pixels": 67518
+        }
+      },
+      {
+        "label": "2",
+        "path": "work/figure-final-v1/numbered/figure-002.png",
+        "sha256": "1ef3f2d02bbb960eccd3c43580fd3af369fd030d28b89cb1a1f400ec3992ee65",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          268,
+          343
+        ],
+        "alpha": {
+          "transparent_pixels": 55303,
+          "opaque_pixels": 30652,
+          "soft_edge_pixels": 5969,
+          "total_pixels": 91924
+        }
+      },
+      {
+        "label": "3",
+        "path": "work/figure-final-v1/numbered/figure-003.png",
+        "sha256": "326018148f1eb946c1f2c6023bc01142a1f53c3ae5b0108fc70ad3f3c640522a",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          299,
+          224
+        ],
+        "alpha": {
+          "transparent_pixels": 32618,
+          "opaque_pixels": 29175,
+          "soft_edge_pixels": 5183,
+          "total_pixels": 66976
+        }
+      },
+      {
+        "label": "4",
+        "path": "work/figure-final-v1/numbered/figure-004.png",
+        "sha256": "a6caa5287bbf1ae6c67d04907cd67a514077e4b5cc1a13d1740316374e008980",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          299,
+          373
+        ],
+        "alpha": {
+          "transparent_pixels": 57697,
+          "opaque_pixels": 46170,
+          "soft_edge_pixels": 7660,
+          "total_pixels": 111527
+        }
+      },
+      {
+        "label": "5",
+        "path": "work/figure-final-v1/numbered/figure-005.png",
+        "sha256": "d4debb78ff224f060d5d5a16875c7bc3c22220c2ce91f6d30a688d21df77b057",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          407,
+          148
+        ],
+        "alpha": {
+          "transparent_pixels": 26792,
+          "opaque_pixels": 30123,
+          "soft_edge_pixels": 3321,
+          "total_pixels": 60236
+        }
+      },
+      {
+        "label": "6",
+        "path": "work/figure-final-v1/numbered/figure-006.png",
+        "sha256": "37f3d963217f603f5c6653104eb7b02f25b76d53889e311b7ceb9ff8ee9156b5",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          298,
+          219
+        ],
+        "alpha": {
+          "transparent_pixels": 37701,
+          "opaque_pixels": 23968,
+          "soft_edge_pixels": 3593,
+          "total_pixels": 65262
+        }
+      },
+      {
+        "label": "7",
+        "path": "work/figure-final-v1/numbered/figure-007.png",
+        "sha256": "aab7dbfd16f49a82fed8988662aa7252befa7a04f06098a8d15a4498cb6eae99",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          389,
+          126
+        ],
+        "alpha": {
+          "transparent_pixels": 11862,
+          "opaque_pixels": 31334,
+          "soft_edge_pixels": 5818,
+          "total_pixels": 49014
+        }
+      },
+      {
+        "label": "8",
+        "path": "work/figure-final-v1/numbered/figure-008.png",
+        "sha256": "6e87b767980c7022268314293cca3b5ed0e8d482739a88be738f8844cc44194b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          226,
+          257
+        ],
+        "alpha": {
+          "transparent_pixels": 30837,
+          "opaque_pixels": 23138,
+          "soft_edge_pixels": 4107,
+          "total_pixels": 58082
+        }
+      },
+      {
+        "label": "9",
+        "path": "work/figure-final-v1/numbered/figure-009.png",
+        "sha256": "5c81e23833e004a4b2b1fb7622c753cf931217c14559982609d7ad7c079d158f",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          270,
+          275
+        ],
+        "alpha": {
+          "transparent_pixels": 46089,
+          "opaque_pixels": 23559,
+          "soft_edge_pixels": 4602,
+          "total_pixels": 74250
+        }
+      },
+      {
+        "label": "10",
+        "path": "work/figure-final-v1/numbered/figure-010.png",
+        "sha256": "076d26c74deb7f0bd879063ada80030d15c90d85d8f29fc046b49e8e250aedec",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          287,
+          279
+        ],
+        "alpha": {
+          "transparent_pixels": 48342,
+          "opaque_pixels": 26116,
+          "soft_edge_pixels": 5615,
+          "total_pixels": 80073
+        }
+      },
+      {
+        "label": "11",
+        "path": "work/figure-final-v1/numbered/figure-011.png",
+        "sha256": "68fc9b370e77755e0de1278ff4ae7417dd485156d63c214a4ccec4888c15822e",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          219,
+          340
+        ],
+        "alpha": {
+          "transparent_pixels": 41024,
+          "opaque_pixels": 29863,
+          "soft_edge_pixels": 3573,
+          "total_pixels": 74460
+        }
+      },
+      {
+        "label": "12",
+        "path": "work/figure-final-v1/numbered/figure-012.png",
+        "sha256": "1078127c842091ff6f278b17f24adc716dd5d1aab06f00e5cf3806b036d04c57",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          206,
+          346
+        ],
+        "alpha": {
+          "transparent_pixels": 35152,
+          "opaque_pixels": 32786,
+          "soft_edge_pixels": 3338,
+          "total_pixels": 71276
+        }
+      },
+      {
+        "label": "13",
+        "path": "work/figure-final-v1/numbered/figure-013.png",
+        "sha256": "e254f53d2cc93d1446ae56cd2a45aafb01d6c5e7edcd21e842be930e5dec5029",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          550,
+          300
+        ],
+        "alpha": {
+          "transparent_pixels": 64901,
+          "opaque_pixels": 94627,
+          "soft_edge_pixels": 5472,
+          "total_pixels": 165000
+        }
+      },
+      {
+        "label": "14",
+        "path": "work/figure-final-v1/numbered/figure-014.png",
+        "sha256": "7a1457554da36fa6fa767a4491a491638fa761bb3fd93f9acba26b64c0acb349",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          512,
+          290
+        ],
+        "alpha": {
+          "transparent_pixels": 46677,
+          "opaque_pixels": 96362,
+          "soft_edge_pixels": 5441,
+          "total_pixels": 148480
+        }
+      },
+      {
+        "label": "15",
+        "path": "work/figure-final-v1/numbered/figure-015.png",
+        "sha256": "e2555bcdd4b47aa98d4fdad8ba722a19564933d679e9ca795034f414159159ae",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          407,
+          262
+        ],
+        "alpha": {
+          "transparent_pixels": 37162,
+          "opaque_pixels": 64725,
+          "soft_edge_pixels": 4747,
+          "total_pixels": 106634
+        }
+      },
+      {
+        "label": "16",
+        "path": "work/figure-final-v1/numbered/figure-016.png",
+        "sha256": "b64a25bb709c4d2983a1aa2ab9282df0f9cb400da49f26a9b37aab01a730306d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          501,
+          327
+        ],
+        "alpha": {
+          "transparent_pixels": 64483,
+          "opaque_pixels": 92242,
+          "soft_edge_pixels": 7102,
+          "total_pixels": 163827
+        }
+      },
+      {
+        "label": "17",
+        "path": "work/figure-final-v1/numbered/figure-017.png",
+        "sha256": "a0ea51919b68dfd7928539b48190239868cb47ce1d88d3e042eda12102e12683",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          550,
+          307
+        ],
+        "alpha": {
+          "transparent_pixels": 45637,
+          "opaque_pixels": 116094,
+          "soft_edge_pixels": 7119,
+          "total_pixels": 168850
+        }
+      },
+      {
+        "label": "18",
+        "path": "work/figure-final-v1/numbered/figure-018.png",
+        "sha256": "66c5a3ba1db9f3beddbcc9500acc93fa5dbf6ece1deebfaafd33b9e5000f6f2b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          563,
+          195
+        ],
+        "alpha": {
+          "transparent_pixels": 41804,
+          "opaque_pixels": 63156,
+          "soft_edge_pixels": 4825,
+          "total_pixels": 109785
+        }
+      },
+      {
+        "label": "19",
+        "path": "work/figure-final-v1/numbered/figure-019.png",
+        "sha256": "28a6f3daa8318981b861b24b349139fe524cd8da0ae285ca84b4ae8f3e5a5fca",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          190,
+          439
+        ],
+        "alpha": {
+          "transparent_pixels": 37753,
+          "opaque_pixels": 40607,
+          "soft_edge_pixels": 5050,
+          "total_pixels": 83410
+        }
+      },
+      {
+        "label": "20",
+        "path": "work/figure-final-v1/numbered/figure-020.png",
+        "sha256": "ca567423720029846aa832b41aad3c36d37b9fa4487698ab497c35595908b990",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          206,
+          418
+        ],
+        "alpha": {
+          "transparent_pixels": 39396,
+          "opaque_pixels": 41981,
+          "soft_edge_pixels": 4731,
+          "total_pixels": 86108
+        }
+      },
+      {
+        "label": "21",
+        "path": "work/figure-final-v1/numbered/figure-021.png",
+        "sha256": "2bcea7439f56197c4b0d069644648600b7a7c02ca245a6389c1ccacbdb53a112",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          175,
+          377
+        ],
+        "alpha": {
+          "transparent_pixels": 29569,
+          "opaque_pixels": 32523,
+          "soft_edge_pixels": 3883,
+          "total_pixels": 65975
+        }
+      },
+      {
+        "label": "22",
+        "path": "work/figure-final-v1/numbered/figure-022.png",
+        "sha256": "7a0c38be55050f105bb698fbdf4e31ca7435f9e29a8df435dfab9d6c7f8efe17",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          174,
+          357
+        ],
+        "alpha": {
+          "transparent_pixels": 35608,
+          "opaque_pixels": 21801,
+          "soft_edge_pixels": 4709,
+          "total_pixels": 62118
+        }
+      },
+      {
+        "label": "23",
+        "path": "work/figure-final-v1/numbered/figure-023.png",
+        "sha256": "62cc69eb54be32e0a1b8f1ab580bbe822321a3d9d08f5d734597a25c2fe36d3c",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          356,
+          392
+        ],
+        "alpha": {
+          "transparent_pixels": 97048,
+          "opaque_pixels": 36510,
+          "soft_edge_pixels": 5994,
+          "total_pixels": 139552
+        }
+      },
+      {
+        "label": "24",
+        "path": "work/figure-final-v1/numbered/figure-024.png",
+        "sha256": "3a11bc3306ffc87e862ad90d5470942be6c2b1ca733dcf3c52092685b021c269",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          229,
+          413
+        ],
+        "alpha": {
+          "transparent_pixels": 51877,
+          "opaque_pixels": 37752,
+          "soft_edge_pixels": 4948,
+          "total_pixels": 94577
+        }
+      },
+      {
+        "label": "25",
+        "path": "work/figure-final-v1/numbered/figure-025.png",
+        "sha256": "3de8c07507c55b2b639e0c884377f2998012dafebbf4303a294bec0a3a436a6d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          348,
+          368
+        ],
+        "alpha": {
+          "transparent_pixels": 78091,
+          "opaque_pixels": 42250,
+          "soft_edge_pixels": 7723,
+          "total_pixels": 128064
+        }
+      },
+      {
+        "label": "26",
+        "path": "work/figure-final-v1/numbered/figure-026.png",
+        "sha256": "1c4dd424e66b7cf2ddd4b63bd2c72ae8c05503e0c8dad8425c2609acc1105808",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          180,
+          472
+        ],
+        "alpha": {
+          "transparent_pixels": 42505,
+          "opaque_pixels": 37239,
+          "soft_edge_pixels": 5216,
+          "total_pixels": 84960
+        }
+      },
+      {
+        "label": "27",
+        "path": "work/figure-final-v1/numbered/figure-027.png",
+        "sha256": "ae9844520d711601313a4934928ce761f55b3069daab43c58df21251bf2485db",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          358,
+          376
+        ],
+        "alpha": {
+          "transparent_pixels": 93639,
+          "opaque_pixels": 35717,
+          "soft_edge_pixels": 5252,
+          "total_pixels": 134608
+        }
+      },
+      {
+        "label": "28",
+        "path": "work/figure-final-v1/numbered/figure-028.png",
+        "sha256": "8945fb965f89fb3ee61a326336d2089e6b692bab8687e1b4eb531621f66d6264",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          251,
+          361
+        ],
+        "alpha": {
+          "transparent_pixels": 52052,
+          "opaque_pixels": 33782,
+          "soft_edge_pixels": 4777,
+          "total_pixels": 90611
+        }
+      },
+      {
+        "label": "28bis",
+        "path": "work/figure-final-v1/numbered/figure-028bis.png",
+        "sha256": "b88af1228c0d97d5154ce3a1c231a88623d4cda3caf2e774ea8db5a8abe06b29",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          213,
+          357
+        ],
+        "alpha": {
+          "transparent_pixels": 48223,
+          "opaque_pixels": 23535,
+          "soft_edge_pixels": 4283,
+          "total_pixels": 76041
+        }
+      },
+      {
+        "label": "29",
+        "path": "work/figure-final-v1/numbered/figure-029.png",
+        "sha256": "0753e79259c2003d452c7af7e766bab8179e500c72bb2409f5b9467d9c45e5a4",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          150,
+          539
+        ],
+        "alpha": {
+          "transparent_pixels": 41381,
+          "opaque_pixels": 34471,
+          "soft_edge_pixels": 4998,
+          "total_pixels": 80850
+        }
+      },
+      {
+        "label": "30",
+        "path": "work/figure-final-v1/numbered/figure-030.png",
+        "sha256": "25dad236051d5222aef303f76d860445189e4556b092047601f10e9974e6ccdc",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          289,
+          390
+        ],
+        "alpha": {
+          "transparent_pixels": 73172,
+          "opaque_pixels": 33731,
+          "soft_edge_pixels": 5807,
+          "total_pixels": 112710
+        }
+      },
+      {
+        "label": "31",
+        "path": "work/figure-final-v1/numbered/figure-031.png",
+        "sha256": "fc28219083d82acf60cf8b968bfd54fd34b043965eea22f35f635e02e2dc99b0",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          550,
+          361
+        ],
+        "alpha": {
+          "transparent_pixels": 151472,
+          "opaque_pixels": 39747,
+          "soft_edge_pixels": 7331,
+          "total_pixels": 198550
+        }
+      },
+      {
+        "label": "32",
+        "path": "work/figure-final-v1/numbered/figure-032.png",
+        "sha256": "dbb156bb4dc89a185c0c9963061a580888593396bc7cd1f588ea721485cd8e0d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          133,
+          396
+        ],
+        "alpha": {
+          "transparent_pixels": 19221,
+          "opaque_pixels": 29619,
+          "soft_edge_pixels": 3828,
+          "total_pixels": 52668
+        }
+      },
+      {
+        "label": "33",
+        "path": "work/figure-final-v1/numbered/figure-033.png",
+        "sha256": "9bd7d727f1a632403440b621bf200d0786046487a44f93cc742e06994701f414",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          227,
+          405
+        ],
+        "alpha": {
+          "transparent_pixels": 56067,
+          "opaque_pixels": 31027,
+          "soft_edge_pixels": 4841,
+          "total_pixels": 91935
+        }
+      },
+      {
+        "label": "34",
+        "path": "work/figure-final-v1/numbered/figure-034.png",
+        "sha256": "0d086fe6135107341ab49f2fc92d8407a7fd7084e97b7cb8443f2e0949a491a5",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          349,
+          366
+        ],
+        "alpha": {
+          "transparent_pixels": 84449,
+          "opaque_pixels": 37072,
+          "soft_edge_pixels": 6213,
+          "total_pixels": 127734
+        }
+      },
+      {
+        "label": "35",
+        "path": "work/figure-final-v1/numbered/figure-035.png",
+        "sha256": "487927629c61df8be4f196a4ad8ed5ade1bfa4409541a23a9571e9625d24768d",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          323,
+          341
+        ],
+        "alpha": {
+          "transparent_pixels": 60479,
+          "opaque_pixels": 43105,
+          "soft_edge_pixels": 6559,
+          "total_pixels": 110143
+        }
+      },
+      {
+        "label": "36",
+        "path": "work/figure-final-v1/numbered/figure-036.png",
+        "sha256": "e0688c12d7e88d9a50551b929642c82fc368fbfb5ce459fb8b32a13694cd23bc",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          348,
+          355
+        ],
+        "alpha": {
+          "transparent_pixels": 71449,
+          "opaque_pixels": 45716,
+          "soft_edge_pixels": 6375,
+          "total_pixels": 123540
+        }
+      },
+      {
+        "label": "37",
+        "path": "work/figure-final-v1/numbered/figure-037.png",
+        "sha256": "05107005c45e917f9406c8df8f604811f27997330256d47c007f962de3b950dc",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          211,
+          395
+        ],
+        "alpha": {
+          "transparent_pixels": 44853,
+          "opaque_pixels": 33397,
+          "soft_edge_pixels": 5095,
+          "total_pixels": 83345
+        }
+      },
+      {
+        "label": "38",
+        "path": "work/figure-final-v1/numbered/figure-038.png",
+        "sha256": "2f4cee2aaf92226f3d1cc09eb613ec6c499c212e93c1ca1ce56a39f27a5b5cae",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          245,
+          371
+        ],
+        "alpha": {
+          "transparent_pixels": 56964,
+          "opaque_pixels": 29123,
+          "soft_edge_pixels": 4808,
+          "total_pixels": 90895
+        }
+      },
+      {
+        "label": "39",
+        "path": "work/figure-final-v1/numbered/figure-039.png",
+        "sha256": "cb23d88c870634dd28f68a53c78f67eae242bcc51c7e4cc9bb88646747eeff2f",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          193,
+          440
+        ],
+        "alpha": {
+          "transparent_pixels": 47252,
+          "opaque_pixels": 33061,
+          "soft_edge_pixels": 4607,
+          "total_pixels": 84920
+        }
+      },
+      {
+        "label": "40",
+        "path": "work/figure-final-v1/numbered/figure-040.png",
+        "sha256": "52a696b6a4c15348250f88feae6d73cafd325670f3d691f9424934c316416c9a",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          320,
+          337
+        ],
+        "alpha": {
+          "transparent_pixels": 62111,
+          "opaque_pixels": 40462,
+          "soft_edge_pixels": 5267,
+          "total_pixels": 107840
+        }
+      },
+      {
+        "label": "41",
+        "path": "work/figure-final-v1/numbered/figure-041.png",
+        "sha256": "c8175ea1129f85e47fd517086fa331068b4479baa7e33f0df521ef6b911b0ea7",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          361,
+          359
+        ],
+        "alpha": {
+          "transparent_pixels": 77745,
+          "opaque_pixels": 46168,
+          "soft_edge_pixels": 5686,
+          "total_pixels": 129599
+        }
+      },
+      {
+        "label": "42",
+        "path": "work/figure-final-v1/numbered/figure-042.png",
+        "sha256": "15b8b1c3181d46796a303a15a99d9ed4b2a3d433ba570b5fa991c9148ebe7d67",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          207,
+          320
+        ],
+        "alpha": {
+          "transparent_pixels": 32460,
+          "opaque_pixels": 28956,
+          "soft_edge_pixels": 4824,
+          "total_pixels": 66240
+        }
+      },
+      {
+        "label": "43",
+        "path": "work/figure-final-v1/numbered/figure-043.png",
+        "sha256": "f794348c2a0feb503dfeff70e237d2242d590275bf647104610a7d6e0c110be8",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          280,
+          334
+        ],
+        "alpha": {
+          "transparent_pixels": 50053,
+          "opaque_pixels": 38219,
+          "soft_edge_pixels": 5248,
+          "total_pixels": 93520
+        }
+      },
+      {
+        "label": "44",
+        "path": "work/figure-final-v1/numbered/figure-044.png",
+        "sha256": "d2f817ca2f3a85491414dd26c580d33d8534ccc4d03a44ac6678e4d0bb58563d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          306,
+          174
+        ],
+        "alpha": {
+          "transparent_pixels": 27298,
+          "opaque_pixels": 22430,
+          "soft_edge_pixels": 3516,
+          "total_pixels": 53244
+        }
+      },
+      {
+        "label": "45",
+        "path": "work/figure-final-v1/numbered/figure-045.png",
+        "sha256": "2d8ae54d772706c83c4e72ea8edf03ab2b260ea52463ce2eea9ceeae6920aadd",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          474,
+          162
+        ],
+        "alpha": {
+          "transparent_pixels": 43403,
+          "opaque_pixels": 28614,
+          "soft_edge_pixels": 4771,
+          "total_pixels": 76788
+        }
+      },
+      {
+        "label": "46",
+        "path": "work/figure-final-v1/numbered/figure-046.png",
+        "sha256": "baee9ced53aa071c0eca0e2beef1b890a540ffc0b87a28560811e099fe0fe4fc",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          184,
+          349
+        ],
+        "alpha": {
+          "transparent_pixels": 33083,
+          "opaque_pixels": 27679,
+          "soft_edge_pixels": 3454,
+          "total_pixels": 64216
+        }
+      },
+      {
+        "label": "47",
+        "path": "work/figure-final-v1/numbered/figure-047.png",
+        "sha256": "cb1f9197e5305186ff70151e039b33b2c29e5ead43823b06b7347182bbf1c845",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          242,
+          343
+        ],
+        "alpha": {
+          "transparent_pixels": 42927,
+          "opaque_pixels": 35398,
+          "soft_edge_pixels": 4681,
+          "total_pixels": 83006
+        }
+      },
+      {
+        "label": "48",
+        "path": "work/figure-final-v1/numbered/figure-048.png",
+        "sha256": "0870dd26f4a8497b3771cc57d2183ef2ed8c177c2d97a4b692a03b2e7be8e1e0",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          238,
+          326
+        ],
+        "alpha": {
+          "transparent_pixels": 40739,
+          "opaque_pixels": 32306,
+          "soft_edge_pixels": 4543,
+          "total_pixels": 77588
+        }
+      },
+      {
+        "label": "49",
+        "path": "work/figure-final-v1/numbered/figure-049.png",
+        "sha256": "ad5b2d468bc541f2e1b16f0c07c2cddf83112326b85482b20350736d97b49f4c",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          296,
+          456
+        ],
+        "alpha": {
+          "transparent_pixels": 92468,
+          "opaque_pixels": 34234,
+          "soft_edge_pixels": 8274,
+          "total_pixels": 134976
+        }
+      },
+      {
+        "label": "50",
+        "path": "work/figure-final-v1/numbered/figure-050.png",
+        "sha256": "5931299b3e5c490d420b7729b956b047eec538632dea1469cc21d5771193d610",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          376,
+          390
+        ],
+        "alpha": {
+          "transparent_pixels": 79157,
+          "opaque_pixels": 61802,
+          "soft_edge_pixels": 5681,
+          "total_pixels": 146640
+        }
+      },
+      {
+        "label": "51",
+        "path": "work/figure-final-v1/numbered/figure-051.png",
+        "sha256": "7ba7d8abfc39b2d52267b328badd9c6403e3e1b1cb596965e4e393d056855a3e",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          281,
+          416
+        ],
+        "alpha": {
+          "transparent_pixels": 82661,
+          "opaque_pixels": 29502,
+          "soft_edge_pixels": 4733,
+          "total_pixels": 116896
+        }
+      },
+      {
+        "label": "52",
+        "path": "work/figure-final-v1/numbered/figure-052.png",
+        "sha256": "21d89d7926b27cedfac0f85119cb139b71efa0828f131fba4aa36962ead04616",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          213,
+          333
+        ],
+        "alpha": {
+          "transparent_pixels": 43351,
+          "opaque_pixels": 23155,
+          "soft_edge_pixels": 4423,
+          "total_pixels": 70929
+        }
+      },
+      {
+        "label": "53",
+        "path": "work/figure-final-v1/numbered/figure-053.png",
+        "sha256": "b645470cd876b787e02016f72c46c6be52ba16032b57a9cacd398d02e6dfa168",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          175,
+          249
+        ],
+        "alpha": {
+          "transparent_pixels": 18222,
+          "opaque_pixels": 20948,
+          "soft_edge_pixels": 4405,
+          "total_pixels": 43575
+        }
+      },
+      {
+        "label": "54",
+        "path": "work/figure-final-v1/numbered/figure-054.png",
+        "sha256": "299a33d76956e4ab5bd2f8cd306e106781881464860288e3e55a7acbad3b7bb8",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          289,
+          268
+        ],
+        "alpha": {
+          "transparent_pixels": 38790,
+          "opaque_pixels": 33439,
+          "soft_edge_pixels": 5223,
+          "total_pixels": 77452
+        }
+      },
+      {
+        "label": "55",
+        "path": "work/figure-final-v1/numbered/figure-055.png",
+        "sha256": "85b48fe125431105774a23565c4fc69709e3df9cc7ee10a1fe3ea078c75c7372",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          237,
+          499
+        ],
+        "alpha": {
+          "transparent_pixels": 74871,
+          "opaque_pixels": 37421,
+          "soft_edge_pixels": 5971,
+          "total_pixels": 118263
+        }
+      },
+      {
+        "label": "56",
+        "path": "work/figure-final-v1/numbered/figure-056.png",
+        "sha256": "fb0c9d6d49e36525dac23bbf3c10ff932fc29d9e777330a2a37cb7016d7fdbed",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          387,
+          355
+        ],
+        "alpha": {
+          "transparent_pixels": 95492,
+          "opaque_pixels": 31556,
+          "soft_edge_pixels": 10337,
+          "total_pixels": 137385
+        }
+      },
+      {
+        "label": "57",
+        "path": "work/figure-final-v1/numbered/figure-057.png",
+        "sha256": "5ace8a405b17898fffee4bb52d2295a6a75f39dd06045b9b3889baaf2c7224f1",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          343,
+          320
+        ],
+        "alpha": {
+          "transparent_pixels": 58120,
+          "opaque_pixels": 43812,
+          "soft_edge_pixels": 7828,
+          "total_pixels": 109760
+        }
+      },
+      {
+        "label": "58",
+        "path": "work/figure-final-v1/numbered/figure-058.png",
+        "sha256": "f3a23850e2c8e94d8e3e46cb7db11fdbc154c7aa45aade6025bc258411dcab53",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          339,
+          361
+        ],
+        "alpha": {
+          "transparent_pixels": 67424,
+          "opaque_pixels": 48198,
+          "soft_edge_pixels": 6757,
+          "total_pixels": 122379
+        }
+      },
+      {
+        "label": "59",
+        "path": "work/figure-final-v1/numbered/figure-059.png",
+        "sha256": "0259e1009d3619f96a565cf0bd6d31e810c82e29afb198c0e5904f8dc9940ac2",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          476,
+          281
+        ],
+        "alpha": {
+          "transparent_pixels": 66133,
+          "opaque_pixels": 61500,
+          "soft_edge_pixels": 6123,
+          "total_pixels": 133756
+        }
+      },
+      {
+        "label": "60",
+        "path": "work/figure-final-v1/numbered/figure-060.png",
+        "sha256": "8697f7a3b36eaa6b125bfdd40e2f30d2aa58ea12c1576c33a6548fa3978eaee9",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          407,
+          233
+        ],
+        "alpha": {
+          "transparent_pixels": 41219,
+          "opaque_pixels": 47084,
+          "soft_edge_pixels": 6528,
+          "total_pixels": 94831
+        }
+      },
+      {
+        "label": "61",
+        "path": "work/figure-final-v1/numbered/figure-061.png",
+        "sha256": "a877a3c9366fd18a55a647625dfe3b6e0f570dd4dc7f87d7c88c6e582c31af23",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          171,
+          402
+        ],
+        "alpha": {
+          "transparent_pixels": 35969,
+          "opaque_pixels": 27443,
+          "soft_edge_pixels": 5330,
+          "total_pixels": 68742
+        }
+      },
+      {
+        "label": "62",
+        "path": "work/figure-final-v1/numbered/figure-062.png",
+        "sha256": "1ed9823c3d6fdb20449048c14bec2b3d71781df5d6ba80c3ff91671602ca4df6",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          217,
+          300
+        ],
+        "alpha": {
+          "transparent_pixels": 44154,
+          "opaque_pixels": 14801,
+          "soft_edge_pixels": 6145,
+          "total_pixels": 65100
+        }
+      },
+      {
+        "label": "63",
+        "path": "work/figure-final-v1/numbered/figure-063.png",
+        "sha256": "721f19604179abb6ac1e70d082b1aebc10a44e81a15993b0445659d589b41d87",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          378,
+          198
+        ],
+        "alpha": {
+          "transparent_pixels": 40709,
+          "opaque_pixels": 27719,
+          "soft_edge_pixels": 6416,
+          "total_pixels": 74844
+        }
+      },
+      {
+        "label": "64",
+        "path": "work/figure-final-v1/numbered/figure-064.png",
+        "sha256": "f91008483afb637b66bdb17af3b8cf6ddeeede0a11dd636c566abe29e55f1343",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          296,
+          371
+        ],
+        "alpha": {
+          "transparent_pixels": 75976,
+          "opaque_pixels": 24832,
+          "soft_edge_pixels": 9008,
+          "total_pixels": 109816
+        }
+      },
+      {
+        "label": "65",
+        "path": "work/figure-final-v1/numbered/figure-065.png",
+        "sha256": "98897106436c2ecd56c76ecb5c30a0ce2626d1de37be59151dfee79294ee74b9",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          292,
+          248
+        ],
+        "alpha": {
+          "transparent_pixels": 45671,
+          "opaque_pixels": 23134,
+          "soft_edge_pixels": 3611,
+          "total_pixels": 72416
+        }
+      },
+      {
+        "label": "66",
+        "path": "work/figure-final-v1/numbered/figure-066.png",
+        "sha256": "55752ea2a8738ea66e97379824b5843d26b247718d1add5005008fcdc8a59c96",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          286,
+          204
+        ],
+        "alpha": {
+          "transparent_pixels": 35512,
+          "opaque_pixels": 19426,
+          "soft_edge_pixels": 3406,
+          "total_pixels": 58344
+        }
+      },
+      {
+        "label": "67",
+        "path": "work/figure-final-v1/numbered/figure-067.png",
+        "sha256": "3a49526377acc68bf93fd5539c6d6b37f9000775200789dab6ca3d7da7bc5d2d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          219,
+          316
+        ],
+        "alpha": {
+          "transparent_pixels": 44073,
+          "opaque_pixels": 21457,
+          "soft_edge_pixels": 3674,
+          "total_pixels": 69204
+        }
+      },
+      {
+        "label": "68",
+        "path": "work/figure-final-v1/numbered/figure-068.png",
+        "sha256": "ecdb58d6768f264774609db7d2311cedb5ab69f47c7a1f94c77097d420cb00f4",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          188,
+          325
+        ],
+        "alpha": {
+          "transparent_pixels": 32668,
+          "opaque_pixels": 24553,
+          "soft_edge_pixels": 3879,
+          "total_pixels": 61100
+        }
+      },
+      {
+        "label": "69",
+        "path": "work/figure-final-v1/numbered/figure-069.png",
+        "sha256": "1359ca144743fbd7a93e7272b44aa6eb73e827d14e777ca9562b614bb48018c2",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          353,
+          148
+        ],
+        "alpha": {
+          "transparent_pixels": 30710,
+          "opaque_pixels": 16603,
+          "soft_edge_pixels": 4931,
+          "total_pixels": 52244
+        }
+      },
+      {
+        "label": "70",
+        "path": "work/figure-final-v1/numbered/figure-070.png",
+        "sha256": "ab20cea98d22afd45106a6493d3150b442161ef5822f86f915876330ca57f8d2",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          387,
+          662
+        ],
+        "alpha": {
+          "transparent_pixels": 163479,
+          "opaque_pixels": 85242,
+          "soft_edge_pixels": 7473,
+          "total_pixels": 256194
+        }
+      },
+      {
+        "label": "71",
+        "path": "work/figure-final-v1/numbered/figure-071.png",
+        "sha256": "777d6234674d856e2ff517821661f3a358c051850e57957d4e3aaec0792872fe",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          441,
+          701
+        ],
+        "alpha": {
+          "transparent_pixels": 204716,
+          "opaque_pixels": 95662,
+          "soft_edge_pixels": 8763,
+          "total_pixels": 309141
+        }
+      },
+      {
+        "label": "72",
+        "path": "work/figure-final-v1/numbered/figure-072.png",
+        "sha256": "4a71d7bb16cc88736f22724b22bf16efcf31b8870e57a6f9cb161507be679bd1",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          245,
+          438
+        ],
+        "alpha": {
+          "transparent_pixels": 69755,
+          "opaque_pixels": 30640,
+          "soft_edge_pixels": 6915,
+          "total_pixels": 107310
+        }
+      },
+      {
+        "label": "73",
+        "path": "work/figure-final-v1/numbered/figure-073.png",
+        "sha256": "deb48337c84db317c8d85b4108670ca4fc1d2be5df9d09052fef8a0f63c388d6",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          225,
+          410
+        ],
+        "alpha": {
+          "transparent_pixels": 57741,
+          "opaque_pixels": 28424,
+          "soft_edge_pixels": 6085,
+          "total_pixels": 92250
+        }
+      },
+      {
+        "label": "74",
+        "path": "work/figure-final-v1/numbered/figure-074.png",
+        "sha256": "286d559f052258ed6464eb4c97c9022bd98cf6c1a17c792303683acecf885959",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          597,
+          395
+        ],
+        "alpha": {
+          "transparent_pixels": 92312,
+          "opaque_pixels": 102705,
+          "soft_edge_pixels": 40798,
+          "total_pixels": 235815
+        }
+      },
+      {
+        "label": "75",
+        "path": "work/figure-final-v1/numbered/figure-075.png",
+        "sha256": "868acf77a8c2fa27b3175b5dd0606de1436015d5a54f71a9afe509d8c8cdfed1",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          298,
+          388
+        ],
+        "alpha": {
+          "transparent_pixels": 80501,
+          "opaque_pixels": 29217,
+          "soft_edge_pixels": 5906,
+          "total_pixels": 115624
+        }
+      },
+      {
+        "label": "76",
+        "path": "work/figure-final-v1/numbered/figure-076.png",
+        "sha256": "460bb88fe2cabf1a9e44b6f43ae738affec3e223814ed49ee7ae3e56713475e5",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          243,
+          312
+        ],
+        "alpha": {
+          "transparent_pixels": 40996,
+          "opaque_pixels": 30962,
+          "soft_edge_pixels": 3858,
+          "total_pixels": 75816
+        }
+      },
+      {
+        "label": "77",
+        "path": "work/figure-final-v1/numbered/figure-077.png",
+        "sha256": "5a85529ed2ea9bf65b4cd2c822bca6344483014c72418f6d8b96efc2241e2cea",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          208,
+          393
+        ],
+        "alpha": {
+          "transparent_pixels": 53390,
+          "opaque_pixels": 24279,
+          "soft_edge_pixels": 4075,
+          "total_pixels": 81744
+        }
+      },
+      {
+        "label": "78",
+        "path": "work/figure-final-v1/numbered/figure-078.png",
+        "sha256": "b27fcd7fbc5d45e50b4322b46aff1e7b913c5a32bb67e9a13cac7bea13ed364a",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          325,
+          364
+        ],
+        "alpha": {
+          "transparent_pixels": 75355,
+          "opaque_pixels": 34137,
+          "soft_edge_pixels": 8808,
+          "total_pixels": 118300
+        }
+      },
+      {
+        "label": "79",
+        "path": "work/figure-final-v1/numbered/figure-079.png",
+        "sha256": "906fae3676d9b2df0671c562428c4f551e3cda7f40238f6c3d089ffb8db118e3",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          476,
+          480
+        ],
+        "alpha": {
+          "transparent_pixels": 159233,
+          "opaque_pixels": 59678,
+          "soft_edge_pixels": 9569,
+          "total_pixels": 228480
+        }
+      },
+      {
+        "label": "80",
+        "path": "work/figure-final-v1/numbered/figure-080.png",
+        "sha256": "09444331495af2be9908dd06278c588f08afa5fdff82080e633ef51601e48809",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          379,
+          286
+        ],
+        "alpha": {
+          "transparent_pixels": 62754,
+          "opaque_pixels": 36003,
+          "soft_edge_pixels": 9637,
+          "total_pixels": 108394
+        }
+      },
+      {
+        "label": "81",
+        "path": "work/figure-final-v1/numbered/figure-081.png",
+        "sha256": "7d7ea37bdc8248a5eb486a8810a674d8802ce7234033e55e5f8704f352ff4c57",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          285,
+          358
+        ],
+        "alpha": {
+          "transparent_pixels": 54726,
+          "opaque_pixels": 39105,
+          "soft_edge_pixels": 8199,
+          "total_pixels": 102030
+        }
+      },
+      {
+        "label": "82",
+        "path": "work/figure-final-v1/numbered/figure-082.png",
+        "sha256": "74d6bb947c1f3be88e71b6935dc4a62c87b7017eedeab982ee3049dadaa25884",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          296,
+          294
+        ],
+        "alpha": {
+          "transparent_pixels": 59316,
+          "opaque_pixels": 22545,
+          "soft_edge_pixels": 5163,
+          "total_pixels": 87024
+        }
+      },
+      {
+        "label": "83",
+        "path": "work/figure-final-v1/numbered/figure-083.png",
+        "sha256": "44763beb574df3c03671f82248dda9412a37d378ca64fee7a7edd018af7cc702",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          321,
+          280
+        ],
+        "alpha": {
+          "transparent_pixels": 56366,
+          "opaque_pixels": 28353,
+          "soft_edge_pixels": 5161,
+          "total_pixels": 89880
+        }
+      },
+      {
+        "label": "84",
+        "path": "work/figure-final-v1/numbered/figure-084.png",
+        "sha256": "8bce9d8f3895d1d24ba65d31a6052571aac80f149abceb6a0b6694fd5940b2ea",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          534,
+          120
+        ],
+        "alpha": {
+          "transparent_pixels": 26202,
+          "opaque_pixels": 32214,
+          "soft_edge_pixels": 5664,
+          "total_pixels": 64080
+        }
+      },
+      {
+        "label": "85",
+        "path": "work/figure-final-v1/numbered/figure-085.png",
+        "sha256": "9aa03597c068aa9ad842fd35556dfa95aae14bc8d96d32f5bb713c8208877e71",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          175,
+          484
+        ],
+        "alpha": {
+          "transparent_pixels": 54199,
+          "opaque_pixels": 25962,
+          "soft_edge_pixels": 4539,
+          "total_pixels": 84700
+        }
+      },
+      {
+        "label": "86",
+        "path": "work/figure-final-v1/numbered/figure-086.png",
+        "sha256": "1158bfba2dd4721dc6bd2bdaeb4f28e999f6dd191c392587e2a3d07cc9e39fe3",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          274,
+          234
+        ],
+        "alpha": {
+          "transparent_pixels": 37097,
+          "opaque_pixels": 22913,
+          "soft_edge_pixels": 4106,
+          "total_pixels": 64116
+        }
+      },
+      {
+        "label": "87",
+        "path": "work/figure-final-v1/numbered/figure-087.png",
+        "sha256": "3ecf1c6b1ae3620d6c9b4b3fdd09678f935353db63fc8b4cc7498de375b6be93",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          304,
+          310
+        ],
+        "alpha": {
+          "transparent_pixels": 46784,
+          "opaque_pixels": 41346,
+          "soft_edge_pixels": 6110,
+          "total_pixels": 94240
+        }
+      },
+      {
+        "label": "87bis",
+        "path": "work/figure-final-v1/numbered/figure-087bis.png",
+        "sha256": "4edc351ee7aa264092021b82fba4d732be756ab7223652ba061eaab82bebad6e",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          221,
+          316
+        ],
+        "alpha": {
+          "transparent_pixels": 37838,
+          "opaque_pixels": 22691,
+          "soft_edge_pixels": 9307,
+          "total_pixels": 69836
+        }
+      },
+      {
+        "label": "88",
+        "path": "work/figure-final-v1/numbered/figure-088.png",
+        "sha256": "4cfc371d01e56d0ac68f3c0ef6ad824a0d777a739fee0b42bf22aa01faf28607",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          178,
+          500
+        ],
+        "alpha": {
+          "transparent_pixels": 55237,
+          "opaque_pixels": 27729,
+          "soft_edge_pixels": 6034,
+          "total_pixels": 89000
+        }
+      },
+      {
+        "label": "89",
+        "path": "work/figure-final-v1/numbered/figure-089.png",
+        "sha256": "cf6368bc3d82b8d00dac7fe06372da5f8e88d238a1c7403e804f357fe3927a4d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          194,
+          345
+        ],
+        "alpha": {
+          "transparent_pixels": 33186,
+          "opaque_pixels": 29510,
+          "soft_edge_pixels": 4234,
+          "total_pixels": 66930
+        }
+      },
+      {
+        "label": "90",
+        "path": "work/figure-final-v1/numbered/figure-090.png",
+        "sha256": "475d9a990ea8af8d3421b0490a11beaf6e671447d2f60adcf85ca127b7df4e5a",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          220,
+          355
+        ],
+        "alpha": {
+          "transparent_pixels": 46018,
+          "opaque_pixels": 24228,
+          "soft_edge_pixels": 7854,
+          "total_pixels": 78100
+        }
+      },
+      {
+        "label": "91",
+        "path": "work/figure-final-v1/numbered/figure-091.png",
+        "sha256": "e52392749f8b92835f5bc0ef8b9d9a358301f92af2ac1973f8a8260b6c48bd5d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          198,
+          339
+        ],
+        "alpha": {
+          "transparent_pixels": 39368,
+          "opaque_pixels": 23255,
+          "soft_edge_pixels": 4499,
+          "total_pixels": 67122
+        }
+      },
+      {
+        "label": "92",
+        "path": "work/figure-final-v1/numbered/figure-092.png",
+        "sha256": "9d0da65a94e1f26a555048353c0dfd3946ad5400db28169726563513b372c883",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          219,
+          375
+        ],
+        "alpha": {
+          "transparent_pixels": 49513,
+          "opaque_pixels": 25257,
+          "soft_edge_pixels": 7355,
+          "total_pixels": 82125
+        }
+      },
+      {
+        "label": "93",
+        "path": "work/figure-final-v1/numbered/figure-093.png",
+        "sha256": "8f8c9817d407afa1cb6d49b6645cb6d632d02a60cbb0560702d1fe72aa66314d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          193,
+          376
+        ],
+        "alpha": {
+          "transparent_pixels": 38639,
+          "opaque_pixels": 28720,
+          "soft_edge_pixels": 5209,
+          "total_pixels": 72568
+        }
+      },
+      {
+        "label": "94",
+        "path": "work/figure-final-v1/numbered/figure-094.png",
+        "sha256": "cb4f50e35d45bdf3fc555dbce7d15029919a6f491d54f19a50b87b291b1d1fc4",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          260,
+          397
+        ],
+        "alpha": {
+          "transparent_pixels": 43440,
+          "opaque_pixels": 53504,
+          "soft_edge_pixels": 6276,
+          "total_pixels": 103220
+        }
+      },
+      {
+        "label": "95",
+        "path": "work/figure-final-v1/numbered/figure-095.png",
+        "sha256": "118f17cddd70ee4074002e3f0a9c676381a8a827ea3f65d9c0f28381b328c16b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          142,
+          423
+        ],
+        "alpha": {
+          "transparent_pixels": 33169,
+          "opaque_pixels": 22732,
+          "soft_edge_pixels": 4165,
+          "total_pixels": 60066
+        }
+      },
+      {
+        "label": "96",
+        "path": "work/figure-final-v1/numbered/figure-096.png",
+        "sha256": "452e212f201cf01c350c5a4fa640db5afacb066dc62036a667ada87df32aeaf8",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          280,
+          349
+        ],
+        "alpha": {
+          "transparent_pixels": 66030,
+          "opaque_pixels": 27268,
+          "soft_edge_pixels": 4422,
+          "total_pixels": 97720
+        }
+      },
+      {
+        "label": "97",
+        "path": "work/figure-final-v1/numbered/figure-097.png",
+        "sha256": "386106669488dbbc64f6cba93f0a59e3dd575e01adcc13f90a530421e45f49ac",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          391,
+          170
+        ],
+        "alpha": {
+          "transparent_pixels": 39696,
+          "opaque_pixels": 22621,
+          "soft_edge_pixels": 4153,
+          "total_pixels": 66470
+        }
+      },
+      {
+        "label": "98",
+        "path": "work/figure-final-v1/numbered/figure-098.png",
+        "sha256": "f7cc8e42798c41213b3717fb2d5f9755b39e7ec997717a1719cc203257084418",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          284,
+          292
+        ],
+        "alpha": {
+          "transparent_pixels": 45735,
+          "opaque_pixels": 32876,
+          "soft_edge_pixels": 4317,
+          "total_pixels": 82928
+        }
+      },
+      {
+        "label": "99",
+        "path": "work/figure-final-v1/numbered/figure-099.png",
+        "sha256": "e48069563b5b0c1c2b338673040c1316222737d1219fa602c245f73eafbeb05b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          187,
+          438
+        ],
+        "alpha": {
+          "transparent_pixels": 50249,
+          "opaque_pixels": 26470,
+          "soft_edge_pixels": 5187,
+          "total_pixels": 81906
+        }
+      },
+      {
+        "label": "100",
+        "path": "work/figure-final-v1/numbered/figure-100.png",
+        "sha256": "31b474b2b8292c152916fa02858fc37e32d31300a072759d2bdc984764f1ddc1",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          242,
+          267
+        ],
+        "alpha": {
+          "transparent_pixels": 37147,
+          "opaque_pixels": 23855,
+          "soft_edge_pixels": 3612,
+          "total_pixels": 64614
+        }
+      },
+      {
+        "label": "101",
+        "path": "work/figure-final-v1/numbered/figure-101.png",
+        "sha256": "e29c3d2bdc70754e2b3415453c6f0d3403f541a13d09a7573193b66c8ecbaace",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          350,
+          260
+        ],
+        "alpha": {
+          "transparent_pixels": 62265,
+          "opaque_pixels": 23996,
+          "soft_edge_pixels": 4739,
+          "total_pixels": 91000
+        }
+      },
+      {
+        "label": "102",
+        "path": "work/figure-final-v1/numbered/figure-102.png",
+        "sha256": "622b5a6dc46924a88422000a159a666a4f46b5a9dba498da5a715f5d26541875",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          138,
+          397
+        ],
+        "alpha": {
+          "transparent_pixels": 28743,
+          "opaque_pixels": 22003,
+          "soft_edge_pixels": 4040,
+          "total_pixels": 54786
+        }
+      },
+      {
+        "label": "103",
+        "path": "work/figure-final-v1/numbered/figure-103.png",
+        "sha256": "6a6452fb60a314719bfa36451677cdd5ec8fe5f755f474b3f54f715cd9adf517",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          195,
+          376
+        ],
+        "alpha": {
+          "transparent_pixels": 48582,
+          "opaque_pixels": 20834,
+          "soft_edge_pixels": 3904,
+          "total_pixels": 73320
+        }
+      },
+      {
+        "label": "104",
+        "path": "work/figure-final-v1/numbered/figure-104.png",
+        "sha256": "63b450a18eb7a33f5f4d4fcb4927bcd99ca1b52f7116b7934686c5cf7c2fa52b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          170,
+          397
+        ],
+        "alpha": {
+          "transparent_pixels": 26175,
+          "opaque_pixels": 36950,
+          "soft_edge_pixels": 4365,
+          "total_pixels": 67490
+        }
+      },
+      {
+        "label": "105",
+        "path": "work/figure-final-v1/numbered/figure-105.png",
+        "sha256": "e1610c5cec5c8117756b953e64e69675c3b16bcd246ec34f6ff8e754383a3505",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          232,
+          300
+        ],
+        "alpha": {
+          "transparent_pixels": 39593,
+          "opaque_pixels": 26172,
+          "soft_edge_pixels": 3835,
+          "total_pixels": 69600
+        }
+      },
+      {
+        "label": "106",
+        "path": "work/figure-final-v1/numbered/figure-106.png",
+        "sha256": "bc44535eadd505ba36eb46a6a1d934f5962e26598bb148009cb388fb5a377b27",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          398,
+          240
+        ],
+        "alpha": {
+          "transparent_pixels": 63947,
+          "opaque_pixels": 26658,
+          "soft_edge_pixels": 4915,
+          "total_pixels": 95520
+        }
+      },
+      {
+        "label": "107",
+        "path": "work/figure-final-v1/numbered/figure-107.png",
+        "sha256": "671a1bac804cfde64bbc3c1fc21e1f1272268064c993b2d14e667b10925734bd",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          181,
+          376
+        ],
+        "alpha": {
+          "transparent_pixels": 39416,
+          "opaque_pixels": 25290,
+          "soft_edge_pixels": 3350,
+          "total_pixels": 68056
+        }
+      },
+      {
+        "label": "108",
+        "path": "work/figure-final-v1/numbered/figure-108.png",
+        "sha256": "51a81952213c780b89cdf127f09686f7e581df4a8cae9fab6ebfde4c2a20d000",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          114,
+          423
+        ],
+        "alpha": {
+          "transparent_pixels": 22361,
+          "opaque_pixels": 22312,
+          "soft_edge_pixels": 3549,
+          "total_pixels": 48222
+        }
+      },
+      {
+        "label": "109",
+        "path": "work/figure-final-v1/numbered/figure-109.png",
+        "sha256": "ba65d1396a38d74d36a8f6d24fc9817d69af6e363eea8c31ce39f001466bdb6b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          138,
+          475
+        ],
+        "alpha": {
+          "transparent_pixels": 31031,
+          "opaque_pixels": 30218,
+          "soft_edge_pixels": 4301,
+          "total_pixels": 65550
+        }
+      },
+      {
+        "label": "110",
+        "path": "work/figure-final-v1/numbered/figure-110.png",
+        "sha256": "a1b0f97b1a1016d4aef7db00dd84867edfda4d4ce57edee813a92e72d628b70f",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          193,
+          456
+        ],
+        "alpha": {
+          "transparent_pixels": 56693,
+          "opaque_pixels": 27365,
+          "soft_edge_pixels": 3950,
+          "total_pixels": 88008
+        }
+      },
+      {
+        "label": "111",
+        "path": "work/figure-final-v1/numbered/figure-111.png",
+        "sha256": "31aff6613035b8b7b9cf78b840f5d740dc57673022f13bea3cad22580766d0da",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          179,
+          415
+        ],
+        "alpha": {
+          "transparent_pixels": 40876,
+          "opaque_pixels": 28438,
+          "soft_edge_pixels": 4971,
+          "total_pixels": 74285
+        }
+      },
+      {
+        "label": "112",
+        "path": "work/figure-final-v1/numbered/figure-112.png",
+        "sha256": "c942a48f4a88dda3421edc0b5dfac2f1fadd1501fa3a89bee32fd0b4144bd6ef",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          113,
+          423
+        ],
+        "alpha": {
+          "transparent_pixels": 17386,
+          "opaque_pixels": 25396,
+          "soft_edge_pixels": 5017,
+          "total_pixels": 47799
+        }
+      },
+      {
+        "label": "113",
+        "path": "work/figure-final-v1/numbered/figure-113.png",
+        "sha256": "f847ba1286db309578115e7e331af41ca3cfa3acdb9e6825c91b5b93ac301414",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          226,
+          362
+        ],
+        "alpha": {
+          "transparent_pixels": 55959,
+          "opaque_pixels": 21751,
+          "soft_edge_pixels": 4102,
+          "total_pixels": 81812
+        }
+      },
+      {
+        "label": "114",
+        "path": "work/figure-final-v1/numbered/figure-114.png",
+        "sha256": "d3275a8ae04160b5a40f5bbeb19be7c1718bb03d1b6fd6cf1616914fb8016ce1",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          226,
+          368
+        ],
+        "alpha": {
+          "transparent_pixels": 37560,
+          "opaque_pixels": 40477,
+          "soft_edge_pixels": 5131,
+          "total_pixels": 83168
+        }
+      },
+      {
+        "label": "115",
+        "path": "work/figure-final-v1/numbered/figure-115.png",
+        "sha256": "3bede742742ff09d097445026428c59b65e3dd22e411f25199484aa133557af5",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          257,
+          395
+        ],
+        "alpha": {
+          "transparent_pixels": 42162,
+          "opaque_pixels": 53866,
+          "soft_edge_pixels": 5487,
+          "total_pixels": 101515
+        }
+      },
+      {
+        "label": "116",
+        "path": "work/figure-final-v1/numbered/figure-116.png",
+        "sha256": "4cc28e060b809cbc905b2be9dc66ef93578405b2088b271b848b6b57f73cc13f",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          263,
+          413
+        ],
+        "alpha": {
+          "transparent_pixels": 67572,
+          "opaque_pixels": 32621,
+          "soft_edge_pixels": 8426,
+          "total_pixels": 108619
+        }
+      },
+      {
+        "label": "117",
+        "path": "work/figure-final-v1/numbered/figure-117.png",
+        "sha256": "1e252a2a63e4e693dd77ee7d73d837566690757baa68fd3a8c5db3a763cd5ca8",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          210,
+          424
+        ],
+        "alpha": {
+          "transparent_pixels": 36576,
+          "opaque_pixels": 47762,
+          "soft_edge_pixels": 4702,
+          "total_pixels": 89040
+        }
+      },
+      {
+        "label": "118",
+        "path": "work/figure-final-v1/numbered/figure-118.png",
+        "sha256": "194bba9b1db0c8f6d7020b1b9ba936245b7d10ab5209d42a8196264cbb462d7a",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          170,
+          409
+        ],
+        "alpha": {
+          "transparent_pixels": 29412,
+          "opaque_pixels": 35718,
+          "soft_edge_pixels": 4400,
+          "total_pixels": 69530
+        }
+      },
+      {
+        "label": "119",
+        "path": "work/figure-final-v1/numbered/figure-119.png",
+        "sha256": "541ae4ff7ef4a81c46250317be377c9649db68f8b4106beeab172a4230fdf772",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          242,
+          430
+        ],
+        "alpha": {
+          "transparent_pixels": 55426,
+          "opaque_pixels": 43533,
+          "soft_edge_pixels": 5101,
+          "total_pixels": 104060
+        }
+      },
+      {
+        "label": "120",
+        "path": "work/figure-final-v1/numbered/figure-120.png",
+        "sha256": "7c5bc7fd90e52dde722b433bbdeb16a921e3de10943d663ccb27a6777a1e3c9e",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          299,
+          512
+        ],
+        "alpha": {
+          "transparent_pixels": 103176,
+          "opaque_pixels": 44364,
+          "soft_edge_pixels": 5548,
+          "total_pixels": 153088
+        }
+      },
+      {
+        "label": "121",
+        "path": "work/figure-final-v1/numbered/figure-121.png",
+        "sha256": "04f2a7966dd77813778f12e36e03052dfa4e582d0ba804c398c19061c010cca7",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          261,
+          446
+        ],
+        "alpha": {
+          "transparent_pixels": 62354,
+          "opaque_pixels": 47003,
+          "soft_edge_pixels": 7049,
+          "total_pixels": 116406
+        }
+      },
+      {
+        "label": "122",
+        "path": "work/figure-final-v1/numbered/figure-122.png",
+        "sha256": "c305be2a4b6253459193b92f81ed179fefa447ba91b509f1ea61ebc9536c734d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          310,
+          465
+        ],
+        "alpha": {
+          "transparent_pixels": 91533,
+          "opaque_pixels": 43549,
+          "soft_edge_pixels": 9068,
+          "total_pixels": 144150
+        }
+      },
+      {
+        "label": "123",
+        "path": "work/figure-final-v1/numbered/figure-123.png",
+        "sha256": "0ab3f3ada49bd27d29dacdbea6dae221da764173f558179bee1f28595fa477a5",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          173,
+          468
+        ],
+        "alpha": {
+          "transparent_pixels": 29624,
+          "opaque_pixels": 45490,
+          "soft_edge_pixels": 5850,
+          "total_pixels": 80964
+        }
+      },
+      {
+        "label": "124",
+        "path": "work/figure-final-v1/numbered/figure-124.png",
+        "sha256": "bde5c60d9420c1f23e81c54dd544f23ccf6b7439452eee7888dbc8b476e23746",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          137,
+          469
+        ],
+        "alpha": {
+          "transparent_pixels": 29394,
+          "opaque_pixels": 30751,
+          "soft_edge_pixels": 4108,
+          "total_pixels": 64253
+        }
+      },
+      {
+        "label": "125",
+        "path": "work/figure-final-v1/numbered/figure-125.png",
+        "sha256": "b1961819debf591f34c510f8bb64567656800f5033aa9d4b2a8228f1b62b2b66",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          210,
+          806
+        ],
+        "alpha": {
+          "transparent_pixels": 100593,
+          "opaque_pixels": 58981,
+          "soft_edge_pixels": 9686,
+          "total_pixels": 169260
+        }
+      },
+      {
+        "label": "126",
+        "path": "work/figure-final-v1/numbered/figure-126.png",
+        "sha256": "0ff9ff735da7c0b3d31e1c3a46d7498d1c69998d3341a1d7f166e89e71d803ea",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          165,
+          406
+        ],
+        "alpha": {
+          "transparent_pixels": 40006,
+          "opaque_pixels": 23033,
+          "soft_edge_pixels": 3951,
+          "total_pixels": 66990
+        }
+      },
+      {
+        "label": "127",
+        "path": "work/figure-final-v1/numbered/figure-127.png",
+        "sha256": "65bcea698ebb8260016cdd0568def98a23a1d8243ac8b890d284cff658ad9221",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          155,
+          407
+        ],
+        "alpha": {
+          "transparent_pixels": 22325,
+          "opaque_pixels": 35341,
+          "soft_edge_pixels": 5419,
+          "total_pixels": 63085
+        }
+      },
+      {
+        "label": "128",
+        "path": "work/figure-final-v1/numbered/figure-128.png",
+        "sha256": "6d51b10eb20bb1cfe26f379e5753f13f7ad26480b6256bb422d08b8408a25e40",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          261,
+          466
+        ],
+        "alpha": {
+          "transparent_pixels": 78410,
+          "opaque_pixels": 37781,
+          "soft_edge_pixels": 5435,
+          "total_pixels": 121626
+        }
+      },
+      {
+        "label": "129",
+        "path": "work/figure-final-v1/numbered/figure-129.png",
+        "sha256": "d2654deed1807e1a6dabb0eeb072496e4d07cce0694d9ac064ed3c86d6e8fca6",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          333,
+          349
+        ],
+        "alpha": {
+          "transparent_pixels": 63842,
+          "opaque_pixels": 44972,
+          "soft_edge_pixels": 7403,
+          "total_pixels": 116217
+        }
+      },
+      {
+        "label": "130",
+        "path": "work/figure-final-v1/numbered/figure-130.png",
+        "sha256": "e93d9b585461821b932479ae57372fdd06bdbd1497a0037ab23fc5c6ad6f1b5f",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          257,
+          434
+        ],
+        "alpha": {
+          "transparent_pixels": 48929,
+          "opaque_pixels": 52987,
+          "soft_edge_pixels": 9622,
+          "total_pixels": 111538
+        }
+      },
+      {
+        "label": "131",
+        "path": "work/figure-final-v1/numbered/figure-131.png",
+        "sha256": "50c761bb255a1d6181e3e5725d2b70bb755b306fd47b93ae421e11e98b6dfb64",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          206,
+          370
+        ],
+        "alpha": {
+          "transparent_pixels": 40854,
+          "opaque_pixels": 30912,
+          "soft_edge_pixels": 4454,
+          "total_pixels": 76220
+        }
+      },
+      {
+        "label": "132",
+        "path": "work/figure-final-v1/numbered/figure-132.png",
+        "sha256": "791e8f98b0a39a1ea50b369c290f479a5dea02052ac3de8b98ac08312cc4acbf",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          203,
+          381
+        ],
+        "alpha": {
+          "transparent_pixels": 47129,
+          "opaque_pixels": 25315,
+          "soft_edge_pixels": 4899,
+          "total_pixels": 77343
+        }
+      },
+      {
+        "label": "133",
+        "path": "work/figure-final-v1/numbered/figure-133.png",
+        "sha256": "a9e7f10e045e3752c3ad661dae3a3914d8345caa96b2d9eb8711a350faf03d9e",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          197,
+          417
+        ],
+        "alpha": {
+          "transparent_pixels": 42796,
+          "opaque_pixels": 33944,
+          "soft_edge_pixels": 5409,
+          "total_pixels": 82149
+        }
+      },
+      {
+        "label": "134",
+        "path": "work/figure-final-v1/numbered/figure-134.png",
+        "sha256": "2d54d3d1fd37045e5acabfa82efe981c97631208a415ac214a453e13cd93bd91",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          194,
+          329
+        ],
+        "alpha": {
+          "transparent_pixels": 32654,
+          "opaque_pixels": 24029,
+          "soft_edge_pixels": 7143,
+          "total_pixels": 63826
+        }
+      },
+      {
+        "label": "135",
+        "path": "work/figure-final-v1/numbered/figure-135.png",
+        "sha256": "67cd33b739182e9af6b5b0df1f39b022faaa8c182727f7c9a00d8110d2c7965c",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          296,
+          322
+        ],
+        "alpha": {
+          "transparent_pixels": 46733,
+          "opaque_pixels": 40745,
+          "soft_edge_pixels": 7834,
+          "total_pixels": 95312
+        }
+      },
+      {
+        "label": "136",
+        "path": "work/figure-final-v1/numbered/figure-136.png",
+        "sha256": "3920d3d180821dcbb22a2979d9860cb8d4e085cb7dc0b12629e80eeba7f38ee4",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          308,
+          232
+        ],
+        "alpha": {
+          "transparent_pixels": 29684,
+          "opaque_pixels": 34118,
+          "soft_edge_pixels": 7654,
+          "total_pixels": 71456
+        }
+      },
+      {
+        "label": "137",
+        "path": "work/figure-final-v1/numbered/figure-137.png",
+        "sha256": "bb8dfe9dc1d868d8794177105a6470b29071497862f4ea78ab0168ad8e014069",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          318,
+          249
+        ],
+        "alpha": {
+          "transparent_pixels": 35744,
+          "opaque_pixels": 36892,
+          "soft_edge_pixels": 6546,
+          "total_pixels": 79182
+        }
+      },
+      {
+        "label": "138",
+        "path": "work/figure-final-v1/numbered/figure-138.png",
+        "sha256": "12b244b4d1a79cc0cb9823efb9a7909a4027d875dea5c722d7abc7adeded5ddc",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          348,
+          315
+        ],
+        "alpha": {
+          "transparent_pixels": 78815,
+          "opaque_pixels": 26138,
+          "soft_edge_pixels": 4667,
+          "total_pixels": 109620
+        }
+      },
+      {
+        "label": "139",
+        "path": "work/figure-final-v1/numbered/figure-139.png",
+        "sha256": "4f3879cac4b424e7b49298a268a2b1b410bbdda3afb98b9501e31c585d046012",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          232,
+          558
+        ],
+        "alpha": {
+          "transparent_pixels": 53277,
+          "opaque_pixels": 68571,
+          "soft_edge_pixels": 7608,
+          "total_pixels": 129456
+        }
+      },
+      {
+        "label": "140",
+        "path": "work/figure-final-v1/numbered/figure-140.png",
+        "sha256": "0084ff3fe1ca57d91e9f03b9c092684fed964bd2098d626b50b5e80d7955df90",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          158,
+          469
+        ],
+        "alpha": {
+          "transparent_pixels": 32661,
+          "opaque_pixels": 35803,
+          "soft_edge_pixels": 5638,
+          "total_pixels": 74102
+        }
+      },
+      {
+        "label": "141",
+        "path": "work/figure-final-v1/numbered/figure-141.png",
+        "sha256": "d55f5d7086622ce948145a5e6dc039c0e6960ae0f4e5a8a798d6a5ac54b91cfb",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          202,
+          379
+        ],
+        "alpha": {
+          "transparent_pixels": 41837,
+          "opaque_pixels": 28279,
+          "soft_edge_pixels": 6442,
+          "total_pixels": 76558
+        }
+      },
+      {
+        "label": "142",
+        "path": "work/figure-final-v1/numbered/figure-142.png",
+        "sha256": "dc969aa6a7ffca0a4db8af25651da3cdaf51ae653a9fe53a973a359df02f9dbd",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          271,
+          350
+        ],
+        "alpha": {
+          "transparent_pixels": 58715,
+          "opaque_pixels": 28964,
+          "soft_edge_pixels": 7171,
+          "total_pixels": 94850
+        }
+      },
+      {
+        "label": "143",
+        "path": "work/figure-final-v1/numbered/figure-143.png",
+        "sha256": "dd3e3a3e39350a1bf617469384e28213b1828a79d7a8ee862229add0ea164e55",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          163,
+          380
+        ],
+        "alpha": {
+          "transparent_pixels": 35452,
+          "opaque_pixels": 21868,
+          "soft_edge_pixels": 4620,
+          "total_pixels": 61940
+        }
+      },
+      {
+        "label": "144",
+        "path": "work/figure-final-v1/numbered/figure-144.png",
+        "sha256": "e0dfb8927a0d23c6083eb3f38a35d48e57bec3726ee23702573d1fd002ffd758",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          190,
+          327
+        ],
+        "alpha": {
+          "transparent_pixels": 34031,
+          "opaque_pixels": 23976,
+          "soft_edge_pixels": 4123,
+          "total_pixels": 62130
+        }
+      },
+      {
+        "label": "145",
+        "path": "work/figure-final-v1/numbered/figure-145.png",
+        "sha256": "950328a2decffd76937b3b1076d3db3af73ffc7d0db9129306752a193463ae2c",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          303,
+          237
+        ],
+        "alpha": {
+          "transparent_pixels": 33571,
+          "opaque_pixels": 34346,
+          "soft_edge_pixels": 3894,
+          "total_pixels": 71811
+        }
+      },
+      {
+        "label": "146",
+        "path": "work/figure-final-v1/numbered/figure-146.png",
+        "sha256": "bfd5b03efd563f5345516953423bc406f6e1c11a8ab9158ff5c2856bbfa61df7",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          292,
+          789
+        ],
+        "alpha": {
+          "transparent_pixels": 119890,
+          "opaque_pixels": 93098,
+          "soft_edge_pixels": 17400,
+          "total_pixels": 230388
+        }
+      },
+      {
+        "label": "147",
+        "path": "work/figure-final-v1/numbered/figure-147.png",
+        "sha256": "b497151b43b0c7a268bf9c4b2d259741940678ab6a72d3a7c563b68514ca63f8",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          518,
+          1141
+        ],
+        "alpha": {
+          "transparent_pixels": 250106,
+          "opaque_pixels": 306209,
+          "soft_edge_pixels": 34723,
+          "total_pixels": 591038
+        }
+      },
+      {
+        "label": "148",
+        "path": "work/figure-final-v1/numbered/figure-148.png",
+        "sha256": "166bcafd079eba14566db159b9bc4239aedf58084a356d444a1aabb61ef069f2",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          191,
+          526
+        ],
+        "alpha": {
+          "transparent_pixels": 50047,
+          "opaque_pixels": 42891,
+          "soft_edge_pixels": 7528,
+          "total_pixels": 100466
+        }
+      },
+      {
+        "label": "149",
+        "path": "work/figure-final-v1/numbered/figure-149.png",
+        "sha256": "ce54444589d07c8d38b7703526d81252420205cf9150923e682d09b110b57114",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          290,
+          596
+        ],
+        "alpha": {
+          "transparent_pixels": 72723,
+          "opaque_pixels": 90465,
+          "soft_edge_pixels": 9652,
+          "total_pixels": 172840
+        }
+      },
+      {
+        "label": "150",
+        "path": "work/figure-final-v1/numbered/figure-150.png",
+        "sha256": "39fbd01fc890d817e5ae54f388349cf735a711fc6128512e24cb9e9a982ef0ad",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          270,
+          375
+        ],
+        "alpha": {
+          "transparent_pixels": 43841,
+          "opaque_pixels": 47131,
+          "soft_edge_pixels": 10278,
+          "total_pixels": 101250
+        }
+      },
+      {
+        "label": "151",
+        "path": "work/figure-final-v1/numbered/figure-151.png",
+        "sha256": "0d4538a0d4601343ea550ac3c7869291d1b58beb406969a2cfc064956a5ba10d",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          143,
+          489
+        ],
+        "alpha": {
+          "transparent_pixels": 36604,
+          "opaque_pixels": 27854,
+          "soft_edge_pixels": 5469,
+          "total_pixels": 69927
+        }
+      },
+      {
+        "label": "152",
+        "path": "work/figure-final-v1/numbered/figure-152.png",
+        "sha256": "f240af47496c48a2bae71c2755708959610f4265fc34ba23d8092d9e19d2d61b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          185,
+          494
+        ],
+        "alpha": {
+          "transparent_pixels": 48166,
+          "opaque_pixels": 36573,
+          "soft_edge_pixels": 6651,
+          "total_pixels": 91390
+        }
+      },
+      {
+        "label": "153",
+        "path": "work/figure-final-v1/numbered/figure-153.png",
+        "sha256": "42a93d075a6db4aa7f5d62f744ba4b70f2e032ff8a0e8a3b7c53387942e545ee",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          193,
+          467
+        ],
+        "alpha": {
+          "transparent_pixels": 48241,
+          "opaque_pixels": 35763,
+          "soft_edge_pixels": 6127,
+          "total_pixels": 90131
+        }
+      },
+      {
+        "label": "154",
+        "path": "work/figure-final-v1/numbered/figure-154.png",
+        "sha256": "202c7f492f7d06b3ac0033b6f1fe628fb0c097505acdcf40914c2327fdbd955b",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          288,
+          407
+        ],
+        "alpha": {
+          "transparent_pixels": 59703,
+          "opaque_pixels": 43228,
+          "soft_edge_pixels": 14285,
+          "total_pixels": 117216
+        }
+      },
+      {
+        "label": "155",
+        "path": "work/figure-final-v1/numbered/figure-155.png",
+        "sha256": "eabce5560f9085f79f23cfbf27668cc2dbe00d21cea6a813a75ffde7358c2ae7",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          316,
+          364
+        ],
+        "alpha": {
+          "transparent_pixels": 71052,
+          "opaque_pixels": 31359,
+          "soft_edge_pixels": 12613,
+          "total_pixels": 115024
+        }
+      },
+      {
+        "label": "156",
+        "path": "work/figure-final-v1/numbered/figure-156.png",
+        "sha256": "8ecb6a13013fa83e233d1e63e0dfb9981831bbf620817ddf7abead110beff9fe",
+        "classes": [
+          "automatic"
+        ],
+        "geometry": [
+          509,
+          442
+        ],
+        "alpha": {
+          "transparent_pixels": 128113,
+          "opaque_pixels": 84807,
+          "soft_edge_pixels": 12058,
+          "total_pixels": 224978
+        }
+      }
+    ],
+    "restored": [
+      {
+        "label": "9",
+        "path": "work/figure-final-v1/numbered/figure-009.png",
+        "sha256": "5c81e23833e004a4b2b1fb7622c753cf931217c14559982609d7ad7c079d158f",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          270,
+          275
+        ],
+        "alpha": {
+          "transparent_pixels": 46089,
+          "opaque_pixels": 23559,
+          "soft_edge_pixels": 4602,
+          "total_pixels": 74250
+        }
+      },
+      {
+        "label": "46",
+        "path": "work/figure-final-v1/numbered/figure-046.png",
+        "sha256": "baee9ced53aa071c0eca0e2beef1b890a540ffc0b87a28560811e099fe0fe4fc",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          184,
+          349
+        ],
+        "alpha": {
+          "transparent_pixels": 33083,
+          "opaque_pixels": 27679,
+          "soft_edge_pixels": 3454,
+          "total_pixels": 64216
+        }
+      },
+      {
+        "label": "52",
+        "path": "work/figure-final-v1/numbered/figure-052.png",
+        "sha256": "21d89d7926b27cedfac0f85119cb139b71efa0828f131fba4aa36962ead04616",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          213,
+          333
+        ],
+        "alpha": {
+          "transparent_pixels": 43351,
+          "opaque_pixels": 23155,
+          "soft_edge_pixels": 4423,
+          "total_pixels": 70929
+        }
+      },
+      {
+        "label": "57",
+        "path": "work/figure-final-v1/numbered/figure-057.png",
+        "sha256": "5ace8a405b17898fffee4bb52d2295a6a75f39dd06045b9b3889baaf2c7224f1",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          343,
+          320
+        ],
+        "alpha": {
+          "transparent_pixels": 58120,
+          "opaque_pixels": 43812,
+          "soft_edge_pixels": 7828,
+          "total_pixels": 109760
+        }
+      },
+      {
+        "label": "58",
+        "path": "work/figure-final-v1/numbered/figure-058.png",
+        "sha256": "f3a23850e2c8e94d8e3e46cb7db11fdbc154c7aa45aade6025bc258411dcab53",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          339,
+          361
+        ],
+        "alpha": {
+          "transparent_pixels": 67424,
+          "opaque_pixels": 48198,
+          "soft_edge_pixels": 6757,
+          "total_pixels": 122379
+        }
+      },
+      {
+        "label": "59",
+        "path": "work/figure-final-v1/numbered/figure-059.png",
+        "sha256": "0259e1009d3619f96a565cf0bd6d31e810c82e29afb198c0e5904f8dc9940ac2",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          476,
+          281
+        ],
+        "alpha": {
+          "transparent_pixels": 66133,
+          "opaque_pixels": 61500,
+          "soft_edge_pixels": 6123,
+          "total_pixels": 133756
+        }
+      },
+      {
+        "label": "60",
+        "path": "work/figure-final-v1/numbered/figure-060.png",
+        "sha256": "8697f7a3b36eaa6b125bfdd40e2f30d2aa58ea12c1576c33a6548fa3978eaee9",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          407,
+          233
+        ],
+        "alpha": {
+          "transparent_pixels": 41219,
+          "opaque_pixels": 47084,
+          "soft_edge_pixels": 6528,
+          "total_pixels": 94831
+        }
+      },
+      {
+        "label": "62",
+        "path": "work/figure-final-v1/numbered/figure-062.png",
+        "sha256": "1ed9823c3d6fdb20449048c14bec2b3d71781df5d6ba80c3ff91671602ca4df6",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          217,
+          300
+        ],
+        "alpha": {
+          "transparent_pixels": 44154,
+          "opaque_pixels": 14801,
+          "soft_edge_pixels": 6145,
+          "total_pixels": 65100
+        }
+      },
+      {
+        "label": "63",
+        "path": "work/figure-final-v1/numbered/figure-063.png",
+        "sha256": "721f19604179abb6ac1e70d082b1aebc10a44e81a15993b0445659d589b41d87",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          378,
+          198
+        ],
+        "alpha": {
+          "transparent_pixels": 40709,
+          "opaque_pixels": 27719,
+          "soft_edge_pixels": 6416,
+          "total_pixels": 74844
+        }
+      },
+      {
+        "label": "65",
+        "path": "work/figure-final-v1/numbered/figure-065.png",
+        "sha256": "98897106436c2ecd56c76ecb5c30a0ce2626d1de37be59151dfee79294ee74b9",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          292,
+          248
+        ],
+        "alpha": {
+          "transparent_pixels": 45671,
+          "opaque_pixels": 23134,
+          "soft_edge_pixels": 3611,
+          "total_pixels": 72416
+        }
+      },
+      {
+        "label": "66",
+        "path": "work/figure-final-v1/numbered/figure-066.png",
+        "sha256": "55752ea2a8738ea66e97379824b5843d26b247718d1add5005008fcdc8a59c96",
+        "classes": [
+          "restored"
+        ],
+        "geometry": [
+          286,
+          204
+        ],
+        "alpha": {
+          "transparent_pixels": 35512,
+          "opaque_pixels": 19426,
+          "soft_edge_pixels": 3406,
+          "total_pixels": 58344
+        }
+      },
+      {
+        "label": "70",
+        "path": "work/figure-final-v1/numbered/figure-070.png",
+        "sha256": "ab20cea98d22afd45106a6493d3150b442161ef5822f86f915876330ca57f8d2",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          387,
+          662
+        ],
+        "alpha": {
+          "transparent_pixels": 163479,
+          "opaque_pixels": 85242,
+          "soft_edge_pixels": 7473,
+          "total_pixels": 256194
+        }
+      },
+      {
+        "label": "71",
+        "path": "work/figure-final-v1/numbered/figure-071.png",
+        "sha256": "777d6234674d856e2ff517821661f3a358c051850e57957d4e3aaec0792872fe",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          441,
+          701
+        ],
+        "alpha": {
+          "transparent_pixels": 204716,
+          "opaque_pixels": 95662,
+          "soft_edge_pixels": 8763,
+          "total_pixels": 309141
+        }
+      },
+      {
+        "label": "74",
+        "path": "work/figure-final-v1/numbered/figure-074.png",
+        "sha256": "286d559f052258ed6464eb4c97c9022bd98cf6c1a17c792303683acecf885959",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          597,
+          395
+        ],
+        "alpha": {
+          "transparent_pixels": 92312,
+          "opaque_pixels": 102705,
+          "soft_edge_pixels": 40798,
+          "total_pixels": 235815
+        }
+      },
+      {
+        "label": "120",
+        "path": "work/figure-final-v1/numbered/figure-120.png",
+        "sha256": "7c5bc7fd90e52dde722b433bbdeb16a921e3de10943d663ccb27a6777a1e3c9e",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          299,
+          512
+        ],
+        "alpha": {
+          "transparent_pixels": 103176,
+          "opaque_pixels": 44364,
+          "soft_edge_pixels": 5548,
+          "total_pixels": 153088
+        }
+      },
+      {
+        "label": "146",
+        "path": "work/figure-final-v1/numbered/figure-146.png",
+        "sha256": "bfd5b03efd563f5345516953423bc406f6e1c11a8ab9158ff5c2856bbfa61df7",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          292,
+          789
+        ],
+        "alpha": {
+          "transparent_pixels": 119890,
+          "opaque_pixels": 93098,
+          "soft_edge_pixels": 17400,
+          "total_pixels": 230388
+        }
+      }
+    ],
+    "manual": [
+      {
+        "label": "9",
+        "path": "work/figure-final-v1/numbered/figure-009.png",
+        "sha256": "5c81e23833e004a4b2b1fb7622c753cf931217c14559982609d7ad7c079d158f",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          270,
+          275
+        ],
+        "alpha": {
+          "transparent_pixels": 46089,
+          "opaque_pixels": 23559,
+          "soft_edge_pixels": 4602,
+          "total_pixels": 74250
+        }
+      },
+      {
+        "label": "35",
+        "path": "work/figure-final-v1/numbered/figure-035.png",
+        "sha256": "487927629c61df8be4f196a4ad8ed5ade1bfa4409541a23a9571e9625d24768d",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          323,
+          341
+        ],
+        "alpha": {
+          "transparent_pixels": 60479,
+          "opaque_pixels": 43105,
+          "soft_edge_pixels": 6559,
+          "total_pixels": 110143
+        }
+      },
+      {
+        "label": "36",
+        "path": "work/figure-final-v1/numbered/figure-036.png",
+        "sha256": "e0688c12d7e88d9a50551b929642c82fc368fbfb5ce459fb8b32a13694cd23bc",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          348,
+          355
+        ],
+        "alpha": {
+          "transparent_pixels": 71449,
+          "opaque_pixels": 45716,
+          "soft_edge_pixels": 6375,
+          "total_pixels": 123540
+        }
+      },
+      {
+        "label": "70",
+        "path": "work/figure-final-v1/numbered/figure-070.png",
+        "sha256": "ab20cea98d22afd45106a6493d3150b442161ef5822f86f915876330ca57f8d2",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          387,
+          662
+        ],
+        "alpha": {
+          "transparent_pixels": 163479,
+          "opaque_pixels": 85242,
+          "soft_edge_pixels": 7473,
+          "total_pixels": 256194
+        }
+      },
+      {
+        "label": "71",
+        "path": "work/figure-final-v1/numbered/figure-071.png",
+        "sha256": "777d6234674d856e2ff517821661f3a358c051850e57957d4e3aaec0792872fe",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          441,
+          701
+        ],
+        "alpha": {
+          "transparent_pixels": 204716,
+          "opaque_pixels": 95662,
+          "soft_edge_pixels": 8763,
+          "total_pixels": 309141
+        }
+      },
+      {
+        "label": "74",
+        "path": "work/figure-final-v1/numbered/figure-074.png",
+        "sha256": "286d559f052258ed6464eb4c97c9022bd98cf6c1a17c792303683acecf885959",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          597,
+          395
+        ],
+        "alpha": {
+          "transparent_pixels": 92312,
+          "opaque_pixels": 102705,
+          "soft_edge_pixels": 40798,
+          "total_pixels": 235815
+        }
+      },
+      {
+        "label": "78",
+        "path": "work/figure-final-v1/numbered/figure-078.png",
+        "sha256": "b27fcd7fbc5d45e50b4322b46aff1e7b913c5a32bb67e9a13cac7bea13ed364a",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          325,
+          364
+        ],
+        "alpha": {
+          "transparent_pixels": 75355,
+          "opaque_pixels": 34137,
+          "soft_edge_pixels": 8808,
+          "total_pixels": 118300
+        }
+      },
+      {
+        "label": "120",
+        "path": "work/figure-final-v1/numbered/figure-120.png",
+        "sha256": "7c5bc7fd90e52dde722b433bbdeb16a921e3de10943d663ccb27a6777a1e3c9e",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          299,
+          512
+        ],
+        "alpha": {
+          "transparent_pixels": 103176,
+          "opaque_pixels": 44364,
+          "soft_edge_pixels": 5548,
+          "total_pixels": 153088
+        }
+      },
+      {
+        "label": "129",
+        "path": "work/figure-final-v1/numbered/figure-129.png",
+        "sha256": "d2654deed1807e1a6dabb0eeb072496e4d07cce0694d9ac064ed3c86d6e8fca6",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          333,
+          349
+        ],
+        "alpha": {
+          "transparent_pixels": 63842,
+          "opaque_pixels": 44972,
+          "soft_edge_pixels": 7403,
+          "total_pixels": 116217
+        }
+      },
+      {
+        "label": "144",
+        "path": "work/figure-final-v1/numbered/figure-144.png",
+        "sha256": "e0dfb8927a0d23c6083eb3f38a35d48e57bec3726ee23702573d1fd002ffd758",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          190,
+          327
+        ],
+        "alpha": {
+          "transparent_pixels": 34031,
+          "opaque_pixels": 23976,
+          "soft_edge_pixels": 4123,
+          "total_pixels": 62130
+        }
+      },
+      {
+        "label": "145",
+        "path": "work/figure-final-v1/numbered/figure-145.png",
+        "sha256": "950328a2decffd76937b3b1076d3db3af73ffc7d0db9129306752a193463ae2c",
+        "classes": [
+          "manual"
+        ],
+        "geometry": [
+          303,
+          237
+        ],
+        "alpha": {
+          "transparent_pixels": 33571,
+          "opaque_pixels": 34346,
+          "soft_edge_pixels": 3894,
+          "total_pixels": 71811
+        }
+      },
+      {
+        "label": "146",
+        "path": "work/figure-final-v1/numbered/figure-146.png",
+        "sha256": "bfd5b03efd563f5345516953423bc406f6e1c11a8ab9158ff5c2856bbfa61df7",
+        "classes": [
+          "manual",
+          "restored"
+        ],
+        "geometry": [
+          292,
+          789
+        ],
+        "alpha": {
+          "transparent_pixels": 119890,
+          "opaque_pixels": 93098,
+          "soft_edge_pixels": 17400,
+          "total_pixels": 230388
+        }
+      }
+    ],
+    "atlas": [
+      {
+        "id": "atlas-plate-01",
+        "path": "work/figure-final-v1/atlas/plate-01.png",
+        "sha256": "9f5d6f9748fa59ca908be22da548bac13357c3a32d9957f810b00ad13ddc59de",
+        "geometry": [
+          750,
+          510
+        ],
+        "alpha": {
+          "transparent_pixels": 149815,
+          "opaque_pixels": 172417,
+          "soft_edge_pixels": 60268,
+          "total_pixels": 382500
+        }
+      },
+      {
+        "id": "atlas-plate-02",
+        "path": "work/figure-final-v1/atlas/plate-02.png",
+        "sha256": "563e33efd44833a34aceef6fd902affbac68f33dbcd289ae0c22b6866612dbdd",
+        "geometry": [
+          750,
+          510
+        ],
+        "alpha": {
+          "transparent_pixels": 141296,
+          "opaque_pixels": 186482,
+          "soft_edge_pixels": 54722,
+          "total_pixels": 382500
+        }
+      },
+      {
+        "id": "atlas-plate-03",
+        "path": "work/figure-final-v1/atlas/plate-03.png",
+        "sha256": "b0ace23367ff16cd4ba133e5ee3790033e0015b9fa1745b3c30c0dd0c9588b08",
+        "geometry": [
+          749,
+          510
+        ],
+        "alpha": {
+          "transparent_pixels": 76460,
+          "opaque_pixels": 269291,
+          "soft_edge_pixels": 36239,
+          "total_pixels": 381990
+        }
+      },
+      {
+        "id": "atlas-plate-04",
+        "path": "work/figure-final-v1/atlas/plate-04.png",
+        "sha256": "250ed7a490fea057b3c5034b6127dd1c74634c50ba59ce096d567d0bf9377709",
+        "geometry": [
+          750,
+          510
+        ],
+        "alpha": {
+          "transparent_pixels": 222465,
+          "opaque_pixels": 103400,
+          "soft_edge_pixels": 56635,
+          "total_pixels": 382500
+        }
+      },
+      {
+        "id": "atlas-plate-05",
+        "path": "work/figure-final-v1/atlas/plate-05.png",
+        "sha256": "478dd57331595f74972ec2798e62a3a5f16113ccad1d178c14d6b0ad82df1a4f",
+        "geometry": [
+          750,
+          510
+        ],
+        "alpha": {
+          "transparent_pixels": 111924,
+          "opaque_pixels": 214149,
+          "soft_edge_pixels": 56427,
+          "total_pixels": 382500
+        }
+      },
+      {
+        "id": "atlas-plate-06",
+        "path": "work/figure-final-v1/atlas/plate-06.png",
+        "sha256": "7ab22fb8aa0f63420e1aa6374ffdad455bdb5a732e58327d691e3567e253bfbc",
+        "geometry": [
+          750,
+          510
+        ],
+        "alpha": {
+          "transparent_pixels": 173400,
+          "opaque_pixels": 159384,
+          "soft_edge_pixels": 49716,
+          "total_pixels": 382500
+        }
+      }
+    ],
+    "paratext": [
+      {
+        "id": "cover-title-illustration",
+        "path": "work/figure-final-v1/paratext/cover-title-illustration.png",
+        "sha256": "87576299bebbda27dfade72f76b41cb07981b79b5d36c25e7b35ea104b0b1702",
+        "geometry": [
+          772,
+          1700
+        ],
+        "alpha": {
+          "transparent_pixels": 52,
+          "opaque_pixels": 1308697,
+          "soft_edge_pixels": 3651,
+          "total_pixels": 1312400
+        }
+      },
+      {
+        "id": "sheet-002-right#asset-05",
+        "path": "work/figure-final-v1/paratext/title-illustration__p0004__sheet-002-right__a05.png",
+        "sha256": "cc36913d630fb7ae7478cafa9b1c4dda36163370ace57a54297e382f72efcaf8",
+        "geometry": [
+          502,
+          356
+        ],
+        "alpha": {
+          "transparent_pixels": 78690,
+          "opaque_pixels": 92453,
+          "soft_edge_pixels": 7569,
+          "total_pixels": 178712
+        }
+      },
+      {
+        "id": "sheet-003-left#asset-12",
+        "path": "work/figure-final-v1/paratext/title-illustration__p0005__sheet-003-left__a12.png",
+        "sha256": "e42e8f2fb1818886e89318ec76917d394727ec02ce21964ee297ac5d667751ca",
+        "geometry": [
+          550,
+          353
+        ],
+        "alpha": {
+          "transparent_pixels": 53463,
+          "opaque_pixels": 128107,
+          "soft_edge_pixels": 12580,
+          "total_pixels": 194150
+        }
+      },
+      {
+        "id": "sheet-300-left#asset-01",
+        "path": "work/figure-final-v1/paratext/back-cover-illustration__p0599__sheet-300-left__a01.png",
+        "sha256": "f0116461554df83eabf64e810e6cb707b8374f24e56e0f63e216c9c33b87ef4e",
+        "geometry": [
+          1201,
+          2480
+        ],
+        "alpha": {
+          "transparent_pixels": 1399430,
+          "opaque_pixels": 1456930,
+          "soft_edge_pixels": 122120,
+          "total_pixels": 2978480
+        }
+      }
+    ]
+  }
+}
