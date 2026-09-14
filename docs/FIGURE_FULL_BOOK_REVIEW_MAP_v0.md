@@ -2,22 +2,56 @@
 
 Status: living review map for `figures/model-v1`.
 
-This document records the current review strategy and known hard cases before the first complete-book pass. It is deliberately a **census map**, not a calibration target: `model-v1` is frozen for the first full run so that fixes are driven by the frequency and shape of real failures across the corpus rather than by overfitting the 32-page pilot.
+The first complete-book census has now been run. `model-v1` remains frozen while we classify the actual corpus-wide failure families. The goal is not to optimize against raw asset counts: page identity, physical index, editorial page type, explicit `N ФИГ.` indices, atlas/plate semantics and per-asset geometry all matter.
+
+## First full-book census
+
+Input: all 600 source pages in `work/book-v1/pages`.
+
+Result:
+
+- pages: **600**
+- failures: **0**
+- `normal-text-candidate`: **598**
+- `unsupported-dark-fulltone`: **2**
+- total accepted assets: **378**
+- pages with at least one asset: **229**
+- pages with 2+ assets: **41**
+- pages with 3+ assets: **12**
+
+Asset-count histogram:
+
+```text
+0: 371
+1: 188
+2: 29
+3: 4
+5: 1
+6: 1
+10: 2
+13: 1
+14: 1
+22: 1
+40: 1
+```
+
+The high-count tail is heterogeneous. It contains both obvious false positives from display typography and legitimate atlas/plate pages with many diagrams. Therefore raw count is only a triage signal.
 
 ## Current strategy
 
 ```text
 frozen model-v1
     ↓
-all source pages in work/book-v1/pages
+600-page complete census  ✅
     ↓
-figure-structure-full-v2
+join detector output with editorial page/index metadata
     ↓
-index.json + per-page metrics + overlays + assets
+physical_index + page_type + explicit N ФИГ. indices
++ atlas/plate evidence + asset geometry
     ↓
-corpus-wide anomaly census
+rank suspicious pages by failure family
     ↓
-classify failure families
+manual/visual review of highest-value cases
     ↓
 restore / repair by class
     ↓
@@ -25,167 +59,221 @@ rerun the same frozen model on repaired derivatives
     ↓
 compare before/after
     ↓
-only then revise model-v1 if a repeated segmentation class actually requires it
+only then revise model-v1 where repeated segmentation failures justify it
 ```
 
-The first complete pass therefore precedes additional tuning. Severe bleed-through is treated primarily as a later restoration problem, not as something to hide inside segmentation thresholds.
+Severe bleed-through remains primarily a restoration problem. Title typography, scanner-edge rules and library stamps are separate false-positive families and must not be collapsed into one global threshold adjustment.
 
-## Full-book command
+## Index-aware audit
 
-From the repository root on `figures/model-v1`:
+Run:
 
 ```bash
-./.venv-benchmark/bin/python tools/probe_figure_segmentation.py \
-  work/book-v1/pages \
-  --out work/figure-structure-full-v2
+python tools/audit_figure_census.py
 ```
 
-Equivalent command when the benchmark virtualenv is already activated:
+The audit joins:
 
-```bash
-python tools/probe_figure_segmentation.py \
-  work/book-v1/pages \
-  --out work/figure-structure-full-v2
+- `work/figure-structure-full-v2/index.json`;
+- per-page `*.metrics.json`;
+- `corpus/text/pages/*.json`.
+
+It emits JSON, CSV and Markdown under:
+
+```text
+work/figure-structure-full-v2/census-audit/
 ```
 
-No non-default model parameters should be added for the first census pass. The purpose is to measure the current committed baseline exactly as it stands.
+The report records, per page:
+
+- physical index;
+- page id and editorial page type;
+- explicit caption figure indices (`N ФИГ.`);
+- all figure-number mentions;
+- atlas/plate evidence;
+- detected asset count;
+- per-asset bbox and page-edge geometry;
+- review flags and a triage score.
+
+Caption count is evidence, not ground truth for logical asset count. A single numbered figure may consist of multiple disconnected regions, while an atlas plate may contain many diagrams without ordinary `N ФИГ.` captions.
 
 ## Mind map
 
 ```mermaid
 mindmap
   root((Full-book figure review))
-    Baseline
-      model-v1 frozen for first census
-      32-page probe is only a pilot
-      full run has not happened yet
-      do not tune to caption count
-    Restoration defects
-      bleed-through / show-through
-        heavy reverse-side text
-        weak historical strokes must survive
-        restoration after census
-      stamps / library marks
-        source provenance retained
-        not book content
-      page-edge / scanner artifacts
-      damaged / near-blank / full-tone pages
-    Figure semantics
-      false split
-        one numbered figure in disconnected parts
-        sheet-228-left is a known control case
-      false merge
-        neighbouring figures or apparatus
-      weak continuation
-        ropes
-        rails
-        ladders
-        sparse strokes
-      text intrusion
-        captions
-        body text
-        typographic rules
-      support vs territory
-        historical ink
-        opaque enclosed paper
-        closure false-fill
-        alpha boundary
-    Known hard controls
+    Corpus census
+      600 pages
+      0 processing failures
+      378 accepted assets
+      229 pages asset-positive
+      2 unsupported dark/full-tone pages
+    Index-aware review
+      physical index
+      editorial page type
+      explicit N FIG indices
+      inline figure mentions
+      atlas / plate identity
+      asset bbox geometry
+    Confirmed false-positive families
+      display typography
+        sheet-001-right
+          40 assets
+          cover-title
+          many large words treated as figures
+        sheet-002-left
+          3 assets
+          half-title
+          title plus library stamp
+        sheet-002-right
+          6 assets
+          title page
+          large headings treated as figures
+        sheet-003-left
+          14 assets
+          title page
+          display words split into assets
+      scanner / page-edge rules
+        sheet-151-right
+          physical 302
+          canonical index 88 FIG
+          detector 3 assets
+          one real figure plus two edge-line false positives
+        sheet-245-right
+          physical 490
+          no explicit figure index
+          detector 3 assets
+          thin line / edge artifacts
+      provenance marks
+        sheet-296-right
+          physical 592
+          final text page
+          detector 1 asset
+          library stamp is not book content
+    Atlas / plates
+      sheet-297-left
+        physical 593
+        Table I
+        10 assets
+      sheet-297-right
+        physical 594
+        Table II
+        10 assets
+      sheet-298-left
+        physical 595
+        plate between Tables II and IV
+        3 assets
+      sheet-298-right
+        physical 596
+        Table IV
+        2 assets
+      sheet-299-left
+        physical 597
+        Table V
+        5 assets
+      sheet-299-right
+        physical 598
+        Table VI
+        22 assets
+      rule
+        do not compare plate asset count to caption count
+        inspect logical diagram grouping instead
+    Covers
+      sheet-300-left
+        physical 599
+        illustrated cover
+        13 assets
+        mixed genuine drawing plus display text
+      sheet-001-right
+        illustrated title / cover-title
+        mixed genuine drawing plus display text
+    Known semantic grouping controls
       sheet-228-left
-        two spatial regions may still be one logical asset
-        keep as known issue until corpus census
-      sheet-126-left
-        heavy bleed-through pilot case
-      sheet-001-left
-        dark / full-tone domain endpoint
-      sheet-300-right
-        dark / full-tone domain endpoint
+        physical 455
+        detector 2 assets
+        disconnected regions may still be one logical numbered illustration
       figure 129 family
-        foreground segmentation != logical asset grouping
-    OCR / layout stress pages
-      sheet-002
-        beginning / unusual composition / bleed-through
-      sheet-020
-        ordinary early text control
-      sheet-060
-        text plus illustrations
-      sheet-100
-        dense text plus exercises
-      sheet-169
-        difficult printed pages 297-298 region
-      sheet-260
-        late dense layout
-    Original-book anomalies
-      contents page XIII
-        unusual printed wording must not be normalized silently
-      suspicious printed page references
-        preserve if source image confirms them
-    Census outputs
-      index.json
-        page class
-        failures
-        accepted asset counts
-      metrics JSON
-        component counts
-        seed / region counts
-        scale estimates
-        grouping diagnostics
-      overlays
-        visual failure triage
-      assets
-        support
-        territory
-        alpha
-        source
-        clean
-    Post-run triage
-      rank automatic anomalies
-        failures
-        unsupported page domains
-        extreme asset counts
-        extreme component / region counts
-        suspicious bounding boxes
-      manual review
-        hardest anomalies first
-        representative ordinary pages
-      classify before fixing
-        restoration problem
-        segmentation problem
-        asset-grouping problem
-        rendering / alpha problem
-        original-book anomaly
+        foreground segmentation != archival asset identity
+    Restoration controls
+      sheet-126-left
+        physical 251
+        heavy bleed-through
+        detector currently 1 asset
+      sheet-002-left
+        heavy bleed-through and library mark
+      rule
+        preserve original scan
+        restore derivative by defect class
+        rerun frozen model after restoration
+    Domain controls
+      sheet-001-left
+        physical 1
+        unsupported-dark-fulltone
+        0 assets
+      sheet-300-right
+        physical 600
+        unsupported-dark-fulltone
+        0 assets
+    Next triage
+      captioned figure with zero assets
+        highest-priority miss candidates
+      captioned page with extra assets
+        split / edge / typography candidates
+      body page without caption but with assets
+        review against source and inline index references
+      atlas sheets
+        review diagram grouping, not count equality
+      title and cover pages
+        separate typography from genuine illustration
 ```
 
-## Known cases and how to treat them
+## Confirmed cases from the first census
 
-### `sheet-228-left` — known logical grouping case
+### `sheet-151-right` — physical index 302, figure 88
 
-The page is intentionally **not** a pre-census tuning target. A single logical/numbered illustration can occupy two spatially separate regions. Two extracted components are therefore not automatically a segmentation failure; the relevant question is whether they should later be grouped as one archival asset.
+Editorial text contains one explicit `88 ФИГ.` caption. The detector emits three assets. Visual overlay review shows the main figure is captured, while two long page-edge/scanner lines are also emitted.
 
-Action for first full pass: record the output unchanged and compare it with similar cases found elsewhere in the book.
+Classification:
 
-### `sheet-126-left` — heavy bleed-through
+- `FIGURE_EDGE_ARTIFACT`
+- `ASSET_COUNT_GT_CAPTION_INDEX`
+- real figure preserved; two extra detections.
 
-The pilot already showed that reverse-side fragments can become statistically unusual foreground. The current model can reject many of them at region level, but this page remains a restoration control.
+### `sheet-245-right` — physical index 490
 
-Action for first full pass: preserve current segmentation result; do not compensate by globally raising thresholds. Later compare original → restored derivative → rerun.
+Editorial text has no explicit figure caption on this page. The detector emits three small/thin assets, visually consistent with line/page-edge artifacts rather than illustrations.
 
-### `sheet-001-left` and `sheet-300-right` — dark/full-tone page domain
+Classification:
 
-These are useful controls for fail-closed page-domain classification. They should not be forced through ordinary body-text scale estimation.
+- `FIGURE_FALSE_POSITIVE`
+- `FIGURE_EDGE_ARTIFACT`
 
-### Figure 129 family — segmentation versus asset identity
+### `sheet-296-right` — physical index 592
 
-This class establishes an architectural invariant: disconnected or weakly connected foreground evidence can still belong to one logical illustration. Pixel/support recovery and archival asset grouping remain separate evaluation layers.
+This is the last text page (`552`, ending with `КОНЕЦЪ.`). Editorial notes explicitly exclude the library stamp from body text. The detector emits one asset and the overlay shows that the selected region is the stamp.
 
-## Review labels after the complete pass
+Classification:
 
-Each suspicious page should receive one or more of these labels:
+- `PROVENANCE_MARK_FALSE_POSITIVE`
+
+### Front matter: `sheet-001-right`, `002-left`, `002-right`, `003-left`
+
+These pages explain most of the extreme early counts. Large display words and decorated title typography are being interpreted as figure seeds/assets. Some pages also contain genuine illustrations or provenance marks, so the correct fix is page/asset semantic classification, not simply suppressing every large component.
+
+### Atlas region: physical 593–598
+
+The large tail counts around the end of the book are not directly comparable with ordinary figure-caption counts. Editorial metadata identifies these pages as tables/plates of technical drawings. They require logical diagram grouping review rather than ordinary caption-count equality.
+
+## Review labels
+
+A suspicious page may receive several labels:
 
 - `RESTORE_BLEED_THROUGH`
 - `RESTORE_STAMP_OR_MARK`
 - `RESTORE_PAGE_DAMAGE`
 - `DOMAIN_UNSUPPORTED`
+- `FIGURE_FALSE_POSITIVE`
+- `FIGURE_EDGE_ARTIFACT`
 - `FIGURE_FALSE_SPLIT`
 - `FIGURE_FALSE_MERGE`
 - `FIGURE_MISSED_SUPPORT`
@@ -193,18 +281,21 @@ Each suspicious page should receive one or more of these labels:
 - `FIGURE_FALSE_FILL`
 - `FIGURE_ALPHA_BOUNDARY`
 - `FIGURE_GROUPING_SEMANTIC`
+- `ASSET_COUNT_GT_CAPTION_INDEX`
+- `ASSET_COUNT_LT_CAPTION_INDEX`
+- `PROVENANCE_MARK_FALSE_POSITIVE`
+- `ATLAS_MULTI_DIAGRAM`
 - `ORIGINAL_BOOK_ANOMALY`
 - `CONTROL_OK`
 
-A page can carry several labels. In particular, restoration labels must not be collapsed into segmentation labels.
+## What we are measuring now
 
-## What the first full pass is meant to answer
+The next useful questions are:
 
-1. How many pages are outside the normal page domain?
-2. How often does the baseline emit zero, one, two, or many assets?
-3. Which false-split / false-merge patterns repeat often enough to deserve model changes?
-4. Where does bleed-through become a restoration problem rather than an extraction problem?
-5. Which apparent anomalies are actually faithful reproductions of the original book?
-6. Which small set of defect families covers most of the corpus failures?
+1. Which pages contain an explicit `N ФИГ.` index but zero detected assets?
+2. Where does one indexed figure produce several detector assets, and are the extras true disconnected parts or false positives?
+3. Which body pages have uncaptioned assets, and do they correspond to inline figure references, apparatus drawings, stamps, page rules or noise?
+4. Which atlas sheets are over-split or over-merged at the logical diagram level?
+5. Which repeated defect families should be solved by restoration, and which actually require detector changes?
 
-The important output is therefore not a single accuracy number. It is a corpus-wide taxonomy that tells us what should be restored, what should be regrouped semantically, and what—if anything—must actually change in `model-v1`.
+The target is a page/index-aware corpus map, not a single asset-count accuracy number.
