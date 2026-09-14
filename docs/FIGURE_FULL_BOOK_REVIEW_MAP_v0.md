@@ -134,6 +134,9 @@ mindmap
           title page
           display words split into assets
       scanner / page-edge rules
+        repeated family
+          32 thin edge-touching assets
+          29 pages
         sheet-151-right
           physical 302
           canonical index 88 FIG
@@ -226,6 +229,52 @@ mindmap
       title and cover pages
         separate typography from genuine illustration
 ```
+
+## Repeated geometry family: scanner / page-edge rules
+
+A corpus-wide bbox pass over the submitted metrics found **32** accepted assets on **29** pages that are simultaneously:
+
+- within 1% of a page edge;
+- very elongated (long/short side ratio >= 8);
+- small in total page area (bbox <= 8% of page).
+
+Visual contact-sheet review shows that this criterion is picking up the repeated red-boxed scanner/crop-edge strips seen on many ordinary text pages. It is a triage heuristic, not yet a deletion rule: a genuine rope/rail can also be long and thin, so canonical figure indices and source review still win.
+
+Candidate pages, expressed as `physical_index : page_id`:
+
+```text
+ 31 : sheet-016-left
+ 37 : sheet-019-left
+ 58 : sheet-029-right
+ 76 : sheet-038-right
+120 : sheet-060-right
+136 : sheet-068-right
+139 : sheet-070-left
+172 : sheet-086-right
+190 : sheet-095-right
+260 : sheet-130-right
+302 : sheet-151-right   (2 candidate edge assets)
+452 : sheet-226-right
+463 : sheet-232-left
+467 : sheet-234-left
+490 : sheet-245-right
+497 : sheet-249-left
+520 : sheet-260-right
+521 : sheet-261-left
+539 : sheet-270-left
+563 : sheet-282-left
+567 : sheet-284-left
+577 : sheet-289-left
+578 : sheet-289-right
+579 : sheet-290-left    (2 candidate edge assets)
+580 : sheet-290-right
+581 : sheet-291-left
+583 : sheet-292-left
+593 : sheet-297-left    (atlas; do not auto-delete)
+597 : sheet-299-left    (atlas; 2 candidates; do not auto-delete)
+```
+
+This repeated family is important because some pages have **no other accepted asset**. If index review confirms no figure on such pages, those detections are direct false positives and provide a clean regression set for a future edge-artifact guard.
 
 ## Confirmed cases from the first census
 
