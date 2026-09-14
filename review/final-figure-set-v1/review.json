@@ -1,7 +1,7 @@
 {
   "schema": "corpus-motuum-final-figure-review-v1",
   "source_manifest": "work/figure-final-v1/manifest.json",
-  "source_manifest_sha256": "c032fdb8507b4150bf6518621302a2d8ee4a8755ee07c7d769496dd04ad47a17",
+  "source_manifest_sha256": "1a95d2d0b37d36947ce0db306762388bc59ba1227b4e7fecc73130962ea1242b",
   "summary": {
     "numbered": 158,
     "restored": 22,
@@ -2862,7 +2862,7 @@
       {
         "label": "155",
         "path": "work/figure-final-v1/numbered/figure-155.png",
-        "sha256": "827915ca00eb0009ccacf8f0badbea76c2dc0046819ea3c9bb77d7e0931c0aea",
+        "sha256": "665e8a4d9b89f46d3c3729d21416a7c60073f1ca73b4cdaa81fe0906b26194c3",
         "classes": [
           "manual",
           "restored"
@@ -2872,9 +2872,9 @@
           364
         ],
         "alpha": {
-          "transparent_pixels": 71844,
-          "opaque_pixels": 30983,
-          "soft_edge_pixels": 12197,
+          "transparent_pixels": 72303,
+          "opaque_pixels": 30745,
+          "soft_edge_pixels": 11976,
           "total_pixels": 115024
         }
       },
@@ -3290,7 +3290,7 @@
       {
         "label": "155",
         "path": "work/figure-final-v1/numbered/figure-155.png",
-        "sha256": "827915ca00eb0009ccacf8f0badbea76c2dc0046819ea3c9bb77d7e0931c0aea",
+        "sha256": "665e8a4d9b89f46d3c3729d21416a7c60073f1ca73b4cdaa81fe0906b26194c3",
         "classes": [
           "manual",
           "restored"
@@ -3300,9 +3300,9 @@
           364
         ],
         "alpha": {
-          "transparent_pixels": 71844,
-          "opaque_pixels": 30983,
-          "soft_edge_pixels": 12197,
+          "transparent_pixels": 72303,
+          "opaque_pixels": 30745,
+          "soft_edge_pixels": 11976,
           "total_pixels": 115024
         }
       }
@@ -3628,7 +3628,7 @@
       {
         "label": "155",
         "path": "work/figure-final-v1/numbered/figure-155.png",
-        "sha256": "827915ca00eb0009ccacf8f0badbea76c2dc0046819ea3c9bb77d7e0931c0aea",
+        "sha256": "665e8a4d9b89f46d3c3729d21416a7c60073f1ca73b4cdaa81fe0906b26194c3",
         "classes": [
           "manual",
           "restored"
@@ -3638,9 +3638,9 @@
           364
         ],
         "alpha": {
-          "transparent_pixels": 71844,
-          "opaque_pixels": 30983,
-          "soft_edge_pixels": 12197,
+          "transparent_pixels": 72303,
+          "opaque_pixels": 30745,
+          "soft_edge_pixels": 11976,
           "total_pixels": 115024
         }
       }
