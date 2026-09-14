@@ -1,0 +1,75 @@
+name: Discover clean reference for figure 74
+
+on:
+  push:
+    branches:
+      - 'figures/model-v1'
+    paths:
+      - '.github/workflows/reference-figure-discovery.yml'
+      - 'tools/discover_reference_figure.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reference-figure-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install renderer
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pillow pymupdf
+
+      - name: Download public-domain French source
+        env:
+          REFERENCE_PDF_URL: https://iiif.wellcomecollection.org/pdf/b29287078
+        run: |
+          set -euo pipefail
+          mkdir -p work/reference
+          curl --fail --location --retry 4 --retry-all-errors \
+            "$REFERENCE_PDF_URL" \
+            --output work/reference/gymnastique-pratique-1850.pdf
+          test -s work/reference/gymnastique-pratique-1850.pdf
+
+      - name: Rank and render candidate pages
+        run: |
+          set -euo pipefail
+          rm -rf review/reference-figure74-discovery
+          python tools/discover_reference_figure.py \
+            work/reference/gymnastique-pratique-1850.pdf \
+            --out review/reference-figure74-discovery \
+            --source-url https://iiif.wellcomecollection.org/pdf/b29287078 \
+            --work-url https://wellcomecollection.org/works/jkgwk7qf
+
+      - name: Upload candidate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-figure74-discovery
+          path: review/reference-figure74-discovery
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Commit compact candidate sheets
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add review/reference-figure74-discovery
+          if git diff --cached --quiet; then
+            echo "No discovery changes to commit."
+          else
+            git commit -m "review: locate public-domain reference for figure 74"
+            git push origin HEAD:figures/model-v1
+          fi
