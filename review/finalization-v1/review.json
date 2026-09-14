@@ -1,0 +1,4620 @@
+{
+  "schema": "corpus-motuum-figure-finalization-review-v1",
+  "review_source": "work/figure-review-final/manifest.json",
+  "logical_source": "work/figure-logical-final/compositions-manifest.json",
+  "summary": {
+    "kept_assets": 212,
+    "numbered_assets": 157,
+    "bleedthrough_ranked": 212,
+    "bleedthrough_previewed": 48,
+    "logical_assets": 5,
+    "target_pages": 13
+  },
+  "numbered_contact_sheets": [
+    "review/finalization-v1/numbered/numbered-01.jpg",
+    "review/finalization-v1/numbered/numbered-02.jpg",
+    "review/finalization-v1/numbered/numbered-03.jpg",
+    "review/finalization-v1/numbered/numbered-04.jpg",
+    "review/finalization-v1/numbered/numbered-05.jpg",
+    "review/finalization-v1/numbered/numbered-06.jpg",
+    "review/finalization-v1/numbered/numbered-07.jpg",
+    "review/finalization-v1/numbered/numbered-08.jpg",
+    "review/finalization-v1/numbered/numbered-09.jpg",
+    "review/finalization-v1/numbered/numbered-10.jpg"
+  ],
+  "bleedthrough_contact_sheets": [
+    "review/finalization-v1/bleedthrough/bleedthrough-01.jpg",
+    "review/finalization-v1/bleedthrough/bleedthrough-02.jpg",
+    "review/finalization-v1/bleedthrough/bleedthrough-03.jpg",
+    "review/finalization-v1/bleedthrough/bleedthrough-04.jpg"
+  ],
+  "logical_contact_sheet": "review/finalization-v1/logical/logical.jpg",
+  "target_files": [
+    "review/finalization-v1/targets/sheet-001-right.jpg",
+    "review/finalization-v1/targets/sheet-076-right.jpg",
+    "review/finalization-v1/targets/sheet-084-left.jpg",
+    "review/finalization-v1/targets/sheet-128-left.jpg",
+    "review/finalization-v1/targets/sheet-133-right.jpg",
+    "review/finalization-v1/targets/sheet-228-left.jpg",
+    "review/finalization-v1/targets/sheet-256-right.jpg",
+    "review/finalization-v1/targets/sheet-297-left.jpg",
+    "review/finalization-v1/targets/sheet-297-right.jpg",
+    "review/finalization-v1/targets/sheet-298-left.jpg",
+    "review/finalization-v1/targets/sheet-298-right.jpg",
+    "review/finalization-v1/targets/sheet-299-left.jpg",
+    "review/finalization-v1/targets/sheet-299-right.jpg"
+  ],
+  "target_contact_sheet": "review/finalization-v1/targets/contact.jpg",
+  "bleedthrough_ranking": [
+    {
+      "key": "sheet-297-left#asset-09",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 9,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1430,
+        973,
+        1587,
+        988
+      ],
+      "score": 95.43220338983052,
+      "support_pixels": 177.0,
+      "weak_fraction": 0.5932203389830508,
+      "unanchored_weak_fraction": 0.3898305084745763,
+      "source_paper_variation": 10.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-299-left#asset-03",
+      "page_id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 3,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        876,
+        19,
+        1026,
+        37
+      ],
+      "score": 86.13194444444444,
+      "support_pixels": 144.0,
+      "weak_fraction": 0.6180555555555556,
+      "unanchored_weak_fraction": 0.3333333333333333,
+      "source_paper_variation": 10.0,
+      "strong_threshold": 160.32000732421875
+    },
+    {
+      "key": "sheet-300-left#asset-01",
+      "page_id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 1,
+      "category": "paratext",
+      "caption_figure_numbers": [],
+      "bbox": [
+        356,
+        1,
+        1557,
+        2481
+      ],
+      "score": 82.05406012585604,
+      "support_pixels": 745137.0,
+      "weak_fraction": 0.619593443890184,
+      "unanchored_weak_fraction": 0.26537938660944227,
+      "source_paper_variation": 28.0,
+      "strong_threshold": 93.0
+    },
+    {
+      "key": "sheet-065-right#asset-01",
+      "page_id": "sheet-065-right",
+      "physical_index": 130,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        23
+      ],
+      "bbox": [
+        85,
+        705,
+        441,
+        1097
+      ],
+      "score": 81.58234635307294,
+      "support_pixels": 14286.0,
+      "weak_fraction": 0.6162676746465071,
+      "unanchored_weak_fraction": 0.22840543189136217,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 145.0
+    },
+    {
+      "key": "sheet-261-left#asset-01",
+      "page_id": "sheet-261-left",
+      "physical_index": 521,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        146
+      ],
+      "bbox": [
+        26,
+        302,
+        318,
+        1091
+      ],
+      "score": 79.46643314714885,
+      "support_pixels": 31689.0,
+      "weak_fraction": 0.6165546404114992,
+      "unanchored_weak_fraction": 0.23159455962636877,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 144.0
+    },
+    {
+      "key": "sheet-264-right#asset-01",
+      "page_id": "sheet-264-right",
+      "physical_index": 528,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        148
+      ],
+      "bbox": [
+        64,
+        395,
+        255,
+        921
+      ],
+      "score": 79.25223122339696,
+      "support_pixels": 14566.0,
+      "weak_fraction": 0.6145819030619251,
+      "unanchored_weak_fraction": 0.22078813675683098,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 160.0
+    },
+    {
+      "key": "sheet-245-left#asset-01",
+      "page_id": "sheet-245-left",
+      "physical_index": 489,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        139
+      ],
+      "bbox": [
+        59,
+        544,
+        291,
+        1102
+      ],
+      "score": 79.22854200988469,
+      "support_pixels": 24280.0,
+      "weak_fraction": 0.6142092257001648,
+      "unanchored_weak_fraction": 0.22322899505766064,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 145.0
+    },
+    {
+      "key": "sheet-221-left#asset-01",
+      "page_id": "sheet-221-left",
+      "physical_index": 441,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        127
+      ],
+      "bbox": [
+        39,
+        113,
+        194,
+        520
+      ],
+      "score": 77.23203198494826,
+      "support_pixels": 15945.0,
+      "weak_fraction": 0.6142991533396049,
+      "unanchored_weak_fraction": 0.1621197867670116,
+      "source_paper_variation": 59.0,
+      "strong_threshold": 153.0
+    },
+    {
+      "key": "sheet-056-right#asset-01",
+      "page_id": "sheet-056-right",
+      "physical_index": 112,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        16
+      ],
+      "bbox": [
+        123,
+        310,
+        624,
+        637
+      ],
+      "score": 76.92962412616933,
+      "support_pixels": 29611.0,
+      "weak_fraction": 0.6133193745567526,
+      "unanchored_weak_fraction": 0.21313025564823884,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-060-right#asset-01",
+      "page_id": "sheet-060-right",
+      "physical_index": 120,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        19
+      ],
+      "bbox": [
+        68,
+        673,
+        258,
+        1112
+      ],
+      "score": 76.8489247311828,
+      "support_pixels": 15717.0,
+      "weak_fraction": 0.6179296303365782,
+      "unanchored_weak_fraction": 0.18928548705223644,
+      "source_paper_variation": 47.0,
+      "strong_threshold": 159.0
+    },
+    {
+      "key": "sheet-266-left#asset-01",
+      "page_id": "sheet-266-left",
+      "physical_index": 531,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        150
+      ],
+      "bbox": [
+        47,
+        70,
+        317,
+        445
+      ],
+      "score": 75.56226948970631,
+      "support_pixels": 20498.0,
+      "weak_fraction": 0.6174748755976193,
+      "unanchored_weak_fraction": 0.18972582690994244,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 150.0
+    },
+    {
+      "key": "sheet-244-right#asset-01",
+      "page_id": "sheet-244-right",
+      "physical_index": 488,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        138
+      ],
+      "bbox": [
+        63,
+        132,
+        411,
+        447
+      ],
+      "score": 74.97022767075306,
+      "support_pixels": 9136.0,
+      "weak_fraction": 0.6195271453590193,
+      "unanchored_weak_fraction": 0.19603765323992994,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-187-right#asset-01",
+      "page_id": "sheet-187-right",
+      "physical_index": 374,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        109
+      ],
+      "bbox": [
+        70,
+        140,
+        208,
+        615
+      ],
+      "score": 74.73654163458365,
+      "support_pixels": 9091.0,
+      "weak_fraction": 0.6166538334616654,
+      "unanchored_weak_fraction": 0.1902980970190298,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-246-left#asset-01",
+      "page_id": "sheet-246-left",
+      "physical_index": 491,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        140
+      ],
+      "bbox": [
+        40,
+        554,
+        198,
+        1023
+      ],
+      "score": 73.93793526713611,
+      "support_pixels": 15479.0,
+      "weak_fraction": 0.6143807739518057,
+      "unanchored_weak_fraction": 0.17630337877123844,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 150.0
+    },
+    {
+      "key": "sheet-040-left#asset-02",
+      "page_id": "sheet-040-left",
+      "physical_index": 79,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        6,
+        7
+      ],
+      "bbox": [
+        66,
+        704,
+        455,
+        830
+      ],
+      "score": 72.64750672990642,
+      "support_pixels": 15602.0,
+      "weak_fraction": 0.6196000512754775,
+      "unanchored_weak_fraction": 0.16811947186258172,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 149.0
+    },
+    {
+      "key": "sheet-263-left#asset-01",
+      "page_id": "sheet-263-left",
+      "physical_index": 525,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        147
+      ],
+      "bbox": [
+        99,
+        24,
+        617,
+        1165
+      ],
+      "score": 72.50642694671636,
+      "support_pixels": 103315.0,
+      "weak_fraction": 0.6133572085369985,
+      "unanchored_weak_fraction": 0.18854958137734115,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 136.0
+    },
+    {
+      "key": "sheet-080-left#asset-01",
+      "page_id": "sheet-080-left",
+      "physical_index": 159,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        43
+      ],
+      "bbox": [
+        52,
+        154,
+        332,
+        488
+      ],
+      "score": 71.70942742011059,
+      "support_pixels": 10671.0,
+      "weak_fraction": 0.6150313934963921,
+      "unanchored_weak_fraction": 0.19379627026520477,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 174.0
+    },
+    {
+      "key": "sheet-205-left#asset-01",
+      "page_id": "sheet-205-left",
+      "physical_index": 409,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        118
+      ],
+      "bbox": [
+        40,
+        426,
+        210,
+        835
+      ],
+      "score": 71.01891754864059,
+      "support_pixels": 15779.0,
+      "weak_fraction": 0.6134736041574245,
+      "unanchored_weak_fraction": 0.1502630077951708,
+      "source_paper_variation": 50.0,
+      "strong_threshold": 135.0
+    },
+    {
+      "key": "sheet-066-right#asset-01",
+      "page_id": "sheet-066-right",
+      "physical_index": 132,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        24
+      ],
+      "bbox": [
+        74,
+        491,
+        303,
+        904
+      ],
+      "score": 70.55457413249212,
+      "support_pixels": 15850.0,
+      "weak_fraction": 0.616403785488959,
+      "unanchored_weak_fraction": 0.1521135646687697,
+      "source_paper_variation": 48.0,
+      "strong_threshold": 143.0
+    },
+    {
+      "key": "sheet-298-right#asset-02",
+      "page_id": "sheet-298-right",
+      "physical_index": 596,
+      "asset_index": 2,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        274,
+        20,
+        435,
+        36
+      ],
+      "score": 70.2872340425532,
+      "support_pixels": 188.0,
+      "weak_fraction": 0.6117021276595744,
+      "unanchored_weak_fraction": 0.23404255319148937,
+      "source_paper_variation": 15.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-084-left#asset-02",
+      "page_id": "sheet-084-left",
+      "physical_index": 167,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        47,
+        48
+      ],
+      "bbox": [
+        73,
+        723,
+        311,
+        1049
+      ],
+      "score": 70.09431140471602,
+      "support_pixels": 10899.0,
+      "weak_fraction": 0.6175795944582072,
+      "unanchored_weak_fraction": 0.17432791999265987,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-078-left#asset-01",
+      "page_id": "sheet-078-left",
+      "physical_index": 155,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        39
+      ],
+      "bbox": [
+        43,
+        660,
+        236,
+        1100
+      ],
+      "score": 70.01481098946499,
+      "support_pixels": 9682.0,
+      "weak_fraction": 0.616504854368932,
+      "unanchored_weak_fraction": 0.17909522825862426,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 173.0
+    },
+    {
+      "key": "sheet-297-left#asset-02",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 2,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        270,
+        17,
+        581,
+        34
+      ],
+      "score": 69.96621621621622,
+      "support_pixels": 370.0,
+      "weak_fraction": 0.6108108108108108,
+      "unanchored_weak_fraction": 0.23243243243243245,
+      "source_paper_variation": 15.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-297-left#asset-07",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 7,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1289,
+        930,
+        1546,
+        957
+      ],
+      "score": 69.76188118811882,
+      "support_pixels": 404.0,
+      "weak_fraction": 0.6163366336633663,
+      "unanchored_weak_fraction": 0.22772277227722773,
+      "source_paper_variation": 16.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-299-left#asset-02",
+      "page_id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 2,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        475,
+        1,
+        807,
+        21
+      ],
+      "score": 69.4390977443609,
+      "support_pixels": 1330.0,
+      "weak_fraction": 0.618796992481203,
+      "unanchored_weak_fraction": 0.18045112781954886,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 177.0
+    },
+    {
+      "key": "sheet-110-left#asset-01",
+      "page_id": "sheet-110-left",
+      "physical_index": 219,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        56
+      ],
+      "bbox": [
+        37,
+        107,
+        424,
+        462
+      ],
+      "score": 69.16603119584056,
+      "support_pixels": 11540.0,
+      "weak_fraction": 0.6136048526863085,
+      "unanchored_weak_fraction": 0.17244367417677642,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-077-right#asset-01",
+      "page_id": "sheet-077-right",
+      "physical_index": 154,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        38
+      ],
+      "bbox": [
+        56,
+        681,
+        301,
+        1052
+      ],
+      "score": 68.97964550873156,
+      "support_pixels": 9563.0,
+      "weak_fraction": 0.6112098713792743,
+      "unanchored_weak_fraction": 0.16187388894698315,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-039-right#asset-01",
+      "page_id": "sheet-039-right",
+      "physical_index": 78,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        5
+      ],
+      "bbox": [
+        96,
+        490,
+        503,
+        638
+      ],
+      "score": 68.56551772849272,
+      "support_pixels": 14158.0,
+      "weak_fraction": 0.606582850685125,
+      "unanchored_weak_fraction": 0.14797287752507415,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 146.0
+    },
+    {
+      "key": "sheet-071-right#asset-01",
+      "page_id": "sheet-071-right",
+      "physical_index": 142,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        30
+      ],
+      "bbox": [
+        54,
+        722,
+        343,
+        1112
+      ],
+      "score": 68.50235640648012,
+      "support_pixels": 12222.0,
+      "weak_fraction": 0.6067746686303387,
+      "unanchored_weak_fraction": 0.15758468335787923,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-002-right#asset-05",
+      "page_id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 5,
+      "category": "paratext",
+      "caption_figure_numbers": [],
+      "bbox": [
+        120,
+        544,
+        622,
+        900
+      ],
+      "score": 68.48420515762966,
+      "support_pixels": 31371.0,
+      "weak_fraction": 0.6199356093207102,
+      "unanchored_weak_fraction": 0.15992477128558222,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 150.0
+    },
+    {
+      "key": "sheet-003-left#asset-12",
+      "page_id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 12,
+      "category": "paratext",
+      "caption_figure_numbers": [],
+      "bbox": [
+        106,
+        369,
+        656,
+        722
+      ],
+      "score": 67.56941121153545,
+      "support_pixels": 38282.0,
+      "weak_fraction": 0.6116190376678334,
+      "unanchored_weak_fraction": 0.16145969385089598,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 148.0
+    },
+    {
+      "key": "sheet-265-left#asset-01",
+      "page_id": "sheet-265-left",
+      "physical_index": 529,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        149
+      ],
+      "bbox": [
+        39,
+        483,
+        329,
+        1079
+      ],
+      "score": 67.07244217545322,
+      "support_pixels": 28794.0,
+      "weak_fraction": 0.6113773702854761,
+      "unanchored_weak_fraction": 0.14624574564145307,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 156.0
+    },
+    {
+      "key": "sheet-038-right#asset-01",
+      "page_id": "sheet-038-right",
+      "physical_index": 76,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        3
+      ],
+      "bbox": [
+        60,
+        69,
+        359,
+        293
+      ],
+      "score": 67.06484219731298,
+      "support_pixels": 12579.0,
+      "weak_fraction": 0.6200015899515064,
+      "unanchored_weak_fraction": 0.14452659193894588,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 152.72000122070312
+    },
+    {
+      "key": "sheet-057-left#asset-01",
+      "page_id": "sheet-057-left",
+      "physical_index": 113,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        17
+      ],
+      "bbox": [
+        90,
+        800,
+        640,
+        1107
+      ],
+      "score": 66.71688590522847,
+      "support_pixels": 33069.0,
+      "weak_fraction": 0.6077897728990898,
+      "unanchored_weak_fraction": 0.16746802140977954,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 151.0
+    },
+    {
+      "key": "sheet-067-right#asset-01",
+      "page_id": "sheet-067-right",
+      "physical_index": 134,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        25
+      ],
+      "bbox": [
+        80,
+        635,
+        428,
+        1003
+      ],
+      "score": 66.09530886179975,
+      "support_pixels": 14602.0,
+      "weak_fraction": 0.6128612518833036,
+      "unanchored_weak_fraction": 0.14052869469935625,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-298-left#asset-01",
+      "page_id": "sheet-298-left",
+      "physical_index": 595,
+      "asset_index": 1,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        553,
+        1,
+        673,
+        16
+      ],
+      "score": 66.04324324324324,
+      "support_pixels": 185.0,
+      "weak_fraction": 0.6054054054054054,
+      "unanchored_weak_fraction": 0.1891891891891892,
+      "source_paper_variation": 24.0,
+      "strong_threshold": 181.0
+    },
+    {
+      "key": "sheet-188-left#asset-01",
+      "page_id": "sheet-188-left",
+      "physical_index": 375,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        110,
+        111
+      ],
+      "bbox": [
+        44,
+        213,
+        237,
+        669
+      ],
+      "score": 65.87192422307365,
+      "support_pixels": 9396.0,
+      "weak_fraction": 0.6160068114091103,
+      "unanchored_weak_fraction": 0.13867603235419326,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-214-right#asset-01",
+      "page_id": "sheet-214-right",
+      "physical_index": 428,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        124
+      ],
+      "bbox": [
+        75,
+        466,
+        212,
+        935
+      ],
+      "score": 65.76021671826625,
+      "support_pixels": 9690.0,
+      "weak_fraction": 0.6164086687306501,
+      "unanchored_weak_fraction": 0.13797729618163054,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-065-left#asset-01",
+      "page_id": "sheet-065-left",
+      "physical_index": 129,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        22
+      ],
+      "bbox": [
+        43,
+        72,
+        217,
+        429
+      ],
+      "score": 65.39000868809731,
+      "support_pixels": 8057.0,
+      "weak_fraction": 0.6133796698523023,
+      "unanchored_weak_fraction": 0.13900955690703737,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 152.0
+    },
+    {
+      "key": "sheet-097-left#asset-01",
+      "page_id": "sheet-097-left",
+      "physical_index": 193,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        51
+      ],
+      "bbox": [
+        56,
+        653,
+        337,
+        1069
+      ],
+      "score": 65.22923550826098,
+      "support_pixels": 10713.0,
+      "weak_fraction": 0.6171940632875945,
+      "unanchored_weak_fraction": 0.12237468496219546,
+      "source_paper_variation": 48.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-235-left#asset-01",
+      "page_id": "sheet-235-left",
+      "physical_index": 469,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        133
+      ],
+      "bbox": [
+        57,
+        711,
+        254,
+        1128
+      ],
+      "score": 65.20253068317585,
+      "support_pixels": 9207.0,
+      "weak_fraction": 0.6130118388182905,
+      "unanchored_weak_fraction": 0.14803953513630932,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-123-right#asset-01",
+      "page_id": "sheet-123-right",
+      "physical_index": 246,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        67
+      ],
+      "bbox": [
+        60,
+        685,
+        279,
+        1001
+      ],
+      "score": 64.90046246338832,
+      "support_pixels": 6487.0,
+      "weak_fraction": 0.6102975181131494,
+      "unanchored_weak_fraction": 0.13688916294126716,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-063-left#asset-01",
+      "page_id": "sheet-063-left",
+      "physical_index": 125,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        20
+      ],
+      "bbox": [
+        55,
+        72,
+        261,
+        490
+      ],
+      "score": 64.80737744589642,
+      "support_pixels": 14463.0,
+      "weak_fraction": 0.6119753854663624,
+      "unanchored_weak_fraction": 0.12604577196985411,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 155.0
+    },
+    {
+      "key": "sheet-149-left#asset-01",
+      "page_id": "sheet-149-left",
+      "physical_index": 297,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        87
+      ],
+      "bbox": [
+        87,
+        199,
+        391,
+        509
+      ],
+      "score": 64.3311786203746,
+      "support_pixels": 10945.0,
+      "weak_fraction": 0.6190954773869347,
+      "unanchored_weak_fraction": 0.13951576062128826,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 176.0
+    },
+    {
+      "key": "sheet-273-left#asset-02",
+      "page_id": "sheet-273-left",
+      "physical_index": 545,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        153,
+        154
+      ],
+      "bbox": [
+        47,
+        738,
+        335,
+        1145
+      ],
+      "score": 64.28407279776007,
+      "support_pixels": 13929.0,
+      "weak_fraction": 0.6166271807021323,
+      "unanchored_weak_fraction": 0.14473400818436355,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-039-left#asset-01",
+      "page_id": "sheet-039-left",
+      "physical_index": 77,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        4
+      ],
+      "bbox": [
+        47,
+        171,
+        346,
+        544
+      ],
+      "score": 63.90035721864609,
+      "support_pixels": 14137.0,
+      "weak_fraction": 0.6098182075404965,
+      "unanchored_weak_fraction": 0.13892622197071514,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-136-left#asset-01",
+      "page_id": "sheet-136-left",
+      "physical_index": 271,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        79
+      ],
+      "bbox": [
+        126,
+        299,
+        602,
+        779
+      ],
+      "score": 63.72732721622022,
+      "support_pixels": 27028.0,
+      "weak_fraction": 0.6178777564007696,
+      "unanchored_weak_fraction": 0.11639780967885156,
+      "source_paper_variation": 47.0,
+      "strong_threshold": 151.0
+    },
+    {
+      "key": "sheet-070-left#asset-01",
+      "page_id": "sheet-070-left",
+      "physical_index": 139,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        28
+      ],
+      "bbox": [
+        27,
+        166,
+        278,
+        527
+      ],
+      "score": 63.52100875020638,
+      "support_pixels": 12114.0,
+      "weak_fraction": 0.613092289912498,
+      "unanchored_weak_fraction": 0.12118210335149414,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-077-left#asset-01",
+      "page_id": "sheet-077-left",
+      "physical_index": 153,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        37
+      ],
+      "bbox": [
+        55,
+        722,
+        266,
+        1117
+      ],
+      "score": 63.483315895021356,
+      "support_pixels": 11469.0,
+      "weak_fraction": 0.611648792396896,
+      "unanchored_weak_fraction": 0.12625337867294445,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-038-left#asset-01",
+      "page_id": "sheet-038-left",
+      "physical_index": 75,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        2
+      ],
+      "bbox": [
+        65,
+        503,
+        333,
+        846
+      ],
+      "score": 63.14188034188034,
+      "support_pixels": 13455.0,
+      "weak_fraction": 0.5992567818654775,
+      "unanchored_weak_fraction": 0.12426607209215905,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-051-left#asset-01",
+      "page_id": "sheet-051-left",
+      "physical_index": 101,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        12
+      ],
+      "bbox": [
+        37,
+        64,
+        243,
+        410
+      ],
+      "score": 63.037460332724294,
+      "support_pixels": 10399.0,
+      "weak_fraction": 0.6141936724685065,
+      "unanchored_weak_fraction": 0.1282815655351476,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-072-left#asset-01",
+      "page_id": "sheet-072-left",
+      "physical_index": 143,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        31
+      ],
+      "bbox": [
+        103,
+        630,
+        653,
+        991
+      ],
+      "score": 62.885683139534876,
+      "support_pixels": 13760.0,
+      "weak_fraction": 0.6087936046511628,
+      "unanchored_weak_fraction": 0.12848837209302325,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-119-left#asset-01",
+      "page_id": "sheet-119-left",
+      "physical_index": 237,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        62
+      ],
+      "bbox": [
+        43,
+        239,
+        260,
+        539
+      ],
+      "score": 62.74162502015154,
+      "support_pixels": 6203.0,
+      "weak_fraction": 0.619216508141222,
+      "unanchored_weak_fraction": 0.13316137352893762,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-078-right#asset-01",
+      "page_id": "sheet-078-right",
+      "physical_index": 156,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        40,
+        41
+      ],
+      "bbox": [
+        66,
+        385,
+        386,
+        722
+      ],
+      "score": 61.94244245711772,
+      "support_pixels": 13642.0,
+      "weak_fraction": 0.6130332795777745,
+      "unanchored_weak_fraction": 0.11992376484386454,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-256-right#asset-01",
+      "page_id": "sheet-256-right",
+      "physical_index": 512,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        144,
+        145
+      ],
+      "bbox": [
+        52,
+        506,
+        355,
+        1096
+      ],
+      "score": 61.77658949649313,
+      "support_pixels": 17537.0,
+      "weak_fraction": 0.6078006500541712,
+      "unanchored_weak_fraction": 0.13251981524776188,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-076-right#asset-01",
+      "page_id": "sheet-076-right",
+      "physical_index": 152,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        35,
+        36
+      ],
+      "bbox": [
+        61,
+        389,
+        415,
+        1112
+      ],
+      "score": 61.70401539581816,
+      "support_pixels": 28839.0,
+      "weak_fraction": 0.615936752314574,
+      "unanchored_weak_fraction": 0.1180346059156004,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-183-left#asset-01",
+      "page_id": "sheet-183-left",
+      "physical_index": 365,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        103
+      ],
+      "bbox": [
+        57,
+        104,
+        252,
+        480
+      ],
+      "score": 61.685514743921374,
+      "support_pixels": 7732.0,
+      "weak_fraction": 0.6063114330056907,
+      "unanchored_weak_fraction": 0.10980341438178996,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-253-right#asset-02",
+      "page_id": "sheet-253-right",
+      "physical_index": 506,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        143
+      ],
+      "bbox": [
+        65,
+        722,
+        228,
+        1102
+      ],
+      "score": 61.63727506426735,
+      "support_pixels": 7002.0,
+      "weak_fraction": 0.6195372750642674,
+      "unanchored_weak_fraction": 0.12696372465009997,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 175.0
+    },
+    {
+      "key": "sheet-130-right#asset-02",
+      "page_id": "sheet-130-right",
+      "physical_index": 260,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        76
+      ],
+      "bbox": [
+        78,
+        443,
+        321,
+        755
+      ],
+      "score": 61.48924492109163,
+      "support_pixels": 11469.0,
+      "weak_fraction": 0.612520707995466,
+      "unanchored_weak_fraction": 0.11500566745139071,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 145.0
+    },
+    {
+      "key": "sheet-182-left#asset-01",
+      "page_id": "sheet-182-left",
+      "physical_index": 363,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        101
+      ],
+      "bbox": [
+        47,
+        73,
+        397,
+        333
+      ],
+      "score": 61.36561034206612,
+      "support_pixels": 8741.0,
+      "weak_fraction": 0.6162910422148495,
+      "unanchored_weak_fraction": 0.11108568813636883,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-071-left#asset-01",
+      "page_id": "sheet-071-left",
+      "physical_index": 141,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        29
+      ],
+      "bbox": [
+        80,
+        503,
+        230,
+        1042
+      ],
+      "score": 61.18895804270845,
+      "support_pixels": 9319.0,
+      "weak_fraction": 0.618413992917695,
+      "unanchored_weak_fraction": 0.12469149050327288,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-064-left#asset-01",
+      "page_id": "sheet-064-left",
+      "physical_index": 127,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        21
+      ],
+      "bbox": [
+        52,
+        67,
+        227,
+        444
+      ],
+      "score": 61.17826685006878,
+      "support_pixels": 11632.0,
+      "weak_fraction": 0.6196698762035764,
+      "unanchored_weak_fraction": 0.0968878954607978,
+      "source_paper_variation": 49.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-078-right#asset-02",
+      "page_id": "sheet-078-right",
+      "physical_index": 156,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        40,
+        41
+      ],
+      "bbox": [
+        62,
+        752,
+        423,
+        1111
+      ],
+      "score": 61.08522123893806,
+      "support_pixels": 14125.0,
+      "weak_fraction": 0.6077876106194691,
+      "unanchored_weak_fraction": 0.12368141592920354,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-197-right#asset-01",
+      "page_id": "sheet-197-right",
+      "physical_index": 394,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        114
+      ],
+      "bbox": [
+        64,
+        294,
+        290,
+        662
+      ],
+      "score": 61.081696391879674,
+      "support_pixels": 12167.0,
+      "weak_fraction": 0.614202350620531,
+      "unanchored_weak_fraction": 0.11991452288978384,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-107-left#asset-01",
+      "page_id": "sheet-107-left",
+      "physical_index": 213,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        55
+      ],
+      "bbox": [
+        55,
+        593,
+        292,
+        1092
+      ],
+      "score": 61.02195289275097,
+      "support_pixels": 13119.0,
+      "weak_fraction": 0.6149096729933684,
+      "unanchored_weak_fraction": 0.11944507965546154,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-181-left#asset-01",
+      "page_id": "sheet-181-left",
+      "physical_index": 361,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        99
+      ],
+      "bbox": [
+        44,
+        246,
+        231,
+        684
+      ],
+      "score": 60.97828497287095,
+      "support_pixels": 8478.0,
+      "weak_fraction": 0.6184241566407171,
+      "unanchored_weak_fraction": 0.12101910828025478,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-040-right#asset-01",
+      "page_id": "sheet-040-right",
+      "physical_index": 80,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        8,
+        9
+      ],
+      "bbox": [
+        71,
+        526,
+        297,
+        783
+      ],
+      "score": 60.965436579955636,
+      "support_pixels": 9918.0,
+      "weak_fraction": 0.6096995361968138,
+      "unanchored_weak_fraction": 0.1151441822948175,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 159.0
+    },
+    {
+      "key": "sheet-075-left#asset-01",
+      "page_id": "sheet-075-left",
+      "physical_index": 149,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        34
+      ],
+      "bbox": [
+        48,
+        726,
+        397,
+        1092
+      ],
+      "score": 60.87169106197446,
+      "support_pixels": 12844.0,
+      "weak_fraction": 0.6084553098723139,
+      "unanchored_weak_fraction": 0.10736530675801931,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-243-left#asset-01",
+      "page_id": "sheet-243-left",
+      "physical_index": 485,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        137
+      ],
+      "bbox": [
+        60,
+        649,
+        378,
+        898
+      ],
+      "score": 60.77938036424534,
+      "support_pixels": 9554.0,
+      "weak_fraction": 0.603935524387691,
+      "unanchored_weak_fraction": 0.13523131672597866,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 174.0
+    },
+    {
+      "key": "sheet-112-right#asset-01",
+      "page_id": "sheet-112-right",
+      "physical_index": 224,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        57
+      ],
+      "bbox": [
+        67,
+        410,
+        410,
+        730
+      ],
+      "score": 60.61387804424615,
+      "support_pixels": 10758.0,
+      "weak_fraction": 0.60996467744934,
+      "unanchored_weak_fraction": 0.1406395240751069,
+      "source_paper_variation": 31.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-203-right#asset-01",
+      "page_id": "sheet-203-right",
+      "physical_index": 406,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        117
+      ],
+      "bbox": [
+        63,
+        274,
+        273,
+        698
+      ],
+      "score": 60.42919373200296,
+      "support_pixels": 14933.0,
+      "weak_fraction": 0.6158842831313199,
+      "unanchored_weak_fraction": 0.1184624656800375,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 157.0
+    },
+    {
+      "key": "sheet-223-left#asset-01",
+      "page_id": "sheet-223-left",
+      "physical_index": 445,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        128
+      ],
+      "bbox": [
+        50,
+        66,
+        311,
+        532
+      ],
+      "score": 60.369173066619034,
+      "support_pixels": 11198.0,
+      "weak_fraction": 0.6038578317556706,
+      "unanchored_weak_fraction": 0.11796749419539203,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-184-left#asset-01",
+      "page_id": "sheet-184-left",
+      "physical_index": 367,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        106
+      ],
+      "bbox": [
+        51,
+        274,
+        449,
+        514
+      ],
+      "score": 60.232792207792215,
+      "support_pixels": 9240.0,
+      "weak_fraction": 0.6126623376623377,
+      "unanchored_weak_fraction": 0.1104978354978355,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-131-right#asset-01",
+      "page_id": "sheet-131-right",
+      "physical_index": 262,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        77
+      ],
+      "bbox": [
+        76,
+        106,
+        284,
+        499
+      ],
+      "score": 60.19335809482194,
+      "support_pixels": 9154.0,
+      "weak_fraction": 0.6112082149879834,
+      "unanchored_weak_fraction": 0.09056150316801398,
+      "source_paper_variation": 50.0,
+      "strong_threshold": 156.0
+    },
+    {
+      "key": "sheet-274-right#asset-01",
+      "page_id": "sheet-274-right",
+      "physical_index": 548,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        156
+      ],
+      "bbox": [
+        131,
+        713,
+        640,
+        1155
+      ],
+      "score": 60.026581118240145,
+      "support_pixels": 27275.0,
+      "weak_fraction": 0.6124656278643447,
+      "unanchored_weak_fraction": 0.1143904674610449,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 161.0
+    },
+    {
+      "key": "sheet-053-right#asset-01",
+      "page_id": "sheet-053-right",
+      "physical_index": 106,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        13
+      ],
+      "bbox": [
+        112,
+        810,
+        662,
+        1110
+      ],
+      "score": 60.019561294462044,
+      "support_pixels": 24937.0,
+      "weak_fraction": 0.6172755343465534,
+      "unanchored_weak_fraction": 0.13341620884629266,
+      "source_paper_variation": 32.0,
+      "strong_threshold": 157.0
+    },
+    {
+      "key": "sheet-094-left#asset-01",
+      "page_id": "sheet-094-left",
+      "physical_index": 187,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [],
+      "bbox": [
+        35,
+        536,
+        331,
+        992
+      ],
+      "score": 59.50732073207321,
+      "support_pixels": 13332.0,
+      "weak_fraction": 0.6178367836783678,
+      "unanchored_weak_fraction": 0.11296129612961296,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 169.0
+    },
+    {
+      "key": "sheet-188-left#asset-02",
+      "page_id": "sheet-188-left",
+      "physical_index": 375,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        110,
+        111
+      ],
+      "bbox": [
+        40,
+        700,
+        219,
+        1115
+      ],
+      "score": 59.323115143659535,
+      "support_pixels": 9258.0,
+      "weak_fraction": 0.6142795420177144,
+      "unanchored_weak_fraction": 0.10012961762799741,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-159-right#asset-01",
+      "page_id": "sheet-159-right",
+      "physical_index": 318,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        92
+      ],
+      "bbox": [
+        60,
+        252,
+        279,
+        627
+      ],
+      "score": 59.06012219115668,
+      "support_pixels": 9657.0,
+      "weak_fraction": 0.6056746401573988,
+      "unanchored_weak_fraction": 0.1003417210313762,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 161.0
+    },
+    {
+      "key": "sheet-048-left#asset-01",
+      "page_id": "sheet-048-left",
+      "physical_index": 95,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        11
+      ],
+      "bbox": [
+        58,
+        295,
+        277,
+        635
+      ],
+      "score": 59.05594191041113,
+      "support_pixels": 9778.0,
+      "weak_fraction": 0.60288402536306,
+      "unanchored_weak_fraction": 0.11086111679280017,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 155.0
+    },
+    {
+      "key": "sheet-144-right#asset-01",
+      "page_id": "sheet-144-right",
+      "physical_index": 288,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        83
+      ],
+      "bbox": [
+        65,
+        765,
+        386,
+        1045
+      ],
+      "score": 58.87893275755706,
+      "support_pixels": 8105.0,
+      "weak_fraction": 0.612954966070327,
+      "unanchored_weak_fraction": 0.12041949413942012,
+      "source_paper_variation": 35.0,
+      "strong_threshold": 181.0
+    },
+    {
+      "key": "sheet-081-left#asset-02",
+      "page_id": "sheet-081-left",
+      "physical_index": 161,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        44,
+        45
+      ],
+      "bbox": [
+        135,
+        494,
+        609,
+        656
+      ],
+      "score": 58.79176334106728,
+      "support_pixels": 10775.0,
+      "weak_fraction": 0.6076102088167054,
+      "unanchored_weak_fraction": 0.10097447795823666,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-178-right#asset-01",
+      "page_id": "sheet-178-right",
+      "physical_index": 356,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        95
+      ],
+      "bbox": [
+        71,
+        648,
+        213,
+        1071
+      ],
+      "score": 58.70601148462734,
+      "support_pixels": 8359.0,
+      "weak_fraction": 0.6062926187342984,
+      "unanchored_weak_fraction": 0.1057542768273717,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-151-right#asset-03",
+      "page_id": "sheet-151-right",
+      "physical_index": 302,
+      "asset_index": 3,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        88
+      ],
+      "bbox": [
+        70,
+        355,
+        248,
+        855
+      ],
+      "score": 58.629410294852576,
+      "support_pixels": 8004.0,
+      "weak_fraction": 0.6185657171414293,
+      "unanchored_weak_fraction": 0.11544227886056972,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 169.0
+    },
+    {
+      "key": "sheet-122-left#asset-01",
+      "page_id": "sheet-122-left",
+      "physical_index": 243,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        65
+      ],
+      "bbox": [
+        53,
+        828,
+        345,
+        1076
+      ],
+      "score": 58.58016965239055,
+      "support_pixels": 8429.0,
+      "weak_fraction": 0.6125281765333966,
+      "unanchored_weak_fraction": 0.09384268596512042,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 161.0
+    },
+    {
+      "key": "sheet-242-left#asset-02",
+      "page_id": "sheet-242-left",
+      "physical_index": 483,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        135,
+        136
+      ],
+      "bbox": [
+        57,
+        881,
+        365,
+        1113
+      ],
+      "score": 57.779319643227545,
+      "support_pixels": 9642.0,
+      "weak_fraction": 0.6150176311968472,
+      "unanchored_weak_fraction": 0.10640945861854387,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 169.0
+    },
+    {
+      "key": "sheet-154-left#asset-01",
+      "page_id": "sheet-154-left",
+      "physical_index": 307,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [],
+      "bbox": [
+        54,
+        446,
+        248,
+        791
+      ],
+      "score": 57.739820185614846,
+      "support_pixels": 6896.0,
+      "weak_fraction": 0.6077436194895591,
+      "unanchored_weak_fraction": 0.11760440835266821,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-054-right#asset-01",
+      "page_id": "sheet-054-right",
+      "physical_index": 108,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        14
+      ],
+      "bbox": [
+        140,
+        309,
+        652,
+        599
+      ],
+      "score": 57.600331564986746,
+      "support_pixels": 24128.0,
+      "weak_fraction": 0.6173740053050398,
+      "unanchored_weak_fraction": 0.11745689655172414,
+      "source_paper_variation": 33.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-114-right#asset-01",
+      "page_id": "sheet-114-right",
+      "physical_index": 228,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        59,
+        60
+      ],
+      "bbox": [
+        154,
+        162,
+        630,
+        443
+      ],
+      "score": 57.433135031541966,
+      "support_pixels": 12523.0,
+      "weak_fraction": 0.6089595144933323,
+      "unanchored_weak_fraction": 0.12816417791264073,
+      "source_paper_variation": 29.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-272-left#asset-01",
+      "page_id": "sheet-272-left",
+      "physical_index": 543,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        152
+      ],
+      "bbox": [
+        0,
+        578,
+        185,
+        1072
+      ],
+      "score": 57.28662117809639,
+      "support_pixels": 11578.0,
+      "weak_fraction": 0.6144411815512179,
+      "unanchored_weak_fraction": 0.08628433235446537,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 158.0
+    },
+    {
+      "key": "sheet-057-right#asset-01",
+      "page_id": "sheet-057-right",
+      "physical_index": 114,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        18
+      ],
+      "bbox": [
+        107,
+        906,
+        670,
+        1101
+      ],
+      "score": 57.28304317947543,
+      "support_pixels": 17462.0,
+      "weak_fraction": 0.6064597411522162,
+      "unanchored_weak_fraction": 0.11281640132859924,
+      "source_paper_variation": 35.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-069-left#asset-01",
+      "page_id": "sheet-069-left",
+      "physical_index": 137,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        27
+      ],
+      "bbox": [
+        50,
+        730,
+        408,
+        1106
+      ],
+      "score": 56.98889499221826,
+      "support_pixels": 10923.0,
+      "weak_fraction": 0.6136592511214868,
+      "unanchored_weak_fraction": 0.09228234001647899,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 169.0
+    },
+    {
+      "key": "sheet-297-left#asset-08",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 8,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1169,
+        973,
+        1421,
+        991
+      ],
+      "score": 56.94503546099291,
+      "support_pixels": 282.0,
+      "weak_fraction": 0.6134751773049646,
+      "unanchored_weak_fraction": 0.1595744680851064,
+      "source_paper_variation": 15.0,
+      "strong_threshold": 175.0
+    },
+    {
+      "key": "sheet-228-left#asset-02",
+      "page_id": "sheet-228-left",
+      "physical_index": 455,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        129
+      ],
+      "bbox": [
+        30,
+        934,
+        363,
+        1147
+      ],
+      "score": 56.8951335274016,
+      "support_pixels": 7901.0,
+      "weak_fraction": 0.6030882166814328,
+      "unanchored_weak_fraction": 0.09631692190861917,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-095-left#asset-01",
+      "page_id": "sheet-095-left",
+      "physical_index": 189,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        50
+      ],
+      "bbox": [
+        39,
+        728,
+        415,
+        1118
+      ],
+      "score": 56.69512787825671,
+      "support_pixels": 12551.0,
+      "weak_fraction": 0.6069635885586806,
+      "unanchored_weak_fraction": 0.12445223488168274,
+      "source_paper_variation": 29.0,
+      "strong_threshold": 175.0
+    },
+    {
+      "key": "sheet-122-right#asset-01",
+      "page_id": "sheet-122-right",
+      "physical_index": 244,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        66
+      ],
+      "bbox": [
+        53,
+        861,
+        339,
+        1065
+      ],
+      "score": 56.67570093457944,
+      "support_pixels": 6955.0,
+      "weak_fraction": 0.6156721782890007,
+      "unanchored_weak_fraction": 0.0901509705248023,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-228-left#asset-01",
+      "page_id": "sheet-228-left",
+      "physical_index": 455,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        129
+      ],
+      "bbox": [
+        31,
+        798,
+        360,
+        925
+      ],
+      "score": 56.63363034623218,
+      "support_pixels": 7856.0,
+      "weak_fraction": 0.6144348268839104,
+      "unanchored_weak_fraction": 0.08515784114052953,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 161.0
+    },
+    {
+      "key": "sheet-233-right#asset-01",
+      "page_id": "sheet-233-right",
+      "physical_index": 466,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        131
+      ],
+      "bbox": [
+        74,
+        721,
+        280,
+        1091
+      ],
+      "score": 56.50825749302268,
+      "support_pixels": 8241.0,
+      "weak_fraction": 0.6194636573231403,
+      "unanchored_weak_fraction": 0.09598349714840432,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-115-right#asset-01",
+      "page_id": "sheet-115-right",
+      "physical_index": 230,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        61
+      ],
+      "bbox": [
+        53,
+        719,
+        224,
+        1121
+      ],
+      "score": 56.42735756984263,
+      "support_pixels": 8197.0,
+      "weak_fraction": 0.6057094058802001,
+      "unanchored_weak_fraction": 0.10320849091130901,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 178.0
+    },
+    {
+      "key": "sheet-074-left#asset-01",
+      "page_id": "sheet-074-left",
+      "physical_index": 147,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        33
+      ],
+      "bbox": [
+        35,
+        711,
+        262,
+        1116
+      ],
+      "score": 56.406159110350714,
+      "support_pixels": 11690.0,
+      "weak_fraction": 0.6110350727117194,
+      "unanchored_weak_fraction": 0.07955517536355859,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-125-right#asset-01",
+      "page_id": "sheet-125-right",
+      "physical_index": 250,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        70
+      ],
+      "bbox": [
+        57,
+        507,
+        298,
+        870
+      ],
+      "score": 56.40493945188018,
+      "support_pixels": 9414.0,
+      "weak_fraction": 0.6073932441045252,
+      "unanchored_weak_fraction": 0.07775653282345443,
+      "source_paper_variation": 47.0,
+      "strong_threshold": 156.0
+    },
+    {
+      "key": "sheet-234-right#asset-01",
+      "page_id": "sheet-234-right",
+      "physical_index": 468,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        132
+      ],
+      "bbox": [
+        56,
+        341,
+        259,
+        722
+      ],
+      "score": 56.0983586477217,
+      "support_pixels": 8164.0,
+      "weak_fraction": 0.613547280744733,
+      "unanchored_weak_fraction": 0.09235668789808917,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-163-left#asset-01",
+      "page_id": "sheet-163-left",
+      "physical_index": 325,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        93
+      ],
+      "bbox": [
+        55,
+        638,
+        248,
+        1014
+      ],
+      "score": 56.01545615589016,
+      "support_pixels": 9032.0,
+      "weak_fraction": 0.6195748449955713,
+      "unanchored_weak_fraction": 0.09322409211691762,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-124-right#asset-01",
+      "page_id": "sheet-124-right",
+      "physical_index": 248,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        68,
+        69
+      ],
+      "bbox": [
+        84,
+        160,
+        272,
+        485
+      ],
+      "score": 55.977959385834566,
+      "support_pixels": 8076.0,
+      "weak_fraction": 0.616394254581476,
+      "unanchored_weak_fraction": 0.09113422486379395,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-241-right#asset-01",
+      "page_id": "sheet-241-right",
+      "physical_index": 482,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        134
+      ],
+      "bbox": [
+        70,
+        178,
+        264,
+        507
+      ],
+      "score": 55.972657252888325,
+      "support_pixels": 7790.0,
+      "weak_fraction": 0.6141206675224647,
+      "unanchored_weak_fraction": 0.10654685494223363,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 160.0
+    },
+    {
+      "key": "sheet-032-left#asset-01",
+      "page_id": "sheet-032-left",
+      "physical_index": 63,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        1
+      ],
+      "bbox": [
+        57,
+        436,
+        243,
+        799
+      ],
+      "score": 55.93243709916132,
+      "support_pixels": 10135.0,
+      "weak_fraction": 0.6172668968919586,
+      "unanchored_weak_fraction": 0.07321164282190429,
+      "source_paper_variation": 47.0,
+      "strong_threshold": 161.0
+    },
+    {
+      "key": "sheet-120-right#asset-01",
+      "page_id": "sheet-120-right",
+      "physical_index": 240,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        64
+      ],
+      "bbox": [
+        58,
+        692,
+        354,
+        1063
+      ],
+      "score": 55.570438659918054,
+      "support_pixels": 8298.0,
+      "weak_fraction": 0.609062424680646,
+      "unanchored_weak_fraction": 0.10279585442275246,
+      "source_paper_variation": 35.0,
+      "strong_threshold": 179.0
+    },
+    {
+      "key": "sheet-180-right#asset-01",
+      "page_id": "sheet-180-right",
+      "physical_index": 360,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        98
+      ],
+      "bbox": [
+        80,
+        283,
+        364,
+        575
+      ],
+      "score": 55.494668158090974,
+      "support_pixels": 10728.0,
+      "weak_fraction": 0.6170768083519761,
+      "unanchored_weak_fraction": 0.0808165548098434,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 169.0
+    },
+    {
+      "key": "sheet-114-right#asset-02",
+      "page_id": "sheet-114-right",
+      "physical_index": 228,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        59,
+        60
+      ],
+      "bbox": [
+        192,
+        716,
+        599,
+        949
+      ],
+      "score": 55.27198033707865,
+      "support_pixels": 11392.0,
+      "weak_fraction": 0.6127106741573034,
+      "unanchored_weak_fraction": 0.11042837078651685,
+      "source_paper_variation": 31.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-068-left#asset-01",
+      "page_id": "sheet-068-left",
+      "physical_index": 135,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        26
+      ],
+      "bbox": [
+        43,
+        644,
+        223,
+        1116
+      ],
+      "score": 55.22481948772516,
+      "support_pixels": 13157.0,
+      "weak_fraction": 0.6176940031922171,
+      "unanchored_weak_fraction": 0.07919738542220871,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 160.0
+    },
+    {
+      "key": "sheet-084-left#asset-01",
+      "page_id": "sheet-084-left",
+      "physical_index": 167,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        47,
+        48
+      ],
+      "bbox": [
+        34,
+        334,
+        276,
+        677
+      ],
+      "score": 55.06367781155015,
+      "support_pixels": 9212.0,
+      "weak_fraction": 0.6102909248805906,
+      "unanchored_weak_fraction": 0.11474164133738601,
+      "source_paper_variation": 29.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-127-right#asset-01",
+      "page_id": "sheet-127-right",
+      "physical_index": 254,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        73
+      ],
+      "bbox": [
+        61,
+        622,
+        286,
+        1032
+      ],
+      "score": 54.84734042553191,
+      "support_pixels": 9400.0,
+      "weak_fraction": 0.619468085106383,
+      "unanchored_weak_fraction": 0.07925531914893617,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-126-left#asset-01",
+      "page_id": "sheet-126-left",
+      "physical_index": 251,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        71
+      ],
+      "bbox": [
+        62,
+        747,
+        353,
+        1112
+      ],
+      "score": 54.76960070708121,
+      "support_pixels": 9617.0,
+      "weak_fraction": 0.6007070812103567,
+      "unanchored_weak_fraction": 0.07497140480399293,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-055-right#asset-01",
+      "page_id": "sheet-055-right",
+      "physical_index": 110,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        15
+      ],
+      "bbox": [
+        60,
+        404,
+        467,
+        666
+      ],
+      "score": 54.742642330243996,
+      "support_pixels": 21148.0,
+      "weak_fraction": 0.6100813315679969,
+      "unanchored_weak_fraction": 0.08799886514091167,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 157.0
+    },
+    {
+      "key": "sheet-102-right#asset-01",
+      "page_id": "sheet-102-right",
+      "physical_index": 204,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        53
+      ],
+      "bbox": [
+        66,
+        184,
+        241,
+        433
+      ],
+      "score": 54.68432751828925,
+      "support_pixels": 7108.0,
+      "weak_fraction": 0.6107203151378728,
+      "unanchored_weak_fraction": 0.08005064715813168,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-040-right#asset-02",
+      "page_id": "sheet-040-right",
+      "physical_index": 80,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        8,
+        9
+      ],
+      "bbox": [
+        53,
+        839,
+        323,
+        1120
+      ],
+      "score": 54.380451127819555,
+      "support_pixels": 9044.0,
+      "weak_fraction": 0.6148827952233525,
+      "unanchored_weak_fraction": 0.0800530738611234,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-158-left#asset-01",
+      "page_id": "sheet-158-left",
+      "physical_index": 315,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        90
+      ],
+      "bbox": [
+        57,
+        727,
+        277,
+        1082
+      ],
+      "score": 54.198492272898605,
+      "support_pixels": 7959.0,
+      "weak_fraction": 0.6068601583113457,
+      "unanchored_weak_fraction": 0.09310214851111949,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-230-left#asset-01",
+      "page_id": "sheet-230-left",
+      "physical_index": 459,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        130
+      ],
+      "bbox": [
+        39,
+        277,
+        296,
+        711
+      ],
+      "score": 54.16371294003985,
+      "support_pixels": 16561.0,
+      "weak_fraction": 0.6037678884125355,
+      "unanchored_weak_fraction": 0.07101020469778395,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-186-right#asset-01",
+      "page_id": "sheet-186-right",
+      "physical_index": 372,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        107
+      ],
+      "bbox": [
+        59,
+        135,
+        240,
+        511
+      ],
+      "score": 54.141390867197316,
+      "support_pixels": 9548.0,
+      "weak_fraction": 0.6079807289484709,
+      "unanchored_weak_fraction": 0.0700670297444491,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-182-right#asset-01",
+      "page_id": "sheet-182-right",
+      "physical_index": 364,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        102
+      ],
+      "bbox": [
+        62,
+        521,
+        200,
+        918
+      ],
+      "score": 54.06364487439538,
+      "support_pixels": 6409.0,
+      "weak_fraction": 0.603526291153066,
+      "unanchored_weak_fraction": 0.08800124824465595,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-299-right#asset-07",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 7,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        267,
+        286,
+        516,
+        521
+      ],
+      "score": 54.06199524940617,
+      "support_pixels": 2947.0,
+      "weak_fraction": 0.6168985408890397,
+      "unanchored_weak_fraction": 0.13539192399049882,
+      "source_paper_variation": 18.0,
+      "strong_threshold": 126.0
+    },
+    {
+      "key": "sheet-070-right#asset-01",
+      "page_id": "sheet-070-right",
+      "physical_index": 140,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [],
+      "bbox": [
+        68,
+        339,
+        281,
+        696
+      ],
+      "score": 53.95301757066463,
+      "support_pixels": 7854.0,
+      "weak_fraction": 0.6153552330022918,
+      "unanchored_weak_fraction": 0.08008658008658008,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-113-left#asset-01",
+      "page_id": "sheet-113-left",
+      "physical_index": 225,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        58
+      ],
+      "bbox": [
+        58,
+        372,
+        397,
+        733
+      ],
+      "score": 53.92146656534955,
+      "support_pixels": 10528.0,
+      "weak_fraction": 0.6092325227963525,
+      "unanchored_weak_fraction": 0.11360182370820669,
+      "source_paper_variation": 27.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-211-right#asset-01",
+      "page_id": "sheet-211-right",
+      "physical_index": 422,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        121
+      ],
+      "bbox": [
+        65,
+        314,
+        326,
+        760
+      ],
+      "score": 53.753010054728264,
+      "support_pixels": 15714.0,
+      "weak_fraction": 0.6125111365661193,
+      "unanchored_weak_fraction": 0.06452844597174494,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-105-left#asset-01",
+      "page_id": "sheet-105-left",
+      "physical_index": 209,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        54
+      ],
+      "bbox": [
+        48,
+        794,
+        337,
+        1062
+      ],
+      "score": 53.60190888675008,
+      "support_pixels": 9351.0,
+      "weak_fraction": 0.6060314404876483,
+      "unanchored_weak_fraction": 0.10244893594267993,
+      "source_paper_variation": 31.0,
+      "strong_threshold": 153.0
+    },
+    {
+      "key": "sheet-210-right#asset-01",
+      "page_id": "sheet-210-right",
+      "physical_index": 420,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        120
+      ],
+      "bbox": [
+        74,
+        247,
+        373,
+        787
+      ],
+      "score": 53.52758369723435,
+      "support_pixels": 17175.0,
+      "weak_fraction": 0.6103639010189229,
+      "unanchored_weak_fraction": 0.061193595342066955,
+      "source_paper_variation": 47.0,
+      "strong_threshold": 160.0
+    },
+    {
+      "key": "sheet-133-right#asset-01",
+      "page_id": "sheet-133-right",
+      "physical_index": 266,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        78
+      ],
+      "bbox": [
+        64,
+        361,
+        308,
+        699
+      ],
+      "score": 53.40491171098031,
+      "support_pixels": 9854.0,
+      "weak_fraction": 0.6170083214938096,
+      "unanchored_weak_fraction": 0.07672011365942764,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 158.0
+    },
+    {
+      "key": "sheet-073-left#asset-01",
+      "page_id": "sheet-073-left",
+      "physical_index": 145,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        32
+      ],
+      "bbox": [
+        82,
+        208,
+        215,
+        604
+      ],
+      "score": 53.29859813084112,
+      "support_pixels": 11342.0,
+      "weak_fraction": 0.6199083054135073,
+      "unanchored_weak_fraction": 0.06806559689649092,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-147-right#asset-01",
+      "page_id": "sheet-147-right",
+      "physical_index": 294,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        85,
+        86
+      ],
+      "bbox": [
+        71,
+        196,
+        246,
+        680
+      ],
+      "score": 52.86030303030303,
+      "support_pixels": 8250.0,
+      "weak_fraction": 0.6187878787878788,
+      "unanchored_weak_fraction": 0.08084848484848485,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-179-left#asset-01",
+      "page_id": "sheet-179-left",
+      "physical_index": 357,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        96
+      ],
+      "bbox": [
+        51,
+        274,
+        331,
+        623
+      ],
+      "score": 52.5610518788194,
+      "support_pixels": 7691.0,
+      "weak_fraction": 0.619165258093876,
+      "unanchored_weak_fraction": 0.07411259914185411,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 178.0
+    },
+    {
+      "key": "sheet-252-right#asset-01",
+      "page_id": "sheet-252-right",
+      "physical_index": 504,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        142
+      ],
+      "bbox": [
+        70,
+        123,
+        341,
+        473
+      ],
+      "score": 52.47667766776678,
+      "support_pixels": 11817.0,
+      "weak_fraction": 0.6132690192096133,
+      "unanchored_weak_fraction": 0.05729034441905729,
+      "source_paper_variation": 46.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-179-right#asset-01",
+      "page_id": "sheet-179-right",
+      "physical_index": 358,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        97
+      ],
+      "bbox": [
+        64,
+        137,
+        455,
+        307
+      ],
+      "score": 52.31890862944162,
+      "support_pixels": 7880.0,
+      "weak_fraction": 0.6189086294416244,
+      "unanchored_weak_fraction": 0.06281725888324872,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-183-right#asset-02",
+      "page_id": "sheet-183-right",
+      "physical_index": 366,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        104,
+        105
+      ],
+      "bbox": [
+        75,
+        727,
+        307,
+        1027
+      ],
+      "score": 52.020658749719914,
+      "support_pixels": 8926.0,
+      "weak_fraction": 0.6167376204346852,
+      "unanchored_weak_fraction": 0.06408245574725521,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-100-left#asset-01",
+      "page_id": "sheet-100-left",
+      "physical_index": 199,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [],
+      "bbox": [
+        44,
+        736,
+        257,
+        1069
+      ],
+      "score": 52.00749937609184,
+      "support_pixels": 8014.0,
+      "weak_fraction": 0.620039930122286,
+      "unanchored_weak_fraction": 0.07586723234339905,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 167.05999755859375
+    },
+    {
+      "key": "sheet-083-right#asset-01",
+      "page_id": "sheet-083-right",
+      "physical_index": 166,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        46
+      ],
+      "bbox": [
+        52,
+        78,
+        236,
+        427
+      ],
+      "score": 51.924756929328105,
+      "support_pixels": 6891.0,
+      "weak_fraction": 0.6105064576984472,
+      "unanchored_weak_fraction": 0.0947612828326803,
+      "source_paper_variation": 30.0,
+      "strong_threshold": 174.0
+    },
+    {
+      "key": "sheet-273-left#asset-01",
+      "page_id": "sheet-273-left",
+      "physical_index": 545,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        153,
+        154
+      ],
+      "bbox": [
+        41,
+        238,
+        234,
+        705
+      ],
+      "score": 51.90249904616559,
+      "support_pixels": 13105.0,
+      "weak_fraction": 0.6080885158336513,
+      "unanchored_weak_fraction": 0.06760778328882106,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 152.0
+    },
+    {
+      "key": "sheet-297-right#asset-03",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 3,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1220,
+        620,
+        1342,
+        710
+      ],
+      "score": 51.8875,
+      "support_pixels": 352.0,
+      "weak_fraction": 0.6193181818181818,
+      "unanchored_weak_fraction": 0.1278409090909091,
+      "source_paper_variation": 16.0,
+      "strong_threshold": 141.6199951171875
+    },
+    {
+      "key": "sheet-212-left#asset-01",
+      "page_id": "sheet-212-left",
+      "physical_index": 423,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        122
+      ],
+      "bbox": [
+        88,
+        198,
+        398,
+        663
+      ],
+      "score": 51.85489049375933,
+      "support_pixels": 12739.0,
+      "weak_fraction": 0.6184158882172855,
+      "unanchored_weak_fraction": 0.07033519114530183,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 177.0
+    },
+    {
+      "key": "sheet-147-right#asset-02",
+      "page_id": "sheet-147-right",
+      "physical_index": 294,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        85,
+        86
+      ],
+      "bbox": [
+        74,
+        716,
+        348,
+        950
+      ],
+      "score": 51.81361746361746,
+      "support_pixels": 8177.0,
+      "weak_fraction": 0.6042558395499572,
+      "unanchored_weak_fraction": 0.06285923932982757,
+      "source_paper_variation": 43.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-043-left#asset-01",
+      "page_id": "sheet-043-left",
+      "physical_index": 85,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        10
+      ],
+      "bbox": [
+        64,
+        104,
+        351,
+        383
+      ],
+      "score": 51.812208635842566,
+      "support_pixels": 10468.0,
+      "weak_fraction": 0.6047955674436377,
+      "unanchored_weak_fraction": 0.06524646541841804,
+      "source_paper_variation": 42.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-142-right#asset-01",
+      "page_id": "sheet-142-right",
+      "physical_index": 284,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        81
+      ],
+      "bbox": [
+        70,
+        202,
+        355,
+        560
+      ],
+      "score": 51.647277249711294,
+      "support_pixels": 11257.0,
+      "weak_fraction": 0.6198809629563827,
+      "unanchored_weak_fraction": 0.07639690859021053,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 174.0
+    },
+    {
+      "key": "sheet-299-left#asset-05",
+      "page_id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 5,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1039,
+        21,
+        1173,
+        38
+      ],
+      "score": 51.63639053254438,
+      "support_pixels": 169.0,
+      "weak_fraction": 0.6035502958579881,
+      "unanchored_weak_fraction": 0.14201183431952663,
+      "source_paper_variation": 11.0,
+      "strong_threshold": 158.0
+    },
+    {
+      "key": "sheet-081-left#asset-01",
+      "page_id": "sheet-081-left",
+      "physical_index": 161,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        44,
+        45
+      ],
+      "bbox": [
+        56,
+        218,
+        362,
+        392
+      ],
+      "score": 51.33358556461002,
+      "support_pixels": 8590.0,
+      "weak_fraction": 0.6102444703143189,
+      "unanchored_weak_fraction": 0.0640279394644936,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 150.0
+    },
+    {
+      "key": "sheet-124-right#asset-02",
+      "page_id": "sheet-124-right",
+      "physical_index": 248,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        68,
+        69
+      ],
+      "bbox": [
+        83,
+        719,
+        436,
+        867
+      ],
+      "score": 51.00589682421351,
+      "support_pixels": 6707.0,
+      "weak_fraction": 0.6081705680632176,
+      "unanchored_weak_fraction": 0.0726107052333383,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-187-left#asset-01",
+      "page_id": "sheet-187-left",
+      "physical_index": 373,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        108
+      ],
+      "bbox": [
+        49,
+        155,
+        163,
+        578
+      ],
+      "score": 50.93503849157648,
+      "support_pixels": 8963.0,
+      "weak_fraction": 0.6116255717951579,
+      "unanchored_weak_fraction": 0.051545241548588645,
+      "source_paper_variation": 45.0,
+      "strong_threshold": 160.0
+    },
+    {
+      "key": "sheet-119-right#asset-01",
+      "page_id": "sheet-119-right",
+      "physical_index": 238,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        63
+      ],
+      "bbox": [
+        68,
+        330,
+        446,
+        528
+      ],
+      "score": 50.885315915086046,
+      "support_pixels": 7961.0,
+      "weak_fraction": 0.6185152619017711,
+      "unanchored_weak_fraction": 0.06242934304735586,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 175.0
+    },
+    {
+      "key": "sheet-079-left#asset-01",
+      "page_id": "sheet-079-left",
+      "physical_index": 157,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        42
+      ],
+      "bbox": [
+        51,
+        719,
+        258,
+        1039
+      ],
+      "score": 50.87632317562148,
+      "support_pixels": 9976.0,
+      "weak_fraction": 0.6145749799518845,
+      "unanchored_weak_fraction": 0.06064554931836407,
+      "source_paper_variation": 41.0,
+      "strong_threshold": 159.0
+    },
+    {
+      "key": "sheet-216-left#asset-01",
+      "page_id": "sheet-216-left",
+      "physical_index": 431,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        125
+      ],
+      "bbox": [
+        63,
+        165,
+        273,
+        971
+      ],
+      "score": 50.61481440196188,
+      "support_pixels": 17942.0,
+      "weak_fraction": 0.6162635157730465,
+      "unanchored_weak_fraction": 0.061364396388362503,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-040-left#asset-01",
+      "page_id": "sheet-040-left",
+      "physical_index": 79,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        6,
+        7
+      ],
+      "bbox": [
+        51,
+        290,
+        349,
+        509
+      ],
+      "score": 50.6000945537065,
+      "support_pixels": 10576.0,
+      "weak_fraction": 0.6073184568835098,
+      "unanchored_weak_fraction": 0.043021936459909225,
+      "source_paper_variation": 48.0,
+      "strong_threshold": 158.0
+    },
+    {
+      "key": "sheet-193-right#asset-01",
+      "page_id": "sheet-193-right",
+      "physical_index": 386,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        113
+      ],
+      "bbox": [
+        50,
+        732,
+        276,
+        1094
+      ],
+      "score": 50.509827051884436,
+      "support_pixels": 10003.0,
+      "weak_fraction": 0.6193142057382786,
+      "unanchored_weak_fraction": 0.040187943616914926,
+      "source_paper_variation": 48.0,
+      "strong_threshold": 151.0
+    },
+    {
+      "key": "sheet-149-left#asset-02",
+      "page_id": "sheet-149-left",
+      "physical_index": 297,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        87
+      ],
+      "bbox": [
+        61,
+        531,
+        282,
+        847
+      ],
+      "score": 50.47587560762807,
+      "support_pixels": 8023.0,
+      "weak_fraction": 0.6126137355104075,
+      "unanchored_weak_fraction": 0.06880219369313224,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-219-left#asset-01",
+      "page_id": "sheet-219-left",
+      "physical_index": 437,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [],
+      "bbox": [
+        61,
+        648,
+        226,
+        1054
+      ],
+      "score": 50.469046949676695,
+      "support_pixels": 7114.0,
+      "weak_fraction": 0.6075344391341018,
+      "unanchored_weak_fraction": 0.07225189766657296,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-273-right#asset-01",
+      "page_id": "sheet-273-right",
+      "physical_index": 546,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        155
+      ],
+      "bbox": [
+        61,
+        102,
+        377,
+        466
+      ],
+      "score": 49.682111395282746,
+      "support_pixels": 10557.0,
+      "weak_fraction": 0.6183574879227053,
+      "unanchored_weak_fraction": 0.06327555176660037,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 166.0
+    },
+    {
+      "key": "sheet-181-right#asset-01",
+      "page_id": "sheet-181-right",
+      "physical_index": 362,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        100
+      ],
+      "bbox": [
+        52,
+        615,
+        294,
+        882
+      ],
+      "score": 49.53735484659577,
+      "support_pixels": 8181.0,
+      "weak_fraction": 0.6187507639652854,
+      "unanchored_weak_fraction": 0.05989487837672656,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 160.0
+    },
+    {
+      "key": "sheet-183-right#asset-01",
+      "page_id": "sheet-183-right",
+      "physical_index": 366,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        104,
+        105
+      ],
+      "bbox": [
+        62,
+        229,
+        232,
+        626
+      ],
+      "score": 49.53386131319643,
+      "support_pixels": 10859.0,
+      "weak_fraction": 0.613684501335298,
+      "unanchored_weak_fraction": 0.04586057648033889,
+      "source_paper_variation": 44.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-190-left#asset-01",
+      "page_id": "sheet-190-left",
+      "physical_index": 379,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        112
+      ],
+      "bbox": [
+        42,
+        109,
+        155,
+        532
+      ],
+      "score": 49.350356002946235,
+      "support_pixels": 8146.0,
+      "weak_fraction": 0.6191996071691628,
+      "unanchored_weak_fraction": 0.0537687208445863,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-138-right#asset-01",
+      "page_id": "sheet-138-right",
+      "physical_index": 276,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        80
+      ],
+      "bbox": [
+        70,
+        771,
+        449,
+        1057
+      ],
+      "score": 49.24788135593221,
+      "support_pixels": 11800.0,
+      "weak_fraction": 0.6121186440677966,
+      "unanchored_weak_fraction": 0.06957627118644068,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-299-left#asset-01",
+      "page_id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 1,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        233,
+        1,
+        1754,
+        995
+      ],
+      "score": 48.2447526312093,
+      "support_pixels": 99669.0,
+      "weak_fraction": 0.6197915098977616,
+      "unanchored_weak_fraction": 0.0850113876932647,
+      "source_paper_variation": 25.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-242-left#asset-01",
+      "page_id": "sheet-242-left",
+      "physical_index": 483,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        135,
+        136
+      ],
+      "bbox": [
+        44,
+        134,
+        340,
+        456
+      ],
+      "score": 48.1522306108442,
+      "support_pixels": 11656.0,
+      "weak_fraction": 0.6062113932738504,
+      "unanchored_weak_fraction": 0.05713795470144132,
+      "source_paper_variation": 37.0,
+      "strong_threshold": 162.0
+    },
+    {
+      "key": "sheet-130-left#asset-01",
+      "page_id": "sheet-130-left",
+      "physical_index": 259,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        75
+      ],
+      "bbox": [
+        43,
+        323,
+        341,
+        711
+      ],
+      "score": 47.8713590132006,
+      "support_pixels": 9242.0,
+      "weak_fraction": 0.6109067301449903,
+      "unanchored_weak_fraction": 0.04966457476736637,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 172.0
+    },
+    {
+      "key": "sheet-208-left#asset-01",
+      "page_id": "sheet-208-left",
+      "physical_index": 415,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        119
+      ],
+      "bbox": [
+        52,
+        101,
+        294,
+        531
+      ],
+      "score": 47.81379635449403,
+      "support_pixels": 12728.0,
+      "weak_fraction": 0.6000942803268384,
+      "unanchored_weak_fraction": 0.04894720301697046,
+      "source_paper_variation": 40.0,
+      "strong_threshold": 170.0
+    },
+    {
+      "key": "sheet-247-right#asset-01",
+      "page_id": "sheet-247-right",
+      "physical_index": 494,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        141
+      ],
+      "bbox": [
+        63,
+        692,
+        265,
+        1071
+      ],
+      "score": 46.53270659238626,
+      "support_pixels": 8616.0,
+      "weak_fraction": 0.603644382544104,
+      "unanchored_weak_fraction": 0.0436397400185701,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-127-left#asset-01",
+      "page_id": "sheet-127-left",
+      "physical_index": 253,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        72
+      ],
+      "bbox": [
+        47,
+        330,
+        292,
+        768
+      ],
+      "score": 46.18172136492066,
+      "support_pixels": 9202.0,
+      "weak_fraction": 0.619647902629863,
+      "unanchored_weak_fraction": 0.04107802651597479,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 172.0
+    },
+    {
+      "key": "sheet-201-left#asset-01",
+      "page_id": "sheet-201-left",
+      "physical_index": 401,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        116
+      ],
+      "bbox": [
+        25,
+        278,
+        288,
+        691
+      ],
+      "score": 46.00714579689269,
+      "support_pixels": 9719.0,
+      "weak_fraction": 0.605103405700175,
+      "unanchored_weak_fraction": 0.040436258874369795,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 171.0
+    },
+    {
+      "key": "sheet-158-right#asset-01",
+      "page_id": "sheet-158-right",
+      "physical_index": 316,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        91
+      ],
+      "bbox": [
+        84,
+        778,
+        282,
+        1117
+      ],
+      "score": 45.90586169310888,
+      "support_pixels": 8257.0,
+      "weak_fraction": 0.6106334019619717,
+      "unanchored_weak_fraction": 0.041298292357999276,
+      "source_paper_variation": 38.0,
+      "strong_threshold": 163.0
+    },
+    {
+      "key": "sheet-299-left#asset-04",
+      "page_id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 4,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        31,
+        20,
+        875,
+        929
+      ],
+      "score": 45.228018299124045,
+      "support_pixels": 61533.0,
+      "weak_fraction": 0.617652316643102,
+      "unanchored_weak_fraction": 0.05866770675897486,
+      "source_paper_variation": 29.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-297-left#asset-01",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 1,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        25,
+        1,
+        1754,
+        974
+      ],
+      "score": 45.203256976018835,
+      "support_pixels": 155497.0,
+      "weak_fraction": 0.6120053763095108,
+      "unanchored_weak_fraction": 0.05962816002881084,
+      "source_paper_variation": 29.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-298-left#asset-02",
+      "page_id": "sheet-298-left",
+      "physical_index": 595,
+      "asset_index": 2,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        875,
+        1,
+        1754,
+        970
+      ],
+      "score": 44.748272326687314,
+      "support_pixels": 45842.0,
+      "weak_fraction": 0.6115352733301339,
+      "unanchored_weak_fraction": 0.062191876445181274,
+      "source_paper_variation": 27.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-299-right#asset-16",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 16,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1633,
+        652,
+        1695,
+        722
+      ],
+      "score": 44.7411131059246,
+      "support_pixels": 557.0,
+      "weak_fraction": 0.6175942549371634,
+      "unanchored_weak_fraction": 0.04847396768402154,
+      "source_paper_variation": 32.0,
+      "strong_threshold": 152.0
+    },
+    {
+      "key": "sheet-271-right#asset-01",
+      "page_id": "sheet-271-right",
+      "physical_index": 542,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        151
+      ],
+      "bbox": [
+        54,
+        237,
+        197,
+        726
+      ],
+      "score": 44.56680541593474,
+      "support_pixels": 9778.0,
+      "weak_fraction": 0.618735937819595,
+      "unanchored_weak_fraction": 0.02178359582736756,
+      "source_paper_variation": 42.20000076293945,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-297-right#asset-01",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 1,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        0,
+        1,
+        1721,
+        1008
+      ],
+      "score": 43.831099453313676,
+      "support_pixels": 174323.0,
+      "weak_fraction": 0.6140383081980003,
+      "unanchored_weak_fraction": 0.06160977036879815,
+      "source_paper_variation": 25.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-199-right#asset-01",
+      "page_id": "sheet-199-right",
+      "physical_index": 398,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        115
+      ],
+      "bbox": [
+        68,
+        154,
+        325,
+        549
+      ],
+      "score": 43.672552329507084,
+      "support_pixels": 14810.0,
+      "weak_fraction": 0.6039837947332883,
+      "unanchored_weak_fraction": 0.027683997299122215,
+      "source_paper_variation": 39.0,
+      "strong_threshold": 167.0
+    },
+    {
+      "key": "sheet-213-left#asset-01",
+      "page_id": "sheet-213-left",
+      "physical_index": 425,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        123
+      ],
+      "bbox": [
+        43,
+        400,
+        216,
+        868
+      ],
+      "score": 43.464016696708086,
+      "support_pixels": 10541.0,
+      "weak_fraction": 0.6077222274926477,
+      "unanchored_weak_fraction": 0.033298548524807896,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 180.0
+    },
+    {
+      "key": "sheet-164-left#asset-01",
+      "page_id": "sheet-164-left",
+      "physical_index": 327,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        94
+      ],
+      "bbox": [
+        53,
+        722,
+        313,
+        1119
+      ],
+      "score": 42.75646359583952,
+      "support_pixels": 13460.0,
+      "weak_fraction": 0.612035661218425,
+      "unanchored_weak_fraction": 0.02852897473997028,
+      "source_paper_variation": 36.0,
+      "strong_threshold": 168.0
+    },
+    {
+      "key": "sheet-297-left#asset-06",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 6,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1149,
+        943,
+        1296,
+        961
+      ],
+      "score": 42.58251366120219,
+      "support_pixels": 183.0,
+      "weak_fraction": 0.6174863387978142,
+      "unanchored_weak_fraction": 0.07650273224043716,
+      "source_paper_variation": 16.0,
+      "strong_threshold": 153.83999633789062
+    },
+    {
+      "key": "sheet-143-left#asset-01",
+      "page_id": "sheet-143-left",
+      "physical_index": 285,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        82
+      ],
+      "bbox": [
+        68,
+        814,
+        364,
+        1108
+      ],
+      "score": 41.59765625,
+      "support_pixels": 6400.0,
+      "weak_fraction": 0.61234375,
+      "unanchored_weak_fraction": 0.03453125,
+      "source_paper_variation": 31.0,
+      "strong_threshold": 176.0
+    },
+    {
+      "key": "sheet-298-left#asset-03",
+      "page_id": "sheet-298-left",
+      "physical_index": 595,
+      "asset_index": 3,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        21,
+        8,
+        1453,
+        973
+      ],
+      "score": 41.568226678154616,
+      "support_pixels": 102136.0,
+      "weak_fraction": 0.6176078953552127,
+      "unanchored_weak_fraction": 0.04334416855956764,
+      "source_paper_variation": 27.0,
+      "strong_threshold": 164.0
+    },
+    {
+      "key": "sheet-297-right#asset-02",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 2,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        312,
+        49,
+        959,
+        221
+      ],
+      "score": 41.389523084728566,
+      "support_pixels": 5913.0,
+      "weak_fraction": 0.6184677828513445,
+      "unanchored_weak_fraction": 0.0471841704718417,
+      "source_paper_variation": 25.0,
+      "strong_threshold": 154.0
+    },
+    {
+      "key": "sheet-297-left#asset-10",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 10,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        933,
+        975,
+        1158,
+        990
+      ],
+      "score": 41.36724137931034,
+      "support_pixels": 261.0,
+      "weak_fraction": 0.6206896551724138,
+      "unanchored_weak_fraction": 0.07662835249042145,
+      "source_paper_variation": 13.0,
+      "strong_threshold": 147.1999969482422
+    },
+    {
+      "key": "sheet-146-right#asset-01",
+      "page_id": "sheet-146-right",
+      "physical_index": 292,
+      "asset_index": 1,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        84
+      ],
+      "bbox": [
+        128,
+        629,
+        662,
+        749
+      ],
+      "score": 40.84567818405456,
+      "support_pixels": 8943.0,
+      "weak_fraction": 0.6200380185620038,
+      "unanchored_weak_fraction": 0.02135748630213575,
+      "source_paper_variation": 34.0,
+      "strong_threshold": 179.0399932861328
+    },
+    {
+      "key": "sheet-299-right#asset-11",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 11,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        413,
+        424,
+        822,
+        731
+      ],
+      "score": 39.81275987525987,
+      "support_pixels": 7696.0,
+      "weak_fraction": 0.6170738045738046,
+      "unanchored_weak_fraction": 0.0511954261954262,
+      "source_paper_variation": 20.0,
+      "strong_threshold": 122.0
+    },
+    {
+      "key": "sheet-299-right#asset-03",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 3,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        828,
+        66,
+        1731,
+        886
+      ],
+      "score": 39.69710928549473,
+      "support_pixels": 35787.0,
+      "weak_fraction": 0.6171794226953922,
+      "unanchored_weak_fraction": 0.04303238606197781,
+      "source_paper_variation": 23.0,
+      "strong_threshold": 124.0
+    },
+    {
+      "key": "sheet-298-right#asset-01",
+      "page_id": "sheet-298-right",
+      "physical_index": 596,
+      "asset_index": 1,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        0,
+        1,
+        1738,
+        1019
+      ],
+      "score": 39.19207929251933,
+      "support_pixels": 117035.0,
+      "weak_fraction": 0.6159354039389926,
+      "unanchored_weak_fraction": 0.047968556414747725,
+      "source_paper_variation": 20.0,
+      "strong_threshold": 165.0
+    },
+    {
+      "key": "sheet-299-right#asset-14",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 14,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1244,
+        602,
+        1300,
+        705
+      ],
+      "score": 38.3994708994709,
+      "support_pixels": 756.0,
+      "weak_fraction": 0.6124338624338624,
+      "unanchored_weak_fraction": 0.031746031746031744,
+      "source_paper_variation": 25.0,
+      "strong_threshold": 141.0
+    },
+    {
+      "key": "sheet-299-right#asset-19",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 19,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        334,
+        757,
+        394,
+        869
+      ],
+      "score": 38.294987146529564,
+      "support_pixels": 1556.0,
+      "weak_fraction": 0.6143958868894601,
+      "unanchored_weak_fraction": 0.005784061696658098,
+      "source_paper_variation": 35.0,
+      "strong_threshold": 103.0
+    },
+    {
+      "key": "sheet-299-right#asset-06",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 6,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        78,
+        178,
+        212,
+        284
+      ],
+      "score": 38.11081322609473,
+      "support_pixels": 1119.0,
+      "weak_fraction": 0.6157283288650581,
+      "unanchored_weak_fraction": 0.0420017873100983,
+      "source_paper_variation": 20.0,
+      "strong_threshold": 114.0
+    },
+    {
+      "key": "sheet-299-right#asset-01",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 1,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        260,
+        49,
+        794,
+        365
+      ],
+      "score": 37.624442626303946,
+      "support_pixels": 9778.0,
+      "weak_fraction": 0.6179177745960319,
+      "unanchored_weak_fraction": 0.04387400286357128,
+      "source_paper_variation": 18.0,
+      "strong_threshold": 120.0
+    },
+    {
+      "key": "sheet-299-right#asset-20",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 20,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        338,
+        767,
+        1728,
+        975
+      ],
+      "score": 35.976620570440794,
+      "support_pixels": 13884.0,
+      "weak_fraction": 0.6188418323249784,
+      "unanchored_weak_fraction": 0.022039757994814176,
+      "source_paper_variation": 23.0,
+      "strong_threshold": 134.0
+    },
+    {
+      "key": "sheet-299-right#asset-10",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 10,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        497,
+        410,
+        774,
+        438
+      ],
+      "score": 35.91675062972292,
+      "support_pixels": 1588.0,
+      "weak_fraction": 0.6171284634760705,
+      "unanchored_weak_fraction": 0.02204030226700252,
+      "source_paper_variation": 23.0,
+      "strong_threshold": 135.0
+    },
+    {
+      "key": "sheet-299-right#asset-17",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 17,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1533,
+        671,
+        1609,
+        813
+      ],
+      "score": 35.89909616775127,
+      "support_pixels": 1383.0,
+      "weak_fraction": 0.6153289949385394,
+      "unanchored_weak_fraction": 0.012292118582791034,
+      "source_paper_variation": 27.0,
+      "strong_threshold": 143.0
+    },
+    {
+      "key": "sheet-297-left#asset-04",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 4,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        43,
+        819,
+        190,
+        980
+      ],
+      "score": 35.596232837300825,
+      "support_pixels": 5192.0,
+      "weak_fraction": 0.6151771956856703,
+      "unanchored_weak_fraction": 0.002889060092449923,
+      "source_paper_variation": 30.100000381469727,
+      "strong_threshold": 78.0
+    },
+    {
+      "key": "sheet-299-right#asset-02",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 2,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        766,
+        62,
+        1187,
+        369
+      ],
+      "score": 35.39941750472966,
+      "support_pixels": 10043.0,
+      "weak_fraction": 0.6195359952205516,
+      "unanchored_weak_fraction": 0.02369809817783531,
+      "source_paper_variation": 21.0,
+      "strong_threshold": 124.0
+    },
+    {
+      "key": "sheet-133-right#asset-02",
+      "page_id": "sheet-133-right",
+      "physical_index": 266,
+      "asset_index": 2,
+      "category": "numbered",
+      "caption_figure_numbers": [
+        78
+      ],
+      "bbox": [
+        336,
+        421,
+        389,
+        725
+      ],
+      "score": 35.19396782841823,
+      "support_pixels": 1865.0,
+      "weak_fraction": 0.606970509383378,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 31.0,
+      "strong_threshold": 180.0
+    },
+    {
+      "key": "sheet-299-right#asset-13",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 13,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        69,
+        563,
+        436,
+        859
+      ],
+      "score": 34.99391480730223,
+      "support_pixels": 3451.0,
+      "weak_fraction": 0.6175021732831063,
+      "unanchored_weak_fraction": 0.02434077079107505,
+      "source_paper_variation": 20.0,
+      "strong_threshold": 105.0
+    },
+    {
+      "key": "sheet-299-right#asset-05",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 5,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        40,
+        76,
+        260,
+        164
+      ],
+      "score": 34.874435318275154,
+      "support_pixels": 974.0,
+      "weak_fraction": 0.6201232032854209,
+      "unanchored_weak_fraction": 0.02566735112936345,
+      "source_paper_variation": 19.0,
+      "strong_threshold": 115.26000213623047
+    },
+    {
+      "key": "sheet-297-left#asset-03",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 3,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        196,
+        56,
+        316,
+        184
+      ],
+      "score": 34.196,
+      "support_pixels": 2500.0,
+      "weak_fraction": 0.6196,
+      "unanchored_weak_fraction": 0.002,
+      "source_paper_variation": 27.0,
+      "strong_threshold": 175.0
+    },
+    {
+      "key": "sheet-297-right#asset-06",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 6,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1134,
+        786,
+        1290,
+        805
+      ],
+      "score": 34.11541095890411,
+      "support_pixels": 584.0,
+      "weak_fraction": 0.6147260273972602,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 28.0,
+      "strong_threshold": 175.0
+    },
+    {
+      "key": "sheet-299-right#asset-09",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 9,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        511,
+        383,
+        687,
+        403
+      ],
+      "score": 34.05355648535565,
+      "support_pixels": 478.0,
+      "weak_fraction": 0.6171548117154811,
+      "unanchored_weak_fraction": 0.0041841004184100415,
+      "source_paper_variation": 26.0,
+      "strong_threshold": 142.0
+    },
+    {
+      "key": "sheet-297-left#asset-05",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 5,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        250,
+        829,
+        371,
+        967
+      ],
+      "score": 33.953295362083,
+      "support_pixels": 4916.0,
+      "weak_fraction": 0.619812855980472,
+      "unanchored_weak_fraction": 0.0006102522375915378,
+      "source_paper_variation": 27.0,
+      "strong_threshold": 107.0
+    },
+    {
+      "key": "sheet-299-right#asset-22",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 22,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1472,
+        808,
+        1502,
+        886
+      ],
+      "score": 33.67278911564626,
+      "support_pixels": 588.0,
+      "weak_fraction": 0.6190476190476191,
+      "unanchored_weak_fraction": 0.0017006802721088435,
+      "source_paper_variation": 26.0,
+      "strong_threshold": 141.94000244140625
+    },
+    {
+      "key": "sheet-299-right#asset-08",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 8,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        30,
+        306,
+        259,
+        512
+      ],
+      "score": 33.5372197309417,
+      "support_pixels": 1784.0,
+      "weak_fraction": 0.6143497757847534,
+      "unanchored_weak_fraction": 0.021860986547085202,
+      "source_paper_variation": 18.0,
+      "strong_threshold": 88.0
+    },
+    {
+      "key": "sheet-297-right#asset-07",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 7,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1116,
+        812,
+        1290,
+        830
+      ],
+      "score": 33.38367346938776,
+      "support_pixels": 686.0,
+      "weak_fraction": 0.619533527696793,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 26.0,
+      "strong_threshold": 164.6999969482422
+    },
+    {
+      "key": "sheet-297-right#asset-05",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 5,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1161,
+        761,
+        1290,
+        779
+      ],
+      "score": 33.35188470066519,
+      "support_pixels": 451.0,
+      "weak_fraction": 0.6186252771618626,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 26.0,
+      "strong_threshold": 178.0
+    },
+    {
+      "key": "sheet-297-right#asset-10",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 10,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1043,
+        891,
+        1290,
+        910
+      ],
+      "score": 32.90584415584415,
+      "support_pixels": 1078.0,
+      "weak_fraction": 0.6187384044526901,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 25.0,
+      "strong_threshold": 151.0
+    },
+    {
+      "key": "sheet-297-right#asset-04",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 4,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1183,
+        738,
+        1290,
+        756
+      ],
+      "score": 32.84574468085106,
+      "support_pixels": 376.0,
+      "weak_fraction": 0.6170212765957447,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 25.0,
+      "strong_threshold": 174.0
+    },
+    {
+      "key": "sheet-299-right#asset-04",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 4,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1155,
+        78,
+        1349,
+        334
+      ],
+      "score": 32.05762267746546,
+      "support_pixels": 4198.0,
+      "weak_fraction": 0.6152929966650786,
+      "unanchored_weak_fraction": 0.01095759885659838,
+      "source_paper_variation": 19.0,
+      "strong_threshold": 99.0
+    },
+    {
+      "key": "sheet-297-right#asset-09",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 9,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1061,
+        864,
+        1290,
+        883
+      ],
+      "score": 31.54275466284075,
+      "support_pixels": 697.0,
+      "weak_fraction": 0.6183644189383071,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 22.0,
+      "strong_threshold": 159.0
+    },
+    {
+      "key": "sheet-297-right#asset-08",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 8,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1087,
+        838,
+        1290,
+        856
+      ],
+      "score": 31.118975069252073,
+      "support_pixels": 722.0,
+      "weak_fraction": 0.6191135734072022,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 21.0,
+      "strong_threshold": 138.0
+    },
+    {
+      "key": "sheet-299-right#asset-18",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 18,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        499,
+        746,
+        706,
+        872
+      ],
+      "score": 30.69078947368421,
+      "support_pixels": 760.0,
+      "weak_fraction": 0.6197368421052631,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 20.0,
+      "strong_threshold": 144.16000366210938
+    },
+    {
+      "key": "sheet-299-right#asset-15",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 15,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1104,
+        630,
+        1165,
+        739
+      ],
+      "score": 30.641221374045802,
+      "support_pixels": 655.0,
+      "weak_fraction": 0.6183206106870229,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 20.0,
+      "strong_threshold": 82.0
+    },
+    {
+      "key": "sheet-299-right#asset-21",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 21,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        1620,
+        791,
+        1728,
+        856
+      ],
+      "score": 29.718610421836228,
+      "support_pixels": 403.0,
+      "weak_fraction": 0.6178660049627791,
+      "unanchored_weak_fraction": 0.004962779156327543,
+      "source_paper_variation": 16.0,
+      "strong_threshold": 114.0
+    },
+    {
+      "key": "sheet-299-right#asset-12",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 12,
+      "category": "atlas",
+      "caption_figure_numbers": [],
+      "bbox": [
+        829,
+        551,
+        852,
+        661
+      ],
+      "score": 29.386842105263156,
+      "support_pixels": 285.0,
+      "weak_fraction": 0.6210526315789474,
+      "unanchored_weak_fraction": 0.0,
+      "source_paper_variation": 17.0,
+      "strong_threshold": 98.16000366210938
+    }
+  ]
+}
