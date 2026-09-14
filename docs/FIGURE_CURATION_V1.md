@@ -1,102 +1,137 @@
 # Figure curation v1
 
-Status: first conservative post-census cleanup of the full-book `model-v1` output.
+Status: conservative post-census curation plus explicit logical-layout fixes for
+the full-book `model-v1` output.
 
-The full probe output under `work/figure-structure-full-v2` is immutable evidence. Curation does **not** delete or rewrite it. Instead `tools/build_figure_review_set.py` materializes a separate review set after removing only high-confidence junk identified from the 600-page census, editorial indices and overlay inspection.
+The detector output is immutable physical evidence. Curation does not delete or
+rewrite it. `tools/build_figure_review_set.py` creates a separate review set,
+and `tools/compose_figure_assets.py` creates logical publication assets.
 
-## First-pass result
+## Census result
 
 Input detector assets: **378**.
 
-Dry-run of the committed policy yields:
+The committed curation policy yields:
 
-- **157** numbered-figure crops kept for human review;
-- **52** atlas/plate candidates kept separately;
-- **3** paratext/title/cover illustrations kept separately;
-- **166** high-confidence false detections excluded from the clean review set.
+- **157** numbered-figure crops;
+- **52** atlas/plate candidates;
+- **3** paratext/title/cover illustrations;
+- **166** high-confidence false detections excluded from the review set.
 
-The 166 excluded detections are dominated by display typography, footnote/section rules, scanner-edge slivers, page signatures and library/provenance marks. They are logged in `removed.json` when the review set is built.
+Excluded detections are mostly display typography, footnote/section rules,
+scanner-edge slivers, page signatures and provenance marks. They remain
+recorded in `removed.json`.
 
-The numbered count is deliberately a **crop count**, not yet the final logical illustration count. Editorial evidence contains numbered figures `1..156` plus two distinct `bis` captions (`28 bis` and `87 bis`), so the current working logical target is **158 numbered illustrations**. The cleaned detector set has 157 crops because known split/merge/miss cases do not cancel perfectly.
+These are physical crop counts, not logical illustration counts. Editorial
+evidence contains figures `1..156` plus `28 bis` and `87 bis`, so the
+working target is **158 logical numbered illustrations**.
 
-## Logical compositions
+## Logical-layout compositor
 
-Physical detector crops remain unchanged in `work/figure-review-v1`. A separate,
-versioned layout manifest records cases where several crops belong to one
-logical illustration:
+`corpus/figures/logical-compositions-v1.json` now resolves five files:
 
-```text
-corpus/figures/logical-compositions-v1.json
-```
+| Source page | Logical output | Operation |
+|---|---:|---|
+| `sheet-076-right` | 35 | clip merged asset 1 above page y=744 |
+| `sheet-076-right` | 36 | clip merged asset 1 below page y=744 |
+| `sheet-228-left` | 129 | compose physical assets 1 and 2 |
+| `sheet-256-right` | 144 | clip merged asset 1 above page y=846 |
+| `sheet-256-right` | 145 | clip merged asset 1 below page y=846 |
 
-Render all declared compositions with:
+Run:
 
 ```bash
-python tools/compose_figure_assets.py batch
+python tools/compose_figure_assets.py batch \
+  --source-root work/figure-structure-full-v3 \
+  --out-root work/figure-logical-v3
 ```
 
-Default output:
+The resulting layout is:
 
 ```text
-work/figure-logical-v1/
+work/figure-logical-v3/
 ├── numbered/
-│   └── figs-129__p0455__sheet-228-left__composite.png
+│   ├── figs-035__p0152__sheet-076-right__split.png
+│   ├── figs-036__p0152__sheet-076-right__split.png
+│   ├── figs-129__p0455__sheet-228-left__composite.png
+│   ├── figs-144__p0512__sheet-256-right__split.png
+│   └── figs-145__p0512__sheet-256-right__split.png
 └── compositions-manifest.json
 ```
 
-The compositor reads each crop bbox and SHA-256 from the page metrics. It checks
-the crop dimensions and hash, creates the union bbox, and places every part at
-its exact source-page offset without resizing. Consequently figure 129 keeps
-the original horizontal alignment and the 12-pixel vertical gap between
-`asset-01` and `asset-02`; the white area between them is deliberate page
-geometry rather than guessed spacing.
+The compositor supports either:
 
-For an ad-hoc composition outside the committed batch manifest:
+- `asset_indices`: two or more complete physical crops placed at their recorded
+  page offsets;
+- `parts`: one or more declared full-page `clip_bbox` windows, optionally
+  trimmed only at fully transparent outer pixels.
+
+It verifies page bounds, crop dimensions and declared SHA-256 values. Windows
+from one physical asset may be reused only when they are disjoint; overlapping
+reuse is rejected. Rendering uses Porter-Duff alpha-over and never resizes a
+part.
+
+All committed logical outputs default to transparent lossless RGBA. Transparent
+pixels carry white RGB, so the soft edge stays white rather than turning into a
+dark fringe on a black page. Figure 129 retains the exact gap and horizontal
+alignment encoded by its source-page bboxes; no pixel gap is hard-coded.
+
+For a complete-asset ad-hoc join:
 
 ```bash
 python tools/compose_figure_assets.py one \
-  work/figure-structure-full-v2/sheet-228-left.metrics.json \
+  work/figure-structure-full-v3/sheet-228-left.metrics.json \
   --assets 1 2 \
-  --out work/figure-logical-v1/numbered/figure-129.png
+  --out work/figure-logical-v3/numbered/figure-129.png
 ```
 
-This also writes `figure-129.provenance.json`. Use `--background transparent`
-only when a transparent union canvas is explicitly required; the committed
-figure 129 layout uses an opaque white canvas.
+This writes `figure-129.provenance.json` beside the PNG.
 
-## Known structural cases before manual review
+## Weak-support correction class
 
-- `sheet-076-right`: figures 35 and 36 are merged into one crop.
-- `sheet-128-left`: figure 74 is missed; page is also a strong bleed-through case.
-- `sheet-133-right`: figure 78 is currently two crops; keep both pending grouping review.
-- `sheet-228-left`: figure 129 is a known logical split across two spatial regions.
-- `sheet-256-right`: figures 144 and 145 are merged into one crop.
-- `sheet-001-right`: a real cover/title illustration exists, but the current crop merges most of the page with typography; exclude it and re-extract separately.
+The reported pages 83, 100, 112, 113, 114, both sides of 119 and both sides of
+122 exposed a separate problem: localization was good, but conservative
+renderable support discarded pale limbs, faces, apparatus, clothing and
+shadows.
+
+The detector now keeps its conservative graph support and adds a bounded,
+anchor-only weak-residual pass. Dense compact islands far from core ink are
+pruned by actual pixel distance. The final fill-ratio gate is `0.60`: it
+removes the known dense blemishes while preserving the outlined ball on
+`sheet-084-left` and elongated fragments.
+
+The hard set and ten held-out control pages are source-hash anchored in
+`corpus/figures/regressions-v1.json`.
 
 ## Review-set build
 
 ```bash
-python tools/build_figure_review_set.py --dry-run
-python tools/build_figure_review_set.py
+python tools/audit_figure_census.py \
+  --index work/figure-structure-full-v3/index.json \
+  --metrics-root work/figure-structure-full-v3 \
+  --out work/figure-structure-full-v3/census-audit
+
+python tools/build_figure_review_set.py \
+  --audit work/figure-structure-full-v3/census-audit/figure-census-audit.json \
+  --source-root work/figure-structure-full-v3 \
+  --out work/figure-review-v3 \
+  --dry-run
+
+python tools/build_figure_review_set.py \
+  --audit work/figure-structure-full-v3/census-audit/figure-census-audit.json \
+  --source-root work/figure-structure-full-v3 \
+  --out work/figure-review-v3
 ```
 
-Default output:
+Atlas plates stay separate because their crops mix whole plates, sub-diagrams,
+dimensions and labels; caption equality is not a valid grouping rule there.
 
-```text
-work/figure-review-v1/
-├── numbered/   # main book figures, easy to scroll in sequence
-├── atlas/      # plates kept separate because grouping semantics differ
-├── paratext/   # title / cover illustrations
-├── manifest.json
-└── removed.json
-```
+## Still unresolved
 
-The default materialization mode is hard-link with copy fallback, so the cleaned review folder costs little extra space while the baseline stays untouched. Use `--mode copy` for a self-contained folder.
+- `sheet-128-left`: figure 74 is missed and has severe bleed-through.
+- `sheet-133-right`: figure 78 remains a two-crop grouping candidate.
+- `sheet-001-right`: the cover/title illustration needs separate extraction.
+- atlas plates need their own logical-grouping pass.
 
-## Why atlas is separate
-
-Atlas plates are not evaluated by `N ФИГ.` caption equality. Their detector output mixes whole plate regions, sub-diagrams, dimensions and labels, so they require their own manual grouping pass. Keeping them outside `numbered/` prevents atlas oversegmentation from hiding the quality of the main 1..156+bis sequence.
-
-## Next gate
-
-The next gate is visual, not statistical: scroll `numbered/` first and mark bad crops / wrong grouping / missed support. Then review `atlas/`. Each confirmed correction should become an explicit curation decision or a restoration/re-extraction task rather than a global detector threshold tweak.
+Each further manual-layout correction should become a manifest entry or a
+separate restoration task, not an unrecorded edit to detector output.

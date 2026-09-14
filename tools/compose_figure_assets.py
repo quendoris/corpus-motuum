@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Compose several detector crops into one logical figure.
+"""Compose detector crops or clipped crop parts into logical figures.
 
-The detector deliberately emits disconnected regions as separate physical
-assets.  Editorial grouping happens later: this tool places selected crops back
-into their source-page coordinate system without resizing or guessing a gap.
-The result therefore preserves the geometry recorded in ``*.metrics.json`` and
-keeps a machine-readable provenance record.
+The detector emits physical evidence.  A logical illustration may be assembled
+from several physical assets (figure 129), while one physical asset may contain
+several printed illustrations (figures 35/36 and 144/145).  This tool preserves
+source-page coordinates, never resizes a part, writes lossless RGBA PNG, and
+records machine-readable provenance.
 
-Two modes are available:
+Modes:
 
-* ``one`` composes an explicitly supplied metrics file and asset indices;
-* ``batch`` renders every declared composition in a versioned JSON manifest.
+* one composes explicitly supplied complete asset indices;
+* batch renders the versioned logical-layout manifest, including clipped parts.
 """
 from __future__ import annotations
 
@@ -53,6 +53,8 @@ def checked_imwrite(path: Path, image: np.ndarray) -> str:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.suffix.lower() != ".png":
         raise ValueError(f"logical figures must be lossless PNG files: {path}")
+    if image.ndim != 3 or image.shape[2] != 4:
+        raise ValueError(f"logical figures must be RGBA/BGRA arrays: {image.shape}")
     if not cv2.imwrite(str(path), image):
         raise RuntimeError(f"failed to write image: {path}")
     if not path.is_file() or path.stat().st_size == 0:
@@ -60,15 +62,22 @@ def checked_imwrite(path: Path, image: np.ndarray) -> str:
     return sha256_file(path)
 
 
-def _parse_bbox(raw: Any, *, asset_index: int, metrics_path: Path) -> tuple[int, int, int, int]:
+def _parse_bbox(
+    raw: Any,
+    *,
+    asset_index: int,
+    metrics_path: Path,
+    field: str = "bbox",
+) -> tuple[int, int, int, int]:
     if not isinstance(raw, list) or len(raw) != 4:
         raise ValueError(
-            f"asset {asset_index} in {metrics_path} has an invalid bbox: {raw!r}"
+            f"asset {asset_index} in {metrics_path} has an invalid {field}: {raw!r}"
         )
     x1, y1, x2, y2 = (int(value) for value in raw)
     if not (0 <= x1 < x2 and 0 <= y1 < y2):
         raise ValueError(
-            f"asset {asset_index} in {metrics_path} has an empty/negative bbox: {raw!r}"
+            f"asset {asset_index} in {metrics_path} has an empty/negative "
+            f"{field}: {raw!r}"
         )
     return x1, y1, x2, y2
 
@@ -108,109 +117,243 @@ def _alpha_over(destination: np.ndarray, source: np.ndarray) -> None:
     destination[:] = np.clip(np.rint(result * 255.0), 0, 255).astype(np.uint8)
 
 
-def _select_assets(
-    metrics: dict[str, Any],
-    metrics_path: Path,
-    source_root: Path,
-    asset_indices: list[int],
-    derivative: str,
-) -> list[dict[str, Any]]:
-    if len(asset_indices) < 2:
-        raise ValueError("a logical composition needs at least two asset indices")
-    if len(set(asset_indices)) != len(asset_indices):
-        raise ValueError(f"asset indices must be unique: {asset_indices}")
-
+def _asset_map(metrics: dict[str, Any]) -> dict[int, dict[str, Any]]:
     by_index: dict[int, dict[str, Any]] = {}
     for fallback, asset in enumerate(metrics.get("assets", []), start=1):
         if not isinstance(asset, dict):
             continue
         index = int(asset.get("asset_index", fallback))
+        if index in by_index:
+            raise ValueError(f"duplicate asset index in metrics: {index}")
         by_index[index] = asset
+    return by_index
 
-    selected: list[dict[str, Any]] = []
+
+def _normalize_part_specs(entry: dict[str, Any], *, entry_id: str) -> list[dict[str, Any]]:
+    has_assets = "asset_indices" in entry
+    has_parts = "parts" in entry
+    if has_assets == has_parts:
+        raise ValueError(
+            f"composition {entry_id!r} must declare exactly one of "
+            "asset_indices or parts"
+        )
+
+    if has_assets:
+        raw = entry.get("asset_indices")
+        if not isinstance(raw, list) or len(raw) < 2:
+            raise ValueError(
+                f"composition {entry_id!r} needs at least two asset indices"
+            )
+        indices = [int(value) for value in raw]
+        if len(set(indices)) != len(indices):
+            raise ValueError(
+                f"composition {entry_id!r} asset indices must be unique: {indices}"
+            )
+        return [
+            {"asset_index": index, "trim_transparent": False}
+            for index in indices
+        ]
+
+    raw_parts = entry.get("parts")
+    if not isinstance(raw_parts, list) or not raw_parts:
+        raise ValueError(f"composition {entry_id!r} parts must be a non-empty array")
+    normalized: list[dict[str, Any]] = []
+    for position, raw in enumerate(raw_parts, start=1):
+        if not isinstance(raw, dict):
+            raise ValueError(
+                f"composition {entry_id!r} part {position} must be an object"
+            )
+        if "asset_index" not in raw:
+            raise ValueError(
+                f"composition {entry_id!r} part {position} needs asset_index"
+            )
+        part = {
+            "asset_index": int(raw["asset_index"]),
+            "trim_transparent": bool(raw.get("trim_transparent", False)),
+        }
+        if "clip_bbox" in raw:
+            part["clip_bbox"] = raw["clip_bbox"]
+        normalized.append(part)
+    return normalized
+
+
+def _validate_page_dimensions(
+    metrics: dict[str, Any], metrics_path: Path
+) -> tuple[int, int]:
     page_width = int(metrics.get("width", 0))
     page_height = int(metrics.get("height", 0))
     if page_width <= 0 or page_height <= 0:
         raise ValueError(f"invalid source-page dimensions in {metrics_path}")
+    return page_width, page_height
 
-    for index in asset_indices:
+
+def _declared_part_windows(
+    metrics: dict[str, Any],
+    metrics_path: Path,
+    part_specs: list[dict[str, Any]],
+) -> list[tuple[int, tuple[int, int, int, int]]]:
+    page_width, page_height = _validate_page_dimensions(metrics, metrics_path)
+    by_index = _asset_map(metrics)
+    windows: list[tuple[int, tuple[int, int, int, int]]] = []
+    for part in part_specs:
+        index = int(part["asset_index"])
         if index not in by_index:
             raise ValueError(f"asset {index} is absent from {metrics_path}")
-        record = by_index[index]
-        bbox = _parse_bbox(record.get("bbox"), asset_index=index, metrics_path=metrics_path)
-        x1, y1, x2, y2 = bbox
-        if x2 > page_width or y2 > page_height:
+        asset_bbox = _parse_bbox(
+            by_index[index].get("bbox"),
+            asset_index=index,
+            metrics_path=metrics_path,
+        )
+        if asset_bbox[2] > page_width or asset_bbox[3] > page_height:
             raise ValueError(
-                f"asset {index} bbox {bbox} exceeds page {page_width}x{page_height}"
+                f"asset {index} bbox {asset_bbox} exceeds page "
+                f"{page_width}x{page_height}"
+            )
+        if "clip_bbox" in part:
+            window = _parse_bbox(
+                part["clip_bbox"],
+                asset_index=index,
+                metrics_path=metrics_path,
+                field="clip_bbox",
+            )
+            if not (
+                asset_bbox[0] <= window[0] < window[2] <= asset_bbox[2]
+                and asset_bbox[1] <= window[1] < window[3] <= asset_bbox[3]
+            ):
+                raise ValueError(
+                    f"asset {index} clip_bbox {window} is outside asset bbox "
+                    f"{asset_bbox} in {metrics_path}"
+                )
+        else:
+            window = asset_bbox
+        windows.append((index, window))
+    return windows
+
+
+def _select_parts(
+    metrics: dict[str, Any],
+    metrics_path: Path,
+    source_root: Path,
+    part_specs: list[dict[str, Any]],
+    derivative: str,
+) -> list[dict[str, Any]]:
+    by_index = _asset_map(metrics)
+    declared = _declared_part_windows(metrics, metrics_path, part_specs)
+    selected: list[dict[str, Any]] = []
+    cache: dict[int, tuple[dict[str, Any], Path, str, np.ndarray, tuple[int, int, int, int]]] = {}
+
+    for part_spec, (index, requested_bbox) in zip(part_specs, declared):
+        if index not in cache:
+            record = by_index[index]
+            asset_bbox = _parse_bbox(
+                record.get("bbox"), asset_index=index, metrics_path=metrics_path
+            )
+            files = record.get("files", {})
+            filename = files.get(derivative) if isinstance(files, dict) else None
+            if not filename or Path(str(filename)).name != str(filename):
+                raise ValueError(
+                    f"asset {index} has no safe {derivative!r} filename in "
+                    f"{metrics_path}"
+                )
+            crop_path = source_root / str(filename)
+            if not crop_path.is_file():
+                raise ValueError(
+                    f"missing {derivative} crop for asset {index}: {crop_path}"
+                )
+            hashes = record.get("sha256", {})
+            declared_sha = hashes.get(derivative) if isinstance(hashes, dict) else None
+            actual_sha = sha256_file(crop_path)
+            if declared_sha and actual_sha != declared_sha:
+                raise ValueError(
+                    f"SHA-256 mismatch for {crop_path}: expected {declared_sha}, "
+                    f"got {actual_sha}"
+                )
+            image = _as_bgra(crop_path)
+            expected_shape = (
+                asset_bbox[3] - asset_bbox[1],
+                asset_bbox[2] - asset_bbox[0],
+            )
+            if image.shape[:2] != expected_shape:
+                raise ValueError(
+                    f"crop dimensions do not match bbox for asset {index}: "
+                    f"image={image.shape[1]}x{image.shape[0]}, "
+                    f"bbox={expected_shape[1]}x{expected_shape[0]}"
+                )
+            cache[index] = (record, crop_path, actual_sha, image, asset_bbox)
+
+        _, crop_path, actual_sha, full_image, asset_bbox = cache[index]
+        rx1 = requested_bbox[0] - asset_bbox[0]
+        ry1 = requested_bbox[1] - asset_bbox[1]
+        rx2 = requested_bbox[2] - asset_bbox[0]
+        ry2 = requested_bbox[3] - asset_bbox[1]
+        image = full_image[ry1:ry2, rx1:rx2].copy()
+        output_bbox = requested_bbox
+
+        if part_spec.get("trim_transparent", False):
+            ys, xs = np.where(image[:, :, 3] > 0)
+            if xs.size == 0:
+                raise ValueError(
+                    f"asset {index} clip {requested_bbox} is fully transparent"
+                )
+            tx1, ty1 = int(xs.min()), int(ys.min())
+            tx2, ty2 = int(xs.max() + 1), int(ys.max() + 1)
+            image = image[ty1:ty2, tx1:tx2]
+            output_bbox = (
+                requested_bbox[0] + tx1,
+                requested_bbox[1] + ty1,
+                requested_bbox[0] + tx2,
+                requested_bbox[1] + ty2,
             )
 
-        files = record.get("files", {})
-        filename = files.get(derivative) if isinstance(files, dict) else None
-        if not filename or Path(str(filename)).name != str(filename):
-            raise ValueError(
-                f"asset {index} has no safe {derivative!r} filename in {metrics_path}"
-            )
-        crop_path = source_root / str(filename)
-        if not crop_path.is_file():
-            raise ValueError(f"missing {derivative} crop for asset {index}: {crop_path}")
-
-        hashes = record.get("sha256", {})
-        declared_sha = hashes.get(derivative) if isinstance(hashes, dict) else None
-        actual_sha = sha256_file(crop_path)
-        if declared_sha and actual_sha != declared_sha:
-            raise ValueError(
-                f"SHA-256 mismatch for {crop_path}: expected {declared_sha}, got {actual_sha}"
-            )
-
-        image = _as_bgra(crop_path)
-        expected_shape = (y2 - y1, x2 - x1)
-        if image.shape[:2] != expected_shape:
-            raise ValueError(
-                f"crop dimensions do not match bbox for asset {index}: "
-                f"image={image.shape[1]}x{image.shape[0]}, "
-                f"bbox={expected_shape[1]}x{expected_shape[0]}"
-            )
         selected.append(
             {
                 "asset_index": index,
-                "bbox": bbox,
+                "asset_bbox": asset_bbox,
+                "requested_bbox": requested_bbox,
+                "bbox": output_bbox,
+                "trim_transparent": bool(
+                    part_spec.get("trim_transparent", False)
+                ),
                 "path": crop_path,
                 "sha256": actual_sha,
                 "image": image,
             }
         )
+
+    for i, first in enumerate(selected):
+        for second in selected[i + 1 :]:
+            if first["asset_index"] != second["asset_index"]:
+                continue
+            if _bbox_overlap(first["requested_bbox"], second["requested_bbox"]):
+                raise ValueError(
+                    f"overlapping windows from asset {first['asset_index']}: "
+                    f"{first['requested_bbox']} and {second['requested_bbox']}"
+                )
     return selected
 
 
-def compose_page_assets(
-    metrics_path: Path,
-    asset_indices: list[int],
-    output_path: Path,
-    *,
-    source_root: Path | None = None,
-    derivative: str = "clean",
-    background: str = "white",
-    padding: int = 0,
-) -> dict[str, Any]:
-    """Render selected crops at their original offsets inside their union bbox."""
-    if derivative not in DERIVATIVES:
-        raise ValueError(f"unsupported derivative {derivative!r}; choose from {DERIVATIVES}")
-    if background not in BACKGROUNDS:
-        raise ValueError(f"unsupported background {background!r}; choose from {BACKGROUNDS}")
-    if padding < 0:
-        raise ValueError("padding must be non-negative")
-
-    metrics_path = Path(metrics_path)
-    metrics = load_json(metrics_path)
-    crop_root = Path(source_root) if source_root is not None else metrics_path.parent
-    parts = _select_assets(
-        metrics,
-        metrics_path,
-        crop_root,
-        [int(value) for value in asset_indices],
-        derivative,
+def _bbox_overlap(
+    first: tuple[int, int, int, int],
+    second: tuple[int, int, int, int],
+) -> bool:
+    return (
+        max(first[0], second[0]) < min(first[2], second[2])
+        and max(first[1], second[1]) < min(first[3], second[3])
     )
 
+
+def _compose_selected_parts(
+    metrics: dict[str, Any],
+    metrics_path: Path,
+    parts: list[dict[str, Any]],
+    output_path: Path,
+    *,
+    derivative: str,
+    background: str,
+    padding: int,
+) -> dict[str, Any]:
+    if not parts:
+        raise ValueError("a logical composition needs at least one part")
     x1 = min(part["bbox"][0] for part in parts)
     y1 = min(part["bbox"][1] for part in parts)
     x2 = max(part["bbox"][2] for part in parts)
@@ -224,7 +367,7 @@ def compose_page_assets(
 
     provenance_parts: list[dict[str, Any]] = []
     for part in parts:
-        px1, py1, px2, py2 = part["bbox"]
+        px1, py1, _, _ = part["bbox"]
         offset_x = px1 - x1 + padding
         offset_y = py1 - y1 + padding
         image = part["image"]
@@ -236,7 +379,10 @@ def compose_page_assets(
         provenance_parts.append(
             {
                 "asset_index": part["asset_index"],
+                "asset_bbox": list(part["asset_bbox"]),
+                "requested_bbox": list(part["requested_bbox"]),
                 "bbox": list(part["bbox"]),
+                "trim_transparent": part["trim_transparent"],
                 "offset": [offset_x, offset_y],
                 "file": str(part["path"]),
                 "sha256": part["sha256"],
@@ -265,12 +411,91 @@ def compose_page_assets(
     }
 
 
+def compose_page_parts(
+    metrics_path: Path,
+    part_specs: list[dict[str, Any]],
+    output_path: Path,
+    *,
+    source_root: Path | None = None,
+    derivative: str = "clean",
+    background: str = "transparent",
+    padding: int = 0,
+) -> dict[str, Any]:
+    """Render declared crop parts at their original page-coordinate offsets."""
+    if derivative not in DERIVATIVES:
+        raise ValueError(
+            f"unsupported derivative {derivative!r}; choose from {DERIVATIVES}"
+        )
+    if background not in BACKGROUNDS:
+        raise ValueError(
+            f"unsupported background {background!r}; choose from {BACKGROUNDS}"
+        )
+    if padding < 0:
+        raise ValueError("padding must be non-negative")
+    if not isinstance(part_specs, list) or not part_specs:
+        raise ValueError("a logical composition needs at least one part")
+
+    metrics_path = Path(metrics_path)
+    metrics = load_json(metrics_path)
+    crop_root = Path(source_root) if source_root is not None else metrics_path.parent
+    parts = _select_parts(
+        metrics,
+        metrics_path,
+        crop_root,
+        part_specs,
+        derivative,
+    )
+    return _compose_selected_parts(
+        metrics,
+        metrics_path,
+        parts,
+        Path(output_path),
+        derivative=derivative,
+        background=background,
+        padding=padding,
+    )
+
+
+def compose_page_assets(
+    metrics_path: Path,
+    asset_indices: list[int],
+    output_path: Path,
+    *,
+    source_root: Path | None = None,
+    derivative: str = "clean",
+    background: str = "transparent",
+    padding: int = 0,
+) -> dict[str, Any]:
+    """Compatibility wrapper for composing two or more complete assets."""
+    indices = [int(value) for value in asset_indices]
+    if len(indices) < 2:
+        raise ValueError("a logical composition needs at least two asset indices")
+    if len(set(indices)) != len(indices):
+        raise ValueError(f"asset indices must be unique: {indices}")
+    return compose_page_parts(
+        metrics_path,
+        [
+            {"asset_index": index, "trim_transparent": False}
+            for index in indices
+        ],
+        output_path,
+        source_root=source_root,
+        derivative=derivative,
+        background=background,
+        padding=padding,
+    )
+
+
 def _safe_relative_output(value: Any, *, entry_id: str) -> Path:
     path = Path(str(value))
     if not value or path.is_absolute() or ".." in path.parts:
-        raise ValueError(f"composition {entry_id!r} has an unsafe output path: {value!r}")
+        raise ValueError(
+            f"composition {entry_id!r} has an unsafe output path: {value!r}"
+        )
     if path.suffix.lower() != ".png":
-        raise ValueError(f"composition {entry_id!r} output must end in .png: {path}")
+        raise ValueError(
+            f"composition {entry_id!r} output must end in .png: {path}"
+        )
     return path
 
 
@@ -284,15 +509,22 @@ def render_batch(
     spec = load_json(spec_path)
     schema = spec.get("schema")
     if schema != "corpus-motuum-logical-compositions-v1":
-        raise ValueError(f"unsupported composition schema in {spec_path}: {schema!r}")
+        raise ValueError(
+            f"unsupported composition schema in {spec_path}: {schema!r}"
+        )
     entries = spec.get("compositions", [])
     if not isinstance(entries, list):
         raise ValueError(f"compositions must be an array in {spec_path}")
 
     seen_ids: set[str] = set()
     seen_outputs: set[Path] = set()
-    seen_assets: set[tuple[str, int]] = set()
-    selected: list[tuple[dict[str, Any], str, str, Path, list[int]]] = []
+    seen_windows: dict[
+        tuple[str, int], list[tuple[tuple[int, int, int, int], str]]
+    ] = {}
+    selected: list[
+        tuple[dict[str, Any], str, str, Path, list[dict[str, Any]]]
+    ] = []
+
     for entry in entries:
         if not isinstance(entry, dict):
             raise ValueError(f"composition entry must be an object: {entry!r}")
@@ -310,50 +542,63 @@ def render_batch(
             )
         page_id = str(entry.get("page_id", "")).strip()
         if not page_id or Path(page_id).name != page_id:
-            raise ValueError(f"composition {entry_id!r} has an unsafe page_id: {page_id!r}")
-        output_relative = _safe_relative_output(entry.get("output"), entry_id=entry_id)
+            raise ValueError(
+                f"composition {entry_id!r} has an unsafe page_id: {page_id!r}"
+            )
+        output_relative = _safe_relative_output(
+            entry.get("output"), entry_id=entry_id
+        )
         if output_relative in seen_outputs:
-            raise ValueError(f"duplicate composition output path: {output_relative}")
+            raise ValueError(
+                f"duplicate composition output path: {output_relative}"
+            )
         seen_outputs.add(output_relative)
 
-        raw_indices = entry.get("asset_indices", [])
-        if not isinstance(raw_indices, list):
-            raise ValueError(f"composition {entry_id!r} asset_indices must be an array")
-        asset_indices = [int(value) for value in raw_indices]
-        for asset_index in asset_indices:
-            asset_key = (page_id, asset_index)
-            if asset_key in seen_assets:
-                raise ValueError(
-                    f"physical asset used by more than one composition: "
-                    f"{page_id}#asset-{asset_index:02d}"
-                )
-            seen_assets.add(asset_key)
+        part_specs = _normalize_part_specs(entry, entry_id=entry_id)
+        metrics_path = source_root / f"{page_id}.metrics.json"
+        metrics = load_json(metrics_path)
+        windows = _declared_part_windows(metrics, metrics_path, part_specs)
+        for asset_index, window in windows:
+            key = (page_id, asset_index)
+            for previous, previous_id in seen_windows.get(key, []):
+                if _bbox_overlap(previous, window):
+                    raise ValueError(
+                        "physical asset windows overlap across compositions: "
+                        f"{page_id}#asset-{asset_index:02d} "
+                        f"{previous_id!r} {previous} vs {entry_id!r} {window}"
+                    )
+            seen_windows.setdefault(key, []).append((window, entry_id))
+
         if only is None or entry_id in only:
-            selected.append((entry, entry_id, page_id, output_relative, asset_indices))
+            selected.append(
+                (entry, entry_id, page_id, output_relative, part_specs)
+            )
 
     if only is not None:
         unknown = sorted(only - seen_ids)
         if unknown:
-            raise ValueError(f"unknown composition id(s): {', '.join(unknown)}")
+            raise ValueError(
+                f"unknown composition id(s): {', '.join(unknown)}"
+            )
     if not selected:
         raise ValueError("no compositions selected")
 
     rendered: list[dict[str, Any]] = []
-    for entry, entry_id, page_id, output_relative, asset_indices in selected:
-        provenance = compose_page_assets(
+    for entry, entry_id, page_id, output_relative, part_specs in selected:
+        provenance = compose_page_parts(
             source_root / f"{page_id}.metrics.json",
-            asset_indices,
+            part_specs,
             output_root / output_relative,
             source_root=source_root,
             derivative=str(entry.get("derivative", "clean")),
-            background=str(entry.get("background", "white")),
+            background=str(entry.get("background", "transparent")),
             padding=int(entry.get("padding", 0)),
         )
         rendered.append(
             {
                 "id": entry_id,
                 "figure_labels": entry.get("figure_labels", []),
-                "status": entry.get("status", "ok_composite"),
+                "status": entry.get("status", "ok_logical"),
                 "detail": entry.get("detail"),
                 "render": provenance,
             }
@@ -388,21 +633,31 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    one = subparsers.add_parser("one", help="compose assets from one page metrics file")
+    one = subparsers.add_parser(
+        "one", help="compose complete assets from one page metrics file"
+    )
     one.add_argument("metrics", type=Path)
     one.add_argument("--assets", nargs="+", type=int, required=True)
     one.add_argument("--source-root", type=Path, default=None)
     one.add_argument("--derivative", choices=DERIVATIVES, default="clean")
-    one.add_argument("--background", choices=BACKGROUNDS, default="white")
+    one.add_argument(
+        "--background", choices=BACKGROUNDS, default="transparent"
+    )
     one.add_argument("--padding", type=int, default=0)
     one.add_argument("--out", type=Path, required=True)
     one.add_argument("--provenance-out", type=Path, default=None)
     one.add_argument("--no-provenance", action="store_true")
 
-    batch = subparsers.add_parser("batch", help="render a versioned composition manifest")
+    batch = subparsers.add_parser(
+        "batch", help="render a versioned logical-layout manifest"
+    )
     batch.add_argument("--spec", type=Path, default=DEFAULT_SPEC)
-    batch.add_argument("--source-root", type=Path, default=Path("work/figure-structure-full-v2"))
-    batch.add_argument("--out-root", type=Path, default=Path("work/figure-logical-v1"))
+    batch.add_argument(
+        "--source-root", type=Path, default=Path("work/figure-structure-full-v2")
+    )
+    batch.add_argument(
+        "--out-root", type=Path, default=Path("work/figure-logical-v1")
+    )
     batch.add_argument("--only", action="append", default=None, metavar="ID")
 
     args = parser.parse_args()

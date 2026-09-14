@@ -1,20 +1,133 @@
 {
   "schema": "corpus-motuum-logical-compositions-v1",
-  "principle": "A detector crop is physical evidence, not necessarily a logical illustration. Composite layouts preserve recorded source-page coordinates and never rewrite the immutable probe output.",
+  "principle": "A detector crop is physical evidence, not necessarily a logical illustration. Logical layouts preserve recorded source-page coordinates, may compose crops or split one crop by declared page-coordinate windows, and never rewrite immutable probe output.",
   "compositions": [
     {
-      "id": "figure-129",
-      "figure_labels": ["129"],
-      "page_id": "sheet-228-left",
-      "physical_index": 455,
-      "asset_indices": [1, 2],
+      "id": "figure-035",
+      "figure_labels": [
+        "35"
+      ],
+      "page_id": "sheet-076-right",
+      "physical_index": 152,
+      "parts": [
+        {
+          "asset_index": 1,
+          "clip_bbox": [
+            61,
+            389,
+            415,
+            744
+          ],
+          "trim_transparent": true
+        }
+      ],
       "derivative": "clean",
       "layout": "source-coordinates",
-      "background": "white",
+      "background": "transparent",
+      "padding": 0,
+      "output": "numbered/figs-035__p0152__sheet-076-right__split.png",
+      "status": "ok_split",
+      "detail": "The detector merged printed figures 35 and 36. Split their physical crop at source-page y=744, then trim only fully transparent outer rows and columns."
+    },
+    {
+      "id": "figure-036",
+      "figure_labels": [
+        "36"
+      ],
+      "page_id": "sheet-076-right",
+      "physical_index": 152,
+      "parts": [
+        {
+          "asset_index": 1,
+          "clip_bbox": [
+            61,
+            744,
+            415,
+            1112
+          ],
+          "trim_transparent": true
+        }
+      ],
+      "derivative": "clean",
+      "layout": "source-coordinates",
+      "background": "transparent",
+      "padding": 0,
+      "output": "numbered/figs-036__p0152__sheet-076-right__split.png",
+      "status": "ok_split",
+      "detail": "The detector merged printed figures 35 and 36. Split their physical crop at source-page y=744, then trim only fully transparent outer rows and columns."
+    },
+    {
+      "id": "figure-129",
+      "figure_labels": [
+        "129"
+      ],
+      "page_id": "sheet-228-left",
+      "physical_index": 455,
+      "asset_indices": [
+        1,
+        2
+      ],
+      "derivative": "clean",
+      "layout": "source-coordinates",
+      "background": "transparent",
       "padding": 0,
       "output": "numbered/figs-129__p0455__sheet-228-left__composite.png",
       "status": "ok_composite",
-      "detail": "Figure 129 is printed as two vertically separated regions. Preserve their original x alignment and 12 px page-coordinate gap in one logical file."
+      "detail": "Figure 129 is printed as two vertically separated regions. Preserve both crops at their recorded source-page offsets, including the coordinate gap, in one transparent logical file."
+    },
+    {
+      "id": "figure-144",
+      "figure_labels": [
+        "144"
+      ],
+      "page_id": "sheet-256-right",
+      "physical_index": 512,
+      "parts": [
+        {
+          "asset_index": 1,
+          "clip_bbox": [
+            52,
+            506,
+            355,
+            846
+          ],
+          "trim_transparent": true
+        }
+      ],
+      "derivative": "clean",
+      "layout": "source-coordinates",
+      "background": "transparent",
+      "padding": 0,
+      "output": "numbered/figs-144__p0512__sheet-256-right__split.png",
+      "status": "ok_split",
+      "detail": "The detector merged printed figures 144 and 145. Split their physical crop at source-page y=846, then trim only fully transparent outer rows and columns."
+    },
+    {
+      "id": "figure-145",
+      "figure_labels": [
+        "145"
+      ],
+      "page_id": "sheet-256-right",
+      "physical_index": 512,
+      "parts": [
+        {
+          "asset_index": 1,
+          "clip_bbox": [
+            52,
+            846,
+            355,
+            1096
+          ],
+          "trim_transparent": true
+        }
+      ],
+      "derivative": "clean",
+      "layout": "source-coordinates",
+      "background": "transparent",
+      "padding": 0,
+      "output": "numbered/figs-145__p0512__sheet-256-right__split.png",
+      "status": "ok_split",
+      "detail": "The detector merged printed figures 144 and 145. Split their physical crop at source-page y=846, then trim only fully transparent outer rows and columns."
     }
   ]
 }

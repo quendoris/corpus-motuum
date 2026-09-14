@@ -505,6 +505,168 @@ def renderable_support(labels: np.ndarray, region: Region, by_label: dict[int, C
     support = lut[labels]
     return (support, {'core_labels': sorted(core), 'reachable_labels': sorted(dist), 'support_labels': sorted(keep), 'rejected_text_labels': sorted(rejected_text)})
 
+def prune_isolated_compact_support(
+    support: np.ndarray,
+    labels: np.ndarray,
+    support_labels: list[int],
+    core_labels: list[int],
+    by_label: dict[int, Component],
+    h_cap: float,
+    artifact_max_size_scale: float,
+    artifact_max_aspect: float,
+    artifact_min_fill: float,
+    artifact_min_gap_scale: float,
+) -> tuple[np.ndarray, dict]:
+    """Remove only dense, compact support islands that are truly far from the core.
+
+    Component bounding boxes are deliberately not used to estimate separation:
+    an outlined or elongated object may have a large empty bbox.  Pixel distance
+    to accepted core ink is the relevant measurement.
+    """
+    cleaned = support.copy()
+    core_set = set(core_labels)
+    valid_core = [label for label in core_set if label in by_label]
+    diagnostics: dict = {
+        'removed_labels': [],
+        'removed_components': 0,
+        'removed_pixels': 0,
+        'candidates': [],
+    }
+    if not valid_core:
+        diagnostics['skipped'] = 'no-core-labels'
+        return cleaned, diagnostics
+
+    core_lut = np.zeros(int(labels.max()) + 1, dtype=np.uint8)
+    for label in valid_core:
+        core_lut[label] = 255
+    core_mask = core_lut[labels]
+    distance_to_core = cv2.distanceTransform(
+        np.where(core_mask > 0, 0, 1).astype(np.uint8),
+        cv2.DIST_L2,
+        5,
+    )
+    max_size = max(1.0, artifact_max_size_scale * h_cap)
+    min_gap = max(1.0, artifact_min_gap_scale * h_cap)
+
+    for label in support_labels:
+        if label in core_set or label not in by_label:
+            continue
+        component = by_label[label]
+        component_pixels = labels == label
+        if not np.any(component_pixels):
+            continue
+        short = max(1, min(component.w, component.h))
+        aspect = max(component.w, component.h) / short
+        fill = component.area / max(1, component.w * component.h)
+        pixel_gap = float(distance_to_core[component_pixels].min())
+        compact = (
+            max(component.w, component.h) <= max_size
+            and aspect <= artifact_max_aspect
+            and fill >= artifact_min_fill
+        )
+        isolated = pixel_gap >= min_gap
+        candidate = {
+            'label': int(label),
+            'width': int(component.w),
+            'height': int(component.h),
+            'area': int(component.area),
+            'aspect': float(aspect),
+            'fill': float(fill),
+            'pixel_gap_to_core': pixel_gap,
+            'compact': bool(compact),
+            'isolated': bool(isolated),
+            'removed': bool(compact and isolated),
+        }
+        diagnostics['candidates'].append(candidate)
+        if compact and isolated:
+            removed = int(np.count_nonzero(cleaned[component_pixels]))
+            cleaned[component_pixels] = 0
+            diagnostics['removed_labels'].append(int(label))
+            diagnostics['removed_components'] += 1
+            diagnostics['removed_pixels'] += removed
+
+    return cleaned, diagnostics
+
+
+def recover_weak_strokes(
+    gray: np.ndarray,
+    paper: np.ndarray,
+    support: np.ndarray,
+    region_bbox: list[int],
+    w_stroke: float,
+    detail_threshold_scale: float,
+    detail_bridge_scale: float,
+    detail_anchor_scale: float,
+    detail_extent_scale: float,
+) -> tuple[np.ndarray, dict]:
+    """Recover low-contrast continuations anchored to already accepted support.
+
+    The structural detector stays conservative.  This pass works on the
+    unnormalised paper-minus-page residual inside the accepted region and keeps
+    only weak connected components that touch a small dilation of strong ink.
+    Thus a pale leg, face or shadow can return without admitting an unrelated
+    pale blob elsewhere in the crop.
+    """
+    residual = np.maximum(
+        paper.astype(np.int16) - gray.astype(np.int16), 0
+    ).astype(np.uint8)
+    strong_values = residual[support > 0]
+    if strong_values.size:
+        strong_floor = float(np.percentile(strong_values, 1.0))
+    else:
+        strong_floor = 0.0
+    weak_threshold = max(2.0, detail_threshold_scale * strong_floor)
+
+    h, w = gray.shape
+    x1, y1, x2, y2 = (int(value) for value in region_bbox)
+    extent_px = max(1, int(round(detail_extent_scale * w_stroke)))
+    x1 = max(0, x1 - extent_px)
+    y1 = max(0, y1 - extent_px)
+    x2 = min(w, x2 + extent_px)
+    y2 = min(h, y2 + extent_px)
+    roi = np.zeros_like(support)
+    roi[y1:y2, x1:x2] = 255
+
+    weak = np.where((residual >= weak_threshold) & (roi > 0), 255, 0).astype(np.uint8)
+    bridge_px = max(1, int(round(detail_bridge_scale * w_stroke)))
+    bridge_kernel = cv2.getStructuringElement(
+        cv2.MORPH_ELLIPSE, (2 * bridge_px + 1, 2 * bridge_px + 1)
+    )
+    bridged = cv2.morphologyEx(weak, cv2.MORPH_CLOSE, bridge_kernel)
+
+    anchor_px = max(1, int(round(detail_anchor_scale * w_stroke)))
+    anchor_kernel = cv2.getStructuringElement(
+        cv2.MORPH_ELLIPSE, (2 * anchor_px + 1, 2 * anchor_px + 1)
+    )
+    anchors = cv2.dilate(support, anchor_kernel)
+
+    component_count, weak_labels = cv2.connectedComponents(
+        (bridged > 0).astype(np.uint8), connectivity=8
+    )
+    accepted_components: list[int] = []
+    recovered = np.zeros_like(support)
+    for label in range(1, component_count):
+        component = weak_labels == label
+        if np.any(component & (anchors > 0)):
+            accepted_components.append(label)
+            recovered[(component) & (weak > 0)] = 255
+
+    combined = cv2.bitwise_or(support, recovered)
+    recovered_only = cv2.bitwise_and(combined, cv2.bitwise_not(support))
+    diagnostics = {
+        'strong_reference_percentile_1': strong_floor,
+        'weak_threshold': float(weak_threshold),
+        'bridge_px': bridge_px,
+        'anchor_px': anchor_px,
+        'extent_px': extent_px,
+        'search_bbox': [x1, y1, x2, y2],
+        'weak_component_count': int(max(0, component_count - 1)),
+        'accepted_weak_components': accepted_components,
+        'recovered_pixels': int(np.count_nonzero(recovered_only)),
+    }
+    return combined, diagnostics
+
+
 def _holes(mask: np.ndarray) -> np.ndarray:
     h, w = mask.shape
     padded = cv2.copyMakeBorder(mask, 1, 1, 1, 1, cv2.BORDER_CONSTANT, value=0)
@@ -634,6 +796,31 @@ def process_page(path: Path, out_dir: Path, args: argparse.Namespace) -> dict:
     asset_records = []
     for index, region in enumerate(assets, start=1):
         support, support_diag = renderable_support(labels, region, by_label, graph, h_cap, w_stroke, support_budget=args.support_budget, support_text_penalty=args.support_text_penalty)
+        support, artifact_diag = prune_isolated_compact_support(
+            support,
+            labels,
+            support_diag['support_labels'],
+            support_diag['core_labels'],
+            by_label,
+            h_cap,
+            artifact_max_size_scale=args.artifact_max_size_scale,
+            artifact_max_aspect=args.artifact_max_aspect,
+            artifact_min_fill=args.artifact_min_fill,
+            artifact_min_gap_scale=args.artifact_min_gap_scale,
+        )
+        support, detail_diag = recover_weak_strokes(
+            gray,
+            paper,
+            support,
+            region.bbox,
+            w_stroke,
+            detail_threshold_scale=args.detail_threshold_scale,
+            detail_bridge_scale=args.detail_bridge_scale,
+            detail_anchor_scale=args.detail_anchor_scale,
+            detail_extent_scale=args.detail_extent_scale,
+        )
+        support_diag['artifact_pruning'] = artifact_diag
+        support_diag['weak_stroke_recovery'] = detail_diag
         hard, alpha, closure_diag = closure_and_alpha(support, w_stroke, closure_budget=args.closure_budget, closure_boundary_min=args.closure_boundary_min, max_bridge_width=args.max_bridge_width, margin_scale=args.margin_scale, alpha_scale=args.alpha_scale)
         ys, xs = np.where(alpha > 0)
         if xs.size == 0:
@@ -659,7 +846,7 @@ def process_page(path: Path, out_dir: Path, args: argparse.Namespace) -> dict:
     page_files = {'foreground': out_dir / f'{stem}.foreground.png', 'ink_response': out_dir / f'{stem}.ink-response.png', 'asset_overlay': out_dir / f'{stem}.asset-overlay.jpg'}
     page_shas = {'foreground': checked_imwrite(page_files['foreground'], fg), 'ink_response': checked_imwrite(page_files['ink_response'], ink), 'asset_overlay': checked_imwrite(page_files['asset_overlay'], overlay, [cv2.IMWRITE_JPEG_QUALITY, 95])}
     edge_count = sum((len(v) for v in graph.values())) // 2
-    payload.update({'background_sigma_px': bg_sigma, 'foreground_otsu': otsu, 'component_count': len(comps), 'component_height_mode': height_mode, 'scale_candidate_count': candidate_count, 'text_band_count': text_band_count, 'H_cap': h_cap, 'W_stroke': w_stroke, 'seed_threshold': seed_threshold, 'seed_count': len(seeds), 'graph_edge_count': edge_count, 'raw_seed_family_count': len(raw), 'grouped_region_count': len(grouped), 'accepted_asset_count': len(asset_records), 'parameters': {'graph_gap_scale': args.graph_gap_scale, 'text_penalty': args.text_penalty, 'growth_budget': args.growth_budget, 'support_budget': args.support_budget, 'support_text_penalty': args.support_text_penalty, 'closure_budget': args.closure_budget, 'closure_boundary_min': args.closure_boundary_min, 'max_bridge_width': args.max_bridge_width, 'margin_scale': args.margin_scale, 'alpha_scale': args.alpha_scale}, 'page_files': {k: p.name for k, p in page_files.items()}, 'page_file_sha256': page_shas, 'assets': asset_records})
+    payload.update({'background_sigma_px': bg_sigma, 'foreground_otsu': otsu, 'component_count': len(comps), 'component_height_mode': height_mode, 'scale_candidate_count': candidate_count, 'text_band_count': text_band_count, 'H_cap': h_cap, 'W_stroke': w_stroke, 'seed_threshold': seed_threshold, 'seed_count': len(seeds), 'graph_edge_count': edge_count, 'raw_seed_family_count': len(raw), 'grouped_region_count': len(grouped), 'accepted_asset_count': len(asset_records), 'parameters': {'graph_gap_scale': args.graph_gap_scale, 'text_penalty': args.text_penalty, 'growth_budget': args.growth_budget, 'support_budget': args.support_budget, 'support_text_penalty': args.support_text_penalty, 'artifact_max_size_scale': args.artifact_max_size_scale, 'artifact_max_aspect': args.artifact_max_aspect, 'artifact_min_fill': args.artifact_min_fill, 'artifact_min_gap_scale': args.artifact_min_gap_scale, 'detail_threshold_scale': args.detail_threshold_scale, 'detail_bridge_scale': args.detail_bridge_scale, 'detail_anchor_scale': args.detail_anchor_scale, 'detail_extent_scale': args.detail_extent_scale, 'closure_budget': args.closure_budget, 'closure_boundary_min': args.closure_boundary_min, 'max_bridge_width': args.max_bridge_width, 'margin_scale': args.margin_scale, 'alpha_scale': args.alpha_scale}, 'page_files': {k: p.name for k, p in page_files.items()}, 'page_file_sha256': page_shas, 'assets': asset_records})
     metrics_path = out_dir / f'{stem}.metrics.json'
     metrics_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     if not metrics_path.is_file() or metrics_path.stat().st_size <= 0:
@@ -685,6 +872,14 @@ def main() -> None:
     ap.add_argument('--growth-budget', type=float, default=6.0)
     ap.add_argument('--support-budget', type=float, default=4.6)
     ap.add_argument('--support-text-penalty', type=float, default=5.8)
+    ap.add_argument('--artifact-max-size-scale', type=float, default=1.2)
+    ap.add_argument('--artifact-max-aspect', type=float, default=2.2)
+    ap.add_argument('--artifact-min-fill', type=float, default=0.60)
+    ap.add_argument('--artifact-min-gap-scale', type=float, default=0.75)
+    ap.add_argument('--detail-threshold-scale', type=float, default=0.28)
+    ap.add_argument('--detail-bridge-scale', type=float, default=0.5)
+    ap.add_argument('--detail-anchor-scale', type=float, default=1.0)
+    ap.add_argument('--detail-extent-scale', type=float, default=2.0)
     ap.add_argument('--closure-budget', type=float, default=0.35)
     ap.add_argument('--closure-boundary-min', type=float, default=0.72)
     ap.add_argument('--max-bridge-width', type=float, default=3.5)

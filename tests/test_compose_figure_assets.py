@@ -77,6 +77,31 @@ class ComposeFigureAssetsTests(unittest.TestCase):
             self.assertTrue(np.all(output[3:6, :, :3] == 255))
             self.assertTrue(np.all(output[:, :, 3] == 255))
 
+    def test_clips_one_merged_asset_in_source_coordinates(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            metrics_path = self._fixture(root)
+            output_path = root / "top.png"
+            provenance = compose.compose_page_parts(
+                metrics_path,
+                [
+                    {
+                        "asset_index": 1,
+                        "clip_bbox": [5, 7, 9, 9],
+                        "trim_transparent": True,
+                    }
+                ],
+                output_path,
+            )
+
+            output = cv2.imread(str(output_path), cv2.IMREAD_UNCHANGED)
+            self.assertEqual(output.shape, (2, 4, 4))
+            self.assertEqual(provenance["union_bbox"], [5, 7, 9, 9])
+            self.assertEqual(
+                provenance["parts"][0]["requested_bbox"], [5, 7, 9, 9]
+            )
+            self.assertEqual(provenance["background"], "transparent")
+
     def test_rejects_crop_whose_dimensions_disagree_with_bbox(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -104,6 +129,89 @@ class ComposeFigureAssetsTests(unittest.TestCase):
                     [1, 2],
                     root / "logical.png",
                 )
+
+    def test_batch_allows_disjoint_clip_reuse(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self._fixture(root)
+            spec_path = root / "compositions.json"
+            spec_path.write_text(
+                json.dumps(
+                    {
+                        "schema": "corpus-motuum-logical-compositions-v1",
+                        "compositions": [
+                            {
+                                "id": "top",
+                                "page_id": "page",
+                                "parts": [
+                                    {
+                                        "asset_index": 1,
+                                        "clip_bbox": [5, 7, 9, 8],
+                                    }
+                                ],
+                                "output": "numbered/top.png",
+                            },
+                            {
+                                "id": "bottom",
+                                "page_id": "page",
+                                "parts": [
+                                    {
+                                        "asset_index": 1,
+                                        "clip_bbox": [5, 8, 9, 10],
+                                    }
+                                ],
+                                "output": "numbered/bottom.png",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            output_root = root / "logical"
+            manifest = compose.render_batch(spec_path, root, output_root)
+            self.assertEqual(manifest["rendered_count"], 2)
+            self.assertTrue((output_root / "numbered/top.png").is_file())
+            self.assertTrue((output_root / "numbered/bottom.png").is_file())
+
+    def test_batch_rejects_overlapping_clip_reuse(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self._fixture(root)
+            spec_path = root / "compositions.json"
+            spec_path.write_text(
+                json.dumps(
+                    {
+                        "schema": "corpus-motuum-logical-compositions-v1",
+                        "compositions": [
+                            {
+                                "id": "first",
+                                "page_id": "page",
+                                "parts": [
+                                    {
+                                        "asset_index": 1,
+                                        "clip_bbox": [5, 7, 9, 9],
+                                    }
+                                ],
+                                "output": "numbered/first.png",
+                            },
+                            {
+                                "id": "second",
+                                "page_id": "page",
+                                "parts": [
+                                    {
+                                        "asset_index": 1,
+                                        "clip_bbox": [5, 8, 9, 10],
+                                    }
+                                ],
+                                "output": "numbered/second.png",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "windows overlap"):
+                compose.render_batch(spec_path, root, root / "logical")
 
     def test_batch_writes_declared_relative_output_and_manifest(self):
         with tempfile.TemporaryDirectory() as temp:

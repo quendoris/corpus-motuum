@@ -55,6 +55,75 @@ class FigureProbeGeometryTests(unittest.TestCase):
         self.assertFalse(diag["closure_accepted"])
         self.assertEqual(int(hard[80, 80]), 0)
 
+    def test_weak_recovery_keeps_anchored_continuation_not_isolated_blob(self):
+        gray = np.full((80, 100), 255, np.uint8)
+        paper = np.full_like(gray, 255)
+        support = np.zeros_like(gray)
+        cv2.line(support, (10, 40), (20, 40), 255, 1)
+        cv2.line(gray, (10, 40), (20, 40), 245, 1)
+        cv2.line(gray, (22, 40), (45, 40), 252, 1)
+        cv2.rectangle(gray, (70, 10), (75, 15), 252, -1)
+
+        recovered, diagnostics = probe.recover_weak_strokes(
+            gray,
+            paper,
+            support,
+            [8, 8, 78, 48],
+            2.0,
+            detail_threshold_scale=0.28,
+            detail_bridge_scale=0.5,
+            detail_anchor_scale=1.0,
+            detail_extent_scale=2.0,
+        )
+        self.assertGreater(int(recovered[40, 40]), 0)
+        self.assertEqual(int(recovered[12, 72]), 0)
+        self.assertGreater(diagnostics["recovered_pixels"], 0)
+
+    def test_pixel_gap_pruning_keeps_long_fragment_and_outlined_object(self):
+        labels = np.zeros((70, 110), np.int32)
+        labels[10:21, 10:21] = 1
+        labels[35:40, 45:50] = 2
+        labels[50:52, 55:80] = 3
+        cv2.rectangle(labels, (82, 28), (91, 37), 4, 1)
+        support = np.where(labels > 0, 255, 0).astype(np.uint8)
+        components = {
+            1: probe.Component(1, 10, 10, 11, 11, 121, 15.0, 15.0),
+            2: probe.Component(2, 45, 35, 5, 5, 25, 47.0, 37.0),
+            3: probe.Component(3, 55, 50, 25, 2, 50, 67.0, 50.5),
+            4: probe.Component(4, 82, 28, 10, 10, 36, 86.5, 32.5),
+        }
+        cleaned, diagnostics = probe.prune_isolated_compact_support(
+            support,
+            labels,
+            support_labels=[1, 2, 3, 4],
+            core_labels=[1],
+            by_label=components,
+            h_cap=10.0,
+            artifact_max_size_scale=1.2,
+            artifact_max_aspect=2.2,
+            artifact_min_fill=0.60,
+            artifact_min_gap_scale=0.75,
+        )
+        self.assertEqual(int(cleaned[37, 47]), 0)
+        self.assertGreater(int(cleaned[50, 60]), 0)
+        self.assertGreater(int(cleaned[28, 86]), 0)
+        self.assertEqual(diagnostics["removed_labels"], [2])
+
+    def test_soft_alpha_has_white_rgb_backing(self):
+        gray = np.full((80, 80), 245, np.uint8)
+        paper = np.full_like(gray, 250)
+        support = np.zeros_like(gray)
+        cv2.rectangle(support, (25, 25), (55, 55), 255, 2)
+        gray[support > 0] = 205
+        _, alpha, _ = probe.closure_and_alpha(
+            support, 2.0, 0.35, 0.45, 3.0, 1.5, 2.0
+        )
+        clean = probe.clean_publication_gray(gray, paper, support, alpha)
+        soft_white = (alpha > 0) & (alpha < 255) & (support == 0)
+        self.assertTrue(np.any(soft_white))
+        self.assertTrue(np.all(clean[soft_white] == 255))
+        self.assertTrue(np.all(clean[alpha == 0] == 255))
+
     def test_end_to_end_keeps_two_figures_separate_and_hashes_outputs(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
@@ -99,6 +168,14 @@ class FigureProbeGeometryTests(unittest.TestCase):
                 growth_budget = 6.0
                 support_budget = 4.6
                 support_text_penalty = 5.8
+                artifact_max_size_scale = 1.2
+                artifact_max_aspect = 2.2
+                artifact_min_fill = 0.60
+                artifact_min_gap_scale = 0.75
+                detail_threshold_scale = 0.28
+                detail_bridge_scale = 0.5
+                detail_anchor_scale = 1.0
+                detail_extent_scale = 2.0
                 closure_budget = 0.35
                 closure_boundary_min = 0.72
                 max_bridge_width = 3.5
