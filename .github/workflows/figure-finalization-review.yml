@@ -1,0 +1,116 @@
+name: Figure finalization review
+
+on:
+  push:
+    branches:
+      - 'figures/model-v1'
+    paths:
+      - '.github/workflows/figure-finalization-review.yml'
+      - 'tools/extract_book_pages.py'
+      - 'tools/probe_figure_segmentation.py'
+      - 'tools/audit_figure_census.py'
+      - 'tools/build_figure_review_set.py'
+      - 'tools/compose_figure_assets.py'
+      - 'tools/build_figure_finalization_review.py'
+      - 'corpus/figures/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: figure-finalization-review
+  cancel-in-progress: false
+
+jobs:
+  build-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout source and Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Install image pipeline dependencies
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils git-lfs
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow opencv-python-headless
+
+      - name: Verify immutable source PDF
+        run: |
+          set -euo pipefail
+          git lfs pull
+          sha256sum -c sources/source-001/raw/original.pdf.sha256
+
+      - name: Extract all 600 physical pages
+        run: |
+          set -euo pipefail
+          python tools/extract_book_pages.py             sources/source-001/raw/original.pdf             --out work/book-final/pages             --manifest-out work/book-final/page-manifest.json
+
+      - name: Verify extraction against committed source manifest
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path("corpus/source/page-manifest.json").read_text())
+          actual = json.loads(Path("work/book-final/page-manifest.json").read_text())
+          fields = ("id", "physical_index", "source_pdf_sheet", "spread_side", "width", "height", "sha256", "extraction_method")
+          left = [{key: row.get(key) for key in fields} for row in expected["records"]]
+          right = [{key: row.get(key) for key in fields} for row in actual["records"]]
+          if left != right:
+              raise SystemExit("regenerated page manifest differs from committed source manifest")
+          if len(right) != 600:
+              raise SystemExit(f"expected 600 physical pages, got {len(right)}")
+          print("page manifest: 600/600 exact")
+          PY
+
+      - name: Extract physical figure evidence
+        run: |
+          set -euo pipefail
+          python tools/probe_figure_segmentation.py             work/book-final/pages             --out work/figure-structure-final
+
+      - name: Audit and curate detector output
+        run: |
+          set -euo pipefail
+          python tools/audit_figure_census.py             --index work/figure-structure-final/index.json             --metrics-root work/figure-structure-final             --out work/figure-structure-final/census-audit
+          python tools/build_figure_review_set.py             --audit work/figure-structure-final/census-audit/figure-census-audit.json             --source-root work/figure-structure-final             --out work/figure-review-final             --mode hardlink
+
+      - name: Render declared logical layouts
+        run: |
+          set -euo pipefail
+          python tools/compose_figure_assets.py batch             --source-root work/figure-structure-final             --out-root work/figure-logical-final
+
+      - name: Build compact visual review
+        run: |
+          set -euo pipefail
+          python tools/build_figure_finalization_review.py             --page-root work/book-final/pages             --structure-root work/figure-structure-final             --review-root work/figure-review-final             --logical-root work/figure-logical-final             --out review/finalization-v1
+
+      - name: Upload reproducible review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: figure-finalization-review-v1
+          path: review/finalization-v1
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 30
+
+      - name: Commit compact review evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add review/finalization-v1
+          if git diff --cached --quiet; then
+            echo "No review changes to commit."
+          else
+            git commit -m "review: record full figure finalization evidence"
+            git push origin HEAD:figures/model-v1
+          fi
