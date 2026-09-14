@@ -1,0 +1,47 @@
+{
+  "schema": "corpus-motuum-figure-curation-policy-v1",
+  "principle": "The full probe output is immutable. Build a separate conservative review set; remove only high-confidence typography, scanner-edge, provenance-mark and non-figure detections.",
+  "atlas_plate_pages": [
+    "sheet-297-left",
+    "sheet-297-right",
+    "sheet-298-left",
+    "sheet-298-right",
+    "sheet-299-left",
+    "sheet-299-right"
+  ],
+  "paratext_keep": [
+    {"id": "sheet-002-right", "asset_index": 5, "label": "title-illustration"},
+    {"id": "sheet-003-left", "asset_index": 12, "label": "title-illustration"},
+    {"id": "sheet-300-left", "asset_index": 1, "label": "back-cover-illustration"}
+  ],
+  "explicit_remove": [
+    {"id": "sheet-038-right", "asset_index": 2, "reason": "scanner/page-edge sliver; figure 3 is asset 1"},
+    {"id": "sheet-060-right", "asset_index": 2, "reason": "scanner/page-edge sliver; figure 19 is asset 1"},
+    {"id": "sheet-070-left", "asset_index": 2, "reason": "scanner/page-edge sliver; figure 28 is asset 1"},
+    {"id": "sheet-094-left", "asset_index": 2, "reason": "scanner/page-edge sliver; figure 49 is asset 1"},
+    {"id": "sheet-130-right", "asset_index": 1, "reason": "scanner/page-edge sliver; figure 76 is the non-edge asset"},
+    {"id": "sheet-151-right", "asset_index": 1, "reason": "scanner/page-edge sliver; figure 88 is asset 3"},
+    {"id": "sheet-151-right", "asset_index": 2, "reason": "scanner/page-edge sliver; figure 88 is asset 3"},
+    {"id": "sheet-253-right", "asset_index": 1, "reason": "thin typographic rule; figure 143 is asset 2"},
+    {"id": "sheet-261-left", "asset_index": 2, "reason": "scanner/page-edge sliver; figure 146 is asset 1"},
+    {"id": "sheet-266-left", "asset_index": 2, "reason": "thin typographic rule; figure 150 is asset 1"}
+  ],
+  "figure_label_overrides": {
+    "sheet-070-right": ["28bis"],
+    "sheet-094-left": ["49"],
+    "sheet-100-left": ["52"],
+    "sheet-149-left": ["87", "87bis"],
+    "sheet-154-left": ["89"],
+    "sheet-219-left": ["126"]
+  },
+  "known_issues": [
+    {"id": "sheet-076-right", "figures": ["35", "36"], "state": "merged", "detail": "two printed figures are currently one crop"},
+    {"id": "sheet-128-left", "figures": ["74"], "state": "missed", "detail": "captioned figure has no crop; heavy bleed-through reference"},
+    {"id": "sheet-133-right", "figures": ["78"], "state": "split-candidate", "detail": "one printed figure currently has two crops; keep both for manual grouping"},
+    {"id": "sheet-228-left", "figures": ["129"], "state": "split-known", "detail": "one logical numbered illustration occupies two separated regions; keep both until grouping pass"},
+    {"id": "sheet-256-right", "figures": ["144", "145"], "state": "merged", "detail": "two printed figures are currently one crop"}
+  ],
+  "needs_reextract": [
+    {"id": "sheet-001-right", "kind": "cover-title-illustration", "detail": "real cover illustration exists, but current asset 13 merges most of the page with typography; all 40 current crops are excluded from the clean review set"}
+  ]
+}
