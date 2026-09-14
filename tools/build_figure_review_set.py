@@ -37,12 +37,22 @@ def is_numbered_figure_page(record: dict[str, Any]) -> bool:
     return bool(re.search(r"(?iu)(?:подпис\w*.{0,120}фиг|фиг.{0,120}подпис\w*)", notes))
 
 
+def _format_figure_label(value: Any) -> str:
+    raw = str(value).strip()
+    match = re.fullmatch(r"(\d+)(bis)?", raw, flags=re.IGNORECASE)
+    if not match:
+        return raw
+    number = int(match.group(1))
+    suffix = (match.group(2) or "").lower()
+    return f"{number:03d}{suffix}"
+
+
 def figure_hint(record: dict[str, Any], policy: dict[str, Any]) -> str:
     override = policy.get("figure_label_overrides", {}).get(record["id"])
     if override:
-        labels = [str(x) for x in override]
+        labels = [_format_figure_label(x) for x in override]
     else:
-        labels = [str(x) for x in record.get("caption_figure_numbers", [])]
+        labels = [_format_figure_label(x) for x in record.get("caption_figure_numbers", [])]
     if not labels:
         return "fig-unknown"
     return "figs-" + "-".join(labels)
