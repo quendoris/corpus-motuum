@@ -77,7 +77,13 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=Path("work/figure-review-v1"))
     ap.add_argument("--mode", choices=("hardlink", "copy", "symlink"), default="hardlink")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--reset", action="store_true", help="remove an existing derived review output before rebuilding")
     args = ap.parse_args()
+
+    if not args.dry_run and args.out.exists():
+        if not args.reset:
+            raise SystemExit(f"output already exists: {args.out}; pass --reset to rebuild the derived review set")
+        shutil.rmtree(args.out)
 
     audit = load_json(args.audit)
     policy = load_json(args.policy)
