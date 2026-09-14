@@ -114,16 +114,16 @@
       "figures": [
         "74"
       ],
-      "state": "missed",
-      "detail": "captioned figure has no crop; heavy bleed-through reference"
+      "state": "reference-restored",
+      "detail": "figure 74 is absent from detector output because the Russian leaf is obscured by recto/verso text; restore from the same numbered engraving in the public-domain 1850 French source (Wellcome b29287078, PDF page 306, printed p.275), with explicit provenance"
     },
     {
       "id": "sheet-133-right",
       "figures": [
         "78"
       ],
-      "state": "split-candidate",
-      "detail": "one printed figure currently has two crops; keep both for manual grouping"
+      "state": "logical-resolved",
+      "detail": "figure 78 remains two immutable physical crops; logical-compositions-v1.json composes them at recorded source-page offsets"
     },
     {
       "id": "sheet-228-left",

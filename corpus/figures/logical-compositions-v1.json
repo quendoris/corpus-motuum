@@ -57,6 +57,25 @@
       "detail": "The detector merged printed figures 35 and 36. Split their physical crop at source-page y=744, then trim only fully transparent outer rows and columns."
     },
     {
+      "id": "figure-078",
+      "figure_labels": [
+        "78"
+      ],
+      "page_id": "sheet-133-right",
+      "physical_index": 266,
+      "asset_indices": [
+        1,
+        2
+      ],
+      "derivative": "clean",
+      "layout": "source-coordinates",
+      "background": "transparent",
+      "padding": 0,
+      "output": "numbered/figs-078__p0266__sheet-133-right__composite.png",
+      "status": "ok_composite",
+      "detail": "Figure 78 is one printed illustration split into the gymnast/rings and the adjacent vertical reference board. Preserve both crops at their recorded source-page offsets in one transparent logical file."
+    },
+    {
       "id": "figure-129",
       "figure_labels": [
         "129"

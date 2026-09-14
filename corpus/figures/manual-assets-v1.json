@@ -1,0 +1,262 @@
+{
+  "schema": "corpus-motuum-manual-figure-assets-v1",
+  "principle": "Manual derivatives are declarative, lossless and reproducible. Source coordinates or normalized PDF coordinates, erasures and donor provenance are recorded; immutable detector evidence is never overwritten.",
+  "reference_source": {
+    "work_url": "https://wellcomecollection.org/works/jkgwk7qf",
+    "pdf_url": "https://iiif.wellcomecollection.org/pdf/b29287078",
+    "license": "Public Domain Mark",
+    "pdf_sha256": "282fc264a3dcad02d300f8e07937542cfc8dc165f03fec2b57c1a2549004c503",
+    "title": "Gymnastique pratique",
+    "author": "Napoléon Laisné",
+    "edition": "Paris, 1850"
+  },
+  "numbered": [
+    {
+      "id": "figure-009",
+      "label": "9",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-040-right",
+      "physical_index": 80,
+      "asset_index": 2,
+      "erase_page_bboxes": [
+        [
+          190,
+          839,
+          286,
+          907
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove an unrelated typographic fragment captured above the drawing.",
+      "output": "numbered/figure-009.png"
+    },
+    {
+      "id": "figure-070",
+      "label": "70",
+      "kind": "reference-restoration",
+      "reference_pdf_page": 299,
+      "reference_printed_page": "268",
+      "crop_normalized": [
+        0.63,
+        0.07,
+        0.95,
+        0.72
+      ],
+      "retain_largest_cluster": true,
+      "cluster_radius": 12,
+      "ink_threshold": 7,
+      "min_component_area": 3,
+      "restored": true,
+      "reason": "Russian crop contains superposed show-through text along the apparatus; use the same clean numbered engraving from the public-domain author edition.",
+      "output": "numbered/figure-070.png"
+    },
+    {
+      "id": "figure-071",
+      "label": "71",
+      "kind": "reference-restoration",
+      "reference_pdf_page": 300,
+      "reference_printed_page": "269",
+      "crop_normalized": [
+        0.5,
+        0.54,
+        0.96,
+        0.97
+      ],
+      "retain_largest_cluster": true,
+      "cluster_radius": 12,
+      "ink_threshold": 7,
+      "min_component_area": 3,
+      "restored": true,
+      "reason": "Russian crop contains an unrelated numeric/text fragment at the feet; use the same clean numbered engraving from the public-domain author edition.",
+      "output": "numbered/figure-071.png"
+    },
+    {
+      "id": "figure-074",
+      "label": "74",
+      "kind": "reference-restoration",
+      "reference_pdf_page": 306,
+      "reference_printed_page": "275",
+      "crop_normalized": [
+        0.39,
+        0.58,
+        0.91,
+        0.86
+      ],
+      "retain_largest_cluster": true,
+      "cluster_radius": 12,
+      "ink_threshold": 7,
+      "min_component_area": 3,
+      "restored": true,
+      "reason": "The Russian engraving is buried under severe same-side text and mirrored bleed-through and was missed completely; use the same numbered engraving from the public-domain author edition.",
+      "output": "numbered/figure-074.png"
+    },
+    {
+      "id": "figure-120",
+      "label": "120",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-210-right",
+      "physical_index": 420,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          90,
+          247,
+          175,
+          345
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove an unrelated typographic fragment above the ladder.",
+      "output": "numbered/figure-120.png"
+    },
+    {
+      "id": "figure-146",
+      "label": "146",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-261-left",
+      "physical_index": 521,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          154,
+          302,
+          197,
+          338
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove captured printed page number 455 without cutting the tree canopy.",
+      "output": "numbered/figure-146.png"
+    }
+  ],
+  "atlas": [
+    {
+      "id": "atlas-plate-01",
+      "kind": "page-sticker",
+      "page_id": "sheet-297-left",
+      "physical_index": 593,
+      "crop_page_bbox": [
+        0,
+        0,
+        750,
+        510
+      ],
+      "erase_page_bboxes": [
+        [
+          657,
+          397,
+          735,
+          483
+        ]
+      ],
+      "ink_threshold": 5,
+      "min_component_area": 2,
+      "output": "atlas/plate-01.png",
+      "reason": "Preserve the complete plate layout; remove the circular library ownership stamp."
+    },
+    {
+      "id": "atlas-plate-02",
+      "kind": "page-sticker",
+      "page_id": "sheet-297-right",
+      "physical_index": 594,
+      "crop_page_bbox": [
+        0,
+        0,
+        750,
+        510
+      ],
+      "ink_threshold": 5,
+      "min_component_area": 2,
+      "output": "atlas/plate-02.png"
+    },
+    {
+      "id": "atlas-plate-03",
+      "kind": "page-sticker",
+      "page_id": "sheet-298-left",
+      "physical_index": 595,
+      "crop_page_bbox": [
+        0,
+        0,
+        750,
+        510
+      ],
+      "ink_threshold": 5,
+      "min_component_area": 2,
+      "output": "atlas/plate-03.png"
+    },
+    {
+      "id": "atlas-plate-04",
+      "kind": "page-sticker",
+      "page_id": "sheet-298-right",
+      "physical_index": 596,
+      "crop_page_bbox": [
+        0,
+        0,
+        750,
+        510
+      ],
+      "ink_threshold": 5,
+      "min_component_area": 2,
+      "output": "atlas/plate-04.png"
+    },
+    {
+      "id": "atlas-plate-05",
+      "kind": "page-sticker",
+      "page_id": "sheet-299-left",
+      "physical_index": 597,
+      "crop_page_bbox": [
+        0,
+        0,
+        750,
+        510
+      ],
+      "ink_threshold": 5,
+      "min_component_area": 2,
+      "output": "atlas/plate-05.png"
+    },
+    {
+      "id": "atlas-plate-06",
+      "kind": "page-sticker",
+      "page_id": "sheet-299-right",
+      "physical_index": 598,
+      "crop_page_bbox": [
+        0,
+        0,
+        750,
+        510
+      ],
+      "erase_page_bboxes": [
+        [
+          590,
+          210,
+          683,
+          302
+        ]
+      ],
+      "ink_threshold": 5,
+      "min_component_area": 2,
+      "output": "atlas/plate-06.png",
+      "reason": "Preserve the complete plate layout; remove the circular library ownership stamp."
+    }
+  ],
+  "paratext": [
+    {
+      "id": "cover-title-illustration",
+      "kind": "page-sticker",
+      "page_id": "sheet-001-right",
+      "physical_index": 2,
+      "crop_normalized": [
+        0,
+        0.215,
+        0.44,
+        0.9
+      ],
+      "retain_largest_cluster": true,
+      "cluster_radius": 18,
+      "ink_threshold": 24,
+      "min_component_area": 8,
+      "output": "paratext/cover-title-illustration.png",
+      "reason": "Extract the climbers-and-tree cover illustration separately from surrounding title typography."
+    }
+  ]
+}
