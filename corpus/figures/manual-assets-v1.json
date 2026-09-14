@@ -31,6 +31,25 @@
       "output": "numbered/figure-009.png"
     },
     {
+      "id": "figure-032",
+      "label": "32",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-073-left",
+      "physical_index": 145,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          140,
+          575,
+          170,
+          604
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove the isolated printed numeral below the engraving without touching its ground line.",
+      "output": "numbered/figure-032.png"
+    },
+    {
       "id": "figure-070",
       "label": "70",
       "kind": "reference-restoration",
@@ -60,7 +79,7 @@
         0.5,
         0.54,
         0.96,
-        0.97
+        0.94
       ],
       "retain_largest_cluster": true,
       "cluster_radius": 12,
@@ -77,10 +96,10 @@
       "reference_pdf_page": 306,
       "reference_printed_page": "275",
       "crop_normalized": [
-        0.39,
-        0.58,
-        0.91,
-        0.86
+        0.4,
+        0.185,
+        0.87,
+        0.44
       ],
       "retain_largest_cluster": true,
       "cluster_radius": 12,
@@ -127,6 +146,25 @@
       "restored": true,
       "reason": "Remove captured printed page number 455 without cutting the tree canopy.",
       "output": "numbered/figure-146.png"
+    },
+    {
+      "id": "figure-147",
+      "label": "147",
+      "kind": "clean-asset-erasure",
+      "page_id": "sheet-263-left",
+      "physical_index": 525,
+      "asset_index": 1,
+      "erase_page_bboxes": [
+        [
+          320,
+          24,
+          410,
+          82
+        ]
+      ],
+      "restored": true,
+      "reason": "Remove the printed page number 455 captured above the full-page climbing engraving.",
+      "output": "numbered/figure-147.png"
     }
   ],
   "atlas": [
@@ -247,16 +285,16 @@
       "physical_index": 2,
       "crop_normalized": [
         0,
-        0.215,
-        0.44,
+        0.205,
+        0.395,
         0.9
       ],
       "retain_largest_cluster": true,
-      "cluster_radius": 18,
-      "ink_threshold": 24,
-      "min_component_area": 8,
+      "cluster_radius": 6,
+      "ink_threshold": 38,
+      "min_component_area": 12,
       "output": "paratext/cover-title-illustration.png",
-      "reason": "Extract the climbers-and-tree cover illustration separately from surrounding title typography."
+      "reason": "Extract the Russian-edition climbers-and-tree title illustration, excluding adjacent title typography and suppressing disconnected paper grain."
     }
   ]
 }
