@@ -51,7 +51,10 @@ jobs:
             work/reference/gymnastique-pratique-1850.pdf \
             --out review/reference-figure74-discovery \
             --source-url https://iiif.wellcomecollection.org/pdf/b29287078 \
-            --work-url https://wellcomecollection.org/works/jkgwk7qf
+            --work-url https://wellcomecollection.org/works/jkgwk7qf \
+            --fallback-start 294 \
+            --fallback-end 324 \
+            --top 40
 
       - name: Upload candidate evidence
         uses: actions/upload-artifact@v4

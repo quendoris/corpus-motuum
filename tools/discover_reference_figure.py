@@ -89,6 +89,8 @@ def main() -> None:
     parser.add_argument("--source-url", required=True)
     parser.add_argument("--work-url", required=True)
     parser.add_argument("--top", type=int, default=32)
+    parser.add_argument("--fallback-start", type=int, default=None)
+    parser.add_argument("--fallback-end", type=int, default=None)
     args = parser.parse_args()
 
     args.out.mkdir(parents=True, exist_ok=True)
@@ -116,7 +118,15 @@ def main() -> None:
         # A deterministic visual fallback for image-only PDFs.  The translated
         # p.215 occurs in the middle third of the 700-page French source.
         selection_mode = "deterministic-middle-third-fallback"
-        candidates = list(range(max(1, len(document) // 3), min(len(document), 2 * len(document) // 3), 10))
+        if args.fallback_start is not None or args.fallback_end is not None:
+            start = max(1, int(args.fallback_start or 1))
+            end = min(len(document), int(args.fallback_end or len(document)))
+            if start > end:
+                raise SystemExit("fallback start must not exceed fallback end")
+            candidates = list(range(start, end + 1))
+            selection_mode = "explicit-dense-fallback"
+        else:
+            candidates = list(range(max(1, len(document) // 3), min(len(document), 2 * len(document) // 3), 10))
         selected = [
             {**records[page - 1], "fallback": True}
             for page in candidates[: args.top]
