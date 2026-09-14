@@ -1,0 +1,267 @@
+{
+  "schema": "corpus-motuum-reference-figure-discovery-v1",
+  "purpose": "Locate the clean source analogue for Russian figure 74 without generative redrawing.",
+  "reference": {
+    "work_url": "https://wellcomecollection.org/works/jkgwk7qf",
+    "pdf_url": "https://iiif.wellcomecollection.org/pdf/b29287078",
+    "license": "Public Domain Mark",
+    "pdf_sha256": "282fc264a3dcad02d300f8e07937542cfc8dc165f03fec2b57c1a2549004c503",
+    "pdf_bytes": 149528502,
+    "pdf_pages": 749,
+    "pages_with_extractable_text": 1
+  },
+  "selection_mode": "deterministic-middle-third-fallback",
+  "queries": [
+    {
+      "weight": 9,
+      "terms": [
+        "fig 74",
+        "figure 74",
+        "74 fig",
+        "74 figure"
+      ]
+    },
+    {
+      "weight": 5,
+      "terms": [
+        "poignee",
+        "corde",
+        "main droite",
+        "main gauche"
+      ]
+    },
+    {
+      "weight": 4,
+      "terms": [
+        "courir a gauche",
+        "courir a droite",
+        "cinquieme exercice"
+      ]
+    },
+    {
+      "weight": 3,
+      "terms": [
+        "quatre ou cinq pas",
+        "sans toucher la terre",
+        "pieds reunis"
+      ]
+    },
+    {
+      "weight": 2,
+      "terms": [
+        "cercle",
+        "bras",
+        "poitrine"
+      ]
+    }
+  ],
+  "candidate_count": 25,
+  "candidates": [
+    {
+      "pdf_page": 249,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 259,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 269,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 279,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 289,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 299,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 309,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 319,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 329,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 339,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 349,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 359,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 369,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 379,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 389,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 399,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 409,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 419,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 429,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 439,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 449,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 459,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 469,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 479,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    },
+    {
+      "pdf_page": 489,
+      "printed_labels": [],
+      "score": 0,
+      "hits": [],
+      "excerpt": "",
+      "fallback": true
+    }
+  ],
+  "contact_sheets": [
+    "review/reference-figure74-discovery/candidates-01.jpg",
+    "review/reference-figure74-discovery/candidates-02.jpg",
+    "review/reference-figure74-discovery/candidates-03.jpg",
+    "review/reference-figure74-discovery/candidates-04.jpg"
+  ]
+}
