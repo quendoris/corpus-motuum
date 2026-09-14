@@ -236,10 +236,16 @@
           112,
           130,
           160
+        ],
+        [
+          294,
+          112,
+          326,
+          146
         ]
       ],
       "restored": true,
-      "reason": "Remove the isolated printed numeral fragment above the left arm.",
+      "reason": "Remove the isolated printed numeral fragment above the left arm and the detached typographic dot above the right shoulder.",
       "output": "numbered/figure-155.png"
     }
   ],
