@@ -1,0 +1,251 @@
+name: Build releases 1.0 and 1.1
+
+on:
+  push:
+    branches:
+      - 'release/1.x-foundation'
+    tags:
+      - 'v1.0.0'
+      - 'v1.1.0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-1x-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository and Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Install build dependencies
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils git-lfs
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow opencv-python-headless pymupdf
+          git lfs pull
+
+      - name: Validate canonical text corpus
+        run: |
+          set -euo pipefail
+          python tools/validate_canonical_text.py
+
+      - name: Verify immutable Russian source PDF
+        run: |
+          set -euo pipefail
+          sha256sum -c sources/source-001/raw/original.pdf.sha256
+
+      - name: Download and verify public-domain restoration reference
+        run: |
+          set -euo pipefail
+          mkdir -p work/reference
+          curl --fail --location --retry 5 --retry-delay 3 \
+            https://iiif.wellcomecollection.org/pdf/b29287078 \
+            --output work/reference/b29287078.pdf
+          echo "282fc264a3dcad02d300f8e07937542cfc8dc165f03fec2b57c1a2549004c503  work/reference/b29287078.pdf" \
+            | sha256sum -c -
+
+      - name: Re-extract all 600 physical pages
+        run: |
+          set -euo pipefail
+          python tools/extract_book_pages.py \
+            sources/source-001/raw/original.pdf \
+            --out work/book-release/pages \
+            --manifest-out work/book-release/page-manifest.json
+
+      - name: Verify page extraction against canonical source manifest
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path("corpus/source/page-manifest.json").read_text())
+          actual = json.loads(Path("work/book-release/page-manifest.json").read_text())
+          fields = (
+              "id", "physical_index", "source_pdf_sheet", "spread_side",
+              "width", "height", "sha256", "extraction_method",
+          )
+          left = [{key: row.get(key) for key in fields} for row in expected["records"]]
+          right = [{key: row.get(key) for key in fields} for row in actual["records"]]
+          if left != right:
+              raise SystemExit("regenerated page manifest differs from canonical source manifest")
+          if len(right) != 600:
+              raise SystemExit(f"expected 600 physical pages, got {len(right)}")
+          print("page extraction: exact 600/600")
+          PY
+
+      - name: Extract physical figure evidence
+        run: |
+          set -euo pipefail
+          python tools/probe_figure_segmentation.py \
+            work/book-release/pages \
+            --out work/figure-structure-release
+
+      - name: Audit and curate detector output
+        run: |
+          set -euo pipefail
+          python tools/audit_figure_census.py \
+            --index work/figure-structure-release/index.json \
+            --metrics-root work/figure-structure-release \
+            --out work/figure-structure-release/census-audit
+          python tools/build_figure_review_set.py \
+            --audit work/figure-structure-release/census-audit/figure-census-audit.json \
+            --source-root work/figure-structure-release \
+            --out work/figure-review-release \
+            --mode hardlink
+
+      - name: Render declared logical compositions
+        run: |
+          set -euo pipefail
+          python tools/compose_figure_assets.py batch \
+            --source-root work/figure-structure-release \
+            --out-root work/figure-logical-release
+
+      - name: Render manual and restored canonical assets
+        run: |
+          set -euo pipefail
+          python tools/build_manual_figure_assets.py \
+            --page-root work/book-release/pages \
+            --structure-root work/figure-structure-release \
+            --reference-pdf work/reference/b29287078.pdf \
+            --out-root work/figure-manual-release
+
+      - name: Assemble canonical figure set
+        run: |
+          set -euo pipefail
+          python tools/build_final_figure_set.py \
+            --review-manifest work/figure-review-release/manifest.json \
+            --logical-manifest work/figure-logical-release/compositions-manifest.json \
+            --manual-manifest work/figure-manual-release/manifest.json \
+            --out-root work/figure-final-v1
+
+      - name: Verify canonical figure census
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path("work/figure-final-v1/manifest.json").read_text())
+          expected = {"numbered": 158, "atlas": 6, "paratext": 4}
+          actual = {key: len(manifest.get(key, [])) for key in expected}
+          if actual != expected:
+              raise SystemExit(f"canonical figure census mismatch: expected {expected}, got {actual}")
+          if sum(actual.values()) != 168:
+              raise SystemExit(f"expected 168 total canonical assets, got {sum(actual.values())}")
+          print(f"canonical figures: {actual}, total=168")
+          PY
+
+      - name: Run figure regression tests
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -v
+
+      - name: Build prereform book payload v1.0.0
+        run: |
+          set -euo pipefail
+          python tools/build_book_v1.py \
+            --edition diplomatic \
+            --figures work/figure-final-v1/manifest.json \
+            --out work/release-books/v1.0.0/book.json
+
+      - name: Build normalized book payload v1.1.0
+        run: |
+          set -euo pipefail
+          python tools/build_book_v1.py \
+            --edition normalized \
+            --figures work/figure-final-v1/manifest.json \
+            --out work/release-books/v1.1.0/book.json
+
+      - name: Package both digital editions
+        run: |
+          set -euo pipefail
+          rm -rf dist
+          python tools/package_book_release.py \
+            --book work/release-books/v1.0.0/book.json \
+            --figure-root work/figure-final-v1 \
+            --version 1.0.0 \
+            --out-dir dist
+          python tools/package_book_release.py \
+            --book work/release-books/v1.1.0/book.json \
+            --figure-root work/figure-final-v1 \
+            --version 1.1.0 \
+            --out-dir dist
+
+      - name: Verify release archives
+        run: |
+          set -euo pipefail
+          test -f dist/corpus-motuum-v1.0.0-prereform.tar.gz
+          test -f dist/corpus-motuum-v1.1.0-normalized.tar.gz
+          tar -tzf dist/corpus-motuum-v1.0.0-prereform.tar.gz >/dev/null
+          tar -tzf dist/corpus-motuum-v1.1.0-normalized.tar.gz >/dev/null
+          sha256sum dist/*.tar.gz | tee dist/ARCHIVE-SHA256SUMS
+
+      - name: Upload v1.0.0 prereform artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-motuum-v1.0.0-prereform
+          path: |
+            dist/corpus-motuum-v1.0.0-prereform.tar.gz
+            dist/corpus-motuum-v1.0.0-prereform/release-manifest.json
+            dist/corpus-motuum-v1.0.0-prereform/SHA256SUMS
+            dist/ARCHIVE-SHA256SUMS
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+      - name: Upload v1.1.0 normalized artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-motuum-v1.1.0-normalized
+          path: |
+            dist/corpus-motuum-v1.1.0-normalized.tar.gz
+            dist/corpus-motuum-v1.1.0-normalized/release-manifest.json
+            dist/corpus-motuum-v1.1.0-normalized/SHA256SUMS
+            dist/ARCHIVE-SHA256SUMS
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+      - name: Publish tagged GitHub release
+        if: ${{ github.ref_type == 'tag' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          case "$GITHUB_REF_NAME" in
+            v1.0.0)
+              archive="dist/corpus-motuum-v1.0.0-prereform.tar.gz"
+              manifest="dist/corpus-motuum-v1.0.0-prereform/release-manifest.json"
+              sums="dist/corpus-motuum-v1.0.0-prereform/SHA256SUMS"
+              title="Corpus Motuum v1.0.0 — Prereform Edition"
+              ;;
+            v1.1.0)
+              archive="dist/corpus-motuum-v1.1.0-normalized.tar.gz"
+              manifest="dist/corpus-motuum-v1.1.0-normalized/release-manifest.json"
+              sums="dist/corpus-motuum-v1.1.0-normalized/SHA256SUMS"
+              title="Corpus Motuum v1.1.0 — Normalized Orthography Edition"
+              ;;
+            *)
+              echo "unsupported release tag: $GITHUB_REF_NAME" >&2
+              exit 1
+              ;;
+          esac
+
+          if ! gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release create "$GITHUB_REF_NAME" --title "$title" --notes "Faithful 600-page digital edition with the complete verified canonical figure set."
+          fi
+          gh release upload "$GITHUB_REF_NAME" "$archive" "$manifest" "$sums" dist/ARCHIVE-SHA256SUMS --clobber
