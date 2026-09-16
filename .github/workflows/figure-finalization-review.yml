@@ -15,6 +15,7 @@ on:
       - 'tools/build_manual_figure_assets.py'
       - 'tools/build_final_figure_set.py'
       - 'tools/build_final_figure_review.py'
+      - 'tools/freeze_figure_history.py'
       - 'corpus/figures/**'
       - 'tests/**'
   workflow_dispatch:
@@ -28,6 +29,7 @@ concurrency:
 
 jobs:
   build-review:
+    if: ${{ github.event_name == 'workflow_dispatch' || !startsWith(github.event.head_commit.message, 'archive: freeze figure pipeline snapshot') }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
 
@@ -169,6 +171,30 @@ jobs:
             --final-root work/figure-final-v1 \
             --out review/final-figure-set-v1
 
+      - name: Freeze research history and canonical figure payload
+        run: |
+          set -euo pipefail
+          python tools/freeze_figure_history.py \
+            --structure-root work/figure-structure-final \
+            --review-root work/figure-review-final \
+            --logical-root work/figure-logical-final \
+            --manual-root work/figure-manual-final \
+            --final-root work/figure-final-v1 \
+            --reference-pdf work/reference/b29287078.pdf \
+            --history-root history/figures/pipeline-v1 \
+            --canonical-root corpus/figures/assets/v1
+
+          # Canonical release assets stay in normal Git when practical. Only
+          # genuinely large individual files are promoted to LFS explicitly.
+          while IFS= read -r -d '' file; do
+            git lfs track "$file"
+          done < <(find corpus/figures/assets/v1 -type f -size +5M -print0)
+
+          # Catch any unexpectedly large non-raster research artifact too.
+          while IFS= read -r -d '' file; do
+            git lfs track "$file"
+          done < <(find history/figures/pipeline-v1 -type f -size +5M -print0)
+
       - name: Upload complete final figure set
         uses: actions/upload-artifact@v4
         with:
@@ -190,15 +216,21 @@ jobs:
           compression-level: 6
           retention-days: 30
 
-      - name: Commit compact review evidence
+      - name: Commit frozen evidence and canonical assets
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add review/finalization-v1 review/final-figure-set-v1
+          git add \
+            .gitattributes \
+            history/figures/pipeline-v1 \
+            corpus/figures/assets/v1 \
+            review/finalization-v1 \
+            review/final-figure-set-v1
+          git lfs ls-files || true
           if git diff --cached --quiet; then
-            echo "No review changes to commit."
+            echo "No frozen figure changes to commit."
           else
-            git commit -m "review: record complete final figure set"
+            git commit -m "archive: freeze figure pipeline snapshot"
             git push origin HEAD:figures/model-v1
           fi
