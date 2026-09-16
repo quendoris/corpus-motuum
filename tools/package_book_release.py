@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
-"""Package a corpus-motuum 1.x book payload into a reproducible release archive."""
+"""Package a corpus-motuum 1.x edition with reader formats and equivalence QA."""
 from __future__ import annotations
 
 import argparse
 import gzip
 import hashlib
-import html
 import json
 import shutil
 import subprocess
+import sys
 import tarfile
 from pathlib import Path
 from typing import Any, Iterable
 
-EXPECTED_VERSIONS = {
-    "diplomatic": "1.0.0",
-    "normalized": "1.1.0",
-}
+EXPECTED_VERSIONS = {"diplomatic": "1.0.0", "normalized": "1.1.0"}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -27,35 +24,32 @@ def load_json(path: Path) -> dict[str, Any]:
 
 
 def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def git_head() -> str | None:
     try:
-        proc = subprocess.run(
+        return subprocess.run(
             ["git", "rev-parse", "HEAD"],
             check=True,
             capture_output=True,
             text=True,
-        )
+        ).stdout.strip() or None
     except (OSError, subprocess.CalledProcessError):
         return None
-    return proc.stdout.strip() or None
 
 
 def iter_assets(book: dict[str, Any]) -> Iterable[dict[str, Any]]:
     for page in book.get("pages", []):
-        if isinstance(page, dict):
-            for row in page.get("figures", []):
-                if isinstance(row, dict):
-                    yield row
-    for row in book.get("supplementary_assets", []):
-        if isinstance(row, dict):
-            yield row
+        if not isinstance(page, dict):
+            continue
+        for row in page.get("figures", []):
+            if isinstance(row, dict):
+                yield row
 
 
 def source_asset_path(figure_root: Path, asset: dict[str, Any]) -> Path:
@@ -74,21 +68,14 @@ def copy_assets(book: dict[str, Any], figure_root: Path, package_root: Path) -> 
     for asset in iter_assets(book):
         rel = str(asset.get("file") or "")
         if not rel or rel in seen:
-            if rel in seen:
-                raise SystemExit(f"duplicate figure in book payload: {rel}")
-            raise SystemExit("figure without release path")
+            raise SystemExit(f"duplicate or invalid figure in book payload: {rel!r}")
         seen.add(rel)
-
         expected = str(asset.get("sha256") or "")
         source = source_asset_path(figure_root, asset)
         if not source.is_file():
             raise SystemExit(f"canonical figure missing: {source}")
-        actual = sha256_file(source)
-        if actual != expected:
-            raise SystemExit(
-                f"canonical figure hash mismatch: {source}: expected {expected}, got {actual}"
-            )
-
+        if sha256_file(source) != expected:
+            raise SystemExit(f"canonical figure hash mismatch: {source}")
         destination = package_root / rel
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, destination)
@@ -98,82 +85,12 @@ def copy_assets(book: dict[str, Any], figure_root: Path, package_root: Path) -> 
     return count
 
 
-def asset_html(asset: dict[str, Any]) -> str:
-    path = html.escape(str(asset.get("file") or ""), quote=True)
-    label = asset.get("label") or asset.get("id") or "illustration"
-    caption = html.escape(str(label))
-    return (
-        '<figure class="illustration">'
-        f'<img src="{path}" alt="{caption}" loading="lazy">'
-        f'<figcaption>{caption}</figcaption>'
-        "</figure>"
-    )
-
-
-def build_html(book: dict[str, Any], version: str) -> str:
-    edition = str(book.get("edition") or "")
-    title = "Corpus Motuum — digital edition"
-    parts = [
-        "<!doctype html>",
-        '<html lang="ru">',
-        "<head>",
-        '<meta charset="utf-8">',
-        '<meta name="viewport" content="width=device-width,initial-scale=1">',
-        f"<title>{html.escape(title)} v{html.escape(version)}</title>",
-        "<style>",
-        "body{max-width:880px;margin:0 auto;padding:2rem;font-family:serif;line-height:1.45}",
-        ".release-meta{font-family:sans-serif;color:#444;border-bottom:1px solid #bbb;padding-bottom:1rem}",
-        ".page{padding:2rem 0;border-bottom:1px solid #ddd}",
-        ".page-meta{font:0.85rem sans-serif;color:#666;margin-bottom:1rem}",
-        ".page-text{white-space:pre-wrap;font:inherit;margin:0}",
-        ".illustration{text-align:center;margin:1.5rem auto}",
-        ".illustration img{max-width:100%;height:auto}",
-        ".illustration figcaption{font-size:.9rem;color:#555}",
-        "</style>",
-        "</head>",
-        "<body>",
-        '<header class="release-meta">',
-        f"<h1>{html.escape(title)}</h1>",
-        f"<p>Version {html.escape(version)} · edition {html.escape(edition)} · 600 physical pages.</p>",
-        "</header>",
-    ]
-
-    pages = book.get("pages", [])
-    if not isinstance(pages, list) or len(pages) != 600:
-        raise SystemExit(f"HTML build expects 600 pages, got {len(pages) if isinstance(pages, list) else 'invalid'}")
-
-    for page in pages:
-        if not isinstance(page, dict):
-            raise SystemExit("invalid page record")
-        page_id = str(page.get("id") or "")
-        physical_index = int(page.get("physical_index"))
-        text = str(page.get("text") or "")
-        parts.extend(
-            [
-                f'<article class="page" id="{html.escape(page_id, quote=True)}" data-physical-index="{physical_index}">',
-                f'<div class="page-meta">Physical page {physical_index} · {html.escape(page_id)}</div>',
-                f'<div class="page-text">{html.escape(text)}</div>',
-            ]
-        )
-        figures = page.get("figures", [])
-        if isinstance(figures, list):
-            parts.extend(asset_html(row) for row in figures if isinstance(row, dict))
-        parts.append("</article>")
-
-    # Assets whose provenance does not resolve to exactly one Russian physical
-    # page remain packaged and checksummed, but are not inserted at an invented
-    # position in this faithful page-order HTML view.
-    parts.extend(["</body>", "</html>", ""])
-    return "\n".join(parts)
-
-
 def write_sha256s(root: Path) -> None:
     rows: list[str] = []
     for path in sorted(p for p in root.rglob("*") if p.is_file()):
         if path.name == "SHA256SUMS":
             continue
-        rel = path.relative_to(root).as_posix()
-        rows.append(f"{sha256_file(path)}  {rel}")
+        rows.append(f"{sha256_file(path)}  {path.relative_to(root).as_posix()}")
     (root / "SHA256SUMS").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
@@ -185,11 +102,9 @@ def add_to_tar(tar: tarfile.TarFile, root: Path, package_name: str) -> None:
     directory_info.uid = directory_info.gid = 0
     directory_info.uname = directory_info.gname = ""
     tar.addfile(directory_info)
-
     for path in sorted(root.rglob("*"), key=lambda p: p.relative_to(root).as_posix()):
         rel = path.relative_to(root).as_posix()
-        name = f"{package_name}/{rel}"
-        info = tarfile.TarInfo(name)
+        info = tarfile.TarInfo(f"{package_name}/{rel}")
         info.mtime = 0
         info.uid = info.gid = 0
         info.uname = info.gname = ""
@@ -203,7 +118,7 @@ def add_to_tar(tar: tarfile.TarFile, root: Path, package_name: str) -> None:
             with path.open("rb") as handle:
                 tar.addfile(info, handle)
         else:
-            raise SystemExit(f"unsupported release filesystem entry: {path}")
+            raise SystemExit(f"unsupported release entry: {path}")
 
 
 def write_deterministic_tar_gz(root: Path, archive: Path) -> None:
@@ -214,44 +129,76 @@ def write_deterministic_tar_gz(root: Path, archive: Path) -> None:
                 add_to_tar(tar, root, root.name)
 
 
+def run_tool(script: Path, *args: str) -> None:
+    subprocess.run([sys.executable, str(script), *args], check=True)
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--book", type=Path, required=True)
-    parser.add_argument("--figure-root", type=Path, required=True)
-    parser.add_argument("--version", required=True)
-    parser.add_argument("--out-dir", type=Path, default=Path("dist"))
-    args = parser.parse_args()
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--book", type=Path, required=True)
+    ap.add_argument("--figure-root", type=Path, required=True)
+    ap.add_argument("--version", required=True)
+    ap.add_argument("--out-dir", type=Path, default=Path("dist"))
+    ap.add_argument(
+        "--publication",
+        action="store_true",
+        help="Fail if any fixed-layout placement still requires manual visual review.",
+    )
+    args = ap.parse_args()
 
     book = load_json(args.book)
     edition = str(book.get("edition") or "")
     expected_version = EXPECTED_VERSIONS.get(edition)
-    if expected_version is None:
-        raise SystemExit(f"unsupported 1.x edition: {edition}")
-    if args.version != expected_version:
+    if expected_version is None or args.version != expected_version:
         raise SystemExit(
-            f"edition/version mismatch: {edition} must be {expected_version}, got {args.version}"
+            f"edition/version mismatch: {edition!r} expects {expected_version!r}, got {args.version!r}"
         )
+    if len(book.get("pages", [])) != 600:
+        raise SystemExit("release book must contain exactly 600 canonical pages")
     if book.get("figures", {}).get("total_assets") != 168:
-        raise SystemExit("release book must account for exactly 168 canonical assets")
+        raise SystemExit("release book must contain exactly 168 canonical assets")
+    if book.get("figures", {}).get("linked_assets") != 168:
+        raise SystemExit("release book must have 168/168 assets linked to source pages")
+    if book.get("figures", {}).get("supplementary_assets") != 0:
+        raise SystemExit("release book may not contain supplementary assets")
 
     suffix = "prereform" if edition == "diplomatic" else "normalized"
     package_name = f"corpus-motuum-v{args.version}-{suffix}"
     package_root = args.out_dir / package_name
     archive = args.out_dir / f"{package_name}.tar.gz"
-
     if package_root.exists():
         shutil.rmtree(package_root)
     package_root.mkdir(parents=True)
-
     shutil.copyfile(args.book, package_root / "book.json")
+
     copied = copy_assets(book, args.figure_root, package_root)
     if copied != 168:
-        raise SystemExit(f"release package must contain 168 figures, copied {copied}")
+        raise SystemExit(f"release package copied {copied} assets, expected 168")
 
-    (package_root / "book.html").write_text(
-        build_html(book, args.version), encoding="utf-8"
+    tool_root = Path(__file__).resolve().parent
+    run_tool(
+        tool_root / "build_reader_formats.py",
+        "--book",
+        str(package_root / "book.json"),
+        "--root",
+        str(package_root),
+        "--version",
+        args.version,
     )
+    validator_args = [
+        "--book",
+        str(package_root / "book.json"),
+        "--root",
+        str(package_root),
+        "--report",
+        str(package_root / "release-equivalence.json"),
+    ]
+    if args.publication:
+        validator_args.append("--publication")
+    run_tool(tool_root / "validate_reader_formats.py", *validator_args)
 
+    formats = load_json(package_root / "format-manifest.json")
+    equivalence = load_json(package_root / "release-equivalence.json")
     release_manifest = {
         "schema": "corpus-motuum-release-v1",
         "version": args.version,
@@ -261,11 +208,13 @@ def main() -> None:
         "source_commit": git_head(),
         "source_pdf_sha256": book.get("source", {}).get("source_pdf_sha256"),
         "source_page_manifest_sha256": book.get("source", {}).get("page_manifest_sha256"),
-        "canonical_pages": len(book.get("pages", [])),
+        "canonical_pages": 600,
         "canonical_figures": book.get("figures", {}).get("counts"),
         "canonical_figure_total": copied,
+        "reader_formats": formats.get("formats"),
+        "equivalence_report": "release-equivalence.json",
+        "publication_ready": bool(equivalence.get("publication_ready")),
         "book_json_sha256": sha256_file(package_root / "book.json"),
-        "book_html_sha256": sha256_file(package_root / "book.html"),
     }
     (package_root / "release-manifest.json").write_text(
         json.dumps(release_manifest, ensure_ascii=False, indent=2) + "\n",
@@ -281,6 +230,8 @@ def main() -> None:
                 "edition": edition,
                 "pages": 600,
                 "figures": copied,
+                "formats": ["json", "html", "epub3", "fb2", "pdf", "txt"],
+                "publication_ready": release_manifest["publication_ready"],
                 "directory": package_root.as_posix(),
                 "archive": archive.as_posix(),
                 "archive_sha256": sha256_file(archive),
