@@ -15,7 +15,6 @@ on:
       - 'tools/build_manual_figure_assets.py'
       - 'tools/build_final_figure_set.py'
       - 'tools/build_final_figure_review.py'
-      - 'tools/freeze_figure_history.py'
       - 'corpus/figures/**'
       - 'tests/**'
   workflow_dispatch:
@@ -29,7 +28,7 @@ concurrency:
 
 jobs:
   build-review:
-    if: ${{ github.event_name == 'workflow_dispatch' || !startsWith(github.event.head_commit.message, 'archive: freeze figure pipeline snapshot') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || !startsWith(github.event.head_commit.message, 'figures: freeze canonical figure set') }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
 
@@ -44,7 +43,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y poppler-utils git-lfs
+          sudo apt-get install -y poppler-utils git-lfs rsync
           python -m pip install --upgrade pip
           python -m pip install numpy pillow opencv-python-headless pymupdf
 
@@ -91,18 +90,10 @@ jobs:
               "sha256",
               "extraction_method",
           )
-          left = [
-              {key: row.get(key) for key in fields}
-              for row in expected["records"]
-          ]
-          right = [
-              {key: row.get(key) for key in fields}
-              for row in actual["records"]
-          ]
+          left = [{key: row.get(key) for key in fields} for row in expected["records"]]
+          right = [{key: row.get(key) for key in fields} for row in actual["records"]]
           if left != right:
-              raise SystemExit(
-                  "regenerated page manifest differs from committed source manifest"
-              )
+              raise SystemExit("regenerated page manifest differs from committed source manifest")
           if len(right) != 600:
               raise SystemExit(f"expected 600 physical pages, got {len(right)}")
           print("page manifest: 600/600 exact")
@@ -153,6 +144,21 @@ jobs:
             --manual-manifest work/figure-manual-final/manifest.json \
             --out-root work/figure-final-v1
 
+      - name: Verify canonical figure census
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path("work/figure-final-v1/manifest.json").read_text())
+          expected = {"numbered": 158, "atlas": 6, "paratext": 4}
+          actual = {key: len(manifest.get(key, [])) for key in expected}
+          if actual != expected:
+              raise SystemExit(f"canonical figure census mismatch: expected {expected}, got {actual}")
+          print(f"canonical figures: {actual}")
+          PY
+
       - name: Run regression tests
         run: |
           set -euo pipefail
@@ -171,29 +177,17 @@ jobs:
             --final-root work/figure-final-v1 \
             --out review/final-figure-set-v1
 
-      - name: Freeze research history and canonical figure payload
+      - name: Materialize canonical figure payload
         run: |
           set -euo pipefail
-          python tools/freeze_figure_history.py \
-            --structure-root work/figure-structure-final \
-            --review-root work/figure-review-final \
-            --logical-root work/figure-logical-final \
-            --manual-root work/figure-manual-final \
-            --final-root work/figure-final-v1 \
-            --reference-pdf work/reference/b29287078.pdf \
-            --history-root history/figures/pipeline-v1 \
-            --canonical-root corpus/figures/assets/v1
+          mkdir -p corpus/figures/assets/v1
+          rsync -a --delete work/figure-final-v1/ corpus/figures/assets/v1/
 
-          # Canonical release assets stay in normal Git when practical. Only
-          # genuinely large individual files are promoted to LFS explicitly.
+          # Only genuinely large individual files use Git LFS. Small images and
+          # manifests remain ordinary Git objects.
           while IFS= read -r -d '' file; do
             git lfs track "$file"
           done < <(find corpus/figures/assets/v1 -type f -size +5M -print0)
-
-          # Catch any unexpectedly large non-raster research artifact too.
-          while IFS= read -r -d '' file; do
-            git lfs track "$file"
-          done < <(find history/figures/pipeline-v1 -type f -size +5M -print0)
 
       - name: Upload complete final figure set
         uses: actions/upload-artifact@v4
@@ -216,21 +210,20 @@ jobs:
           compression-level: 6
           retention-days: 30
 
-      - name: Commit frozen evidence and canonical assets
+      - name: Commit canonical figure payload and compact QA
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             .gitattributes \
-            history/figures/pipeline-v1 \
             corpus/figures/assets/v1 \
             review/finalization-v1 \
             review/final-figure-set-v1
           git lfs ls-files || true
           if git diff --cached --quiet; then
-            echo "No frozen figure changes to commit."
+            echo "No canonical figure changes to commit."
           else
-            git commit -m "archive: freeze figure pipeline snapshot"
+            git commit -m "figures: freeze canonical figure set"
             git push origin HEAD:figures/model-v1
           fi
