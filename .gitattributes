@@ -1,18 +1,8 @@
 # Large binary documents are stored via Git LFS.
 *.pdf filter=lfs diff=lfs merge=lfs -text
 
-# Figure-research history is intentionally preserved, including failed and
-# intermediate raster outputs. Keep that evidence out of ordinary Git object
-# storage while retaining it in the repository history.
-history/figures/**/*.png filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.jpg filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.webp filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.tif filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.tiff filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.npy filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.npz filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.tar filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.tar.gz filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.tgz filter=lfs diff=lfs merge=lfs -text
-history/figures/**/*.zip filter=lfs diff=lfs merge=lfs -text
+# Figure-research snapshots use size-based LFS selection rather than blanket
+# extension rules. Exact paths for files above the chosen threshold are added
+# by tools/import_figure_review_history.py or by the figure-finalization workflow.
+# Small PNG/JPEG/JSON files therefore remain ordinary Git objects and keep the
+# most useful history/diff behavior.
