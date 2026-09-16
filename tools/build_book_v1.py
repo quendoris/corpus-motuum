@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable
@@ -12,6 +13,15 @@ from typing import Any, Iterable
 EXPECTED_FIGURES = {"numbered": 158, "atlas": 6, "paratext": 4}
 FIGURE_ORDER = {"numbered": 0, "atlas": 1, "paratext": 2}
 PAGE_KEYS = ("russian_source_page_id", "source_page_id", "page_id")
+PATH_PAGE_KEYS = ("source_page", "source_file", "metrics")
+SHEET_ID_RE = re.compile(r"(sheet-\d{3}-(?:left|right))")
+BBOX_KEYS = ("placement_page_bbox", "asset_bbox", "union_bbox", "crop_page_bbox", "bbox")
+BOOK_METADATA = {
+    "title": "Практическая гимнастика",
+    "subtitle": "Руководство к постепенному упражнению гимнастикой",
+    "author": "Наполеон Лэнэ",
+    "language": "ru",
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -39,8 +49,33 @@ def walk_dicts(value: Any) -> Iterable[dict[str, Any]]:
             yield from walk_dicts(child)
 
 
+def unique_nested_string(source: dict[str, Any], keys: tuple[str, ...]) -> str | None:
+    candidates: list[str] = []
+    for node in walk_dicts(source):
+        for key in keys:
+            value = node.get(key)
+            if isinstance(value, str) and value:
+                candidates.append(value)
+    unique = list(dict.fromkeys(candidates))
+    return unique[0] if len(unique) == 1 else None
+
+
+def page_id_from_paths(source: dict[str, Any]) -> str | None:
+    candidates: list[str] = []
+    for node in walk_dicts(source):
+        for key in PATH_PAGE_KEYS:
+            value = node.get(key)
+            if not isinstance(value, str):
+                continue
+            match = SHEET_ID_RE.search(value)
+            if match:
+                candidates.append(match.group(1))
+    unique = list(dict.fromkeys(candidates))
+    return unique[0] if len(unique) == 1 else None
+
+
 def figure_page_id(row: dict[str, Any]) -> str | None:
-    """Find the Russian physical-page id without guessing from arbitrary ids."""
+    """Find one Russian physical-page id without guessing from arbitrary ids."""
     source = row.get("source")
     if not isinstance(source, dict):
         return None
@@ -55,13 +90,38 @@ def figure_page_id(row: dict[str, Any]) -> str | None:
         if len(unique) == 1:
             return unique[0]
         if len(unique) > 1:
-            # Ambiguous multi-page provenance is kept as supplementary rather
-            # than attached to an arbitrary physical page.
             return None
+
+    path_page = page_id_from_paths(source)
+    if path_page:
+        return path_page
 
     direct = source.get("id")
     if isinstance(direct, str) and direct.startswith("sheet-"):
         return direct
+    return None
+
+
+def bbox_from_source(source: dict[str, Any]) -> list[int] | None:
+    """Return one unambiguous source-page bbox, preferring explicit placement keys."""
+    for key in BBOX_KEYS:
+        candidates: list[tuple[int, int, int, int]] = []
+        for node in walk_dicts(source):
+            value = node.get(key)
+            if not isinstance(value, list) or len(value) != 4:
+                continue
+            try:
+                box = tuple(int(part) for part in value)
+            except (TypeError, ValueError):
+                continue
+            x1, y1, x2, y2 = box
+            if x1 < x2 and y1 < y2:
+                candidates.append(box)
+        unique = list(dict.fromkeys(candidates))
+        if len(unique) == 1:
+            return list(unique[0])
+        if len(unique) > 1:
+            return None
     return None
 
 
@@ -77,38 +137,84 @@ def stable_figure_path(row: dict[str, Any], kind: str) -> str:
     return (Path("figures") / kind / Path(source_figure_path(row, kind)).name).as_posix()
 
 
-def normalize_figure(row: dict[str, Any], kind: str) -> dict[str, Any]:
+def load_placement_overrides(path: Path | None) -> dict[str, dict[str, Any]]:
+    if path is None or not path.exists():
+        return {}
+    payload = load_json(path)
+    if payload.get("schema") != "corpus-motuum-release-placement-overrides-v1":
+        raise SystemExit(f"unexpected placement override schema: {payload.get('schema')!r}")
+    rows = payload.get("numbered", {})
+    if not isinstance(rows, dict):
+        raise SystemExit("placement overrides numbered must be an object")
+    return {str(key): value for key, value in rows.items() if isinstance(value, dict)}
+
+
+def normalize_figure(
+    row: dict[str, Any], kind: str, overrides: dict[str, dict[str, Any]]
+) -> tuple[dict[str, Any], str | None]:
     digest = row.get("canonical_sha256") if kind == "numbered" else row.get("sha256")
     if not isinstance(digest, str) or len(digest) != 64:
         raise SystemExit(f"{kind} figure has no valid SHA-256")
 
+    geometry = row.get("geometry") if isinstance(row.get("geometry"), dict) else {}
     item: dict[str, Any] = {
         "kind": kind,
         "file": stable_figure_path(row, kind),
         "sha256": digest,
-        "width": row.get("width"),
-        "height": row.get("height"),
+        "width": geometry.get("width"),
+        "height": geometry.get("height"),
     }
+    label: str | None = None
     if kind == "numbered":
-        item["label"] = row.get("label")
+        label = str(row.get("label") or "")
+        item["label"] = label
         item["classes"] = row.get("classes", [])
     else:
         item["id"] = row.get("id")
+        item["classes"] = row.get("classes", [])
 
     source = row.get("source")
-    if isinstance(source, dict):
-        if source.get("asset_index") is not None:
-            item["asset_index"] = source["asset_index"]
-        if source.get("asset_bbox") is not None:
-            item["asset_bbox"] = source["asset_bbox"]
-        elif source.get("bbox") is not None:
-            item["asset_bbox"] = source["bbox"]
-    return item
+    page_id = figure_page_id(row)
+    bbox = bbox_from_source(source) if isinstance(source, dict) else None
+
+    override = overrides.get(label or "") if kind == "numbered" else None
+    if override:
+        override_page = override.get("page_id")
+        if isinstance(override_page, str) and override_page:
+            if page_id and page_id != override_page:
+                raise SystemExit(
+                    f"figure {label}: placement override page {override_page} conflicts with provenance {page_id}"
+                )
+            page_id = override_page
+        override_bbox = override.get("asset_bbox")
+        if isinstance(override_bbox, list) and len(override_bbox) == 4:
+            bbox = [int(value) for value in override_bbox]
+        item["placement_evidence"] = override.get("evidence")
+        if override.get("requires_visual_placement_review"):
+            item["requires_visual_placement_review"] = True
+
+    if bbox is not None:
+        item["asset_bbox"] = bbox
+    if source and isinstance(source, dict):
+        asset_index = None
+        for node in walk_dicts(source):
+            if node.get("asset_index") is not None:
+                try:
+                    asset_index = int(node["asset_index"])
+                    break
+                except (TypeError, ValueError):
+                    pass
+        if asset_index is not None:
+            item["asset_index"] = asset_index
+
+    return item, page_id
 
 
 def figure_sort_key(row: dict[str, Any]) -> tuple[int, int, str]:
+    bbox = row.get("asset_bbox")
+    y = int(bbox[1]) if isinstance(bbox, list) and len(bbox) == 4 else 10**9
     return (
-        FIGURE_ORDER.get(str(row.get("kind")), 9),
+        y,
         int(row.get("asset_index") or 0),
         str(row.get("label") or row.get("id") or ""),
     )
@@ -116,6 +222,7 @@ def figure_sort_key(row: dict[str, Any]) -> tuple[int, int, str]:
 
 def load_figures(
     path: Path | None,
+    overrides: dict[str, dict[str, Any]],
 ) -> tuple[
     dict[str, list[dict[str, Any]]],
     list[dict[str, Any]],
@@ -144,12 +251,11 @@ def load_figures(
         for row in rows:
             if not isinstance(row, dict):
                 raise SystemExit(f"figure manifest: invalid {kind} record")
-            item = normalize_figure(row, kind)
+            item, page_id = normalize_figure(row, kind, overrides)
             if item["file"] in seen_files:
                 raise SystemExit(f"duplicate canonical figure path: {item['file']}")
             seen_files.add(str(item["file"]))
 
-            page_id = figure_page_id(row)
             if page_id:
                 item["page_id"] = page_id
                 by_page[page_id].append(item)
@@ -190,6 +296,11 @@ def main() -> None:
         default=None,
         help="Canonical figure-set manifest produced by build_final_figure_set.py.",
     )
+    parser.add_argument(
+        "--placement-overrides",
+        type=Path,
+        default=Path("corpus/figures/release-placement-overrides-v1.json"),
+    )
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
 
@@ -200,7 +311,10 @@ def main() -> None:
         if isinstance(row, dict) and row.get("id")
     }
 
-    figure_map, supplementary, figure_manifest, figure_counts = load_figures(args.figures)
+    overrides = load_placement_overrides(args.placement_overrides)
+    figure_map, supplementary, figure_manifest, figure_counts = load_figures(
+        args.figures, overrides
+    )
     text_key = "diplomatic_text" if args.edition == "diplomatic" else "normalized_text"
 
     pages: list[dict[str, Any]] = []
@@ -236,6 +350,11 @@ def main() -> None:
                 "text": text,
                 "figures": figure_map.get(page_id, []),
                 "notes": record.get("notes", []),
+                "source_geometry": {
+                    "width": int(source.get("width") or 0),
+                    "height": int(source.get("height") or 0),
+                    "printed_page": source.get("printed_page"),
+                },
                 "provenance": {
                     "source_sha256": record.get("source_sha256"),
                     "editorial_batch": record.get("editorial_batch"),
@@ -263,14 +382,24 @@ def main() -> None:
     total_figure_count = linked_figure_count + len(supplementary)
     if args.figures and total_figure_count != 168:
         raise SystemExit(f"book must account for 168 figures, got {total_figure_count}")
+    if args.figures and supplementary:
+        labels = [str(row.get("label") or row.get("id") or row.get("file")) for row in supplementary]
+        raise SystemExit(
+            "release requires every canonical asset to resolve to a source page; unresolved: "
+            + ", ".join(labels)
+        )
+    if args.figures and linked_figure_count != 168:
+        raise SystemExit(f"release requires 168/168 page-linked assets, got {linked_figure_count}")
 
     payload: dict[str, Any] = {
         "schema": "corpus-motuum-book-v1",
         "edition": args.edition,
         "text_layer": text_key,
+        "metadata": BOOK_METADATA,
         "principle": (
             "Faithful page-aligned digitization. The build preserves canonical "
-            "text and source order and does not perform language rewriting."
+            "text, all 600 physical source-page boundaries, and all canonical "
+            "figure identities without language rewriting."
         ),
         "source": {
             "page_manifest": args.source_manifest.as_posix(),
@@ -281,13 +410,16 @@ def main() -> None:
         "figures": {
             "manifest": args.figures.as_posix() if args.figures else None,
             "manifest_sha256": sha256_file(args.figures) if args.figures else None,
+            "placement_overrides": args.placement_overrides.as_posix()
+            if args.placement_overrides and args.placement_overrides.exists()
+            else None,
             "schema": figure_manifest.get("schema") if figure_manifest else None,
             "counts": figure_counts,
             "linked_assets": linked_figure_count,
-            "supplementary_assets": len(supplementary),
+            "supplementary_assets": 0,
             "total_assets": total_figure_count,
         },
-        "supplementary_assets": supplementary,
+        "supplementary_assets": [],
         "pages": pages,
     }
 
@@ -302,7 +434,7 @@ def main() -> None:
                 "edition": args.edition,
                 "pages": len(pages),
                 "linked_figures": linked_figure_count,
-                "supplementary_figures": len(supplementary),
+                "supplementary_figures": 0,
                 "total_figures": total_figure_count,
                 "output": args.out.as_posix(),
             },
