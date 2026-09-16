@@ -185,6 +185,13 @@ def main() -> None:
         "--version",
         args.version,
     )
+    run_tool(
+        tool_root / "finalize_pdf_geometry.py",
+        "--book",
+        str(package_root / "book.json"),
+        "--root",
+        str(package_root),
+    )
     validator_args = [
         "--book",
         str(package_root / "book.json"),
