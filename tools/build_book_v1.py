@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a neutral, page-aligned digital-book payload for the 1.x releases."""
+"""Build the neutral, page-aligned digital-book payload used by 1.x releases."""
 from __future__ import annotations
 
 import argparse
@@ -7,7 +7,11 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
+
+EXPECTED_FIGURES = {"numbered": 158, "atlas": 6, "paratext": 4}
+FIGURE_ORDER = {"numbered": 0, "atlas": 1, "paratext": 2}
+PAGE_KEYS = ("russian_source_page_id", "source_page_id", "page_id")
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -25,73 +29,145 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def walk_dicts(value: Any) -> Iterable[dict[str, Any]]:
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from walk_dicts(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from walk_dicts(child)
+
+
 def figure_page_id(row: dict[str, Any]) -> str | None:
+    """Find the Russian physical-page id without guessing from arbitrary ids."""
     source = row.get("source")
     if not isinstance(source, dict):
         return None
 
-    direct = source.get("page_id") or source.get("id")
-    if isinstance(direct, str) and direct:
-        return direct
+    for key in PAGE_KEYS:
+        candidates: list[str] = []
+        for node in walk_dicts(source):
+            value = node.get(key)
+            if isinstance(value, str) and value.startswith("sheet-"):
+                candidates.append(value)
+        unique = list(dict.fromkeys(candidates))
+        if len(unique) == 1:
+            return unique[0]
+        if len(unique) > 1:
+            # Ambiguous multi-page provenance is kept as supplementary rather
+            # than attached to an arbitrary physical page.
+            return None
 
-    provenance = source.get("provenance")
-    if isinstance(provenance, dict):
-        value = provenance.get("source_page_id")
-        if isinstance(value, str) and value:
-            return value
+    direct = source.get("id")
+    if isinstance(direct, str) and direct.startswith("sheet-"):
+        return direct
     return None
 
 
-def canonical_figure_path(row: dict[str, Any], kind: str) -> str | None:
+def source_figure_path(row: dict[str, Any], kind: str) -> str:
+    key = "canonical_file" if kind == "numbered" else "file"
+    value = row.get(key)
+    if not isinstance(value, str) or not value:
+        raise SystemExit(f"{kind} figure has no {key}: {row}")
+    return value
+
+
+def stable_figure_path(row: dict[str, Any], kind: str) -> str:
+    return (Path("figures") / kind / Path(source_figure_path(row, kind)).name).as_posix()
+
+
+def normalize_figure(row: dict[str, Any], kind: str) -> dict[str, Any]:
+    digest = row.get("canonical_sha256") if kind == "numbered" else row.get("sha256")
+    if not isinstance(digest, str) or len(digest) != 64:
+        raise SystemExit(f"{kind} figure has no valid SHA-256")
+
+    item: dict[str, Any] = {
+        "kind": kind,
+        "file": stable_figure_path(row, kind),
+        "sha256": digest,
+        "width": row.get("width"),
+        "height": row.get("height"),
+    }
     if kind == "numbered":
-        value = row.get("canonical_file")
+        item["label"] = row.get("label")
+        item["classes"] = row.get("classes", [])
     else:
-        value = row.get("file")
-    return str(value) if value else None
+        item["id"] = row.get("id")
+
+    source = row.get("source")
+    if isinstance(source, dict):
+        if source.get("asset_index") is not None:
+            item["asset_index"] = source["asset_index"]
+        if source.get("asset_bbox") is not None:
+            item["asset_bbox"] = source["asset_bbox"]
+        elif source.get("bbox") is not None:
+            item["asset_bbox"] = source["bbox"]
+    return item
 
 
-def load_figures(path: Path | None) -> tuple[dict[str, list[dict[str, Any]]], dict[str, Any] | None]:
+def figure_sort_key(row: dict[str, Any]) -> tuple[int, int, str]:
+    return (
+        FIGURE_ORDER.get(str(row.get("kind")), 9),
+        int(row.get("asset_index") or 0),
+        str(row.get("label") or row.get("id") or ""),
+    )
+
+
+def load_figures(
+    path: Path | None,
+) -> tuple[
+    dict[str, list[dict[str, Any]]],
+    list[dict[str, Any]],
+    dict[str, Any] | None,
+    dict[str, int],
+]:
     if path is None:
-        return {}, None
-    manifest = load_json(path)
-    by_page: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        return {}, [], None, {key: 0 for key in EXPECTED_FIGURES}
 
-    for kind in ("numbered", "atlas", "paratext"):
-        for row in manifest.get(kind, []):
+    manifest = load_json(path)
+    counts: dict[str, int] = {}
+    by_page: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    supplementary: list[dict[str, Any]] = []
+    seen_files: set[str] = set()
+
+    for kind, expected in EXPECTED_FIGURES.items():
+        rows = manifest.get(kind)
+        if not isinstance(rows, list):
+            raise SystemExit(f"figure manifest: {kind} is not a list")
+        counts[kind] = len(rows)
+        if len(rows) != expected:
+            raise SystemExit(
+                f"figure census mismatch for {kind}: expected {expected}, got {len(rows)}"
+            )
+
+        for row in rows:
             if not isinstance(row, dict):
-                continue
+                raise SystemExit(f"figure manifest: invalid {kind} record")
+            item = normalize_figure(row, kind)
+            if item["file"] in seen_files:
+                raise SystemExit(f"duplicate canonical figure path: {item['file']}")
+            seen_files.add(str(item["file"]))
+
             page_id = figure_page_id(row)
-            if not page_id:
-                continue
-            item: dict[str, Any] = {
-                "kind": kind,
-                "file": canonical_figure_path(row, kind),
-                "sha256": row.get("canonical_sha256") if kind == "numbered" else row.get("sha256"),
-                "classes": row.get("classes", []),
-            }
-            if kind == "numbered":
-                item["label"] = row.get("label")
+            if page_id:
+                item["page_id"] = page_id
+                by_page[page_id].append(item)
             else:
-                item["id"] = row.get("id")
-            source = row.get("source")
-            if isinstance(source, dict):
-                if source.get("asset_index") is not None:
-                    item["asset_index"] = source.get("asset_index")
-                if source.get("asset_bbox") is not None:
-                    item["asset_bbox"] = source.get("asset_bbox")
-                if source.get("bbox") is not None and "asset_bbox" not in item:
-                    item["asset_bbox"] = source.get("bbox")
-            by_page[page_id].append(item)
+                supplementary.append(item)
 
     for rows in by_page.values():
-        rows.sort(
-            key=lambda row: (
-                {"numbered": 0, "atlas": 1, "paratext": 2}.get(str(row.get("kind")), 9),
-                int(row.get("asset_index") or 0),
-                str(row.get("label") or row.get("id") or ""),
-            )
+        rows.sort(key=figure_sort_key)
+    supplementary.sort(key=figure_sort_key)
+
+    total = sum(counts.values())
+    accounted = sum(len(rows) for rows in by_page.values()) + len(supplementary)
+    if total != 168 or accounted != total:
+        raise SystemExit(
+            f"figure accounting mismatch: census={total}, accounted={accounted}, expected=168"
         )
-    return dict(by_page), manifest
+
+    return dict(by_page), supplementary, manifest, counts
 
 
 def main() -> None:
@@ -112,7 +188,7 @@ def main() -> None:
         "--figures",
         type=Path,
         default=None,
-        help="Optional canonical figure-set manifest.",
+        help="Canonical figure-set manifest produced by build_final_figure_set.py.",
     )
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
@@ -124,7 +200,7 @@ def main() -> None:
         if isinstance(row, dict) and row.get("id")
     }
 
-    figure_map, figure_manifest = load_figures(args.figures)
+    figure_map, supplementary, figure_manifest, figure_counts = load_figures(args.figures)
     text_key = "diplomatic_text" if args.edition == "diplomatic" else "normalized_text"
 
     pages: list[dict[str, Any]] = []
@@ -168,17 +244,26 @@ def main() -> None:
         )
 
     pages.sort(key=lambda row: int(row["physical_index"]))
-    expected_indices = list(range(1, len(pages) + 1))
+    expected_count = int(source_manifest.get("physical_pages", -1))
+    if expected_count != 600:
+        raise SystemExit(f"release expects a 600-page source manifest, got {expected_count}")
+    if len(pages) != expected_count:
+        raise SystemExit(f"page count mismatch: canonical={len(pages)} source={expected_count}")
     actual_indices = [int(row["physical_index"]) for row in pages]
-    if actual_indices != expected_indices:
-        raise SystemExit("physical page sequence is not contiguous from 1")
-    if len(pages) != int(source_manifest.get("physical_pages", -1)):
+    if actual_indices != list(range(1, 601)):
+        raise SystemExit("physical page sequence is not exactly 1..600")
+
+    unknown_figure_pages = sorted(set(figure_map) - seen_ids)
+    if unknown_figure_pages:
         raise SystemExit(
-            f"page count mismatch: canonical={len(pages)} "
-            f"source={source_manifest.get('physical_pages')}"
+            "canonical figures reference absent pages: " + ", ".join(unknown_figure_pages)
         )
 
     linked_figure_count = sum(len(row["figures"]) for row in pages)
+    total_figure_count = linked_figure_count + len(supplementary)
+    if args.figures and total_figure_count != 168:
+        raise SystemExit(f"book must account for 168 figures, got {total_figure_count}")
+
     payload: dict[str, Any] = {
         "schema": "corpus-motuum-book-v1",
         "edition": args.edition,
@@ -188,17 +273,21 @@ def main() -> None:
             "text and source order and does not perform language rewriting."
         ),
         "source": {
-            "page_manifest": str(args.source_manifest),
+            "page_manifest": args.source_manifest.as_posix(),
             "page_manifest_sha256": sha256_file(args.source_manifest),
             "source_pdf_sha256": source_manifest.get("source_pdf_sha256"),
-            "physical_pages": source_manifest.get("physical_pages"),
+            "physical_pages": expected_count,
         },
         "figures": {
-            "manifest": str(args.figures) if args.figures else None,
+            "manifest": args.figures.as_posix() if args.figures else None,
             "manifest_sha256": sha256_file(args.figures) if args.figures else None,
-            "linked_assets": linked_figure_count,
             "schema": figure_manifest.get("schema") if figure_manifest else None,
+            "counts": figure_counts,
+            "linked_assets": linked_figure_count,
+            "supplementary_assets": len(supplementary),
+            "total_assets": total_figure_count,
         },
+        "supplementary_assets": supplementary,
         "pages": pages,
     }
 
@@ -213,7 +302,9 @@ def main() -> None:
                 "edition": args.edition,
                 "pages": len(pages),
                 "linked_figures": linked_figure_count,
-                "output": str(args.out),
+                "supplementary_figures": len(supplementary),
+                "total_figures": total_figure_count,
+                "output": args.out.as_posix(),
             },
             ensure_ascii=False,
             indent=2,
