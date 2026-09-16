@@ -1,0 +1,25 @@
+{
+  "schema": "corpus-motuum-release-placement-overrides-v1",
+  "principle": "Release placement overrides are used only when the canonical final asset was restored from a donor source and its Russian-page placement is therefore not recoverable from the final asset provenance alone. Page identity and coordinates must be backed by preserved Russian-edition evidence; unknown geometry is never guessed.",
+  "numbered": {
+    "70": {
+      "page_id": "sheet-125-right",
+      "physical_index": 250,
+      "asset_bbox": [57, 507, 298, 866],
+      "evidence": "history/figures/figure-review-v1/manifest.json: original Russian detector crop figs-070__p0250__sheet-125-right__a01.png"
+    },
+    "71": {
+      "page_id": "sheet-126-left",
+      "physical_index": 251,
+      "asset_bbox": [62, 753, 352, 1106],
+      "evidence": "history/figures/figure-review-v1/manifest.json: original Russian detector crop figs-071__p0251__sheet-126-left__a01.png"
+    },
+    "74": {
+      "page_id": "sheet-128-left",
+      "physical_index": 255,
+      "asset_bbox": null,
+      "requires_visual_placement_review": true,
+      "evidence": "corpus/figures/curation-v1.json known_issues: figure 74 is on sheet-128-left but the Russian engraving was missed completely because of severe same-side text and mirrored bleed-through"
+    }
+  }
+}
