@@ -1,0 +1,7255 @@
+{
+  "schema": "corpus-motuum-figure-review-set-v1",
+  "source_audit": "work/figure-structure-full-v2/census-audit/figure-census-audit.json",
+  "source_root": "work/figure-structure-full-v2",
+  "policy": "corpus/figures/curation-v1.json",
+  "summary": {
+    "input_assets": 378,
+    "kept_assets": 212,
+    "removed_assets": 166,
+    "categories": {
+      "atlas": 52,
+      "numbered": 157,
+      "paratext": 3
+    },
+    "known_issues": [
+      {
+        "id": "sheet-076-right",
+        "figures": [
+          "35",
+          "36"
+        ],
+        "state": "merged",
+        "detail": "two printed figures are currently one crop"
+      },
+      {
+        "id": "sheet-128-left",
+        "figures": [
+          "74"
+        ],
+        "state": "missed",
+        "detail": "captioned figure has no crop; heavy bleed-through reference"
+      },
+      {
+        "id": "sheet-133-right",
+        "figures": [
+          "78"
+        ],
+        "state": "split-candidate",
+        "detail": "one printed figure currently has two crops; keep both for manual grouping"
+      },
+      {
+        "id": "sheet-228-left",
+        "figures": [
+          "129"
+        ],
+        "state": "split-known",
+        "detail": "one logical numbered illustration occupies two separated regions; keep both until grouping pass"
+      },
+      {
+        "id": "sheet-256-right",
+        "figures": [
+          "144",
+          "145"
+        ],
+        "state": "merged",
+        "detail": "two printed figures are currently one crop"
+      }
+    ],
+    "needs_reextract": [
+      {
+        "id": "sheet-001-right",
+        "kind": "cover-title-illustration",
+        "detail": "real cover illustration exists, but current asset 13 merges most of the page with typography; all 40 current crops are excluded from the clean review set"
+      }
+    ]
+  },
+  "kept": [
+    {
+      "key": "sheet-002-right#asset-05",
+      "id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 5,
+      "bbox": [
+        121,
+        551,
+        622,
+        900
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "paratext",
+      "source": "work/figure-structure-full-v2/sheet-002-right-asset-05.clean.png",
+      "review_file": "work/figure-review-v1/paratext/title-illustration__p0004__sheet-002-right__a05.png"
+    },
+    {
+      "key": "sheet-003-left#asset-12",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 12,
+      "bbox": [
+        106,
+        370,
+        656,
+        720
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "paratext",
+      "source": "work/figure-structure-full-v2/sheet-003-left-asset-12.clean.png",
+      "review_file": "work/figure-review-v1/paratext/title-illustration__p0005__sheet-003-left__a12.png"
+    },
+    {
+      "key": "sheet-032-left#asset-01",
+      "id": "sheet-032-left",
+      "physical_index": 63,
+      "asset_index": 1,
+      "bbox": [
+        58,
+        436,
+        243,
+        799
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        1
+      ],
+      "mentioned_figure_numbers": [
+        1
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-032-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-001__p0063__sheet-032-left__a01.png"
+    },
+    {
+      "key": "sheet-038-left#asset-01",
+      "id": "sheet-038-left",
+      "physical_index": 75,
+      "asset_index": 1,
+      "bbox": [
+        65,
+        503,
+        333,
+        846
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        2
+      ],
+      "mentioned_figure_numbers": [
+        2
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-038-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-002__p0075__sheet-038-left__a01.png"
+    },
+    {
+      "key": "sheet-038-right#asset-01",
+      "id": "sheet-038-right",
+      "physical_index": 76,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        69,
+        358,
+        293
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        3
+      ],
+      "mentioned_figure_numbers": [
+        3
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-038-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-003__p0076__sheet-038-right__a01.png"
+    },
+    {
+      "key": "sheet-039-left#asset-01",
+      "id": "sheet-039-left",
+      "physical_index": 77,
+      "asset_index": 1,
+      "bbox": [
+        27,
+        171,
+        346,
+        544
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        4
+      ],
+      "mentioned_figure_numbers": [
+        4
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-039-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-004__p0077__sheet-039-left__a01.png"
+    },
+    {
+      "key": "sheet-039-right#asset-01",
+      "id": "sheet-039-right",
+      "physical_index": 78,
+      "asset_index": 1,
+      "bbox": [
+        96,
+        490,
+        503,
+        638
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        5
+      ],
+      "mentioned_figure_numbers": [
+        5
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-039-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-005__p0078__sheet-039-right__a01.png"
+    },
+    {
+      "key": "sheet-040-left#asset-01",
+      "id": "sheet-040-left",
+      "physical_index": 79,
+      "asset_index": 1,
+      "bbox": [
+        51,
+        290,
+        348,
+        498
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        6,
+        7
+      ],
+      "mentioned_figure_numbers": [
+        6,
+        7
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-040-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-006-007__p0079__sheet-040-left__a01.png"
+    },
+    {
+      "key": "sheet-040-left#asset-02",
+      "id": "sheet-040-left",
+      "physical_index": 79,
+      "asset_index": 2,
+      "bbox": [
+        67,
+        704,
+        455,
+        830
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        6,
+        7
+      ],
+      "mentioned_figure_numbers": [
+        6,
+        7
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-040-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-006-007__p0079__sheet-040-left__a02.png"
+    },
+    {
+      "key": "sheet-040-right#asset-01",
+      "id": "sheet-040-right",
+      "physical_index": 80,
+      "asset_index": 1,
+      "bbox": [
+        71,
+        526,
+        296,
+        782
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        8,
+        9
+      ],
+      "mentioned_figure_numbers": [
+        8,
+        9
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-040-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-008-009__p0080__sheet-040-right__a01.png"
+    },
+    {
+      "key": "sheet-040-right#asset-02",
+      "id": "sheet-040-right",
+      "physical_index": 80,
+      "asset_index": 2,
+      "bbox": [
+        54,
+        840,
+        323,
+        1120
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        8,
+        9
+      ],
+      "mentioned_figure_numbers": [
+        8,
+        9
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-040-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-008-009__p0080__sheet-040-right__a02.png"
+    },
+    {
+      "key": "sheet-043-left#asset-01",
+      "id": "sheet-043-left",
+      "physical_index": 85,
+      "asset_index": 1,
+      "bbox": [
+        64,
+        104,
+        351,
+        398
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        10
+      ],
+      "mentioned_figure_numbers": [
+        10
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-043-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-010__p0085__sheet-043-left__a01.png"
+    },
+    {
+      "key": "sheet-048-left#asset-01",
+      "id": "sheet-048-left",
+      "physical_index": 95,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        295,
+        277,
+        635
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        11
+      ],
+      "mentioned_figure_numbers": [
+        11
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-048-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-011__p0095__sheet-048-left__a01.png"
+    },
+    {
+      "key": "sheet-051-left#asset-01",
+      "id": "sheet-051-left",
+      "physical_index": 101,
+      "asset_index": 1,
+      "bbox": [
+        37,
+        64,
+        243,
+        410
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        12
+      ],
+      "mentioned_figure_numbers": [
+        12
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-051-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-012__p0101__sheet-051-left__a01.png"
+    },
+    {
+      "key": "sheet-053-right#asset-01",
+      "id": "sheet-053-right",
+      "physical_index": 106,
+      "asset_index": 1,
+      "bbox": [
+        112,
+        810,
+        662,
+        1117
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        13
+      ],
+      "mentioned_figure_numbers": [
+        13
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-053-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-013__p0106__sheet-053-right__a01.png"
+    },
+    {
+      "key": "sheet-054-right#asset-01",
+      "id": "sheet-054-right",
+      "physical_index": 108,
+      "asset_index": 1,
+      "bbox": [
+        140,
+        309,
+        665,
+        597
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        14
+      ],
+      "mentioned_figure_numbers": [
+        14
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-054-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-014__p0108__sheet-054-right__a01.png"
+    },
+    {
+      "key": "sheet-055-right#asset-01",
+      "id": "sheet-055-right",
+      "physical_index": 110,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        404,
+        467,
+        666
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        15
+      ],
+      "mentioned_figure_numbers": [
+        15
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-055-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-015__p0110__sheet-055-right__a01.png"
+    },
+    {
+      "key": "sheet-056-right#asset-01",
+      "id": "sheet-056-right",
+      "physical_index": 112,
+      "asset_index": 1,
+      "bbox": [
+        123,
+        310,
+        637,
+        637
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        16
+      ],
+      "mentioned_figure_numbers": [
+        16
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-056-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-016__p0112__sheet-056-right__a01.png"
+    },
+    {
+      "key": "sheet-057-left#asset-01",
+      "id": "sheet-057-left",
+      "physical_index": 113,
+      "asset_index": 1,
+      "bbox": [
+        90,
+        800,
+        640,
+        1109
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        17
+      ],
+      "mentioned_figure_numbers": [
+        17
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-057-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-017__p0113__sheet-057-left__a01.png"
+    },
+    {
+      "key": "sheet-057-right#asset-01",
+      "id": "sheet-057-right",
+      "physical_index": 114,
+      "asset_index": 1,
+      "bbox": [
+        107,
+        906,
+        669,
+        1109
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        18
+      ],
+      "mentioned_figure_numbers": [
+        18
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-057-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-018__p0114__sheet-057-right__a01.png"
+    },
+    {
+      "key": "sheet-060-right#asset-01",
+      "id": "sheet-060-right",
+      "physical_index": 120,
+      "asset_index": 1,
+      "bbox": [
+        68,
+        673,
+        258,
+        1112
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        19
+      ],
+      "mentioned_figure_numbers": [
+        19
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-060-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-019__p0120__sheet-060-right__a01.png"
+    },
+    {
+      "key": "sheet-063-left#asset-01",
+      "id": "sheet-063-left",
+      "physical_index": 125,
+      "asset_index": 1,
+      "bbox": [
+        55,
+        73,
+        261,
+        490
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        20
+      ],
+      "mentioned_figure_numbers": [
+        20
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-063-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-020__p0125__sheet-063-left__a01.png"
+    },
+    {
+      "key": "sheet-064-left#asset-01",
+      "id": "sheet-064-left",
+      "physical_index": 127,
+      "asset_index": 1,
+      "bbox": [
+        52,
+        67,
+        226,
+        444
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        21
+      ],
+      "mentioned_figure_numbers": [
+        21
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-064-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-021__p0127__sheet-064-left__a01.png"
+    },
+    {
+      "key": "sheet-065-left#asset-01",
+      "id": "sheet-065-left",
+      "physical_index": 129,
+      "asset_index": 1,
+      "bbox": [
+        43,
+        72,
+        213,
+        429
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        22
+      ],
+      "mentioned_figure_numbers": [
+        22
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-065-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-022__p0129__sheet-065-left__a01.png"
+    },
+    {
+      "key": "sheet-065-right#asset-01",
+      "id": "sheet-065-right",
+      "physical_index": 130,
+      "asset_index": 1,
+      "bbox": [
+        85,
+        705,
+        441,
+        1096
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        23
+      ],
+      "mentioned_figure_numbers": [
+        23
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-065-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-023__p0130__sheet-065-right__a01.png"
+    },
+    {
+      "key": "sheet-066-right#asset-01",
+      "id": "sheet-066-right",
+      "physical_index": 132,
+      "asset_index": 1,
+      "bbox": [
+        74,
+        492,
+        303,
+        904
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        24
+      ],
+      "mentioned_figure_numbers": [
+        24
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-066-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-024__p0132__sheet-066-right__a01.png"
+    },
+    {
+      "key": "sheet-067-right#asset-01",
+      "id": "sheet-067-right",
+      "physical_index": 134,
+      "asset_index": 1,
+      "bbox": [
+        80,
+        612,
+        428,
+        1003
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        25
+      ],
+      "mentioned_figure_numbers": [
+        25
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-067-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-025__p0134__sheet-067-right__a01.png"
+    },
+    {
+      "key": "sheet-068-left#asset-01",
+      "id": "sheet-068-left",
+      "physical_index": 135,
+      "asset_index": 1,
+      "bbox": [
+        43,
+        644,
+        222,
+        1116
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        26
+      ],
+      "mentioned_figure_numbers": [
+        25,
+        26
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-068-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-026__p0135__sheet-068-left__a01.png"
+    },
+    {
+      "key": "sheet-069-left#asset-01",
+      "id": "sheet-069-left",
+      "physical_index": 137,
+      "asset_index": 1,
+      "bbox": [
+        24,
+        730,
+        407,
+        1106
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        27
+      ],
+      "mentioned_figure_numbers": [
+        27
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-069-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-027__p0137__sheet-069-left__a01.png"
+    },
+    {
+      "key": "sheet-070-left#asset-01",
+      "id": "sheet-070-left",
+      "physical_index": 139,
+      "asset_index": 1,
+      "bbox": [
+        27,
+        158,
+        278,
+        527
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        28
+      ],
+      "mentioned_figure_numbers": [
+        28
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-070-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-028__p0139__sheet-070-left__a01.png"
+    },
+    {
+      "key": "sheet-070-right#asset-01",
+      "id": "sheet-070-right",
+      "physical_index": 140,
+      "asset_index": 1,
+      "bbox": [
+        69,
+        339,
+        281,
+        696
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        28
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-070-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-028bis__p0140__sheet-070-right__a01.png"
+    },
+    {
+      "key": "sheet-071-left#asset-01",
+      "id": "sheet-071-left",
+      "physical_index": 141,
+      "asset_index": 1,
+      "bbox": [
+        80,
+        503,
+        230,
+        1042
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        29
+      ],
+      "mentioned_figure_numbers": [
+        29
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-071-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-029__p0141__sheet-071-left__a01.png"
+    },
+    {
+      "key": "sheet-071-right#asset-01",
+      "id": "sheet-071-right",
+      "physical_index": 142,
+      "asset_index": 1,
+      "bbox": [
+        54,
+        722,
+        343,
+        1112
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        30
+      ],
+      "mentioned_figure_numbers": [
+        30
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-071-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-030__p0142__sheet-071-right__a01.png"
+    },
+    {
+      "key": "sheet-072-left#asset-01",
+      "id": "sheet-072-left",
+      "physical_index": 143,
+      "asset_index": 1,
+      "bbox": [
+        103,
+        630,
+        653,
+        991
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        31
+      ],
+      "mentioned_figure_numbers": [
+        31
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-072-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-031__p0143__sheet-072-left__a01.png"
+    },
+    {
+      "key": "sheet-073-left#asset-01",
+      "id": "sheet-073-left",
+      "physical_index": 145,
+      "asset_index": 1,
+      "bbox": [
+        83,
+        208,
+        215,
+        590
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        32
+      ],
+      "mentioned_figure_numbers": [
+        32
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-073-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-032__p0145__sheet-073-left__a01.png"
+    },
+    {
+      "key": "sheet-074-left#asset-01",
+      "id": "sheet-074-left",
+      "physical_index": 147,
+      "asset_index": 1,
+      "bbox": [
+        35,
+        711,
+        262,
+        1116
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        33
+      ],
+      "mentioned_figure_numbers": [
+        33
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-074-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-033__p0147__sheet-074-left__a01.png"
+    },
+    {
+      "key": "sheet-075-left#asset-01",
+      "id": "sheet-075-left",
+      "physical_index": 149,
+      "asset_index": 1,
+      "bbox": [
+        48,
+        727,
+        397,
+        1092
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        34
+      ],
+      "mentioned_figure_numbers": [
+        34
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-075-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-034__p0149__sheet-075-left__a01.png"
+    },
+    {
+      "key": "sheet-076-right#asset-01",
+      "id": "sheet-076-right",
+      "physical_index": 152,
+      "asset_index": 1,
+      "bbox": [
+        61,
+        389,
+        414,
+        1112
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        35,
+        36
+      ],
+      "mentioned_figure_numbers": [
+        35,
+        36
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-076-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-035-036__p0152__sheet-076-right__a01.png"
+    },
+    {
+      "key": "sheet-077-left#asset-01",
+      "id": "sheet-077-left",
+      "physical_index": 153,
+      "asset_index": 1,
+      "bbox": [
+        55,
+        722,
+        266,
+        1117
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        37
+      ],
+      "mentioned_figure_numbers": [
+        37
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-077-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-037__p0153__sheet-077-left__a01.png"
+    },
+    {
+      "key": "sheet-077-right#asset-01",
+      "id": "sheet-077-right",
+      "physical_index": 154,
+      "asset_index": 1,
+      "bbox": [
+        56,
+        681,
+        301,
+        1052
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        38
+      ],
+      "mentioned_figure_numbers": [
+        38
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-077-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-038__p0154__sheet-077-right__a01.png"
+    },
+    {
+      "key": "sheet-078-left#asset-01",
+      "id": "sheet-078-left",
+      "physical_index": 155,
+      "asset_index": 1,
+      "bbox": [
+        43,
+        660,
+        236,
+        1100
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        39
+      ],
+      "mentioned_figure_numbers": [
+        39
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-078-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-039__p0155__sheet-078-left__a01.png"
+    },
+    {
+      "key": "sheet-078-right#asset-01",
+      "id": "sheet-078-right",
+      "physical_index": 156,
+      "asset_index": 1,
+      "bbox": [
+        66,
+        385,
+        386,
+        721
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        40,
+        41
+      ],
+      "mentioned_figure_numbers": [
+        40,
+        41
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-078-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-040-041__p0156__sheet-078-right__a01.png"
+    },
+    {
+      "key": "sheet-078-right#asset-02",
+      "id": "sheet-078-right",
+      "physical_index": 156,
+      "asset_index": 2,
+      "bbox": [
+        62,
+        752,
+        423,
+        1111
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        40,
+        41
+      ],
+      "mentioned_figure_numbers": [
+        40,
+        41
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-078-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-040-041__p0156__sheet-078-right__a02.png"
+    },
+    {
+      "key": "sheet-079-left#asset-01",
+      "id": "sheet-079-left",
+      "physical_index": 157,
+      "asset_index": 1,
+      "bbox": [
+        51,
+        719,
+        258,
+        1039
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        42
+      ],
+      "mentioned_figure_numbers": [
+        42
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-079-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-042__p0157__sheet-079-left__a01.png"
+    },
+    {
+      "key": "sheet-080-left#asset-01",
+      "id": "sheet-080-left",
+      "physical_index": 159,
+      "asset_index": 1,
+      "bbox": [
+        53,
+        154,
+        332,
+        488
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        43
+      ],
+      "mentioned_figure_numbers": [
+        43
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-080-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-043__p0159__sheet-080-left__a01.png"
+    },
+    {
+      "key": "sheet-081-left#asset-01",
+      "id": "sheet-081-left",
+      "physical_index": 161,
+      "asset_index": 1,
+      "bbox": [
+        56,
+        218,
+        362,
+        392
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        44,
+        45
+      ],
+      "mentioned_figure_numbers": [
+        44,
+        45
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-081-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-044-045__p0161__sheet-081-left__a01.png"
+    },
+    {
+      "key": "sheet-081-left#asset-02",
+      "id": "sheet-081-left",
+      "physical_index": 161,
+      "asset_index": 2,
+      "bbox": [
+        135,
+        494,
+        609,
+        656
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        44,
+        45
+      ],
+      "mentioned_figure_numbers": [
+        44,
+        45
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-081-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-044-045__p0161__sheet-081-left__a02.png"
+    },
+    {
+      "key": "sheet-083-right#asset-01",
+      "id": "sheet-083-right",
+      "physical_index": 166,
+      "asset_index": 1,
+      "bbox": [
+        74,
+        78,
+        236,
+        427
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        46
+      ],
+      "mentioned_figure_numbers": [
+        46
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-083-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-046__p0166__sheet-083-right__a01.png"
+    },
+    {
+      "key": "sheet-084-left#asset-01",
+      "id": "sheet-084-left",
+      "physical_index": 167,
+      "asset_index": 1,
+      "bbox": [
+        52,
+        334,
+        263,
+        677
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        47,
+        48
+      ],
+      "mentioned_figure_numbers": [
+        47,
+        48
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-084-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-047-048__p0167__sheet-084-left__a01.png"
+    },
+    {
+      "key": "sheet-084-left#asset-02",
+      "id": "sheet-084-left",
+      "physical_index": 167,
+      "asset_index": 2,
+      "bbox": [
+        85,
+        723,
+        311,
+        1049
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        47,
+        48
+      ],
+      "mentioned_figure_numbers": [
+        47,
+        48
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-084-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-047-048__p0167__sheet-084-left__a02.png"
+    },
+    {
+      "key": "sheet-094-left#asset-01",
+      "id": "sheet-094-left",
+      "physical_index": 187,
+      "asset_index": 1,
+      "bbox": [
+        35,
+        537,
+        331,
+        991
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        49
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-094-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-049__p0187__sheet-094-left__a01.png"
+    },
+    {
+      "key": "sheet-095-left#asset-01",
+      "id": "sheet-095-left",
+      "physical_index": 189,
+      "asset_index": 1,
+      "bbox": [
+        39,
+        728,
+        413,
+        1118
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        50
+      ],
+      "mentioned_figure_numbers": [
+        50
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-095-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-050__p0189__sheet-095-left__a01.png"
+    },
+    {
+      "key": "sheet-097-left#asset-01",
+      "id": "sheet-097-left",
+      "physical_index": 193,
+      "asset_index": 1,
+      "bbox": [
+        56,
+        653,
+        350,
+        1068
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        51
+      ],
+      "mentioned_figure_numbers": [
+        51
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-097-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-051__p0193__sheet-097-left__a01.png"
+    },
+    {
+      "key": "sheet-100-left#asset-01",
+      "id": "sheet-100-left",
+      "physical_index": 199,
+      "asset_index": 1,
+      "bbox": [
+        46,
+        736,
+        259,
+        1068
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-100-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-052__p0199__sheet-100-left__a01.png"
+    },
+    {
+      "key": "sheet-102-right#asset-01",
+      "id": "sheet-102-right",
+      "physical_index": 204,
+      "asset_index": 1,
+      "bbox": [
+        66,
+        184,
+        241,
+        433
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        53
+      ],
+      "mentioned_figure_numbers": [
+        53
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-102-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-053__p0204__sheet-102-right__a01.png"
+    },
+    {
+      "key": "sheet-105-left#asset-01",
+      "id": "sheet-105-left",
+      "physical_index": 209,
+      "asset_index": 1,
+      "bbox": [
+        48,
+        794,
+        362,
+        1062
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        54
+      ],
+      "mentioned_figure_numbers": [
+        54
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-105-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-054__p0209__sheet-105-left__a01.png"
+    },
+    {
+      "key": "sheet-107-left#asset-01",
+      "id": "sheet-107-left",
+      "physical_index": 213,
+      "asset_index": 1,
+      "bbox": [
+        56,
+        594,
+        292,
+        1092
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        55
+      ],
+      "mentioned_figure_numbers": [
+        55
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-107-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-055__p0213__sheet-107-left__a01.png"
+    },
+    {
+      "key": "sheet-110-left#asset-01",
+      "id": "sheet-110-left",
+      "physical_index": 219,
+      "asset_index": 1,
+      "bbox": [
+        40,
+        107,
+        424,
+        462
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        56
+      ],
+      "mentioned_figure_numbers": [
+        56
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-110-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-056__p0219__sheet-110-left__a01.png"
+    },
+    {
+      "key": "sheet-112-right#asset-01",
+      "id": "sheet-112-right",
+      "physical_index": 224,
+      "asset_index": 1,
+      "bbox": [
+        67,
+        410,
+        410,
+        730
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        57
+      ],
+      "mentioned_figure_numbers": [
+        57
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-112-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-057__p0224__sheet-112-right__a01.png"
+    },
+    {
+      "key": "sheet-113-left#asset-01",
+      "id": "sheet-113-left",
+      "physical_index": 225,
+      "asset_index": 1,
+      "bbox": [
+        58,
+        372,
+        386,
+        718
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        58
+      ],
+      "mentioned_figure_numbers": [
+        58
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-113-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-058__p0225__sheet-113-left__a01.png"
+    },
+    {
+      "key": "sheet-114-right#asset-01",
+      "id": "sheet-114-right",
+      "physical_index": 228,
+      "asset_index": 1,
+      "bbox": [
+        154,
+        159,
+        630,
+        443
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        59,
+        60
+      ],
+      "mentioned_figure_numbers": [
+        59,
+        60
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-114-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-059-060__p0228__sheet-114-right__a01.png"
+    },
+    {
+      "key": "sheet-114-right#asset-02",
+      "id": "sheet-114-right",
+      "physical_index": 228,
+      "asset_index": 2,
+      "bbox": [
+        192,
+        716,
+        598,
+        964
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        59,
+        60
+      ],
+      "mentioned_figure_numbers": [
+        59,
+        60
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-114-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-059-060__p0228__sheet-114-right__a02.png"
+    },
+    {
+      "key": "sheet-115-right#asset-01",
+      "id": "sheet-115-right",
+      "physical_index": 230,
+      "asset_index": 1,
+      "bbox": [
+        53,
+        720,
+        224,
+        1120
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        61
+      ],
+      "mentioned_figure_numbers": [
+        61
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-115-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-061__p0230__sheet-115-right__a01.png"
+    },
+    {
+      "key": "sheet-119-left#asset-01",
+      "id": "sheet-119-left",
+      "physical_index": 237,
+      "asset_index": 1,
+      "bbox": [
+        43,
+        239,
+        260,
+        539
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        62
+      ],
+      "mentioned_figure_numbers": [
+        62
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-119-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-062__p0237__sheet-119-left__a01.png"
+    },
+    {
+      "key": "sheet-119-right#asset-01",
+      "id": "sheet-119-right",
+      "physical_index": 238,
+      "asset_index": 1,
+      "bbox": [
+        68,
+        330,
+        446,
+        528
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        63
+      ],
+      "mentioned_figure_numbers": [
+        63
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-119-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-063__p0238__sheet-119-right__a01.png"
+    },
+    {
+      "key": "sheet-120-right#asset-01",
+      "id": "sheet-120-right",
+      "physical_index": 240,
+      "asset_index": 1,
+      "bbox": [
+        58,
+        692,
+        354,
+        1063
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        64
+      ],
+      "mentioned_figure_numbers": [
+        64
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-120-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-064__p0240__sheet-120-right__a01.png"
+    },
+    {
+      "key": "sheet-122-left#asset-01",
+      "id": "sheet-122-left",
+      "physical_index": 243,
+      "asset_index": 1,
+      "bbox": [
+        53,
+        828,
+        345,
+        1076
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        65
+      ],
+      "mentioned_figure_numbers": [
+        65
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-122-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-065__p0243__sheet-122-left__a01.png"
+    },
+    {
+      "key": "sheet-122-right#asset-01",
+      "id": "sheet-122-right",
+      "physical_index": 244,
+      "asset_index": 1,
+      "bbox": [
+        53,
+        861,
+        339,
+        1065
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        66
+      ],
+      "mentioned_figure_numbers": [
+        66
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-122-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-066__p0244__sheet-122-right__a01.png"
+    },
+    {
+      "key": "sheet-123-right#asset-01",
+      "id": "sheet-123-right",
+      "physical_index": 246,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        685,
+        274,
+        1001
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        67
+      ],
+      "mentioned_figure_numbers": [
+        67
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-123-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-067__p0246__sheet-123-right__a01.png"
+    },
+    {
+      "key": "sheet-124-right#asset-01",
+      "id": "sheet-124-right",
+      "physical_index": 248,
+      "asset_index": 1,
+      "bbox": [
+        84,
+        160,
+        272,
+        485
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        68,
+        69
+      ],
+      "mentioned_figure_numbers": [
+        68,
+        69
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-124-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-068-069__p0248__sheet-124-right__a01.png"
+    },
+    {
+      "key": "sheet-124-right#asset-02",
+      "id": "sheet-124-right",
+      "physical_index": 248,
+      "asset_index": 2,
+      "bbox": [
+        83,
+        719,
+        436,
+        867
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        68,
+        69
+      ],
+      "mentioned_figure_numbers": [
+        68,
+        69
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-124-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-068-069__p0248__sheet-124-right__a02.png"
+    },
+    {
+      "key": "sheet-125-right#asset-01",
+      "id": "sheet-125-right",
+      "physical_index": 250,
+      "asset_index": 1,
+      "bbox": [
+        57,
+        507,
+        298,
+        866
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        70
+      ],
+      "mentioned_figure_numbers": [
+        70
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-125-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-070__p0250__sheet-125-right__a01.png"
+    },
+    {
+      "key": "sheet-126-left#asset-01",
+      "id": "sheet-126-left",
+      "physical_index": 251,
+      "asset_index": 1,
+      "bbox": [
+        62,
+        753,
+        352,
+        1106
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        71
+      ],
+      "mentioned_figure_numbers": [
+        71
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-126-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-071__p0251__sheet-126-left__a01.png"
+    },
+    {
+      "key": "sheet-127-left#asset-01",
+      "id": "sheet-127-left",
+      "physical_index": 253,
+      "asset_index": 1,
+      "bbox": [
+        47,
+        330,
+        291,
+        768
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        72
+      ],
+      "mentioned_figure_numbers": [
+        72
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-127-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-072__p0253__sheet-127-left__a01.png"
+    },
+    {
+      "key": "sheet-127-right#asset-01",
+      "id": "sheet-127-right",
+      "physical_index": 254,
+      "asset_index": 1,
+      "bbox": [
+        62,
+        624,
+        277,
+        1026
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        73
+      ],
+      "mentioned_figure_numbers": [
+        73
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-127-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-073__p0254__sheet-127-right__a01.png"
+    },
+    {
+      "key": "sheet-130-left#asset-01",
+      "id": "sheet-130-left",
+      "physical_index": 259,
+      "asset_index": 1,
+      "bbox": [
+        43,
+        324,
+        341,
+        703
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        75
+      ],
+      "mentioned_figure_numbers": [
+        75
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-130-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-075__p0259__sheet-130-left__a01.png"
+    },
+    {
+      "key": "sheet-130-right#asset-02",
+      "id": "sheet-130-right",
+      "physical_index": 260,
+      "asset_index": 2,
+      "bbox": [
+        78,
+        444,
+        321,
+        755
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        76
+      ],
+      "mentioned_figure_numbers": [
+        76
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-130-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-076__p0260__sheet-130-right__a02.png"
+    },
+    {
+      "key": "sheet-131-right#asset-01",
+      "id": "sheet-131-right",
+      "physical_index": 262,
+      "asset_index": 1,
+      "bbox": [
+        77,
+        118,
+        284,
+        498
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        77
+      ],
+      "mentioned_figure_numbers": [
+        77
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-131-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-077__p0262__sheet-131-right__a01.png"
+    },
+    {
+      "key": "sheet-133-right#asset-01",
+      "id": "sheet-133-right",
+      "physical_index": 266,
+      "asset_index": 1,
+      "bbox": [
+        65,
+        362,
+        308,
+        699
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        78
+      ],
+      "mentioned_figure_numbers": [
+        78
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-133-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-078__p0266__sheet-133-right__a01.png"
+    },
+    {
+      "key": "sheet-133-right#asset-02",
+      "id": "sheet-133-right",
+      "physical_index": 266,
+      "asset_index": 2,
+      "bbox": [
+        336,
+        421,
+        388,
+        725
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        78
+      ],
+      "mentioned_figure_numbers": [
+        78
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-133-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-078__p0266__sheet-133-right__a02.png"
+    },
+    {
+      "key": "sheet-136-left#asset-01",
+      "id": "sheet-136-left",
+      "physical_index": 271,
+      "asset_index": 1,
+      "bbox": [
+        126,
+        299,
+        602,
+        779
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        79
+      ],
+      "mentioned_figure_numbers": [
+        79
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-136-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-079__p0271__sheet-136-left__a01.png"
+    },
+    {
+      "key": "sheet-138-right#asset-01",
+      "id": "sheet-138-right",
+      "physical_index": 276,
+      "asset_index": 1,
+      "bbox": [
+        70,
+        771,
+        449,
+        1056
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        80
+      ],
+      "mentioned_figure_numbers": [
+        80
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-138-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-080__p0276__sheet-138-right__a01.png"
+    },
+    {
+      "key": "sheet-142-right#asset-01",
+      "id": "sheet-142-right",
+      "physical_index": 284,
+      "asset_index": 1,
+      "bbox": [
+        70,
+        202,
+        355,
+        560
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        81
+      ],
+      "mentioned_figure_numbers": [
+        81
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-142-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-081__p0284__sheet-142-right__a01.png"
+    },
+    {
+      "key": "sheet-143-left#asset-01",
+      "id": "sheet-143-left",
+      "physical_index": 285,
+      "asset_index": 1,
+      "bbox": [
+        98,
+        814,
+        358,
+        1108
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        82
+      ],
+      "mentioned_figure_numbers": [
+        82
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-143-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-082__p0285__sheet-143-left__a01.png"
+    },
+    {
+      "key": "sheet-144-right#asset-01",
+      "id": "sheet-144-right",
+      "physical_index": 288,
+      "asset_index": 1,
+      "bbox": [
+        45,
+        765,
+        381,
+        1045
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        83
+      ],
+      "mentioned_figure_numbers": [
+        83,
+        82
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-144-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-083__p0288__sheet-144-right__a01.png"
+    },
+    {
+      "key": "sheet-146-right#asset-01",
+      "id": "sheet-146-right",
+      "physical_index": 292,
+      "asset_index": 1,
+      "bbox": [
+        128,
+        618,
+        662,
+        749
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        84
+      ],
+      "mentioned_figure_numbers": [
+        84
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-146-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-084__p0292__sheet-146-right__a01.png"
+    },
+    {
+      "key": "sheet-147-right#asset-01",
+      "id": "sheet-147-right",
+      "physical_index": 294,
+      "asset_index": 1,
+      "bbox": [
+        100,
+        196,
+        246,
+        679
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        85,
+        86
+      ],
+      "mentioned_figure_numbers": [
+        85,
+        86
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-147-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-085-086__p0294__sheet-147-right__a01.png"
+    },
+    {
+      "key": "sheet-147-right#asset-02",
+      "id": "sheet-147-right",
+      "physical_index": 294,
+      "asset_index": 2,
+      "bbox": [
+        75,
+        716,
+        345,
+        950
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        85,
+        86
+      ],
+      "mentioned_figure_numbers": [
+        85,
+        86
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-147-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-085-086__p0294__sheet-147-right__a02.png"
+    },
+    {
+      "key": "sheet-149-left#asset-01",
+      "id": "sheet-149-left",
+      "physical_index": 297,
+      "asset_index": 1,
+      "bbox": [
+        88,
+        199,
+        390,
+        509
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        87
+      ],
+      "mentioned_figure_numbers": [
+        87
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-149-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-087-087bis__p0297__sheet-149-left__a01.png"
+    },
+    {
+      "key": "sheet-149-left#asset-02",
+      "id": "sheet-149-left",
+      "physical_index": 297,
+      "asset_index": 2,
+      "bbox": [
+        62,
+        531,
+        282,
+        837
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        87
+      ],
+      "mentioned_figure_numbers": [
+        87
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-149-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-087-087bis__p0297__sheet-149-left__a02.png"
+    },
+    {
+      "key": "sheet-151-right#asset-03",
+      "id": "sheet-151-right",
+      "physical_index": 302,
+      "asset_index": 3,
+      "bbox": [
+        95,
+        355,
+        247,
+        855
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        88
+      ],
+      "mentioned_figure_numbers": [
+        88
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-151-right-asset-03.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-088__p0302__sheet-151-right__a03.png"
+    },
+    {
+      "key": "sheet-154-left#asset-01",
+      "id": "sheet-154-left",
+      "physical_index": 307,
+      "asset_index": 1,
+      "bbox": [
+        54,
+        446,
+        248,
+        791
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        89
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-154-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-089__p0307__sheet-154-left__a01.png"
+    },
+    {
+      "key": "sheet-158-left#asset-01",
+      "id": "sheet-158-left",
+      "physical_index": 315,
+      "asset_index": 1,
+      "bbox": [
+        58,
+        727,
+        269,
+        1082
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        90
+      ],
+      "mentioned_figure_numbers": [
+        90
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-158-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-090__p0315__sheet-158-left__a01.png"
+    },
+    {
+      "key": "sheet-158-right#asset-01",
+      "id": "sheet-158-right",
+      "physical_index": 316,
+      "asset_index": 1,
+      "bbox": [
+        85,
+        778,
+        282,
+        1117
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        91
+      ],
+      "mentioned_figure_numbers": [
+        91
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-158-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-091__p0316__sheet-158-right__a01.png"
+    },
+    {
+      "key": "sheet-159-right#asset-01",
+      "id": "sheet-159-right",
+      "physical_index": 318,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        252,
+        279,
+        627
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        92
+      ],
+      "mentioned_figure_numbers": [
+        92
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-159-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-092__p0318__sheet-159-right__a01.png"
+    },
+    {
+      "key": "sheet-163-left#asset-01",
+      "id": "sheet-163-left",
+      "physical_index": 325,
+      "asset_index": 1,
+      "bbox": [
+        57,
+        638,
+        246,
+        1014
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        93
+      ],
+      "mentioned_figure_numbers": [
+        93
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-163-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-093__p0325__sheet-163-left__a01.png"
+    },
+    {
+      "key": "sheet-164-left#asset-01",
+      "id": "sheet-164-left",
+      "physical_index": 327,
+      "asset_index": 1,
+      "bbox": [
+        54,
+        723,
+        293,
+        1118
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        94
+      ],
+      "mentioned_figure_numbers": [
+        94
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-164-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-094__p0327__sheet-164-left__a01.png"
+    },
+    {
+      "key": "sheet-178-right#asset-01",
+      "id": "sheet-178-right",
+      "physical_index": 356,
+      "asset_index": 1,
+      "bbox": [
+        71,
+        648,
+        213,
+        1071
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        95
+      ],
+      "mentioned_figure_numbers": [
+        95
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-178-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-095__p0356__sheet-178-right__a01.png"
+    },
+    {
+      "key": "sheet-179-left#asset-01",
+      "id": "sheet-179-left",
+      "physical_index": 357,
+      "asset_index": 1,
+      "bbox": [
+        51,
+        274,
+        331,
+        623
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        96
+      ],
+      "mentioned_figure_numbers": [
+        96
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-179-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-096__p0357__sheet-179-left__a01.png"
+    },
+    {
+      "key": "sheet-179-right#asset-01",
+      "id": "sheet-179-right",
+      "physical_index": 358,
+      "asset_index": 1,
+      "bbox": [
+        64,
+        137,
+        455,
+        307
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        97
+      ],
+      "mentioned_figure_numbers": [
+        97
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-179-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-097__p0358__sheet-179-right__a01.png"
+    },
+    {
+      "key": "sheet-180-right#asset-01",
+      "id": "sheet-180-right",
+      "physical_index": 360,
+      "asset_index": 1,
+      "bbox": [
+        80,
+        283,
+        364,
+        575
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        98
+      ],
+      "mentioned_figure_numbers": [
+        98
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-180-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-098__p0360__sheet-180-right__a01.png"
+    },
+    {
+      "key": "sheet-181-left#asset-01",
+      "id": "sheet-181-left",
+      "physical_index": 361,
+      "asset_index": 1,
+      "bbox": [
+        44,
+        246,
+        231,
+        683
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        99
+      ],
+      "mentioned_figure_numbers": [
+        99
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-181-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-099__p0361__sheet-181-left__a01.png"
+    },
+    {
+      "key": "sheet-181-right#asset-01",
+      "id": "sheet-181-right",
+      "physical_index": 362,
+      "asset_index": 1,
+      "bbox": [
+        52,
+        615,
+        294,
+        881
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        100
+      ],
+      "mentioned_figure_numbers": [
+        100
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-181-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-100__p0362__sheet-181-right__a01.png"
+    },
+    {
+      "key": "sheet-182-left#asset-01",
+      "id": "sheet-182-left",
+      "physical_index": 363,
+      "asset_index": 1,
+      "bbox": [
+        47,
+        73,
+        397,
+        333
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        101
+      ],
+      "mentioned_figure_numbers": [
+        101
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-182-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-101__p0363__sheet-182-left__a01.png"
+    },
+    {
+      "key": "sheet-182-right#asset-01",
+      "id": "sheet-182-right",
+      "physical_index": 364,
+      "asset_index": 1,
+      "bbox": [
+        62,
+        522,
+        200,
+        918
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        102
+      ],
+      "mentioned_figure_numbers": [
+        102
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-182-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-102__p0364__sheet-182-right__a01.png"
+    },
+    {
+      "key": "sheet-183-left#asset-01",
+      "id": "sheet-183-left",
+      "physical_index": 365,
+      "asset_index": 1,
+      "bbox": [
+        47,
+        104,
+        251,
+        480
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        103
+      ],
+      "mentioned_figure_numbers": [
+        103
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-183-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-103__p0365__sheet-183-left__a01.png"
+    },
+    {
+      "key": "sheet-183-right#asset-01",
+      "id": "sheet-183-right",
+      "physical_index": 366,
+      "asset_index": 1,
+      "bbox": [
+        62,
+        227,
+        232,
+        626
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        104,
+        105
+      ],
+      "mentioned_figure_numbers": [
+        104,
+        105
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-183-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-104-105__p0366__sheet-183-right__a01.png"
+    },
+    {
+      "key": "sheet-183-right#asset-02",
+      "id": "sheet-183-right",
+      "physical_index": 366,
+      "asset_index": 2,
+      "bbox": [
+        72,
+        727,
+        307,
+        1027
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        104,
+        105
+      ],
+      "mentioned_figure_numbers": [
+        104,
+        105
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-183-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-104-105__p0366__sheet-183-right__a02.png"
+    },
+    {
+      "key": "sheet-184-left#asset-01",
+      "id": "sheet-184-left",
+      "physical_index": 367,
+      "asset_index": 1,
+      "bbox": [
+        51,
+        274,
+        449,
+        513
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        106
+      ],
+      "mentioned_figure_numbers": [
+        106
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-184-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-106__p0367__sheet-184-left__a01.png"
+    },
+    {
+      "key": "sheet-186-right#asset-01",
+      "id": "sheet-186-right",
+      "physical_index": 372,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        135,
+        240,
+        511
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        107
+      ],
+      "mentioned_figure_numbers": [
+        107
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-186-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-107__p0372__sheet-186-right__a01.png"
+    },
+    {
+      "key": "sheet-187-left#asset-01",
+      "id": "sheet-187-left",
+      "physical_index": 373,
+      "asset_index": 1,
+      "bbox": [
+        49,
+        155,
+        163,
+        578
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        108
+      ],
+      "mentioned_figure_numbers": [
+        108
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-187-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-108__p0373__sheet-187-left__a01.png"
+    },
+    {
+      "key": "sheet-187-right#asset-01",
+      "id": "sheet-187-right",
+      "physical_index": 374,
+      "asset_index": 1,
+      "bbox": [
+        70,
+        140,
+        208,
+        614
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        109
+      ],
+      "mentioned_figure_numbers": [
+        109
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-187-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-109__p0374__sheet-187-right__a01.png"
+    },
+    {
+      "key": "sheet-188-left#asset-01",
+      "id": "sheet-188-left",
+      "physical_index": 375,
+      "asset_index": 1,
+      "bbox": [
+        44,
+        213,
+        235,
+        669
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        110,
+        111
+      ],
+      "mentioned_figure_numbers": [
+        110,
+        111
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-188-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-110-111__p0375__sheet-188-left__a01.png"
+    },
+    {
+      "key": "sheet-188-left#asset-02",
+      "id": "sheet-188-left",
+      "physical_index": 375,
+      "asset_index": 2,
+      "bbox": [
+        40,
+        700,
+        219,
+        1115
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        110,
+        111
+      ],
+      "mentioned_figure_numbers": [
+        110,
+        111
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-188-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-110-111__p0375__sheet-188-left__a02.png"
+    },
+    {
+      "key": "sheet-190-left#asset-01",
+      "id": "sheet-190-left",
+      "physical_index": 379,
+      "asset_index": 1,
+      "bbox": [
+        32,
+        109,
+        155,
+        531
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        112
+      ],
+      "mentioned_figure_numbers": [
+        112
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-190-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-112__p0379__sheet-190-left__a01.png"
+    },
+    {
+      "key": "sheet-193-right#asset-01",
+      "id": "sheet-193-right",
+      "physical_index": 386,
+      "asset_index": 1,
+      "bbox": [
+        50,
+        732,
+        276,
+        1092
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        113
+      ],
+      "mentioned_figure_numbers": [
+        113
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-193-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-113__p0386__sheet-193-right__a01.png"
+    },
+    {
+      "key": "sheet-197-right#asset-01",
+      "id": "sheet-197-right",
+      "physical_index": 394,
+      "asset_index": 1,
+      "bbox": [
+        64,
+        294,
+        289,
+        662
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        114
+      ],
+      "mentioned_figure_numbers": [
+        114
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-197-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-114__p0394__sheet-197-right__a01.png"
+    },
+    {
+      "key": "sheet-199-right#asset-01",
+      "id": "sheet-199-right",
+      "physical_index": 398,
+      "asset_index": 1,
+      "bbox": [
+        70,
+        154,
+        325,
+        549
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        115
+      ],
+      "mentioned_figure_numbers": [
+        115
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-199-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-115__p0398__sheet-199-right__a01.png"
+    },
+    {
+      "key": "sheet-201-left#asset-01",
+      "id": "sheet-201-left",
+      "physical_index": 401,
+      "asset_index": 1,
+      "bbox": [
+        26,
+        278,
+        288,
+        691
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        116
+      ],
+      "mentioned_figure_numbers": [
+        116
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-201-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-116__p0401__sheet-201-left__a01.png"
+    },
+    {
+      "key": "sheet-203-right#asset-01",
+      "id": "sheet-203-right",
+      "physical_index": 406,
+      "asset_index": 1,
+      "bbox": [
+        63,
+        286,
+        272,
+        698
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        117
+      ],
+      "mentioned_figure_numbers": [
+        117
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-203-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-117__p0406__sheet-203-right__a01.png"
+    },
+    {
+      "key": "sheet-205-left#asset-01",
+      "id": "sheet-205-left",
+      "physical_index": 409,
+      "asset_index": 1,
+      "bbox": [
+        41,
+        426,
+        210,
+        835
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        118
+      ],
+      "mentioned_figure_numbers": [
+        118
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-205-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-118__p0409__sheet-205-left__a01.png"
+    },
+    {
+      "key": "sheet-208-left#asset-01",
+      "id": "sheet-208-left",
+      "physical_index": 415,
+      "asset_index": 1,
+      "bbox": [
+        53,
+        101,
+        294,
+        530
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        119
+      ],
+      "mentioned_figure_numbers": [
+        119
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-208-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-119__p0415__sheet-208-left__a01.png"
+    },
+    {
+      "key": "sheet-210-right#asset-01",
+      "id": "sheet-210-right",
+      "physical_index": 420,
+      "asset_index": 1,
+      "bbox": [
+        74,
+        247,
+        373,
+        787
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        120
+      ],
+      "mentioned_figure_numbers": [
+        120
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-210-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-120__p0420__sheet-210-right__a01.png"
+    },
+    {
+      "key": "sheet-211-right#asset-01",
+      "id": "sheet-211-right",
+      "physical_index": 422,
+      "asset_index": 1,
+      "bbox": [
+        66,
+        314,
+        326,
+        760
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        121
+      ],
+      "mentioned_figure_numbers": [
+        121
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-211-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-121__p0422__sheet-211-right__a01.png"
+    },
+    {
+      "key": "sheet-212-left#asset-01",
+      "id": "sheet-212-left",
+      "physical_index": 423,
+      "asset_index": 1,
+      "bbox": [
+        71,
+        198,
+        395,
+        663
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        122
+      ],
+      "mentioned_figure_numbers": [
+        122
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-212-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-122__p0423__sheet-212-left__a01.png"
+    },
+    {
+      "key": "sheet-213-left#asset-01",
+      "id": "sheet-213-left",
+      "physical_index": 425,
+      "asset_index": 1,
+      "bbox": [
+        44,
+        401,
+        207,
+        867
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        123
+      ],
+      "mentioned_figure_numbers": [
+        123
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-213-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-123__p0425__sheet-213-left__a01.png"
+    },
+    {
+      "key": "sheet-214-right#asset-01",
+      "id": "sheet-214-right",
+      "physical_index": 428,
+      "asset_index": 1,
+      "bbox": [
+        67,
+        466,
+        212,
+        906
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        124
+      ],
+      "mentioned_figure_numbers": [
+        124
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-214-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-124__p0428__sheet-214-right__a01.png"
+    },
+    {
+      "key": "sheet-216-left#asset-01",
+      "id": "sheet-216-left",
+      "physical_index": 431,
+      "asset_index": 1,
+      "bbox": [
+        63,
+        165,
+        273,
+        970
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        125
+      ],
+      "mentioned_figure_numbers": [
+        125
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-216-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-125__p0431__sheet-216-left__a01.png"
+    },
+    {
+      "key": "sheet-219-left#asset-01",
+      "id": "sheet-219-left",
+      "physical_index": 437,
+      "asset_index": 1,
+      "bbox": [
+        61,
+        649,
+        226,
+        1054
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        126
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-219-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-126__p0437__sheet-219-left__a01.png"
+    },
+    {
+      "key": "sheet-221-left#asset-01",
+      "id": "sheet-221-left",
+      "physical_index": 441,
+      "asset_index": 1,
+      "bbox": [
+        39,
+        113,
+        194,
+        520
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        127
+      ],
+      "mentioned_figure_numbers": [
+        127
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-221-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-127__p0441__sheet-221-left__a01.png"
+    },
+    {
+      "key": "sheet-223-left#asset-01",
+      "id": "sheet-223-left",
+      "physical_index": 445,
+      "asset_index": 1,
+      "bbox": [
+        50,
+        66,
+        311,
+        532
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        128
+      ],
+      "mentioned_figure_numbers": [
+        128
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-223-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-128__p0445__sheet-223-left__a01.png"
+    },
+    {
+      "key": "sheet-228-left#asset-01",
+      "id": "sheet-228-left",
+      "physical_index": 455,
+      "asset_index": 1,
+      "bbox": [
+        31,
+        798,
+        360,
+        925
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        129
+      ],
+      "mentioned_figure_numbers": [
+        129
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-228-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-129__p0455__sheet-228-left__a01.png"
+    },
+    {
+      "key": "sheet-228-left#asset-02",
+      "id": "sheet-228-left",
+      "physical_index": 455,
+      "asset_index": 2,
+      "bbox": [
+        31,
+        937,
+        363,
+        1147
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        129
+      ],
+      "mentioned_figure_numbers": [
+        129
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-228-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-129__p0455__sheet-228-left__a02.png"
+    },
+    {
+      "key": "sheet-230-left#asset-01",
+      "id": "sheet-230-left",
+      "physical_index": 459,
+      "asset_index": 1,
+      "bbox": [
+        39,
+        277,
+        296,
+        711
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        130
+      ],
+      "mentioned_figure_numbers": [
+        130
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-230-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-130__p0459__sheet-230-left__a01.png"
+    },
+    {
+      "key": "sheet-233-right#asset-01",
+      "id": "sheet-233-right",
+      "physical_index": 466,
+      "asset_index": 1,
+      "bbox": [
+        74,
+        722,
+        279,
+        1091
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        131
+      ],
+      "mentioned_figure_numbers": [
+        131
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-233-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-131__p0466__sheet-233-right__a01.png"
+    },
+    {
+      "key": "sheet-234-right#asset-01",
+      "id": "sheet-234-right",
+      "physical_index": 468,
+      "asset_index": 1,
+      "bbox": [
+        56,
+        341,
+        258,
+        722
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        132
+      ],
+      "mentioned_figure_numbers": [
+        132
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-234-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-132__p0468__sheet-234-right__a01.png"
+    },
+    {
+      "key": "sheet-235-left#asset-01",
+      "id": "sheet-235-left",
+      "physical_index": 469,
+      "asset_index": 1,
+      "bbox": [
+        33,
+        711,
+        251,
+        1128
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        133
+      ],
+      "mentioned_figure_numbers": [
+        133
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-235-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-133__p0469__sheet-235-left__a01.png"
+    },
+    {
+      "key": "sheet-241-right#asset-01",
+      "id": "sheet-241-right",
+      "physical_index": 482,
+      "asset_index": 1,
+      "bbox": [
+        71,
+        178,
+        264,
+        507
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        134
+      ],
+      "mentioned_figure_numbers": [
+        134
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-241-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-134__p0482__sheet-241-right__a01.png"
+    },
+    {
+      "key": "sheet-242-left#asset-01",
+      "id": "sheet-242-left",
+      "physical_index": 483,
+      "asset_index": 1,
+      "bbox": [
+        45,
+        134,
+        324,
+        455
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        135,
+        136
+      ],
+      "mentioned_figure_numbers": [
+        135,
+        136
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-242-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-135-136__p0483__sheet-242-left__a01.png"
+    },
+    {
+      "key": "sheet-242-left#asset-02",
+      "id": "sheet-242-left",
+      "physical_index": 483,
+      "asset_index": 2,
+      "bbox": [
+        57,
+        881,
+        365,
+        1097
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        135,
+        136
+      ],
+      "mentioned_figure_numbers": [
+        135,
+        136
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-242-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-135-136__p0483__sheet-242-left__a02.png"
+    },
+    {
+      "key": "sheet-243-left#asset-01",
+      "id": "sheet-243-left",
+      "physical_index": 485,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        636,
+        378,
+        898
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        137
+      ],
+      "mentioned_figure_numbers": [
+        137
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-243-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-137__p0485__sheet-243-left__a01.png"
+    },
+    {
+      "key": "sheet-244-right#asset-01",
+      "id": "sheet-244-right",
+      "physical_index": 488,
+      "asset_index": 1,
+      "bbox": [
+        62,
+        133,
+        411,
+        447
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        138
+      ],
+      "mentioned_figure_numbers": [
+        138
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-244-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-138__p0488__sheet-244-right__a01.png"
+    },
+    {
+      "key": "sheet-245-left#asset-01",
+      "id": "sheet-245-left",
+      "physical_index": 489,
+      "asset_index": 1,
+      "bbox": [
+        59,
+        544,
+        291,
+        1102
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        139
+      ],
+      "mentioned_figure_numbers": [
+        139
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-245-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-139__p0489__sheet-245-left__a01.png"
+    },
+    {
+      "key": "sheet-246-left#asset-01",
+      "id": "sheet-246-left",
+      "physical_index": 491,
+      "asset_index": 1,
+      "bbox": [
+        41,
+        556,
+        198,
+        1023
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        140
+      ],
+      "mentioned_figure_numbers": [
+        140
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-246-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-140__p0491__sheet-246-left__a01.png"
+    },
+    {
+      "key": "sheet-247-right#asset-01",
+      "id": "sheet-247-right",
+      "physical_index": 494,
+      "asset_index": 1,
+      "bbox": [
+        63,
+        679,
+        262,
+        1071
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        141
+      ],
+      "mentioned_figure_numbers": [
+        141
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-247-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-141__p0494__sheet-247-right__a01.png"
+    },
+    {
+      "key": "sheet-252-right#asset-01",
+      "id": "sheet-252-right",
+      "physical_index": 504,
+      "asset_index": 1,
+      "bbox": [
+        68,
+        124,
+        341,
+        474
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        142
+      ],
+      "mentioned_figure_numbers": [
+        142
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-252-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-142__p0504__sheet-252-right__a01.png"
+    },
+    {
+      "key": "sheet-253-right#asset-02",
+      "id": "sheet-253-right",
+      "physical_index": 506,
+      "asset_index": 2,
+      "bbox": [
+        61,
+        722,
+        228,
+        1100
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        143
+      ],
+      "mentioned_figure_numbers": [
+        143
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-253-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-143__p0506__sheet-253-right__a02.png"
+    },
+    {
+      "key": "sheet-256-right#asset-01",
+      "id": "sheet-256-right",
+      "physical_index": 512,
+      "asset_index": 1,
+      "bbox": [
+        52,
+        506,
+        355,
+        1096
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        144,
+        145
+      ],
+      "mentioned_figure_numbers": [
+        144,
+        145
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-256-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-144-145__p0512__sheet-256-right__a01.png"
+    },
+    {
+      "key": "sheet-261-left#asset-01",
+      "id": "sheet-261-left",
+      "physical_index": 521,
+      "asset_index": 1,
+      "bbox": [
+        26,
+        305,
+        313,
+        1090
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        146
+      ],
+      "mentioned_figure_numbers": [
+        146
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-261-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-146__p0521__sheet-261-left__a01.png"
+    },
+    {
+      "key": "sheet-263-left#asset-01",
+      "id": "sheet-263-left",
+      "physical_index": 525,
+      "asset_index": 1,
+      "bbox": [
+        99,
+        25,
+        636,
+        1165
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        147
+      ],
+      "mentioned_figure_numbers": [
+        147
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-263-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-147__p0525__sheet-263-left__a01.png"
+    },
+    {
+      "key": "sheet-264-right#asset-01",
+      "id": "sheet-264-right",
+      "physical_index": 528,
+      "asset_index": 1,
+      "bbox": [
+        64,
+        395,
+        255,
+        921
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        148
+      ],
+      "mentioned_figure_numbers": [
+        148
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-264-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-148__p0528__sheet-264-right__a01.png"
+    },
+    {
+      "key": "sheet-265-left#asset-01",
+      "id": "sheet-265-left",
+      "physical_index": 529,
+      "asset_index": 1,
+      "bbox": [
+        40,
+        483,
+        328,
+        1078
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        149
+      ],
+      "mentioned_figure_numbers": [
+        149
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-265-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-149__p0529__sheet-265-left__a01.png"
+    },
+    {
+      "key": "sheet-266-left#asset-01",
+      "id": "sheet-266-left",
+      "physical_index": 531,
+      "asset_index": 1,
+      "bbox": [
+        47,
+        70,
+        315,
+        445
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        150
+      ],
+      "mentioned_figure_numbers": [
+        150
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-266-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-150__p0531__sheet-266-left__a01.png"
+    },
+    {
+      "key": "sheet-271-right#asset-01",
+      "id": "sheet-271-right",
+      "physical_index": 542,
+      "asset_index": 1,
+      "bbox": [
+        54,
+        237,
+        197,
+        726
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        151
+      ],
+      "mentioned_figure_numbers": [
+        151
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-271-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-151__p0542__sheet-271-right__a01.png"
+    },
+    {
+      "key": "sheet-272-left#asset-01",
+      "id": "sheet-272-left",
+      "physical_index": 543,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        578,
+        185,
+        1042
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        152
+      ],
+      "mentioned_figure_numbers": [
+        152
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-272-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-152__p0543__sheet-272-left__a01.png"
+    },
+    {
+      "key": "sheet-273-left#asset-01",
+      "id": "sheet-273-left",
+      "physical_index": 545,
+      "asset_index": 1,
+      "bbox": [
+        42,
+        238,
+        233,
+        703
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        153,
+        154
+      ],
+      "mentioned_figure_numbers": [
+        153,
+        154
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-273-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-153-154__p0545__sheet-273-left__a01.png"
+    },
+    {
+      "key": "sheet-273-left#asset-02",
+      "id": "sheet-273-left",
+      "physical_index": 545,
+      "asset_index": 2,
+      "bbox": [
+        47,
+        754,
+        334,
+        1145
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        153,
+        154
+      ],
+      "mentioned_figure_numbers": [
+        153,
+        154
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-273-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-153-154__p0545__sheet-273-left__a02.png"
+    },
+    {
+      "key": "sheet-273-right#asset-01",
+      "id": "sheet-273-right",
+      "physical_index": 546,
+      "asset_index": 1,
+      "bbox": [
+        61,
+        102,
+        376,
+        465
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        155
+      ],
+      "mentioned_figure_numbers": [
+        155
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-273-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-155__p0546__sheet-273-right__a01.png"
+    },
+    {
+      "key": "sheet-274-right#asset-01",
+      "id": "sheet-274-right",
+      "physical_index": 548,
+      "asset_index": 1,
+      "bbox": [
+        131,
+        713,
+        640,
+        1155
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        156
+      ],
+      "mentioned_figure_numbers": [
+        156
+      ],
+      "category": "numbered",
+      "source": "work/figure-structure-full-v2/sheet-274-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/numbered/figs-156__p0548__sheet-274-right__a01.png"
+    },
+    {
+      "key": "sheet-297-left#asset-01",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 1,
+      "bbox": [
+        26,
+        1,
+        1754,
+        958
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a01.png"
+    },
+    {
+      "key": "sheet-297-left#asset-02",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 2,
+      "bbox": [
+        295,
+        1,
+        558,
+        33
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a02.png"
+    },
+    {
+      "key": "sheet-297-left#asset-03",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 3,
+      "bbox": [
+        196,
+        56,
+        316,
+        184
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-03.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a03.png"
+    },
+    {
+      "key": "sheet-297-left#asset-04",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 4,
+      "bbox": [
+        43,
+        819,
+        189,
+        979
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-04.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a04.png"
+    },
+    {
+      "key": "sheet-297-left#asset-05",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 5,
+      "bbox": [
+        250,
+        830,
+        371,
+        967
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-05.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a05.png"
+    },
+    {
+      "key": "sheet-297-left#asset-06",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 6,
+      "bbox": [
+        1154,
+        943,
+        1278,
+        957
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-06.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a06.png"
+    },
+    {
+      "key": "sheet-297-left#asset-07",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 7,
+      "bbox": [
+        1302,
+        930,
+        1542,
+        957
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-07.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a07.png"
+    },
+    {
+      "key": "sheet-297-left#asset-08",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 8,
+      "bbox": [
+        1191,
+        974,
+        1404,
+        990
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-08.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a08.png"
+    },
+    {
+      "key": "sheet-297-left#asset-09",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 9,
+      "bbox": [
+        1452,
+        974,
+        1572,
+        987
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-09.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a09.png"
+    },
+    {
+      "key": "sheet-297-left#asset-10",
+      "id": "sheet-297-left",
+      "physical_index": 593,
+      "asset_index": 10,
+      "bbox": [
+        953,
+        976,
+        1125,
+        989
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-left-asset-10.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0593__sheet-297-left__a10.png"
+    },
+    {
+      "key": "sheet-297-right#asset-01",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        1,
+        1721,
+        1008
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a01.png"
+    },
+    {
+      "key": "sheet-297-right#asset-02",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 2,
+      "bbox": [
+        316,
+        56,
+        959,
+        214
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a02.png"
+    },
+    {
+      "key": "sheet-297-right#asset-03",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 3,
+      "bbox": [
+        1237,
+        621,
+        1339,
+        696
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-03.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a03.png"
+    },
+    {
+      "key": "sheet-297-right#asset-04",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 4,
+      "bbox": [
+        1183,
+        738,
+        1290,
+        756
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-04.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a04.png"
+    },
+    {
+      "key": "sheet-297-right#asset-05",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 5,
+      "bbox": [
+        1161,
+        764,
+        1279,
+        779
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-05.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a05.png"
+    },
+    {
+      "key": "sheet-297-right#asset-06",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 6,
+      "bbox": [
+        1135,
+        787,
+        1290,
+        804
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-06.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a06.png"
+    },
+    {
+      "key": "sheet-297-right#asset-07",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 7,
+      "bbox": [
+        1116,
+        813,
+        1290,
+        830
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-07.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a07.png"
+    },
+    {
+      "key": "sheet-297-right#asset-08",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 8,
+      "bbox": [
+        1087,
+        838,
+        1290,
+        856
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-08.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a08.png"
+    },
+    {
+      "key": "sheet-297-right#asset-09",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 9,
+      "bbox": [
+        1061,
+        865,
+        1290,
+        882
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-09.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a09.png"
+    },
+    {
+      "key": "sheet-297-right#asset-10",
+      "id": "sheet-297-right",
+      "physical_index": 594,
+      "asset_index": 10,
+      "bbox": [
+        1043,
+        891,
+        1290,
+        909
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-297-right-asset-10.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0594__sheet-297-right__a10.png"
+    },
+    {
+      "key": "sheet-298-left#asset-01",
+      "id": "sheet-298-left",
+      "physical_index": 595,
+      "asset_index": 1,
+      "bbox": [
+        563,
+        1,
+        664,
+        15
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-298-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0595__sheet-298-left__a01.png"
+    },
+    {
+      "key": "sheet-298-left#asset-02",
+      "id": "sheet-298-left",
+      "physical_index": 595,
+      "asset_index": 2,
+      "bbox": [
+        875,
+        1,
+        1754,
+        965
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-298-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0595__sheet-298-left__a02.png"
+    },
+    {
+      "key": "sheet-298-left#asset-03",
+      "id": "sheet-298-left",
+      "physical_index": 595,
+      "asset_index": 3,
+      "bbox": [
+        21,
+        9,
+        1453,
+        972
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-298-left-asset-03.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0595__sheet-298-left__a03.png"
+    },
+    {
+      "key": "sheet-298-right#asset-01",
+      "id": "sheet-298-right",
+      "physical_index": 596,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        1,
+        1738,
+        1013
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-298-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0596__sheet-298-right__a01.png"
+    },
+    {
+      "key": "sheet-298-right#asset-02",
+      "id": "sheet-298-right",
+      "physical_index": 596,
+      "asset_index": 2,
+      "bbox": [
+        309,
+        21,
+        415,
+        35
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-298-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0596__sheet-298-right__a02.png"
+    },
+    {
+      "key": "sheet-299-left#asset-01",
+      "id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 1,
+      "bbox": [
+        234,
+        1,
+        1754,
+        993
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0597__sheet-299-left__a01.png"
+    },
+    {
+      "key": "sheet-299-left#asset-02",
+      "id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 2,
+      "bbox": [
+        479,
+        1,
+        791,
+        19
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-left-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0597__sheet-299-left__a02.png"
+    },
+    {
+      "key": "sheet-299-left#asset-03",
+      "id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 3,
+      "bbox": [
+        909,
+        23,
+        1017,
+        36
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-left-asset-03.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0597__sheet-299-left__a03.png"
+    },
+    {
+      "key": "sheet-299-left#asset-04",
+      "id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 4,
+      "bbox": [
+        32,
+        21,
+        875,
+        912
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-left-asset-04.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0597__sheet-299-left__a04.png"
+    },
+    {
+      "key": "sheet-299-left#asset-05",
+      "id": "sheet-299-left",
+      "physical_index": 597,
+      "asset_index": 5,
+      "bbox": [
+        1050,
+        23,
+        1140,
+        36
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-left-asset-05.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0597__sheet-299-left__a05.png"
+    },
+    {
+      "key": "sheet-299-right#asset-01",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 1,
+      "bbox": [
+        280,
+        50,
+        793,
+        361
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a01.png"
+    },
+    {
+      "key": "sheet-299-right#asset-02",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 2,
+      "bbox": [
+        767,
+        63,
+        1186,
+        365
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-02.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a02.png"
+    },
+    {
+      "key": "sheet-299-right#asset-03",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 3,
+      "bbox": [
+        832,
+        70,
+        1731,
+        886
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-03.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a03.png"
+    },
+    {
+      "key": "sheet-299-right#asset-04",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 4,
+      "bbox": [
+        1156,
+        79,
+        1349,
+        330
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-04.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a04.png"
+    },
+    {
+      "key": "sheet-299-right#asset-05",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 5,
+      "bbox": [
+        44,
+        112,
+        243,
+        160
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-05.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a05.png"
+    },
+    {
+      "key": "sheet-299-right#asset-06",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 6,
+      "bbox": [
+        105,
+        182,
+        203,
+        282
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-06.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a06.png"
+    },
+    {
+      "key": "sheet-299-right#asset-07",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 7,
+      "bbox": [
+        268,
+        286,
+        516,
+        519
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-07.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a07.png"
+    },
+    {
+      "key": "sheet-299-right#asset-08",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 8,
+      "bbox": [
+        30,
+        308,
+        258,
+        508
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-08.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a08.png"
+    },
+    {
+      "key": "sheet-299-right#asset-09",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 9,
+      "bbox": [
+        511,
+        387,
+        686,
+        403
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-09.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a09.png"
+    },
+    {
+      "key": "sheet-299-right#asset-10",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 10,
+      "bbox": [
+        497,
+        411,
+        773,
+        434
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-10.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a10.png"
+    },
+    {
+      "key": "sheet-299-right#asset-11",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 11,
+      "bbox": [
+        424,
+        427,
+        818,
+        725
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-11.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a11.png"
+    },
+    {
+      "key": "sheet-299-right#asset-12",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 12,
+      "bbox": [
+        832,
+        559,
+        850,
+        638
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-12.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a12.png"
+    },
+    {
+      "key": "sheet-299-right#asset-13",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 13,
+      "bbox": [
+        101,
+        567,
+        407,
+        855
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-13.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a13.png"
+    },
+    {
+      "key": "sheet-299-right#asset-14",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 14,
+      "bbox": [
+        1249,
+        606,
+        1299,
+        704
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-14.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a14.png"
+    },
+    {
+      "key": "sheet-299-right#asset-15",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 15,
+      "bbox": [
+        1138,
+        640,
+        1155,
+        707
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-15.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a15.png"
+    },
+    {
+      "key": "sheet-299-right#asset-16",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 16,
+      "bbox": [
+        1633,
+        660,
+        1694,
+        722
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-16.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a16.png"
+    },
+    {
+      "key": "sheet-299-right#asset-17",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 17,
+      "bbox": [
+        1534,
+        671,
+        1594,
+        812
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-17.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a17.png"
+    },
+    {
+      "key": "sheet-299-right#asset-18",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 18,
+      "bbox": [
+        501,
+        746,
+        704,
+        871
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-18.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a18.png"
+    },
+    {
+      "key": "sheet-299-right#asset-19",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 19,
+      "bbox": [
+        335,
+        758,
+        390,
+        868
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-19.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a19.png"
+    },
+    {
+      "key": "sheet-299-right#asset-20",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 20,
+      "bbox": [
+        374,
+        771,
+        1728,
+        972
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-20.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a20.png"
+    },
+    {
+      "key": "sheet-299-right#asset-21",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 21,
+      "bbox": [
+        1620,
+        795,
+        1728,
+        849
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-21.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a21.png"
+    },
+    {
+      "key": "sheet-299-right#asset-22",
+      "id": "sheet-299-right",
+      "physical_index": 598,
+      "asset_index": 22,
+      "bbox": [
+        1472,
+        809,
+        1499,
+        886
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "atlas",
+      "source": "work/figure-structure-full-v2/sheet-299-right-asset-22.clean.png",
+      "review_file": "work/figure-review-v1/atlas/atlas__p0598__sheet-299-right__a22.png"
+    },
+    {
+      "key": "sheet-300-left#asset-01",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 1,
+      "bbox": [
+        356,
+        1,
+        1557,
+        2481
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "category": "paratext",
+      "source": "work/figure-structure-full-v2/sheet-300-left-asset-01.clean.png",
+      "review_file": "work/figure-review-v1/paratext/back-cover-illustration__p0599__sheet-300-left__a01.png"
+    }
+  ],
+  "removed": [
+    {
+      "key": "sheet-001-right#asset-01",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 1,
+      "bbox": [
+        1464,
+        1,
+        1549,
+        483
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-02",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 2,
+      "bbox": [
+        286,
+        73,
+        364,
+        228
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-03",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 3,
+      "bbox": [
+        971,
+        41,
+        1135,
+        227
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-04",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 4,
+      "bbox": [
+        899,
+        46,
+        976,
+        219
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-05",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 5,
+      "bbox": [
+        362,
+        56,
+        442,
+        225
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-06",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 6,
+      "bbox": [
+        1129,
+        65,
+        1206,
+        215
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-07",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 7,
+      "bbox": [
+        679,
+        49,
+        830,
+        226
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-08",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 8,
+      "bbox": [
+        520,
+        50,
+        684,
+        238
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-09",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 9,
+      "bbox": [
+        828,
+        69,
+        902,
+        221
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-10",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 10,
+      "bbox": [
+        436,
+        71,
+        526,
+        223
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-11",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 11,
+      "bbox": [
+        884,
+        328,
+        967,
+        535
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-12",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 12,
+      "bbox": [
+        115,
+        328,
+        196,
+        535
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-13",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 13,
+      "bbox": [
+        13,
+        317,
+        1483,
+        2423
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-14",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 14,
+      "bbox": [
+        1255,
+        324,
+        1392,
+        531
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-15",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 15,
+      "bbox": [
+        769,
+        324,
+        850,
+        539
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-16",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 16,
+      "bbox": [
+        644,
+        323,
+        762,
+        539
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-17",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 17,
+      "bbox": [
+        1140,
+        326,
+        1241,
+        547
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-18",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 18,
+      "bbox": [
+        235,
+        327,
+        344,
+        537
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-19",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 19,
+      "bbox": [
+        983,
+        327,
+        1124,
+        535
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-20",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 20,
+      "bbox": [
+        516,
+        332,
+        608,
+        547
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-21",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 21,
+      "bbox": [
+        1516,
+        659,
+        1548,
+        777
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-22",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 22,
+      "bbox": [
+        800,
+        674,
+        1287,
+        767
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-23",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 23,
+      "bbox": [
+        1520,
+        802,
+        1548,
+        875
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-24",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 24,
+      "bbox": [
+        1515,
+        925,
+        1549,
+        1199
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-25",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 25,
+      "bbox": [
+        702,
+        1088,
+        1417,
+        1248
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-26",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 26,
+      "bbox": [
+        1502,
+        1259,
+        1549,
+        1406
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-27",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 27,
+      "bbox": [
+        967,
+        1310,
+        1142,
+        1335
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-28",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 28,
+      "bbox": [
+        964,
+        1425,
+        1153,
+        1464
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-29",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 29,
+      "bbox": [
+        638,
+        1505,
+        1206,
+        1570
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-30",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 30,
+      "bbox": [
+        1240,
+        1515,
+        1482,
+        1570
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-31",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 31,
+      "bbox": [
+        1424,
+        1570,
+        1549,
+        2481
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-32",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 32,
+      "bbox": [
+        689,
+        1624,
+        758,
+        1661
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-33",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 33,
+      "bbox": [
+        989,
+        1671,
+        1057,
+        1704
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-34",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 34,
+      "bbox": [
+        978,
+        1800,
+        1152,
+        1823
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-35",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 35,
+      "bbox": [
+        729,
+        1890,
+        786,
+        1940
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-36",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 36,
+      "bbox": [
+        1214,
+        1890,
+        1401,
+        1939
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-37",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 37,
+      "bbox": [
+        1057,
+        1896,
+        1201,
+        1940
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-38",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 38,
+      "bbox": [
+        800,
+        1897,
+        891,
+        1940
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-39",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 39,
+      "bbox": [
+        957,
+        2052,
+        1183,
+        2092
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-001-right#asset-40",
+      "id": "sheet-001-right",
+      "physical_index": 2,
+      "asset_index": 40,
+      "bbox": [
+        559,
+        2265,
+        637,
+        2315
+      ],
+      "page_type": "cover-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-left#asset-01",
+      "id": "sheet-002-left",
+      "physical_index": 3,
+      "asset_index": 1,
+      "bbox": [
+        296,
+        502,
+        686,
+        622
+      ],
+      "page_type": "half-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-left#asset-02",
+      "id": "sheet-002-left",
+      "physical_index": 3,
+      "asset_index": 2,
+      "bbox": [
+        65,
+        504,
+        288,
+        623
+      ],
+      "page_type": "half-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-left#asset-03",
+      "id": "sheet-002-left",
+      "physical_index": 3,
+      "asset_index": 3,
+      "bbox": [
+        410,
+        728,
+        554,
+        873
+      ],
+      "page_type": "half-title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-right#asset-01",
+      "id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 1,
+      "bbox": [
+        311,
+        93,
+        717,
+        216
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-right#asset-02",
+      "id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 2,
+      "bbox": [
+        53,
+        94,
+        272,
+        203
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-right#asset-03",
+      "id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 3,
+      "bbox": [
+        454,
+        402,
+        634,
+        463
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-right#asset-04",
+      "id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 4,
+      "bbox": [
+        117,
+        410,
+        336,
+        456
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-002-right#asset-06",
+      "id": "sheet-002-right",
+      "physical_index": 4,
+      "asset_index": 6,
+      "bbox": [
+        293,
+        992,
+        456,
+        1012
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-01",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 1,
+      "bbox": [
+        50,
+        64,
+        269,
+        159
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-02",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 2,
+      "bbox": [
+        262,
+        89,
+        374,
+        172
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-03",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 3,
+      "bbox": [
+        402,
+        89,
+        434,
+        159
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-04",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 4,
+      "bbox": [
+        456,
+        89,
+        572,
+        159
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-05",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 5,
+      "bbox": [
+        566,
+        89,
+        697,
+        159
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-06",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 6,
+      "bbox": [
+        427,
+        90,
+        463,
+        159
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-07",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 7,
+      "bbox": [
+        104,
+        175,
+        643,
+        249
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-08",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 8,
+      "bbox": [
+        617,
+        264,
+        688,
+        314
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-09",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 9,
+      "bbox": [
+        63,
+        267,
+        458,
+        314
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-10",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 10,
+      "bbox": [
+        570,
+        273,
+        624,
+        316
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-11",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 11,
+      "bbox": [
+        451,
+        274,
+        576,
+        314
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-13",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 13,
+      "bbox": [
+        540,
+        920,
+        678,
+        1056
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-003-left#asset-14",
+      "id": "sheet-003-left",
+      "physical_index": 5,
+      "asset_index": 14,
+      "bbox": [
+        295,
+        984,
+        464,
+        1006
+      ],
+      "page_type": "title",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-016-left#asset-01",
+      "id": "sheet-016-left",
+      "physical_index": 31,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        878,
+        10,
+        997
+      ],
+      "page_type": "contents",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-019-left#asset-01",
+      "id": "sheet-019-left",
+      "physical_index": 37,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        910,
+        10,
+        1020
+      ],
+      "page_type": "contents",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-021-left#asset-01",
+      "id": "sheet-021-left",
+      "physical_index": 41,
+      "asset_index": 1,
+      "bbox": [
+        298,
+        977,
+        415,
+        992
+      ],
+      "page_type": "contents",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-023-left#asset-01",
+      "id": "sheet-023-left",
+      "physical_index": 45,
+      "asset_index": 1,
+      "bbox": [
+        35,
+        1005,
+        176,
+        1026
+      ],
+      "page_type": "preface",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-023-right#asset-01",
+      "id": "sheet-023-right",
+      "physical_index": 46,
+      "asset_index": 1,
+      "bbox": [
+        742,
+        1067,
+        750,
+        1112
+      ],
+      "page_type": "preface",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-025-right#asset-01",
+      "id": "sheet-025-right",
+      "physical_index": 50,
+      "asset_index": 1,
+      "bbox": [
+        63,
+        1014,
+        208,
+        1028
+      ],
+      "page_type": "preface",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-027-left#asset-01",
+      "id": "sheet-027-left",
+      "physical_index": 53,
+      "asset_index": 1,
+      "bbox": [
+        317,
+        356,
+        421,
+        370
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-029-right#asset-01",
+      "id": "sheet-029-right",
+      "physical_index": 58,
+      "asset_index": 1,
+      "bbox": [
+        742,
+        842,
+        750,
+        966
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-029-right#asset-02",
+      "id": "sheet-029-right",
+      "physical_index": 58,
+      "asset_index": 2,
+      "bbox": [
+        81,
+        960,
+        225,
+        973
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-038-right#asset-02",
+      "id": "sheet-038-right",
+      "physical_index": 76,
+      "asset_index": 2,
+      "bbox": [
+        741,
+        473,
+        750,
+        594
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        3
+      ],
+      "mentioned_figure_numbers": [
+        3
+      ],
+      "reason": "scanner/page-edge sliver; figure 3 is asset 1"
+    },
+    {
+      "key": "sheet-044-right#asset-01",
+      "id": "sheet-044-right",
+      "physical_index": 88,
+      "asset_index": 1,
+      "bbox": [
+        70,
+        1008,
+        214,
+        1023
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-046-left#asset-01",
+      "id": "sheet-046-left",
+      "physical_index": 91,
+      "asset_index": 1,
+      "bbox": [
+        90,
+        971,
+        175,
+        984
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-047-right#asset-01",
+      "id": "sheet-047-right",
+      "physical_index": 94,
+      "asset_index": 1,
+      "bbox": [
+        60,
+        926,
+        204,
+        940
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-050-right#asset-01",
+      "id": "sheet-050-right",
+      "physical_index": 100,
+      "asset_index": 1,
+      "bbox": [
+        74,
+        773,
+        218,
+        787
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        12
+      ],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-052-left#asset-01",
+      "id": "sheet-052-left",
+      "physical_index": 103,
+      "asset_index": 1,
+      "bbox": [
+        289,
+        510,
+        405,
+        525
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-060-right#asset-02",
+      "id": "sheet-060-right",
+      "physical_index": 120,
+      "asset_index": 2,
+      "bbox": [
+        741,
+        1070,
+        750,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        19
+      ],
+      "mentioned_figure_numbers": [
+        19
+      ],
+      "reason": "scanner/page-edge sliver; figure 19 is asset 1"
+    },
+    {
+      "key": "sheet-061-left#asset-01",
+      "id": "sheet-061-left",
+      "physical_index": 121,
+      "asset_index": 1,
+      "bbox": [
+        305,
+        588,
+        422,
+        602
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-062-right#asset-01",
+      "id": "sheet-062-right",
+      "physical_index": 124,
+      "asset_index": 1,
+      "bbox": [
+        737,
+        1077,
+        750,
+        1174
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-068-right#asset-01",
+      "id": "sheet-068-right",
+      "physical_index": 136,
+      "asset_index": 1,
+      "bbox": [
+        742,
+        1072,
+        750,
+        1180
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-070-left#asset-02",
+      "id": "sheet-070-left",
+      "physical_index": 139,
+      "asset_index": 2,
+      "bbox": [
+        0,
+        1085,
+        11,
+        1190
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        28
+      ],
+      "mentioned_figure_numbers": [
+        28
+      ],
+      "reason": "scanner/page-edge sliver; figure 28 is asset 1"
+    },
+    {
+      "key": "sheet-076-left#asset-01",
+      "id": "sheet-076-left",
+      "physical_index": 151,
+      "asset_index": 1,
+      "bbox": [
+        304,
+        580,
+        421,
+        593
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-082-left#asset-01",
+      "id": "sheet-082-left",
+      "physical_index": 163,
+      "asset_index": 1,
+      "bbox": [
+        46,
+        892,
+        188,
+        907
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-086-right#asset-01",
+      "id": "sheet-086-right",
+      "physical_index": 172,
+      "asset_index": 1,
+      "bbox": [
+        740,
+        836,
+        750,
+        948
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-086-right#asset-02",
+      "id": "sheet-086-right",
+      "physical_index": 172,
+      "asset_index": 2,
+      "bbox": [
+        321,
+        1044,
+        438,
+        1060
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-087-left#asset-01",
+      "id": "sheet-087-left",
+      "physical_index": 173,
+      "asset_index": 1,
+      "bbox": [
+        317,
+        373,
+        446,
+        391
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-087-right#asset-01",
+      "id": "sheet-087-right",
+      "physical_index": 174,
+      "asset_index": 1,
+      "bbox": [
+        319,
+        457,
+        437,
+        471
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-088-right#asset-01",
+      "id": "sheet-088-right",
+      "physical_index": 176,
+      "asset_index": 1,
+      "bbox": [
+        310,
+        544,
+        433,
+        565
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-093-left#asset-01",
+      "id": "sheet-093-left",
+      "physical_index": 185,
+      "asset_index": 1,
+      "bbox": [
+        304,
+        1068,
+        420,
+        1083
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-094-left#asset-02",
+      "id": "sheet-094-left",
+      "physical_index": 187,
+      "asset_index": 2,
+      "bbox": [
+        2,
+        1083,
+        17,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        49
+      ],
+      "reason": "scanner/page-edge sliver; figure 49 is asset 1"
+    },
+    {
+      "key": "sheet-095-right#asset-01",
+      "id": "sheet-095-right",
+      "physical_index": 190,
+      "asset_index": 1,
+      "bbox": [
+        740,
+        663,
+        750,
+        775
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-098-right#asset-01",
+      "id": "sheet-098-right",
+      "physical_index": 196,
+      "asset_index": 1,
+      "bbox": [
+        323,
+        514,
+        441,
+        528
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-104-left#asset-01",
+      "id": "sheet-104-left",
+      "physical_index": 207,
+      "asset_index": 1,
+      "bbox": [
+        316,
+        452,
+        433,
+        467
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-115-left#asset-01",
+      "id": "sheet-115-left",
+      "physical_index": 229,
+      "asset_index": 1,
+      "bbox": [
+        314,
+        829,
+        431,
+        843
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-126-right#asset-01",
+      "id": "sheet-126-right",
+      "physical_index": 252,
+      "asset_index": 1,
+      "bbox": [
+        319,
+        417,
+        436,
+        431
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-130-right#asset-01",
+      "id": "sheet-130-right",
+      "physical_index": 260,
+      "asset_index": 1,
+      "bbox": [
+        742,
+        54,
+        750,
+        192
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        76
+      ],
+      "mentioned_figure_numbers": [
+        76
+      ],
+      "reason": "scanner/page-edge sliver; figure 76 is the non-edge asset"
+    },
+    {
+      "key": "sheet-137-right#asset-01",
+      "id": "sheet-137-right",
+      "physical_index": 274,
+      "asset_index": 1,
+      "bbox": [
+        330,
+        352,
+        447,
+        366
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-151-right#asset-01",
+      "id": "sheet-151-right",
+      "physical_index": 302,
+      "asset_index": 1,
+      "bbox": [
+        736,
+        18,
+        750,
+        191
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        88
+      ],
+      "mentioned_figure_numbers": [
+        88
+      ],
+      "reason": "scanner/page-edge sliver; figure 88 is asset 3"
+    },
+    {
+      "key": "sheet-151-right#asset-02",
+      "id": "sheet-151-right",
+      "physical_index": 302,
+      "asset_index": 2,
+      "bbox": [
+        738,
+        186,
+        750,
+        313
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        88
+      ],
+      "mentioned_figure_numbers": [
+        88
+      ],
+      "reason": "scanner/page-edge sliver; figure 88 is asset 3"
+    },
+    {
+      "key": "sheet-159-left#asset-01",
+      "id": "sheet-159-left",
+      "physical_index": 317,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        604,
+        7,
+        654
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-170-left#asset-01",
+      "id": "sheet-170-left",
+      "physical_index": 339,
+      "asset_index": 1,
+      "bbox": [
+        308,
+        1131,
+        426,
+        1145
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-185-right#asset-01",
+      "id": "sheet-185-right",
+      "physical_index": 370,
+      "asset_index": 1,
+      "bbox": [
+        336,
+        635,
+        453,
+        648
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-190-right#asset-01",
+      "id": "sheet-190-right",
+      "physical_index": 380,
+      "asset_index": 1,
+      "bbox": [
+        339,
+        612,
+        457,
+        649
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-192-left#asset-01",
+      "id": "sheet-192-left",
+      "physical_index": 383,
+      "asset_index": 1,
+      "bbox": [
+        299,
+        589,
+        416,
+        604
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-207-right#asset-01",
+      "id": "sheet-207-right",
+      "physical_index": 414,
+      "asset_index": 1,
+      "bbox": [
+        339,
+        408,
+        456,
+        422
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-210-left#asset-01",
+      "id": "sheet-210-left",
+      "physical_index": 419,
+      "asset_index": 1,
+      "bbox": [
+        316,
+        374,
+        433,
+        388
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-212-right#asset-01",
+      "id": "sheet-212-right",
+      "physical_index": 424,
+      "asset_index": 1,
+      "bbox": [
+        332,
+        653,
+        450,
+        668
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-218-left#asset-01",
+      "id": "sheet-218-left",
+      "physical_index": 435,
+      "asset_index": 1,
+      "bbox": [
+        305,
+        188,
+        423,
+        202
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-223-right#asset-01",
+      "id": "sheet-223-right",
+      "physical_index": 446,
+      "asset_index": 1,
+      "bbox": [
+        334,
+        1115,
+        451,
+        1129
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-225-right#asset-01",
+      "id": "sheet-225-right",
+      "physical_index": 450,
+      "asset_index": 1,
+      "bbox": [
+        320,
+        703,
+        437,
+        716
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-226-right#asset-01",
+      "id": "sheet-226-right",
+      "physical_index": 452,
+      "asset_index": 1,
+      "bbox": [
+        740,
+        202,
+        750,
+        320
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-229-left#asset-01",
+      "id": "sheet-229-left",
+      "physical_index": 457,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        1136,
+        10,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-229-right#asset-01",
+      "id": "sheet-229-right",
+      "physical_index": 458,
+      "asset_index": 1,
+      "bbox": [
+        733,
+        1138,
+        749,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-232-left#asset-01",
+      "id": "sheet-232-left",
+      "physical_index": 463,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        0,
+        10,
+        123
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-234-left#asset-01",
+      "id": "sheet-234-left",
+      "physical_index": 467,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        0,
+        14,
+        74
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-234-left#asset-02",
+      "id": "sheet-234-left",
+      "physical_index": 467,
+      "asset_index": 2,
+      "bbox": [
+        0,
+        150,
+        9,
+        270
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-237-left#asset-01",
+      "id": "sheet-237-left",
+      "physical_index": 473,
+      "asset_index": 1,
+      "bbox": [
+        301,
+        981,
+        418,
+        995
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-239-right#asset-01",
+      "id": "sheet-239-right",
+      "physical_index": 478,
+      "asset_index": 1,
+      "bbox": [
+        342,
+        378,
+        459,
+        392
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-245-right#asset-01",
+      "id": "sheet-245-right",
+      "physical_index": 490,
+      "asset_index": 1,
+      "bbox": [
+        743,
+        514,
+        750,
+        592
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-245-right#asset-02",
+      "id": "sheet-245-right",
+      "physical_index": 490,
+      "asset_index": 2,
+      "bbox": [
+        353,
+        867,
+        435,
+        880
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-245-right#asset-03",
+      "id": "sheet-245-right",
+      "physical_index": 490,
+      "asset_index": 3,
+      "bbox": [
+        330,
+        1120,
+        447,
+        1133
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-247-left#asset-01",
+      "id": "sheet-247-left",
+      "physical_index": 493,
+      "asset_index": 1,
+      "bbox": [
+        304,
+        235,
+        421,
+        249
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-249-left#asset-01",
+      "id": "sheet-249-left",
+      "physical_index": 497,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        0,
+        11,
+        141
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-250-right#asset-01",
+      "id": "sheet-250-right",
+      "physical_index": 500,
+      "asset_index": 1,
+      "bbox": [
+        330,
+        1059,
+        447,
+        1073
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-253-right#asset-01",
+      "id": "sheet-253-right",
+      "physical_index": 506,
+      "asset_index": 1,
+      "bbox": [
+        323,
+        358,
+        442,
+        372
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        143
+      ],
+      "mentioned_figure_numbers": [
+        143
+      ],
+      "reason": "thin typographic rule; figure 143 is asset 2"
+    },
+    {
+      "key": "sheet-258-left#asset-01",
+      "id": "sheet-258-left",
+      "physical_index": 515,
+      "asset_index": 1,
+      "bbox": [
+        305,
+        704,
+        422,
+        718
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-258-right#asset-01",
+      "id": "sheet-258-right",
+      "physical_index": 516,
+      "asset_index": 1,
+      "bbox": [
+        325,
+        912,
+        443,
+        925
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-260-left#asset-01",
+      "id": "sheet-260-left",
+      "physical_index": 519,
+      "asset_index": 1,
+      "bbox": [
+        3,
+        993,
+        17,
+        1055
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-260-right#asset-01",
+      "id": "sheet-260-right",
+      "physical_index": 520,
+      "asset_index": 1,
+      "bbox": [
+        740,
+        960,
+        750,
+        1055
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-261-left#asset-02",
+      "id": "sheet-261-left",
+      "physical_index": 521,
+      "asset_index": 2,
+      "bbox": [
+        6,
+        962,
+        23,
+        1098
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        146
+      ],
+      "mentioned_figure_numbers": [
+        146
+      ],
+      "reason": "scanner/page-edge sliver; figure 146 is asset 1"
+    },
+    {
+      "key": "sheet-262-left#asset-01",
+      "id": "sheet-262-left",
+      "physical_index": 523,
+      "asset_index": 1,
+      "bbox": [
+        648,
+        1127,
+        750,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-262-right#asset-01",
+      "id": "sheet-262-right",
+      "physical_index": 524,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        1141,
+        94,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [
+        147
+      ],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-264-left#asset-01",
+      "id": "sheet-264-left",
+      "physical_index": 527,
+      "asset_index": 1,
+      "bbox": [
+        295,
+        722,
+        414,
+        736
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-266-left#asset-02",
+      "id": "sheet-266-left",
+      "physical_index": 531,
+      "asset_index": 2,
+      "bbox": [
+        310,
+        587,
+        428,
+        602
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [
+        150
+      ],
+      "mentioned_figure_numbers": [
+        150
+      ],
+      "reason": "thin typographic rule; figure 150 is asset 1"
+    },
+    {
+      "key": "sheet-269-left#asset-01",
+      "id": "sheet-269-left",
+      "physical_index": 537,
+      "asset_index": 1,
+      "bbox": [
+        460,
+        334,
+        684,
+        374
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-270-left#asset-01",
+      "id": "sheet-270-left",
+      "physical_index": 539,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        1079,
+        15,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-270-right#asset-01",
+      "id": "sheet-270-right",
+      "physical_index": 540,
+      "asset_index": 1,
+      "bbox": [
+        738,
+        724,
+        750,
+        814
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-271-left#asset-01",
+      "id": "sheet-271-left",
+      "physical_index": 541,
+      "asset_index": 1,
+      "bbox": [
+        306,
+        341,
+        424,
+        355
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-277-left#asset-01",
+      "id": "sheet-277-left",
+      "physical_index": 553,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        1086,
+        18,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-277-right#asset-01",
+      "id": "sheet-277-right",
+      "physical_index": 554,
+      "asset_index": 1,
+      "bbox": [
+        325,
+        367,
+        441,
+        380
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-281-right#asset-01",
+      "id": "sheet-281-right",
+      "physical_index": 562,
+      "asset_index": 1,
+      "bbox": [
+        78,
+        1071,
+        298,
+        1086
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-282-left#asset-01",
+      "id": "sheet-282-left",
+      "physical_index": 563,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        378,
+        37,
+        982
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-284-left#asset-01",
+      "id": "sheet-284-left",
+      "physical_index": 567,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        374,
+        26,
+        988
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-289-left#asset-01",
+      "id": "sheet-289-left",
+      "physical_index": 577,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        0,
+        10,
+        869
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-289-right#asset-01",
+      "id": "sheet-289-right",
+      "physical_index": 578,
+      "asset_index": 1,
+      "bbox": [
+        741,
+        0,
+        750,
+        80
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-290-left#asset-01",
+      "id": "sheet-290-left",
+      "physical_index": 579,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        198,
+        10,
+        617
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-290-left#asset-02",
+      "id": "sheet-290-left",
+      "physical_index": 579,
+      "asset_index": 2,
+      "bbox": [
+        0,
+        610,
+        11,
+        995
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-290-right#asset-01",
+      "id": "sheet-290-right",
+      "physical_index": 580,
+      "asset_index": 1,
+      "bbox": [
+        713,
+        658,
+        750,
+        1000
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-290-right#asset-02",
+      "id": "sheet-290-right",
+      "physical_index": 580,
+      "asset_index": 2,
+      "bbox": [
+        732,
+        1014,
+        749,
+        1118
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-291-left#asset-01",
+      "id": "sheet-291-left",
+      "physical_index": 581,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        0,
+        14,
+        698
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-292-left#asset-01",
+      "id": "sheet-292-left",
+      "physical_index": 583,
+      "asset_index": 1,
+      "bbox": [
+        0,
+        290,
+        14,
+        1200
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-294-left#asset-01",
+      "id": "sheet-294-left",
+      "physical_index": 587,
+      "asset_index": 1,
+      "bbox": [
+        481,
+        690,
+        538,
+        767
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-294-right#asset-01",
+      "id": "sheet-294-right",
+      "physical_index": 588,
+      "asset_index": 1,
+      "bbox": [
+        205,
+        684,
+        265,
+        752
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-296-right#asset-01",
+      "id": "sheet-296-right",
+      "physical_index": 592,
+      "asset_index": 1,
+      "bbox": [
+        124,
+        1046,
+        262,
+        1184
+      ],
+      "page_type": "body",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-02",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 2,
+      "bbox": [
+        187,
+        77,
+        304,
+        278
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-03",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 3,
+      "bbox": [
+        203,
+        302,
+        298,
+        481
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-04",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 4,
+      "bbox": [
+        194,
+        504,
+        304,
+        685
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-05",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 5,
+      "bbox": [
+        196,
+        709,
+        307,
+        886
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-06",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 6,
+      "bbox": [
+        194,
+        979,
+        294,
+        1103
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-07",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 7,
+      "bbox": [
+        194,
+        1189,
+        290,
+        1344
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-08",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 8,
+      "bbox": [
+        191,
+        1366,
+        291,
+        1548
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-09",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 9,
+      "bbox": [
+        178,
+        1570,
+        287,
+        1764
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-10",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 10,
+      "bbox": [
+        188,
+        1862,
+        286,
+        2002
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-11",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 11,
+      "bbox": [
+        190,
+        2027,
+        284,
+        2183
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-12",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 12,
+      "bbox": [
+        187,
+        2211,
+        296,
+        2404
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    },
+    {
+      "key": "sheet-300-left#asset-13",
+      "id": "sheet-300-left",
+      "physical_index": 599,
+      "asset_index": 13,
+      "bbox": [
+        3,
+        2369,
+        34,
+        2474
+      ],
+      "page_type": "cover",
+      "caption_figure_numbers": [],
+      "mentioned_figure_numbers": [],
+      "reason": "no numbered-figure/atlas/paratext evidence after editorial+overlay review"
+    }
+  ]
+}
