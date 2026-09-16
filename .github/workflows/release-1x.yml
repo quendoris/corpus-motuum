@@ -19,7 +19,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
 
     steps:
       - name: Checkout repository and Git LFS
@@ -32,23 +32,10 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y poppler-utils git-lfs
+          sudo apt-get install -y poppler-utils git-lfs fonts-dejavu-core
           python -m pip install --upgrade pip
-          python -m pip install numpy pillow opencv-python-headless pymupdf
+          python -m pip install -r requirements-release.txt
           git lfs pull
-
-      - name: Apply deterministic canonical release repairs
-        if: ${{ github.ref == 'refs/heads/release/1.x-foundation' }}
-        run: |
-          set -euo pipefail
-          python tools/fix_canonical_release_invariants.py --write
-          if ! git diff --quiet -- corpus/text/pages; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add corpus/text/pages
-            git commit -m "text: enforce release normalization invariants"
-            git push origin HEAD:release/1.x-foundation
-          fi
 
       - name: Validate canonical text corpus
         run: |
@@ -85,7 +72,6 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-
           expected = json.loads(Path("corpus/source/page-manifest.json").read_text())
           actual = json.loads(Path("work/book-release/page-manifest.json").read_text())
           fields = (
@@ -146,21 +132,34 @@ jobs:
             --manual-manifest work/figure-manual-release/manifest.json \
             --out-root work/figure-final-v1
 
-      - name: Verify canonical figure census
+      - name: Build release placement manifest
+        run: |
+          set -euo pipefail
+          python tools/build_figure_release_manifest.py \
+            --final-manifest work/figure-final-v1/manifest.json \
+            --logical-manifest work/figure-logical-release/compositions-manifest.json \
+            --manual-manifest work/figure-manual-release/manifest.json \
+            --out work/figure-final-v1/release-manifest.json
+
+      - name: Verify canonical figure census and placement
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
           from pathlib import Path
-
-          manifest = json.loads(Path("work/figure-final-v1/manifest.json").read_text())
+          manifest = json.loads(Path("work/figure-final-v1/release-manifest.json").read_text())
           expected = {"numbered": 158, "atlas": 6, "paratext": 4}
           actual = {key: len(manifest.get(key, [])) for key in expected}
-          if actual != expected:
-              raise SystemExit(f"canonical figure census mismatch: expected {expected}, got {actual}")
-          if sum(actual.values()) != 168:
-              raise SystemExit(f"expected 168 total canonical assets, got {sum(actual.values())}")
-          print(f"canonical figures: {actual}, total=168")
+          if actual != expected or sum(actual.values()) != 168:
+              raise SystemExit(f"canonical figure census mismatch: {actual}")
+          placement = manifest.get("release_placement", {})
+          if placement.get("placed_assets") != 168:
+              raise SystemExit(f"expected 168 placed assets, got {placement.get('placed_assets')}")
+          if placement.get("exact_bbox_assets") != 167:
+              raise SystemExit(f"expected 167 exact source bboxes before final figure-74 review, got {placement.get('exact_bbox_assets')}")
+          if placement.get("visual_review_required") != ["74"]:
+              raise SystemExit(f"unexpected visual placement review set: {placement.get('visual_review_required')}")
+          print("canonical figures: 168/168 page-linked; exact source bbox: 167/168; figure 74 queued for visual placement review")
           PY
 
       - name: Run figure regression tests
@@ -173,7 +172,7 @@ jobs:
           set -euo pipefail
           python tools/build_book_v1.py \
             --edition diplomatic \
-            --figures work/figure-final-v1/manifest.json \
+            --figures work/figure-final-v1/release-manifest.json \
             --out work/release-books/v1.0.0/book.json
 
       - name: Build normalized book payload v1.1.0
@@ -181,23 +180,45 @@ jobs:
           set -euo pipefail
           python tools/build_book_v1.py \
             --edition normalized \
-            --figures work/figure-final-v1/manifest.json \
+            --figures work/figure-final-v1/release-manifest.json \
             --out work/release-books/v1.1.0/book.json
 
       - name: Package both digital editions
         run: |
           set -euo pipefail
           rm -rf dist
+          publication=()
+          if [[ "${GITHUB_REF_TYPE:-branch}" == "tag" ]]; then
+            publication+=(--publication)
+          fi
           python tools/package_book_release.py \
             --book work/release-books/v1.0.0/book.json \
             --figure-root work/figure-final-v1 \
             --version 1.0.0 \
-            --out-dir dist
+            --out-dir dist \
+            "${publication[@]}"
           python tools/package_book_release.py \
             --book work/release-books/v1.1.0/book.json \
             --figure-root work/figure-final-v1 \
             --version 1.1.0 \
-            --out-dir dist
+            --out-dir dist \
+            "${publication[@]}"
+
+      - name: Build side-by-side visual review sheets
+        if: ${{ github.ref_type != 'tag' }}
+        run: |
+          set -euo pipefail
+          rm -rf review/release-1x
+          python tools/build_release_visual_review.py \
+            --book dist/corpus-motuum-v1.0.0-prereform/book.json \
+            --source-pages work/book-release/pages \
+            --pdf dist/corpus-motuum-v1.0.0-prereform/book.pdf \
+            --out review/release-1x/v1.0.0
+          python tools/build_release_visual_review.py \
+            --book dist/corpus-motuum-v1.1.0-normalized/book.json \
+            --source-pages work/book-release/pages \
+            --pdf dist/corpus-motuum-v1.1.0-normalized/book.pdf \
+            --out review/release-1x/v1.1.0
 
       - name: Verify release archives
         run: |
@@ -214,7 +235,14 @@ jobs:
           name: corpus-motuum-v1.0.0-prereform
           path: |
             dist/corpus-motuum-v1.0.0-prereform.tar.gz
+            dist/corpus-motuum-v1.0.0-prereform/book.pdf
+            dist/corpus-motuum-v1.0.0-prereform/book.epub
+            dist/corpus-motuum-v1.0.0-prereform/book.fb2
+            dist/corpus-motuum-v1.0.0-prereform/book.html
+            dist/corpus-motuum-v1.0.0-prereform/book.txt
             dist/corpus-motuum-v1.0.0-prereform/release-manifest.json
+            dist/corpus-motuum-v1.0.0-prereform/release-equivalence.json
+            dist/corpus-motuum-v1.0.0-prereform/format-manifest.json
             dist/corpus-motuum-v1.0.0-prereform/SHA256SUMS
             dist/ARCHIVE-SHA256SUMS
           if-no-files-found: error
@@ -227,11 +255,27 @@ jobs:
           name: corpus-motuum-v1.1.0-normalized
           path: |
             dist/corpus-motuum-v1.1.0-normalized.tar.gz
+            dist/corpus-motuum-v1.1.0-normalized/book.pdf
+            dist/corpus-motuum-v1.1.0-normalized/book.epub
+            dist/corpus-motuum-v1.1.0-normalized/book.fb2
+            dist/corpus-motuum-v1.1.0-normalized/book.html
+            dist/corpus-motuum-v1.1.0-normalized/book.txt
             dist/corpus-motuum-v1.1.0-normalized/release-manifest.json
+            dist/corpus-motuum-v1.1.0-normalized/release-equivalence.json
+            dist/corpus-motuum-v1.1.0-normalized/format-manifest.json
             dist/corpus-motuum-v1.1.0-normalized/SHA256SUMS
             dist/ARCHIVE-SHA256SUMS
           if-no-files-found: error
           compression-level: 0
+          retention-days: 30
+
+      - name: Upload release visual review
+        if: ${{ github.ref_type != 'tag' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-motuum-release-1x-visual-review
+          path: review/release-1x
+          if-no-files-found: error
           retention-days: 30
 
       - name: Publish tagged GitHub release
@@ -242,15 +286,13 @@ jobs:
           set -euo pipefail
           case "$GITHUB_REF_NAME" in
             v1.0.0)
+              package="dist/corpus-motuum-v1.0.0-prereform"
               archive="dist/corpus-motuum-v1.0.0-prereform.tar.gz"
-              manifest="dist/corpus-motuum-v1.0.0-prereform/release-manifest.json"
-              sums="dist/corpus-motuum-v1.0.0-prereform/SHA256SUMS"
               title="Corpus Motuum v1.0.0 — Prereform Edition"
               ;;
             v1.1.0)
+              package="dist/corpus-motuum-v1.1.0-normalized"
               archive="dist/corpus-motuum-v1.1.0-normalized.tar.gz"
-              manifest="dist/corpus-motuum-v1.1.0-normalized/release-manifest.json"
-              sums="dist/corpus-motuum-v1.1.0-normalized/SHA256SUMS"
               title="Corpus Motuum v1.1.0 — Normalized Orthography Edition"
               ;;
             *)
@@ -258,8 +300,16 @@ jobs:
               exit 1
               ;;
           esac
-
           if ! gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            gh release create "$GITHUB_REF_NAME" --title "$title" --notes "Faithful 600-page digital edition with the complete verified canonical figure set."
+            gh release create "$GITHUB_REF_NAME" --title "$title" --notes "Faithful 600-page digital edition. Reader formats are content-equivalent to the canonical text and complete 168-asset figure set."
           fi
-          gh release upload "$GITHUB_REF_NAME" "$archive" "$manifest" "$sums" dist/ARCHIVE-SHA256SUMS --clobber
+          gh release upload "$GITHUB_REF_NAME" \
+            "$archive" \
+            "$package/book.pdf" \
+            "$package/book.epub" \
+            "$package/book.fb2" \
+            "$package/release-manifest.json" \
+            "$package/release-equivalence.json" \
+            "$package/SHA256SUMS" \
+            dist/ARCHIVE-SHA256SUMS \
+            --clobber
