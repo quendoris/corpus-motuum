@@ -17,9 +17,8 @@
     "74": {
       "page_id": "sheet-128-left",
       "physical_index": 255,
-      "asset_bbox": null,
-      "requires_visual_placement_review": true,
-      "evidence": "corpus/figures/curation-v1.json known_issues: figure 74 is on sheet-128-left but the Russian engraving was missed completely because of severe same-side text and mirrored bleed-through"
+      "asset_bbox": [48, 838, 351, 1050],
+      "evidence": "Russian sheet-128-left visual evidence preserved in the release QA set: the 750x1200 source page is rendered at an exact 280x448 uniform scale; registration of the restored 563x395 engraving against the Russian engraving gives thumbnail bbox [18,313,131,392], which maps back to source coordinates [48,838,351,1050]."
     }
   }
 }
