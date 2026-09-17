@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://corpus-motuum.invalid/schemas/exercise-v1.schema.json",
+  "title": "Corpus Motuum Exercise v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "identity",
+    "source",
+    "names",
+    "description",
+    "execution",
+    "phases",
+    "equipment",
+    "body_position",
+    "movement",
+    "anatomy",
+    "biomechanics",
+    "kinetic_chain",
+    "evidence",
+    "risk_claims",
+    "variants",
+    "media",
+    "provenance"
+  ],
+  "properties": {
+    "schema": {"const": "corpus-motuum-exercise-v1"},
+    "id": {"type": "string", "pattern": "^EX-[0-9]{6}$"},
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["draft", "review", "verified"]},
+        "supersedes": {"type": ["string", "null"], "pattern": "^EX-[0-9]{6}$"},
+        "same_as": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "page_ids", "source_text", "source_text_layer"],
+      "properties": {
+        "source_id": {"type": "string"},
+        "page_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^sheet-[0-9]{3}-(left|right)$"}, "uniqueItems": true},
+        "physical_pages": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
+        "printed_pages": {"type": "array", "items": {"type": ["integer", "string", "null"]}},
+        "figure_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "source_text_layer": {"enum": ["diplomatic_text", "normalized_text"]},
+        "source_text": {"type": "string"},
+        "source_claims": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/historicalClaim"}
+        }
+      }
+    },
+    "names": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "normalized"],
+      "properties": {
+        "source": {"type": "string"},
+        "normalized": {"type": "string"},
+        "modern": {"type": ["string", "null"]},
+        "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["normalized_description", "editorial_notes"],
+      "properties": {
+        "normalized_description": {"type": "string"},
+        "modern_description": {"type": ["string", "null"]},
+        "editorial_notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["steps"],
+      "properties": {
+        "setup": {"type": ["string", "null"]},
+        "steps": {"type": "array", "items": {"type": "string"}},
+        "finish": {"type": ["string", "null"]},
+        "tempo": {"type": ["string", "null"]},
+        "breathing": {"type": ["string", "null"]}
+      }
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "description"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {"type": "string"},
+          "source_term": {"type": ["string", "null"]},
+          "canonical_id": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "body_position": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start": {"type": ["string", "null"]},
+        "end": {"type": ["string", "null"]},
+        "support": {"type": "array", "items": {"type": "string"}},
+        "orientation": {"type": ["string", "null"]}
+      }
+    },
+    "movement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "patterns": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "planes": {"type": "array", "items": {"enum": ["sagittal", "frontal", "transverse", "multiplanar"]}, "uniqueItems": true},
+        "laterality": {"enum": ["bilateral", "unilateral", "alternating", "mixed", "unknown"]},
+        "joint_actions": {"type": "array", "items": {"$ref": "#/$defs/jointAction"}}
+      }
+    },
+    "anatomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relations"],
+      "properties": {
+        "relations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/anatomyRelation"}
+        }
+      }
+    },
+    "biomechanics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "load_types": {
+          "type": "array",
+          "items": {"enum": ["axial", "compression", "shear", "tension", "torsion"]},
+          "uniqueItems": true
+        },
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "claim_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "kinetic_chain": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chain_type": {"enum": ["open", "closed", "mixed", "unknown"]},
+        "nodes": {"type": "array", "items": {"$ref": "#/$defs/graphNode"}},
+        "edges": {"type": "array", "items": {"$ref": "#/$defs/graphEdge"}}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claims"],
+      "properties": {
+        "claims": {"type": "array", "items": {"$ref": "#/$defs/evidenceClaim"}}
+      }
+    },
+    "risk_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim_id", "scope"],
+        "properties": {
+          "claim_id": {"type": "string"},
+          "scope": {"type": "string"},
+          "note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "description"],
+        "properties": {
+          "kind": {"enum": ["source", "historical", "modern", "progression", "regression"]},
+          "description": {"type": "string"},
+          "exercise_id": {"type": ["string", "null"], "pattern": "^EX-[0-9]{6}$"}
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_figures": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "restored_figures": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "renders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["view", "file"],
+            "properties": {
+              "view": {"enum": ["VIEW_A", "VIEW_B", "VIEW_C", "VIEW_D"]},
+              "file": {"type": "string"},
+              "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+            }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "editorial_notes"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "source_page_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+        "editorial_notes": {"type": "array", "items": {"type": "string"}},
+        "reviewed_by": {"type": "array", "items": {"type": "string"}},
+        "created_from_commit": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "$defs": {
+    "historicalClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "source_page_ids"],
+      "properties": {
+        "id": {"type": "string"},
+        "statement": {"type": "string"},
+        "source_page_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "jointAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["joint", "action"],
+      "properties": {
+        "joint": {"type": "string"},
+        "action": {"type": "string"},
+        "phase_id": {"type": ["string", "null"]},
+        "side": {"enum": ["left", "right", "bilateral", "not_applicable", "unknown"]}
+      }
+    },
+    "anatomyRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["anatomy_id", "role", "activation_class"],
+      "properties": {
+        "anatomy_id": {"type": "string"},
+        "role": {"enum": ["agonist", "synergist", "antagonist", "stabilizer", "dynamic_stabilizer"]},
+        "activation_class": {"enum": ["primary", "secondary", "minor"]},
+        "phase_id": {"type": ["string", "null"]},
+        "contraction": {"enum": ["concentric", "eccentric", "isometric", "mixed", "unknown"]},
+        "joint_action": {"type": ["string", "null"]},
+        "visual_weight": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "evidence_claim_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "evidenceClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "class", "statement", "supporting_sources", "contradicting_sources", "limitations"],
+      "properties": {
+        "id": {"type": "string"},
+        "class": {"enum": ["FACT", "SUPPORTED_INFERENCE", "HYPOTHESIS", "HISTORICAL_CLAIM"]},
+        "statement": {"type": "string"},
+        "population": {"type": ["string", "null"]},
+        "conditions": {"type": "object"},
+        "outcome": {"type": ["string", "null"]},
+        "evidence_type": {"enum": ["biomechanical_model", "emg", "rct", "cohort", "systematic_review", "meta_analysis", "anatomical_reference", "historical_source", "other"]},
+        "confidence": {"enum": ["very_low", "low", "moderate", "high", "not_assessed"]},
+        "supporting_sources": {"type": "array", "items": {"$ref": "#/$defs/citation"}},
+        "contradicting_sources": {"type": "array", "items": {"$ref": "#/$defs/citation"}},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {"type": "string"},
+        "doi": {"type": ["string", "null"]},
+        "pmid": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]},
+        "year": {"type": ["integer", "null"]},
+        "note": {"type": ["string", "null"]}
+      }
+    },
+    "graphNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "label"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"enum": ["segment", "joint", "support", "external_load", "equipment"]},
+        "label": {"type": "string"}
+      }
+    },
+    "graphEdge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to", "relation"],
+      "properties": {
+        "from": {"type": "string"},
+        "to": {"type": "string"},
+        "relation": {"type": "string"},
+        "phase_id": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
