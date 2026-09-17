@@ -1,0 +1,208 @@
+{
+  "schema": "corpus-motuum-figure-regressions-v1",
+  "baseline": "work/figure-structure-full-v2",
+  "principle": "Regression entries are anchored to immutable source-page SHA-256 values. The hard set describes observed failure classes; controls guard against fixing them by admitting unrelated ink globally.",
+  "common_acceptance": {
+    "format": "lossless PNG",
+    "channels": "RGBA",
+    "transparent_outside": true,
+    "transparent_rgb": "white",
+    "edge": "soft white alpha transition with crisp accepted ink"
+  },
+  "hard_set": [
+    {
+      "page_id": "sheet-076-right",
+      "physical_index": 152,
+      "source_sha256": "d4c12c6165609b8fe4550ac30af333f66a95abe7785b1a5afa5a17adc9f02814",
+      "asset_index": 1,
+      "figure_labels": [
+        "35",
+        "36"
+      ],
+      "failure_class": "structural-layout",
+      "acceptance": "Split the merged physical crop at source y=744 into two logical RGBA figures."
+    },
+    {
+      "page_id": "sheet-083-right",
+      "physical_index": 166,
+      "source_sha256": "c95e977fd9f568b5d1413cc4c5579782797a176086961b72231f90aa7744b2a3",
+      "asset_index": 1,
+      "figure_labels": [
+        "46"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the pale torso, arm and both legs."
+    },
+    {
+      "page_id": "sheet-100-left",
+      "physical_index": 199,
+      "source_sha256": "bae3e1f6a0fb6279a6aa921fab99f74bd53ac18a146f46c8a5bf1c2e63e7991c",
+      "asset_index": 1,
+      "figure_labels": [
+        "52"
+      ],
+      "failure_class": "weak-support-plus-artifact",
+      "acceptance": "Preserve clothing and shadows; reject the isolated compact dot to the right."
+    },
+    {
+      "page_id": "sheet-112-right",
+      "physical_index": 224,
+      "source_sha256": "224db060951b68395f1ba21f2c5478095e132f829b5984248f6d9cd02c4672c0",
+      "asset_index": 1,
+      "figure_labels": [
+        "57"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the horse, body, apparatus and legs."
+    },
+    {
+      "page_id": "sheet-113-left",
+      "physical_index": 225,
+      "source_sha256": "811acf057019462288757cae938196e1c834943715eff43c9813b15ffd9d2d67",
+      "asset_index": 1,
+      "figure_labels": [
+        "58"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the horse, body, apparatus and legs."
+    },
+    {
+      "page_id": "sheet-114-right",
+      "physical_index": 228,
+      "source_sha256": "e6d115a3c8391d38eec50afb5139efc2fe88572820fdb8641925f822b41d3205",
+      "asset_index": 1,
+      "figure_labels": [
+        "59"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve low-contrast shading and hatching."
+    },
+    {
+      "page_id": "sheet-114-right",
+      "physical_index": 228,
+      "source_sha256": "e6d115a3c8391d38eec50afb5139efc2fe88572820fdb8641925f822b41d3205",
+      "asset_index": 2,
+      "figure_labels": [
+        "60"
+      ],
+      "failure_class": "weak-support-plus-artifact",
+      "acceptance": "Preserve low-contrast shading; reject the isolated dense blemish above the drawing."
+    },
+    {
+      "page_id": "sheet-119-left",
+      "physical_index": 237,
+      "source_sha256": "092c486a7863c16dea2e5204a8e32636b8e31536290d7d47e3711eb10d656746",
+      "asset_index": 1,
+      "figure_labels": [
+        "62"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the complete legs and face."
+    },
+    {
+      "page_id": "sheet-119-right",
+      "physical_index": 238,
+      "source_sha256": "4ae7537883f0ac0568352e5e6e2fc5380076071ed5751d1c4755bef294bf4847",
+      "asset_index": 1,
+      "figure_labels": [
+        "63"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the complete legs and face."
+    },
+    {
+      "page_id": "sheet-122-left",
+      "physical_index": 243,
+      "source_sha256": "d68a0d119acf6cc9bdca76f6cbd93b5e1e3bad256a41195aa0b0a36d7d33cde3",
+      "asset_index": 1,
+      "figure_labels": [
+        "65"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the complete body and clothing."
+    },
+    {
+      "page_id": "sheet-122-right",
+      "physical_index": 244,
+      "source_sha256": "57214ba4b8ee35ff8162e7b0ff84e69ae199d02e9d530a3888973d5c35fcda2e",
+      "asset_index": 1,
+      "figure_labels": [
+        "66"
+      ],
+      "failure_class": "weak-support",
+      "acceptance": "Preserve the complete body and clothing."
+    }
+  ],
+  "held_out_controls": [
+    {
+      "page_id": "sheet-032-left",
+      "physical_index": 63,
+      "source_sha256": "14dd058fdbf1113b4dfea42c4c39caa0c187bc694d6c5ca2a7266b033cc30e97",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-075-left",
+      "physical_index": 149,
+      "source_sha256": "4899799331d7250b485dab7ab74a25109580e3da8e17ef14bdca83fcca91b89b",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-105-left",
+      "physical_index": 209,
+      "source_sha256": "bc14c1be962f7f438f14aea69344384653db1f8b776a38e206d3f5e35060c924",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-120-right",
+      "physical_index": 240,
+      "source_sha256": "c86704a09fd6e18326ada444f04579f4bc42391b891ea9cfb189a6fff8c88ffd",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-158-right",
+      "physical_index": 316,
+      "source_sha256": "450b37040599775c14d1782e6ddaac396eb46881e29516c33814764ef8868039",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-180-right",
+      "physical_index": 360,
+      "source_sha256": "ead4a0492bfe8fec3be7b7be19fe5e29e2df4da5028d77bffb7a53ee8f877312",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-205-left",
+      "physical_index": 409,
+      "source_sha256": "f1fa786655242a8a0aa0a96664ce963955d3cf9b8dc076dc039284fc5dfc9f81",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-230-left",
+      "physical_index": 459,
+      "source_sha256": "a92d24edfe0c4e87c823c1174b66c87856f17fbe208ab4e17a2dd7cda23778c4",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-263-left",
+      "physical_index": 525,
+      "source_sha256": "6ee181af7383f8101aaafc7aa37247db90c524b63a7bcaadc52680948cdc2c2b",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    },
+    {
+      "page_id": "sheet-274-right",
+      "physical_index": 548,
+      "source_sha256": "97d59beb56d5e0c5ac253d27ddf1958c99dc285df87c2368797590b7efd7adf5",
+      "asset_index": 1,
+      "acceptance": "Keep the same single logical asset and do not attach neighbouring typography or isolated scan dust."
+    }
+  ]
+}
