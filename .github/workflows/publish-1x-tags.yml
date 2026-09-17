@@ -9,36 +9,44 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
-  tag:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout validated main
+      - name: Checkout validated main and tags
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Create immutable 1.0 and 1.1 release tags
-        env:
-          TARGET_SHA: ${{ github.sha }}
+      - name: Verify immutable release tags
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
+          git fetch --tags --force
           for tag in v1.0.0 v1.1.0; do
-            remote_sha="$(git ls-remote --tags origin "refs/tags/$tag" | awk '{print $1}')"
-            if [[ -n "$remote_sha" ]]; then
-              if [[ "$remote_sha" != "$TARGET_SHA" ]]; then
-                echo "$tag already exists at $remote_sha, expected $TARGET_SHA" >&2
-                exit 1
-              fi
-              echo "$tag already points at validated main $TARGET_SHA"
-              continue
+            if ! git rev-parse --verify "$tag^{commit}" >/dev/null 2>&1; then
+              echo "required release tag is missing: $tag" >&2
+              exit 1
             fi
-            git tag "$tag" "$TARGET_SHA"
-            git push origin "refs/tags/$tag"
+            tagged_sha="$(git rev-parse "$tag^{commit}")"
+            if ! git merge-base --is-ancestor "$tagged_sha" "$GITHUB_SHA"; then
+              echo "$tag points outside current main history: $tagged_sha" >&2
+              exit 1
+            fi
+            echo "$tag -> $tagged_sha"
           done
 
-          echo "release tags created at $TARGET_SHA"
+      - name: Dispatch publication builds on both tags
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for tag in v1.0.0 v1.1.0; do
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "GitHub Release $tag already exists; skipping dispatch"
+              continue
+            fi
+            gh workflow run release-1x.yml --ref "$tag"
+            echo "dispatched release-1x.yml for $tag"
+          done
