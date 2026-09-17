@@ -226,12 +226,12 @@ def main() -> None:
 
     if placement_count != 168:
         raise SystemExit(f"release placement census is {placement_count}, expected 168")
-    if missing_bbox != ["74"]:
-        raise SystemExit(f"unexpected assets without exact source bbox: {missing_bbox}")
+    if missing_bbox:
+        raise SystemExit(f"release assets without exact source bbox: {missing_bbox}")
 
     output["release_placement"]["placed_assets"] = placement_count
-    output["release_placement"]["exact_bbox_assets"] = placement_count - len(missing_bbox)
-    output["release_placement"]["visual_review_required"] = missing_bbox
+    output["release_placement"]["exact_bbox_assets"] = placement_count
+    output["release_placement"]["visual_review_required"] = []
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(output["release_placement"], ensure_ascii=False, indent=2))
