@@ -155,11 +155,11 @@ jobs:
           placement = manifest.get("release_placement", {})
           if placement.get("placed_assets") != 168:
               raise SystemExit(f"expected 168 placed assets, got {placement.get('placed_assets')}")
-          if placement.get("exact_bbox_assets") != 167:
-              raise SystemExit(f"expected 167 exact source bboxes before final figure-74 review, got {placement.get('exact_bbox_assets')}")
-          if placement.get("visual_review_required") != ["74"]:
+          if placement.get("exact_bbox_assets") != 168:
+              raise SystemExit(f"expected 168 exact source bboxes, got {placement.get('exact_bbox_assets')}")
+          if placement.get("visual_review_required"):
               raise SystemExit(f"unexpected visual placement review set: {placement.get('visual_review_required')}")
-          print("canonical figures: 168/168 page-linked; exact source bbox: 167/168; figure 74 queued for visual placement review")
+          print("canonical figures: 168/168 page-linked with exact Russian source placement")
           PY
 
       - name: Run figure regression tests
