@@ -334,7 +334,7 @@ def make_record(
             "nodes": [],
             "edges": [],
         },
-        "evidence": {"claims": []},
+        "evidence": {"claim_ids": []},
         "risk_claims": [],
         "variants": [],
         "media": {
