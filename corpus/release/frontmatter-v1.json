@@ -1,0 +1,38 @@
+{
+  "schema": "corpus-motuum-frontmatter-policy-v1",
+  "principle": "Typographically distinctive title matter is presented from the immutable Russian source page rather than reconstructed from detached text and paratext stickers. Canonical text and extracted figure assets remain preserved as searchable/provenance layers.",
+  "facsimile_pages": [
+    {"id": "sheet-001-left", "physical_index": 1, "page_type": "cover"},
+    {"id": "sheet-001-right", "physical_index": 2, "page_type": "cover-title"},
+    {"id": "sheet-002-left", "physical_index": 3, "page_type": "half-title"},
+    {"id": "sheet-002-right", "physical_index": 4, "page_type": "title"},
+    {"id": "sheet-003-left", "physical_index": 5, "page_type": "title"},
+    {"id": "sheet-003-right", "physical_index": 6, "page_type": "censor-note"}
+  ],
+  "reflow_after_facsimile": {
+    "first_page": "sheet-004-left",
+    "physical_index": 7,
+    "page_type": "contents"
+  },
+  "front_matter_boundary": {
+    "last_contents_page": "sheet-021-left",
+    "last_contents_physical_index": 41,
+    "blank_separator_page": "sheet-021-right",
+    "blank_separator_physical_index": 42,
+    "preface_first_page": "sheet-022-left",
+    "preface_first_physical_index": 43
+  },
+  "format_policy": {
+    "pdf": "Replace declared title-matter pages with full-page source facsimiles plus an invisible searchable canonical text layer.",
+    "html_epub3": "Show the source facsimile; keep canonical transcription and canonical figure markup present but visually suppressed on those pages for search/provenance equivalence.",
+    "fb2": "Show the source facsimile followed by canonical reflowable transcription; suppress detached canonical figure placements on facsimile pages while retaining all canonical binaries in the package.",
+    "json_txt": "Remain canonical machine/text views and are not visually facsimilized."
+  },
+  "known_replaced_presentation": [
+    {
+      "asset_id": "cover-title-illustration",
+      "page_id": "sheet-001-right",
+      "reason": "The detached page-sticker reconstruction visibly damaged the two climbers/tree engraving. The immutable source title page is the correct release presentation."
+    }
+  ]
+}
