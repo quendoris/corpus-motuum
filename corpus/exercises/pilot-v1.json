@@ -73,7 +73,7 @@
         "printed_page": 36,
         "local_exercise_number": "31",
         "figure_labels": [
-          "3"
+          "4"
         ]
       },
       "source_title_diplomatic": "ВЫПАДЫ, ПРАВЫМИ И ЛѢВЫМИ ОКОНЕЧНОСТЯМИ ВПЕРЕДЪ.",
@@ -82,7 +82,21 @@
       "extraction": {
         "mode": "numbered_exercise",
         "start_number": "31",
-        "end": "next_numbered_exercise"
+        "end": "next_numbered_exercise",
+        "exclusions": [
+          {
+            "page_id": "sheet-038-right",
+            "reason": "Translator footnote belongs to the preceding exercise and interrupts the lunge sentence only because of page-layout transcription order.",
+            "start": {
+              "diplomatic": "болѣе можно допустить, что есть лица, которымъ трудно соединить совершенно ноги",
+              "normalized_orthography": "более можно допустить, что есть лица, которым трудно соединить совершенно ноги"
+            },
+            "end": {
+              "diplomatic": "(Примѣч. переводчика.)",
+              "normalized_orthography": "(Примеч. переводчика.)"
+            }
+          }
+        ]
       }
     },
     {
@@ -94,7 +108,6 @@
         "printed_page": 39,
         "local_exercise_number": "34",
         "figure_labels": [
-          "6",
           "7"
         ]
       },
@@ -108,7 +121,21 @@
         "end_before": {
           "diplomatic": "ПРЫЖКИ.",
           "normalized_orthography": "ПРЫЖКИ."
-        }
+        },
+        "exclusions": [
+          {
+            "page_id": "sheet-040-left",
+            "reason": "Translator footnote is anchored to the preceding exercise (marker after its closing sentence), not to exercise 34.",
+            "start": {
+              "diplomatic": "¹ Это упражненіе дѣйствительно очень трудно",
+              "normalized_orthography": "¹ Это упражнение действительно очень трудно"
+            },
+            "end": {
+              "diplomatic": "(примѣч. перев.)",
+              "normalized_orthography": "(примеч. перев.)"
+            }
+          }
+        ]
       }
     },
     {
@@ -141,7 +168,9 @@
         "physical_index": 105,
         "printed_page": 65,
         "local_exercise_number": "1",
-        "figure_labels": []
+        "figure_labels": [
+          "13"
+        ]
       },
       "source_title_diplomatic": "БОРЬБА СТОЯ, СОСТОЯЩАЯ ВЪ ОТПИХИВАНЬЕ МАЛЕНЬКОЙ ПАЛКИ.",
       "selection_reason": "Partner-resisted exercise; forces external-agent/contact modelling rather than treating all load as equipment.",
@@ -160,9 +189,7 @@
         "physical_index": 145,
         "printed_page": 105,
         "local_exercise_number": "2",
-        "figure_labels": [
-          "32"
-        ]
+        "figure_labels": []
       },
       "source_title_diplomatic": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕДЪ, ДО ПЛЕЧЪ.",
       "selection_reason": "Simple external-load exercise with historical implement; baseline for equipment mass/handle assumptions and evidence mapping.",
@@ -221,7 +248,10 @@
         "physical_index": 227,
         "printed_page": 187,
         "local_exercise_number": "22",
-        "figure_labels": []
+        "figure_labels": [
+          "59",
+          "60"
+        ]
       },
       "source_title_diplomatic": "СТАТЬ СБОКУ ЛОШАДИ; ПРЫГНУТЬ НА НЕЕ, ПРОТЯНУВЪ ПРАВУЮ НОГУ ВПЕРЕДЪ; СДѢЛАТЬ НѢСКОЛЬКО ДВИЖЕНІЙ НОГАМИ ВПЕРЕДЪ; ЗАТѢМЪ СДѢЛАТЬ НОЖНИЦЫ; ОПИСАТЬ ПОЛНЫЙ КРУГЪ, ПОВЕРНУВШИСЬ НА ПРАВОЙ ЛЯШКѢ И СПРЫГНУТЬ НА ЗЕМЛЮ, ПЕРЕКИНУВЪ ОБѢ НОГИ ЧЕРЕЗЪ ЛОШАДЬ.",
       "selection_reason": "Intentionally complex multi-phase apparatus sequence; primary stress test for phase graph and normalized description.",
@@ -324,9 +354,7 @@
         "physical_index": 415,
         "printed_page": 375,
         "local_exercise_number": "26",
-        "figure_labels": [
-          "119"
-        ]
+        "figure_labels": []
       },
       "source_title_diplomatic": "ИДТИ ПОДЪ ЛѢСТНИЦЕЮ, ПЕРЕХВАТАМИ, СХВАТЫВАЯ, КАЖДЫЙ РАЗЪ, СТУПЕНЬКУ НА НѢКОТОРОМЪ РАЗСТОЯНІИ.",
       "selection_reason": "Horizontal ladder traversal; tests repeated hand-over-hand phases, apparatus geometry and fatigue-related evidence.",
