@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://corpus-motuum.invalid/schemas/evidence-claim-v1.schema.json",
+  "title": "Corpus Motuum Atomic Evidence Claim v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "status",
+    "class",
+    "statement",
+    "scope",
+    "conditions",
+    "supporting",
+    "contradicting",
+    "limitations",
+    "confidence",
+    "provenance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "corpus-motuum-evidence-claim-v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^CLM-[0-9]{6}$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "review",
+        "verified"
+      ]
+    },
+    "class": {
+      "enum": [
+        "FACT",
+        "SUPPORTED_INFERENCE",
+        "HYPOTHESIS",
+        "HISTORICAL_CLAIM"
+      ]
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exercise_ids",
+        "anatomy_ids"
+      ],
+      "properties": {
+        "exercise_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^EX-[0-9]{6}$"
+          },
+          "uniqueItems": true
+        },
+        "anatomy_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^ANAT-[0-9]{6}$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "population": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "conditions": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supporting": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceEdge"
+      }
+    },
+    "contradicting": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceEdge"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "rationale"
+      ],
+      "properties": {
+        "level": {
+          "enum": [
+            "very_low",
+            "low",
+            "moderate",
+            "high",
+            "not_assessed"
+          ]
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "editorial_notes",
+        "reviewed_by"
+      ],
+      "properties": {
+        "historical_page_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sheet-[0-9]{3}-(left|right)$"
+          },
+          "uniqueItems": true
+        },
+        "editorial_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewed_by": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_from_commit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "evidenceEdge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "relation"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^(EVSRC-[0-9]{6}|source-[0-9]{3})$"
+        },
+        "relation": {
+          "enum": [
+            "supports",
+            "partially_supports",
+            "contradicts",
+            "context_only"
+          ]
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
