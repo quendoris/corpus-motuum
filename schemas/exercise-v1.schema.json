@@ -467,14 +467,16 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "claims"
+        "claim_ids"
       ],
       "properties": {
-        "claims": {
+        "claim_ids": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/evidenceClaim"
-          }
+            "type": "string",
+            "pattern": "^CLM-[0-9]{6}$"
+          },
+          "uniqueItems": true
         }
       }
     },
@@ -745,131 +747,6 @@
             "type": "string"
           },
           "uniqueItems": true
-        }
-      }
-    },
-    "evidenceClaim": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "id",
-        "class",
-        "statement",
-        "supporting_sources",
-        "contradicting_sources",
-        "limitations"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "class": {
-          "enum": [
-            "FACT",
-            "SUPPORTED_INFERENCE",
-            "HYPOTHESIS",
-            "HISTORICAL_CLAIM"
-          ]
-        },
-        "statement": {
-          "type": "string"
-        },
-        "population": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "conditions": {
-          "type": "object"
-        },
-        "outcome": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "evidence_type": {
-          "enum": [
-            "biomechanical_model",
-            "emg",
-            "rct",
-            "cohort",
-            "systematic_review",
-            "meta_analysis",
-            "anatomical_reference",
-            "historical_source",
-            "other"
-          ]
-        },
-        "confidence": {
-          "enum": [
-            "very_low",
-            "low",
-            "moderate",
-            "high",
-            "not_assessed"
-          ]
-        },
-        "supporting_sources": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/citation"
-          }
-        },
-        "contradicting_sources": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/citation"
-          }
-        },
-        "limitations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "citation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "title"
-      ],
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "doi": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "pmid": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "year": {
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "note": {
-          "type": [
-            "string",
-            "null"
-          ]
         }
       }
     },
