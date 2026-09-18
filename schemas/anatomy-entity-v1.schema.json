@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://corpus-motuum.invalid/schemas/anatomy-entity-v1.schema.json",
+  "title": "Corpus Motuum Anatomy Entity v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "status",
+    "kind",
+    "canonical_latin",
+    "terminology",
+    "labels",
+    "relations",
+    "provenance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "corpus-motuum-anatomy-entity-v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^ANAT-[0-9]{6}$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "review",
+        "verified"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "muscle",
+        "muscle_group",
+        "tendon",
+        "ligament",
+        "bone",
+        "joint",
+        "cartilage",
+        "fascia",
+        "nerve",
+        "other"
+      ]
+    },
+    "canonical_latin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "terminology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "authority"
+      ],
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "term_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ru",
+        "en",
+        "aliases"
+      ],
+      "properties": {
+        "ru": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "en": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parent_ids",
+        "part_of_ids"
+      ],
+      "properties": {
+        "parent_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^ANAT-[0-9]{6}$"
+          },
+          "uniqueItems": true
+        },
+        "part_of_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^ANAT-[0-9]{6}$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "editorial_notes",
+        "reviewed_by"
+      ],
+      "properties": {
+        "editorial_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewed_by": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_from_commit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
