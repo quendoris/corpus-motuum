@@ -1,0 +1,60 @@
+name: Publish 1.x patch release tags
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-1x-patch-tags.yml'
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main and tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create immutable patch tags at reviewed merge commit
+        env:
+          PATCH_TARGET_SHA: 50912d397698598dcf7851e7dae2822082711db2
+        run: |
+          set -euo pipefail
+          git fetch --tags --force
+          if ! git merge-base --is-ancestor "$PATCH_TARGET_SHA" "$GITHUB_SHA"; then
+            echo "reviewed patch target is not in current main history" >&2
+            exit 1
+          fi
+          for tag in v1.0.1 v1.1.1; do
+            if git rev-parse --verify "$tag^{commit}" >/dev/null 2>&1; then
+              existing="$(git rev-parse "$tag^{commit}")"
+              if [[ "$existing" != "$PATCH_TARGET_SHA" ]]; then
+                echo "$tag already points to $existing, refusing to move it" >&2
+                exit 1
+              fi
+              echo "$tag already exists at reviewed target"
+            else
+              git tag "$tag" "$PATCH_TARGET_SHA"
+              git push origin "$tag"
+              echo "created $tag -> $PATCH_TARGET_SHA"
+            fi
+          done
+
+      - name: Dispatch publication builds explicitly
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for tag in v1.0.1 v1.1.1; do
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "GitHub Release $tag already exists; skipping dispatch"
+              continue
+            fi
+            gh workflow run release-1x-patch.yml --ref "$tag"
+            echo "dispatched release-1x-patch.yml for $tag"
+          done
