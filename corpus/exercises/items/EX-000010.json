@@ -38,14 +38,36 @@
         "printed_page": null,
         "source_sha256": "54ff0e33e80fcffe76c705f91ed362c8d9a7303fc9cb03b89772a6ca34e32f6b",
         "diplomatic": {
-          "start": 1009,
-          "end": 1772,
-          "sha256": "7c7003913c091e899816b10c07026d0e33a2a98a6b091c2cf9fdbbff2b5dda5a"
+          "base": {
+            "start": 1009,
+            "end": 1772,
+            "sha256": "7c7003913c091e899816b10c07026d0e33a2a98a6b091c2cf9fdbbff2b5dda5a"
+          },
+          "included_ranges": [
+            {
+              "start": 1009,
+              "end": 1772,
+              "sha256": "7c7003913c091e899816b10c07026d0e33a2a98a6b091c2cf9fdbbff2b5dda5a"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "7c7003913c091e899816b10c07026d0e33a2a98a6b091c2cf9fdbbff2b5dda5a"
         },
         "normalized_orthography": {
-          "start": 962,
-          "end": 1692,
-          "sha256": "2fd5e3aa3ef4b282ea7fdc18f58556e885cd70bc951cb9c0b30403b251920a05"
+          "base": {
+            "start": 962,
+            "end": 1692,
+            "sha256": "2fd5e3aa3ef4b282ea7fdc18f58556e885cd70bc951cb9c0b30403b251920a05"
+          },
+          "included_ranges": [
+            {
+              "start": 962,
+              "end": 1692,
+              "sha256": "2fd5e3aa3ef4b282ea7fdc18f58556e885cd70bc951cb9c0b30403b251920a05"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "2fd5e3aa3ef4b282ea7fdc18f58556e885cd70bc951cb9c0b30403b251920a05"
         }
       },
       {
@@ -54,14 +76,36 @@
         "printed_page": null,
         "source_sha256": "e6d115a3c8391d38eec50afb5139efc2fe88572820fdb8641925f822b41d3205",
         "diplomatic": {
-          "start": 5,
-          "end": 928,
-          "sha256": "4337b239ad5781d20e8b3723f3ebc1a437b4d806cb5dc0c5c6b105663195a805"
+          "base": {
+            "start": 5,
+            "end": 928,
+            "sha256": "4337b239ad5781d20e8b3723f3ebc1a437b4d806cb5dc0c5c6b105663195a805"
+          },
+          "included_ranges": [
+            {
+              "start": 5,
+              "end": 928,
+              "sha256": "4337b239ad5781d20e8b3723f3ebc1a437b4d806cb5dc0c5c6b105663195a805"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "4337b239ad5781d20e8b3723f3ebc1a437b4d806cb5dc0c5c6b105663195a805"
         },
         "normalized_orthography": {
-          "start": 5,
-          "end": 876,
-          "sha256": "a2eabd4825c437a4bb0811955fa8d2c7cd8beac98c9e14763dbd639ab4b3f3eb"
+          "base": {
+            "start": 5,
+            "end": 876,
+            "sha256": "a2eabd4825c437a4bb0811955fa8d2c7cd8beac98c9e14763dbd639ab4b3f3eb"
+          },
+          "included_ranges": [
+            {
+              "start": 5,
+              "end": 876,
+              "sha256": "a2eabd4825c437a4bb0811955fa8d2c7cd8beac98c9e14763dbd639ab4b3f3eb"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "a2eabd4825c437a4bb0811955fa8d2c7cd8beac98c9e14763dbd639ab4b3f3eb"
         }
       },
       {
@@ -70,14 +114,36 @@
         "printed_page": null,
         "source_sha256": "80dfc809f5d52bb3677d0719e694443716309093b608150d8ee9808981795f8d",
         "diplomatic": {
-          "start": 5,
-          "end": 215,
-          "sha256": "93b43857c61ca787b4d7a16ff7cd2003e2e5a895cf8089171f7a6f85f78c937f"
+          "base": {
+            "start": 5,
+            "end": 215,
+            "sha256": "93b43857c61ca787b4d7a16ff7cd2003e2e5a895cf8089171f7a6f85f78c937f"
+          },
+          "included_ranges": [
+            {
+              "start": 5,
+              "end": 215,
+              "sha256": "93b43857c61ca787b4d7a16ff7cd2003e2e5a895cf8089171f7a6f85f78c937f"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "93b43857c61ca787b4d7a16ff7cd2003e2e5a895cf8089171f7a6f85f78c937f"
         },
         "normalized_orthography": {
-          "start": 5,
-          "end": 205,
-          "sha256": "24352d7f9f41ca449732eda37ebc29050fd13511687e91ef132f5898c62d3ac0"
+          "base": {
+            "start": 5,
+            "end": 205,
+            "sha256": "24352d7f9f41ca449732eda37ebc29050fd13511687e91ef132f5898c62d3ac0"
+          },
+          "included_ranges": [
+            {
+              "start": 5,
+              "end": 205,
+              "sha256": "24352d7f9f41ca449732eda37ebc29050fd13511687e91ef132f5898c62d3ac0"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "24352d7f9f41ca449732eda37ebc29050fd13511687e91ef132f5898c62d3ac0"
         }
       }
     ],
@@ -149,7 +215,7 @@
       "sheet-115-left": "80dfc809f5d52bb3677d0719e694443716309093b608150d8ee9808981795f8d"
     },
     "editorial_notes": [
-      "Machine-extracted source span only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
+      "Machine-extracted source selection only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
     ],
     "reviewed_by": [],
     "created_from_commit": "a153965a9b68e572dc1cecd01d7527463ed4f750"

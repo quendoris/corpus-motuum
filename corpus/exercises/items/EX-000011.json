@@ -32,14 +32,36 @@
         "printed_page": null,
         "source_sha256": "10c6758a6ff1775c6107ecd5105fb194efcd7d88cb73190cce89ff81808544ae",
         "diplomatic": {
-          "start": 723,
-          "end": 1720,
-          "sha256": "dae18f077324ea7f4dc50a0ae0aa828370c327bf057d1385bcb81f7a4132a8e7"
+          "base": {
+            "start": 723,
+            "end": 1720,
+            "sha256": "dae18f077324ea7f4dc50a0ae0aa828370c327bf057d1385bcb81f7a4132a8e7"
+          },
+          "included_ranges": [
+            {
+              "start": 723,
+              "end": 1720,
+              "sha256": "dae18f077324ea7f4dc50a0ae0aa828370c327bf057d1385bcb81f7a4132a8e7"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "dae18f077324ea7f4dc50a0ae0aa828370c327bf057d1385bcb81f7a4132a8e7"
         },
         "normalized_orthography": {
-          "start": 691,
-          "end": 1645,
-          "sha256": "3508035dbcad0013747253cfeeae20e149cc9763c73b26c8fb7355a562cd71b1"
+          "base": {
+            "start": 691,
+            "end": 1645,
+            "sha256": "3508035dbcad0013747253cfeeae20e149cc9763c73b26c8fb7355a562cd71b1"
+          },
+          "included_ranges": [
+            {
+              "start": 691,
+              "end": 1645,
+              "sha256": "3508035dbcad0013747253cfeeae20e149cc9763c73b26c8fb7355a562cd71b1"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "3508035dbcad0013747253cfeeae20e149cc9763c73b26c8fb7355a562cd71b1"
         }
       },
       {
@@ -48,14 +70,36 @@
         "printed_page": null,
         "source_sha256": "90fbce25f7d48bbdb4cc0d44d8a6d75439f359a48e220950cfb2a8f225ece46b",
         "diplomatic": {
-          "start": 5,
-          "end": 1810,
-          "sha256": "7e26a9b7b636802d4b25f6f59139e3412f9d1c9850cdd7280be31ac70df1ab80"
+          "base": {
+            "start": 5,
+            "end": 1810,
+            "sha256": "7e26a9b7b636802d4b25f6f59139e3412f9d1c9850cdd7280be31ac70df1ab80"
+          },
+          "included_ranges": [
+            {
+              "start": 5,
+              "end": 1810,
+              "sha256": "7e26a9b7b636802d4b25f6f59139e3412f9d1c9850cdd7280be31ac70df1ab80"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "7e26a9b7b636802d4b25f6f59139e3412f9d1c9850cdd7280be31ac70df1ab80"
         },
         "normalized_orthography": {
-          "start": 5,
-          "end": 1738,
-          "sha256": "8b5683311d7829a9fabf101041ddf2cfd5eafee03eee3756f1bcc2f289fdc06b"
+          "base": {
+            "start": 5,
+            "end": 1738,
+            "sha256": "8b5683311d7829a9fabf101041ddf2cfd5eafee03eee3756f1bcc2f289fdc06b"
+          },
+          "included_ranges": [
+            {
+              "start": 5,
+              "end": 1738,
+              "sha256": "8b5683311d7829a9fabf101041ddf2cfd5eafee03eee3756f1bcc2f289fdc06b"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "8b5683311d7829a9fabf101041ddf2cfd5eafee03eee3756f1bcc2f289fdc06b"
         }
       }
     ],
@@ -123,7 +167,7 @@
       "sheet-117-right": "90fbce25f7d48bbdb4cc0d44d8a6d75439f359a48e220950cfb2a8f225ece46b"
     },
     "editorial_notes": [
-      "Machine-extracted source span only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
+      "Machine-extracted source selection only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
     ],
     "reviewed_by": [],
     "created_from_commit": "a153965a9b68e572dc1cecd01d7527463ed4f750"

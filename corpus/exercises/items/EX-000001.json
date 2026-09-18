@@ -29,14 +29,36 @@
         "printed_page": null,
         "source_sha256": "d2df15b89f05589783f416db07f7d663fef38a55e1d46dd9e33b504df824887c",
         "diplomatic": {
-          "start": 183,
-          "end": 1287,
-          "sha256": "6fd030da3531e2fa49253d4d613c7d2d45e762cc3350eb745d1aac1174136e25"
+          "base": {
+            "start": 183,
+            "end": 1287,
+            "sha256": "6fd030da3531e2fa49253d4d613c7d2d45e762cc3350eb745d1aac1174136e25"
+          },
+          "included_ranges": [
+            {
+              "start": 183,
+              "end": 1287,
+              "sha256": "6fd030da3531e2fa49253d4d613c7d2d45e762cc3350eb745d1aac1174136e25"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "6fd030da3531e2fa49253d4d613c7d2d45e762cc3350eb745d1aac1174136e25"
         },
         "normalized_orthography": {
-          "start": 173,
-          "end": 1240,
-          "sha256": "4649098b06023c50ac6c4cd3b69511437c5e02762de397759c2cbba2bde30f5d"
+          "base": {
+            "start": 173,
+            "end": 1240,
+            "sha256": "4649098b06023c50ac6c4cd3b69511437c5e02762de397759c2cbba2bde30f5d"
+          },
+          "included_ranges": [
+            {
+              "start": 173,
+              "end": 1240,
+              "sha256": "4649098b06023c50ac6c4cd3b69511437c5e02762de397759c2cbba2bde30f5d"
+            }
+          ],
+          "excluded_ranges": [],
+          "rendered_sha256": "4649098b06023c50ac6c4cd3b69511437c5e02762de397759c2cbba2bde30f5d"
         }
       }
     ],
@@ -103,7 +125,7 @@
       "sheet-028-left": "d2df15b89f05589783f416db07f7d663fef38a55e1d46dd9e33b504df824887c"
     },
     "editorial_notes": [
-      "Machine-extracted source span only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
+      "Machine-extracted source selection only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
     ],
     "reviewed_by": [],
     "created_from_commit": "a153965a9b68e572dc1cecd01d7527463ed4f750"
