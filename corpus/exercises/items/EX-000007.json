@@ -1,0 +1,115 @@
+{
+  "schema": "corpus-motuum-exercise-v1",
+  "id": "EX-000007",
+  "identity": {
+    "status": "draft",
+    "supersedes": null,
+    "same_as": []
+  },
+  "source": {
+    "source_id": "source-001",
+    "page_ids": [
+      "sheet-073-left"
+    ],
+    "physical_pages": [
+      145
+    ],
+    "printed_pages": [
+      null
+    ],
+    "figure_ids": [
+      "figure-032"
+    ],
+    "text": {
+      "diplomatic": "2-е УПРАЖНЕНІЕ.\n\nОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕДЪ, ДО ПЛЕЧЪ.\n\nПоложеніе учениковъ тоже; команда:\n\nОдновременное подниманіе гиръ впередъ, къ плечамъ;\nМАРШЪ. Разъ, ДВА.\n\nПо командѣ: Маршъ, ученики поднимаютъ гири впередъ, дѣлая усиліе обѣими руками разомъ, пока онѣ ни придутъ на высоту плечъ, какъ сказано при предъидущемъ упражненіи, и считаютъ: разъ, принимая это положеніе; потомъ они плавно опускаютъ гири въ ихъ прежнее положеніе, считая: два; затѣмъ, они снова поднимаютъ ихъ и продолжаютъ такимъ образомъ до легкаго утомленія.",
+      "normalized_orthography": "2-е УПРАЖНЕНИЕ.\n\nОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕД, ДО ПЛЕЧ.\n\nПоложение учеников то же; команда:\n\nОдновременное поднимание гир вперед, к плечам;\nМАРШ. Раз, ДВА.\n\nПо команде: Марш, ученики поднимают гири вперед, делая усилие обеими руками разом, пока оне ни придут на высоту плеч, как сказано при предыдущем упражнении, и считают: раз, принимая это положение; потом они плавно опускают гири в их прежнее положение, считая: два; затем, они снова поднимают их и продолжают таким образом до легкаго утомления."
+    },
+    "segments": [
+      {
+        "page_id": "sheet-073-left",
+        "physical_index": 145,
+        "printed_page": null,
+        "source_sha256": "43ab93ff38df49b97bbfb53791257c0be10dfef2997fcb232f3126022aa3f667",
+        "diplomatic": {
+          "start": 578,
+          "end": 1113,
+          "sha256": "df1f09d91b71a916d1ae1b309648ac642131cea79f0ff27df857769ef71d722e"
+        },
+        "normalized_orthography": {
+          "start": 551,
+          "end": 1057,
+          "sha256": "417b252049f30448e2809538ba163976967f60bcbc2ac5d2413cd50a6c2eeca0"
+        }
+      }
+    ],
+    "source_claims": []
+  },
+  "names": {
+    "source": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕДЪ, ДО ПЛЕЧЪ.",
+    "normalized": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕД, ДО ПЛЕЧ.",
+    "modern": null,
+    "aliases": []
+  },
+  "description": {
+    "normalized_description": "",
+    "modern_description": null,
+    "editorial_notes": []
+  },
+  "execution": {
+    "setup": null,
+    "steps": [],
+    "finish": null,
+    "tempo": null,
+    "breathing": null
+  },
+  "phases": [],
+  "equipment": [],
+  "body_position": {
+    "start": null,
+    "end": null,
+    "support": [],
+    "orientation": null
+  },
+  "movement": {
+    "patterns": [],
+    "planes": [],
+    "laterality": "unknown",
+    "joint_actions": []
+  },
+  "anatomy": {
+    "relations": []
+  },
+  "biomechanics": {
+    "load_types": [],
+    "notes": [],
+    "claim_ids": []
+  },
+  "kinetic_chain": {
+    "chain_type": "unknown",
+    "nodes": [],
+    "edges": []
+  },
+  "evidence": {
+    "claims": []
+  },
+  "risk_claims": [],
+  "variants": [],
+  "media": {
+    "source_figures": [
+      "figure-032"
+    ],
+    "restored_figures": [],
+    "renders": []
+  },
+  "provenance": {
+    "schema_version": 1,
+    "source_page_hashes": {
+      "sheet-073-left": "43ab93ff38df49b97bbfb53791257c0be10dfef2997fcb232f3126022aa3f667"
+    },
+    "editorial_notes": [
+      "Machine-extracted source span only; anatomy, biomechanics, evidence and modern interpretation are intentionally unset in this draft."
+    ],
+    "reviewed_by": [],
+    "created_from_commit": "a153965a9b68e572dc1cecd01d7527463ed4f750"
+  }
+}
