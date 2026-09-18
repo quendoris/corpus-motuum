@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://corpus-motuum.invalid/schemas/evidence-source-v1.schema.json",
+  "title": "Corpus Motuum Evidence Source v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "status",
+    "source_type",
+    "bibliography",
+    "identifiers",
+    "study",
+    "provenance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "corpus-motuum-evidence-source-v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^EVSRC-[0-9]{6}$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "review",
+        "verified"
+      ]
+    },
+    "source_type": {
+      "enum": [
+        "historical_source",
+        "anatomical_reference",
+        "biomechanical_model",
+        "emg",
+        "rct",
+        "cohort",
+        "cross_sectional",
+        "case_control",
+        "systematic_review",
+        "meta_analysis",
+        "guideline",
+        "consensus_statement",
+        "other"
+      ]
+    },
+    "bibliography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "authors",
+        "year"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1500,
+          "maximum": 2200
+        },
+        "journal_or_work": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volume": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "issue": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pages": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "identifiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "doi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pmid": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isbn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "study": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "population": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sample_size": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "methods": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "measures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "editorial_notes",
+        "reviewed_by"
+      ],
+      "properties": {
+        "editorial_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewed_by": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retrieved_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "created_from_commit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
