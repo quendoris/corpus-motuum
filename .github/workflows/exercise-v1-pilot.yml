@@ -65,7 +65,7 @@ jobs:
                   raise SystemExit(rendered)
               if record["identity"]["status"] != "draft":
                   raise SystemExit(f"{path}: source materialization may only create draft records")
-              if record["anatomy"]["relations"] or record["evidence"]["claims"]:
+              if record["anatomy"]["relations"] or record["evidence"]["claim_ids"]:
                   raise SystemExit(f"{path}: source materialization may not invent derived claims")
           print(f"validated Exercise v1 pilot source drafts: {len(paths)}/16")
           PY
