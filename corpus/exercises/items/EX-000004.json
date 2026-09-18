@@ -91,7 +91,7 @@
     "edges": []
   },
   "evidence": {
-    "claims": []
+    "claim_ids": []
   },
   "risk_claims": [],
   "variants": [],
