@@ -1,0 +1,256 @@
+{
+  "schema": "corpus-motuum-exercise-pilot-v1",
+  "exercise_schema": "schemas/exercise-v1.schema.json",
+  "source_pdf_sha256": "bc8dbd965d242f8dbdefb3fbc28a9e24c9d68084a536d388bf96e376b68ff72e",
+  "principle": "Deliberately heterogeneous vertical pilot. IDs are stable once assigned; selection is designed to expose schema weaknesses before corpus-wide extraction.",
+  "target_count": 16,
+  "freeze_rule": "Do not freeze Exercise v1 until every selected item completes source -> structured record -> anatomy -> movement/phases -> kinetic chain -> evidence/provenance -> four standard renders and the schema survives review without ad-hoc per-item fields.",
+  "coverage_axes": [
+    "static posture",
+    "locomotion",
+    "unilateral lower-body",
+    "inverted support",
+    "ballistic jump",
+    "partner resistance",
+    "external load",
+    "running jump",
+    "apparatus vault",
+    "complex multi-phase apparatus",
+    "suspension",
+    "multi-planar swing",
+    "parallel bars",
+    "partner balance",
+    "horizontal ladder",
+    "compound portico traversal"
+  ],
+  "items": [
+    {
+      "id": "EX-000001",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-028-left",
+        "physical_index": 55,
+        "printed_page": 15,
+        "local_exercise_number": "1",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "ПРАВИЛЬНОЕ ПОЛОЖЕНІЕ ТѢЛА.",
+      "selection_reason": "Simple static whole-body posture; baseline for body-position vocabulary and historical-vs-modern interpretation."
+    },
+    {
+      "id": "EX-000002",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-032-left",
+        "physical_index": 63,
+        "printed_page": 23,
+        "local_exercise_number": "8",
+        "figure_labels": [
+          "1"
+        ]
+      },
+      "source_title_diplomatic": "ОБЫКНОВЕННЫЙ ГИМНАСТИЧЕСКІЙ ШАГЪ. 1-Й НА МѢСТѢ, 2-Й ПРИ ХОДЬБѢ.",
+      "selection_reason": "Locomotion with two variants and a historical figure; tests phases, cadence and variant modelling."
+    },
+    {
+      "id": "EX-000003",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-038-right",
+        "physical_index": 76,
+        "printed_page": 36,
+        "local_exercise_number": "31",
+        "figure_labels": [
+          "3"
+        ]
+      },
+      "source_title_diplomatic": "ВЫПАДЫ, ПРАВЫМИ И ЛѢВЫМИ ОКОНЕЧНОСТЯМИ ВПЕРЕДЪ.",
+      "selection_reason": "Unilateral lower-body movement; useful for side symmetry, joint actions and load-distribution modelling."
+    },
+    {
+      "id": "EX-000004",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-040-left",
+        "physical_index": 79,
+        "printed_page": 39,
+        "local_exercise_number": "34",
+        "figure_labels": [
+          "6",
+          "7"
+        ]
+      },
+      "source_title_diplomatic": "ДЕРЖАТЬ ТѢЛО ВЪ РАВНОВѢСІИ НА ЛОКТЯХЪ, ПОСТАВЯ ЛАДОНИ НАЗЕМЛЮ.",
+      "selection_reason": "Inverted/static support with two source illustrations; stresses balance, support graph and compound media linkage."
+    },
+    {
+      "id": "EX-000005",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-040-right",
+        "physical_index": 80,
+        "printed_page": 40,
+        "local_exercise_number": "35",
+        "figure_labels": [
+          "8",
+          "9"
+        ]
+      },
+      "source_title_diplomatic": "1-Й КЛАССЪ — ПРЫЖОКЪ СЪ ОБѢИХЪ НОГЪ ВПЕРЕДЪ.",
+      "selection_reason": "Ballistic body-weight jump; tests take-off/flight/landing phases and historical safety claims."
+    },
+    {
+      "id": "EX-000006",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-053-left",
+        "physical_index": 105,
+        "printed_page": 65,
+        "local_exercise_number": "1",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "БОРЬБА СТОЯ, СОСТОЯЩАЯ ВЪ ОТПИХИВАНЬЕ МАЛЕНЬКОЙ ПАЛКИ.",
+      "selection_reason": "Partner-resisted exercise; forces external-agent/contact modelling rather than treating all load as equipment."
+    },
+    {
+      "id": "EX-000007",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-073-left",
+        "physical_index": 145,
+        "printed_page": 105,
+        "local_exercise_number": "2",
+        "figure_labels": [
+          "32"
+        ]
+      },
+      "source_title_diplomatic": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕДЪ, ДО ПЛЕЧЪ.",
+      "selection_reason": "Simple external-load exercise with historical implement; baseline for equipment mass/handle assumptions and evidence mapping."
+    },
+    {
+      "id": "EX-000008",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-088-right",
+        "physical_index": 176,
+        "printed_page": 136,
+        "local_exercise_number": "1",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "ПРОСТОЙ ПРЫЖОКЪ ВЪ ДЛИНУ, СЪ РАЗБѢГОМЪ.",
+      "selection_reason": "Running approach plus jump; tests transition between cyclic locomotion and ballistic movement."
+    },
+    {
+      "id": "EX-000009",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-105-left",
+        "physical_index": 209,
+        "printed_page": 169,
+        "local_exercise_number": "1",
+        "figure_labels": [
+          "54"
+        ]
+      },
+      "source_title_diplomatic": "ВСПРЫГНУТЬ НА КРУПЪ ЛОШАДИ И БРОСИТЬСЯ НАЗАДЪ НА ЗЕМЛЮ.",
+      "selection_reason": "Apparatus vault/dismount with a source figure; tests contact-state changes and landing risk claims."
+    },
+    {
+      "id": "EX-000010",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-114-left",
+        "physical_index": 227,
+        "printed_page": 187,
+        "local_exercise_number": "22",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "СТАТЬ СБОКУ ЛОШАДИ; ПРЫГНУТЬ НА НЕЕ, ПРОТЯНУВЪ ПРАВУЮ НОГУ ВПЕРЕДЪ; СДѢЛАТЬ НѢСКОЛЬКО ДВИЖЕНІЙ НОГАМИ ВПЕРЕДЪ; ЗАТѢМЪ СДѢЛАТЬ НОЖНИЦЫ; ОПИСАТЬ ПОЛНЫЙ КРУГЪ, ПОВЕРНУВШИСЬ НА ПРАВОЙ ЛЯШКѢ И СПРЫГНУТЬ НА ЗЕМЛЮ, ПЕРЕКИНУВЪ ОБѢ НОГИ ЧЕРЕЗЪ ЛОШАДЬ.",
+      "selection_reason": "Intentionally complex multi-phase apparatus sequence; primary stress test for phase graph and normalized description."
+    },
+    {
+      "id": "EX-000011",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-117-left",
+        "physical_index": 233,
+        "printed_page": 193,
+        "local_exercise_number": "1",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "ПОВИСНУТЬ НА РУКАХЪ, ОДНОВРЕМЕННО, ПОПЕРЕМѢННО И СПУСТИТЬСЯ.",
+      "selection_reason": "Basic suspension; establishes grip/support terminology and open-vs-closed chain conventions."
+    },
+    {
+      "id": "EX-000012",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-119-right",
+        "physical_index": 238,
+        "printed_page": 198,
+        "local_exercise_number": "6",
+        "figure_labels": [
+          "63"
+        ]
+      },
+      "source_title_diplomatic": "ПОВИСНУТЬ НА РУКАХЪ И СООБЩИТЬ НОГАМЪ КРУГОВОЕ ДВИЖЕНІЕ СПРАВА НА ЛѢВО И СЛѢВА НАПРАВО.",
+      "selection_reason": "Suspended multi-planar swing with historical illustration; stresses movement planes and time-varying kinetic chain."
+    },
+    {
+      "id": "EX-000013",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-138-right",
+        "physical_index": 276,
+        "printed_page": 236,
+        "local_exercise_number": "3",
+        "figure_labels": [
+          "80"
+        ]
+      },
+      "source_title_diplomatic": "ПОВИСНУТЬ НА РУКАХЪ, ВЪ БРУСЬЯХЪ, СДѢЛАТЬ КАЧАНІЕ ТѢЛОМЪ И НОГАМИ, ПОСТЕПЕННО ОСТАНОВИТЬСЯ И СПУСТИТЬСЯ.",
+      "selection_reason": "Parallel-bar swing; tests bilateral upper-limb support, momentum and controlled deceleration."
+    },
+    {
+      "id": "EX-000014",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-166-right",
+        "physical_index": 332,
+        "printed_page": 292,
+        "local_exercise_number": "19",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "ВСТРѢТИТЬСЯ ДВОИМЪ ПО СЕРЕДИНѢ БРЕВНА И ЗАВЯЗАТЬ БОРЬБУ, СТАРАЯСЬ НАРУШИТЬ ДРУГЪ У ДРУГА РАВНОВѢСІЕ.",
+      "selection_reason": "Partner interaction on unstable/narrow support; stress test for environment, opponent forces, balance and risk evidence."
+    },
+    {
+      "id": "EX-000015",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-208-left",
+        "physical_index": 415,
+        "printed_page": 375,
+        "local_exercise_number": "26",
+        "figure_labels": [
+          "119"
+        ]
+      },
+      "source_title_diplomatic": "ИДТИ ПОДЪ ЛѢСТНИЦЕЮ, ПЕРЕХВАТАМИ, СХВАТЫВАЯ, КАЖДЫЙ РАЗЪ, СТУПЕНЬКУ НА НѢКОТОРОМЪ РАЗСТОЯНІИ.",
+      "selection_reason": "Horizontal ladder traversal; tests repeated hand-over-hand phases, apparatus geometry and fatigue-related evidence."
+    },
+    {
+      "id": "EX-000016",
+      "status": "selected",
+      "source": {
+        "page_id": "sheet-233-left",
+        "physical_index": 465,
+        "printed_page": 425,
+        "local_exercise_number": "34",
+        "figure_labels": []
+      },
+      "source_title_diplomatic": "ВЗЛѢЗТЬ ПО ЛѢВОМУ ШЕСТУ; ПОМѢСТИТЬСЯ НА ПЕРВУЮ ГИРЛЯНДУ, ЛИЦОМЪ ПО ДЛИНѢ ПОРТИКА; ИДТИ ПРЫЖКАМИ ВПЕРЕДЪ, СТАВЯ РУКИ ОДНОВРЕМЕННО НА КАЖДУЮ ГИРЛЯНДУ, И СПУСТИТЬСЯ ПРОИЗВОЛЬНО ПО ПОСЛѢДНЕМУ ШЕСТУ СПРАВА.",
+      "selection_reason": "Compound climb/traverse/descent across multiple apparatus elements; maximal topology stress test for phases and kinetic-chain representation."
+    }
+  ]
+}
