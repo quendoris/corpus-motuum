@@ -69,7 +69,8 @@
       "required": [
         "source_id",
         "page_ids",
-        "text"
+        "text",
+        "segments"
       ],
       "properties": {
         "source_id": {
@@ -128,6 +129,49 @@
             },
             "normalized_orthography": {
               "type": "string"
+            }
+          }
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "page_id",
+              "physical_index",
+              "source_sha256",
+              "diplomatic",
+              "normalized_orthography"
+            ],
+            "properties": {
+              "page_id": {
+                "type": "string",
+                "pattern": "^sheet-[0-9]{3}-(left|right)$"
+              },
+              "physical_index": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "printed_page": {
+                "type": [
+                  "integer",
+                  "string",
+                  "null"
+                ]
+              },
+              "source_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "diplomatic": {
+                "$ref": "#/$defs/sourceSpan"
+              },
+              "normalized_orthography": {
+                "$ref": "#/$defs/sourceSpan"
+              }
             }
           }
         }
@@ -878,6 +922,29 @@
             "string",
             "null"
           ]
+        }
+      }
+    },
+    "sourceSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "sha256"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
         }
       }
     }
