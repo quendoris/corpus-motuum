@@ -36,7 +36,12 @@
       },
       "source_title_diplomatic": "ПРАВИЛЬНОЕ ПОЛОЖЕНІЕ ТѢЛА.",
       "selection_reason": "Simple static whole-body posture; baseline for body-position vocabulary and historical-vs-modern interpretation.",
-      "source_title_normalized": "ПРАВИЛЬНОЕ ПОЛОЖЕНИЕ ТЕЛА."
+      "source_title_normalized": "ПРАВИЛЬНОЕ ПОЛОЖЕНИЕ ТЕЛА.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "1",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000002",
@@ -52,7 +57,12 @@
       },
       "source_title_diplomatic": "ОБЫКНОВЕННЫЙ ГИМНАСТИЧЕСКІЙ ШАГЪ. 1-Й НА МѢСТѢ, 2-Й ПРИ ХОДЬБѢ.",
       "selection_reason": "Locomotion with two variants and a historical figure; tests phases, cadence and variant modelling.",
-      "source_title_normalized": "ОБЫКНОВЕННЫЙ ГИМНАСТИЧЕСКИЙ ШАГ. 1-Й НА МЕСТЕ, 2-Й ПРИ ХОДЬБЕ."
+      "source_title_normalized": "ОБЫКНОВЕННЫЙ ГИМНАСТИЧЕСКИЙ ШАГ. 1-Й НА МЕСТЕ, 2-Й ПРИ ХОДЬБЕ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "8",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000003",
@@ -68,7 +78,12 @@
       },
       "source_title_diplomatic": "ВЫПАДЫ, ПРАВЫМИ И ЛѢВЫМИ ОКОНЕЧНОСТЯМИ ВПЕРЕДЪ.",
       "selection_reason": "Unilateral lower-body movement; useful for side symmetry, joint actions and load-distribution modelling.",
-      "source_title_normalized": "ВЫПАДЫ, ПРАВЫМИ И ЛЕВЫМИ ОКОНЕЧНОСТЯМИ ВПЕРЕД."
+      "source_title_normalized": "ВЫПАДЫ, ПРАВЫМИ И ЛЕВЫМИ ОКОНЕЧНОСТЯМИ ВПЕРЕД.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "31",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000004",
@@ -85,7 +100,16 @@
       },
       "source_title_diplomatic": "ДЕРЖАТЬ ТѢЛО ВЪ РАВНОВѢСІИ НА ЛОКТЯХЪ, ПОСТАВЯ ЛАДОНИ НАЗЕМЛЮ.",
       "selection_reason": "Inverted/static support with two source illustrations; stresses balance, support graph and compound media linkage.",
-      "source_title_normalized": "ДЕРЖАТЬ ТЕЛО В РАВНОВЕСИИ НА ЛОКТЯХ, ПОСТАВЯ ЛАДОНИ НАЗЕМЛЮ."
+      "source_title_normalized": "ДЕРЖАТЬ ТЕЛО В РАВНОВЕСИИ НА ЛОКТЯХ, ПОСТАВЯ ЛАДОНИ НАЗЕМЛЮ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "34",
+        "end": "exact_marker",
+        "end_before": {
+          "diplomatic": "ПРЫЖКИ.",
+          "normalized_orthography": "ПРЫЖКИ."
+        }
+      }
     },
     {
       "id": "EX-000005",
@@ -102,7 +126,12 @@
       },
       "source_title_diplomatic": "1-Й КЛАССЪ — ПРЫЖОКЪ СЪ ОБѢИХЪ НОГЪ ВПЕРЕДЪ.",
       "selection_reason": "Ballistic body-weight jump; tests take-off/flight/landing phases and historical safety claims.",
-      "source_title_normalized": "1-Й КЛАСС — ПРЫЖОК С ОБЕИХ НОГ ВПЕРЕД."
+      "source_title_normalized": "1-Й КЛАСС — ПРЫЖОК С ОБЕИХ НОГ ВПЕРЕД.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "35",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000006",
@@ -116,7 +145,12 @@
       },
       "source_title_diplomatic": "БОРЬБА СТОЯ, СОСТОЯЩАЯ ВЪ ОТПИХИВАНЬЕ МАЛЕНЬКОЙ ПАЛКИ.",
       "selection_reason": "Partner-resisted exercise; forces external-agent/contact modelling rather than treating all load as equipment.",
-      "source_title_normalized": "БОРЬБА СТОЯ, СОСТОЯЩАЯ В ОТПИХИВАНЬЕ МАЛЕНЬКОЙ ПАЛКИ."
+      "source_title_normalized": "БОРЬБА СТОЯ, СОСТОЯЩАЯ В ОТПИХИВАНЬЕ МАЛЕНЬКОЙ ПАЛКИ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "1",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000007",
@@ -132,7 +166,12 @@
       },
       "source_title_diplomatic": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕДЪ, ДО ПЛЕЧЪ.",
       "selection_reason": "Simple external-load exercise with historical implement; baseline for equipment mass/handle assumptions and evidence mapping.",
-      "source_title_normalized": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕД, ДО ПЛЕЧ."
+      "source_title_normalized": "ОДНОВРЕМЕННО ПОДНИМАТЬ ГИРИ ВПЕРЕД, ДО ПЛЕЧ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "2",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000008",
@@ -146,7 +185,12 @@
       },
       "source_title_diplomatic": "ПРОСТОЙ ПРЫЖОКЪ ВЪ ДЛИНУ, СЪ РАЗБѢГОМЪ.",
       "selection_reason": "Running approach plus jump; tests transition between cyclic locomotion and ballistic movement.",
-      "source_title_normalized": "ПРОСТОЙ ПРЫЖОК В ДЛИНУ, С РАЗБЕГОМ."
+      "source_title_normalized": "ПРОСТОЙ ПРЫЖОК В ДЛИНУ, С РАЗБЕГОМ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "1",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000009",
@@ -162,7 +206,12 @@
       },
       "source_title_diplomatic": "ВСПРЫГНУТЬ НА КРУПЪ ЛОШАДИ И БРОСИТЬСЯ НАЗАДЪ НА ЗЕМЛЮ.",
       "selection_reason": "Apparatus vault/dismount with a source figure; tests contact-state changes and landing risk claims.",
-      "source_title_normalized": "ВСПРЫГНУТЬ НА КРУП ЛОШАДИ И БРОСИТЬСЯ НАЗАД НА ЗЕМЛЮ."
+      "source_title_normalized": "ВСПРЫГНУТЬ НА КРУП ЛОШАДИ И БРОСИТЬСЯ НАЗАД НА ЗЕМЛЮ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "1",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000010",
@@ -176,7 +225,16 @@
       },
       "source_title_diplomatic": "СТАТЬ СБОКУ ЛОШАДИ; ПРЫГНУТЬ НА НЕЕ, ПРОТЯНУВЪ ПРАВУЮ НОГУ ВПЕРЕДЪ; СДѢЛАТЬ НѢСКОЛЬКО ДВИЖЕНІЙ НОГАМИ ВПЕРЕДЪ; ЗАТѢМЪ СДѢЛАТЬ НОЖНИЦЫ; ОПИСАТЬ ПОЛНЫЙ КРУГЪ, ПОВЕРНУВШИСЬ НА ПРАВОЙ ЛЯШКѢ И СПРЫГНУТЬ НА ЗЕМЛЮ, ПЕРЕКИНУВЪ ОБѢ НОГИ ЧЕРЕЗЪ ЛОШАДЬ.",
       "selection_reason": "Intentionally complex multi-phase apparatus sequence; primary stress test for phase graph and normalized description.",
-      "source_title_normalized": "СТАТЬ СБОКУ ЛОШАДИ; ПРЫГНУТЬ НА НЕЕ, ПРОТЯНУВ ПРАВУЮ НОГУ ВПЕРЕД; СДЕЛАТЬ НЕСКОЛЬКО ДВИЖЕНИЙ НОГАМИ ВПЕРЕД; ЗАТЕМ СДЕЛАТЬ НОЖНИЦЫ; ОПИСАТЬ ПОЛНЫЙ КРУГ, ПОВЕРНУВШИСЬ НА ПРАВОЙ ЛЯШКЕ И СПРЫГНУТЬ НА ЗЕМЛЮ, ПЕРЕКИНУВ ОБЕ НОГИ ЧЕРЕЗ ЛОШАДЬ."
+      "source_title_normalized": "СТАТЬ СБОКУ ЛОШАДИ; ПРЫГНУТЬ НА НЕЕ, ПРОТЯНУВ ПРАВУЮ НОГУ ВПЕРЕД; СДЕЛАТЬ НЕСКОЛЬКО ДВИЖЕНИЙ НОГАМИ ВПЕРЕД; ЗАТЕМ СДЕЛАТЬ НОЖНИЦЫ; ОПИСАТЬ ПОЛНЫЙ КРУГ, ПОВЕРНУВШИСЬ НА ПРАВОЙ ЛЯШКЕ И СПРЫГНУТЬ НА ЗЕМЛЮ, ПЕРЕКИНУВ ОБЕ НОГИ ЧЕРЕЗ ЛОШАДЬ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "22",
+        "end": "exact_marker",
+        "end_before": {
+          "diplomatic": "Здѣсь оканчиваются упражненія съ лошадью.",
+          "normalized_orthography": "Здесь оканчиваются упражнения с лошадью."
+        }
+      }
     },
     {
       "id": "EX-000011",
@@ -190,7 +248,12 @@
       },
       "source_title_diplomatic": "ПОВИСНУТЬ НА РУКАХЪ, ОДНОВРЕМЕННО, ПОПЕРЕМѢННО И СПУСТИТЬСЯ.",
       "selection_reason": "Basic suspension; establishes grip/support terminology and open-vs-closed chain conventions.",
-      "source_title_normalized": "ПОВИСНУТЬ НА РУКАХ, ОДНОВРЕМЕННО, ПОПЕРЕМЕННО И СПУСТИТЬСЯ."
+      "source_title_normalized": "ПОВИСНУТЬ НА РУКАХ, ОДНОВРЕМЕННО, ПОПЕРЕМЕННО И СПУСТИТЬСЯ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "1",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000012",
@@ -206,7 +269,12 @@
       },
       "source_title_diplomatic": "ПОВИСНУТЬ НА РУКАХЪ И СООБЩИТЬ НОГАМЪ КРУГОВОЕ ДВИЖЕНІЕ СПРАВА НА ЛѢВО И СЛѢВА НАПРАВО.",
       "selection_reason": "Suspended multi-planar swing with historical illustration; stresses movement planes and time-varying kinetic chain.",
-      "source_title_normalized": "ПОВИСНУТЬ НА РУКАХ И СООБЩИТЬ НОГАМ КРУГОВОЕ ДВИЖЕНИЕ СПРАВА НА ЛЕВО И СЛЕВА НАПРАВО."
+      "source_title_normalized": "ПОВИСНУТЬ НА РУКАХ И СООБЩИТЬ НОГАМ КРУГОВОЕ ДВИЖЕНИЕ СПРАВА НА ЛЕВО И СЛЕВА НАПРАВО.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "6",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000013",
@@ -222,7 +290,12 @@
       },
       "source_title_diplomatic": "ПОВИСНУТЬ НА РУКАХЪ, ВЪ БРУСЬЯХЪ, СДѢЛАТЬ КАЧАНІЕ ТѢЛОМЪ И НОГАМИ, ПОСТЕПЕННО ОСТАНОВИТЬСЯ И СПУСТИТЬСЯ.",
       "selection_reason": "Parallel-bar swing; tests bilateral upper-limb support, momentum and controlled deceleration.",
-      "source_title_normalized": "ПОВИСНУТЬ НА РУКАХ, В БРУСЬЯХ, СДЕЛАТЬ КАЧАНИЕ ТЕЛОМ И НОГАМИ, ПОСТЕПЕННО ОСТАНОВИТЬСЯ И СПУСТИТЬСЯ."
+      "source_title_normalized": "ПОВИСНУТЬ НА РУКАХ, В БРУСЬЯХ, СДЕЛАТЬ КАЧАНИЕ ТЕЛОМ И НОГАМИ, ПОСТЕПЕННО ОСТАНОВИТЬСЯ И СПУСТИТЬСЯ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "3",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000014",
@@ -236,7 +309,12 @@
       },
       "source_title_diplomatic": "ВСТРѢТИТЬСЯ ДВОИМЪ ПО СЕРЕДИНѢ БРЕВНА И ЗАВЯЗАТЬ БОРЬБУ, СТАРАЯСЬ НАРУШИТЬ ДРУГЪ У ДРУГА РАВНОВѢСІЕ.",
       "selection_reason": "Partner interaction on unstable/narrow support; stress test for environment, opponent forces, balance and risk evidence.",
-      "source_title_normalized": "ВСТРЕТИТЬСЯ ДВОИМ ПО СЕРЕДИНЕ БРЕВНА И ЗАВЯЗАТЬ БОРЬБУ, СТАРАЯСЬ НАРУШИТЬ ДРУГ У ДРУГА РАВНОВЕСИЕ."
+      "source_title_normalized": "ВСТРЕТИТЬСЯ ДВОИМ ПО СЕРЕДИНЕ БРЕВНА И ЗАВЯЗАТЬ БОРЬБУ, СТАРАЯСЬ НАРУШИТЬ ДРУГ У ДРУГА РАВНОВЕСИЕ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "19",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000015",
@@ -252,7 +330,12 @@
       },
       "source_title_diplomatic": "ИДТИ ПОДЪ ЛѢСТНИЦЕЮ, ПЕРЕХВАТАМИ, СХВАТЫВАЯ, КАЖДЫЙ РАЗЪ, СТУПЕНЬКУ НА НѢКОТОРОМЪ РАЗСТОЯНІИ.",
       "selection_reason": "Horizontal ladder traversal; tests repeated hand-over-hand phases, apparatus geometry and fatigue-related evidence.",
-      "source_title_normalized": "ИДТИ ПОД ЛЕСТНИЦЕЮ, ПЕРЕХВАТАМИ, СХВАТЫВАЯ, КАЖДЫЙ РАЗ, СТУПЕНЬКУ НА НЕКОТОРОМ РАЗСТОЯНИИ."
+      "source_title_normalized": "ИДТИ ПОД ЛЕСТНИЦЕЮ, ПЕРЕХВАТАМИ, СХВАТЫВАЯ, КАЖДЫЙ РАЗ, СТУПЕНЬКУ НА НЕКОТОРОМ РАЗСТОЯНИИ.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "26",
+        "end": "next_numbered_exercise"
+      }
     },
     {
       "id": "EX-000016",
@@ -266,7 +349,12 @@
       },
       "source_title_diplomatic": "ВЗЛѢЗТЬ ПО ЛѢВОМУ ШЕСТУ; ПОМѢСТИТЬСЯ НА ПЕРВУЮ ГИРЛЯНДУ, ЛИЦОМЪ ПО ДЛИНѢ ПОРТИКА; ИДТИ ПРЫЖКАМИ ВПЕРЕДЪ, СТАВЯ РУКИ ОДНОВРЕМЕННО НА КАЖДУЮ ГИРЛЯНДУ, И СПУСТИТЬСЯ ПРОИЗВОЛЬНО ПО ПОСЛѢДНЕМУ ШЕСТУ СПРАВА.",
       "selection_reason": "Compound climb/traverse/descent across multiple apparatus elements; maximal topology stress test for phases and kinetic-chain representation.",
-      "source_title_normalized": "ВЗЛЕЗТЬ ПО ЛЕВОМУ ШЕСТУ; ПОМЕСТИТЬСЯ НА ПЕРВУЮ ГИРЛЯНДУ, ЛИЦОМ ПО ДЛИНЕ ПОРТИКА; ИДТИ ПРЫЖКАМИ ВПЕРЕД, СТАВЯ РУКИ ОДНОВРЕМЕННО НА КАЖДУЮ ГИРЛЯНДУ, И СПУСТИТЬСЯ ПРОИЗВОЛЬНО ПО ПОСЛЕДНЕМУ ШЕСТУ СПРАВА."
+      "source_title_normalized": "ВЗЛЕЗТЬ ПО ЛЕВОМУ ШЕСТУ; ПОМЕСТИТЬСЯ НА ПЕРВУЮ ГИРЛЯНДУ, ЛИЦОМ ПО ДЛИНЕ ПОРТИКА; ИДТИ ПРЫЖКАМИ ВПЕРЕД, СТАВЯ РУКИ ОДНОВРЕМЕННО НА КАЖДУЮ ГИРЛЯНДУ, И СПУСТИТЬСЯ ПРОИЗВОЛЬНО ПО ПОСЛЕДНЕМУ ШЕСТУ СПРАВА.",
+      "extraction": {
+        "mode": "numbered_exercise",
+        "start_number": "34",
+        "end": "next_numbered_exercise"
+      }
     }
   ]
 }
